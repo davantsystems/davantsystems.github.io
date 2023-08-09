@@ -499,6 +499,22 @@ body {
 	}
 }
 
+.contact-wrapper {
+  background: black;
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 1rem;
+
+  a {
+    color: #EE05F2;
+
+    &:hover {
+      color: #D904CB;
+    }
+  }
+}
+
 #mc_embed_signup {
   margin: 0 auto;
   max-width: 100%;
