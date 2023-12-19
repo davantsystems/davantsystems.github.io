@@ -18,7 +18,13 @@ module.exports = {
   },
   daisyui: {
     themes: [
-      "synthwave"
+      {
+        synthwave: {
+          ...require("daisyui/src/theming/themes")["synthwave"],
+          primary: "hsl(309,80%,41%)",
+          secondary: "hsl(187,90%,50%)",
+        },
+      },
     ]
   }
 }
