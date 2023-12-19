@@ -93,11 +93,15 @@ const IndexPage: React.FC<PageProps> = () => {
 									<div className="alert w-auto">
 										<p>Open Beta now available until 2/17/24</p>
 									</div>
-									<button className="btn btn-primary py-3 mb-2">
-										Download Davant Studio
-										<div className="badge badge-success">Free!</div>
-									</button>
-										
+									<a href="/beta">
+										<button
+											className="btn btn-primary py-3 mb-2"
+										>
+											Download Davant Studio
+											<div className="badge badge-success">Free!</div>
+										</button>
+									</a>
+
 									<div className="alert w-auto text-xs grid-flow-col text-left px-0">
 										<svg height="22px" width="24px" className="stroke-white" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452.986 452.986" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M165.265,53.107L21.689,81.753v132.531l143.575-2.416V53.107 M431.297,245.583l-233.18-3.991 v164.822l233.18,46.571V245.583 M165.265,241.097l-143.575-2.438v132.509l143.575,28.668V241.097 M431.297,0l-233.18,46.528 v164.822l233.18-3.969V0"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g> </g></svg>
 										{/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> */}
@@ -140,7 +144,7 @@ const IndexPage: React.FC<PageProps> = () => {
 				<section className="bg-slate-950">
 					<div className="flex flex-col mx-auto py-10 max-w-4xl md:flex-row ">
 						<div className="p-4 pt-4">
-							<h2 className="text-3xl mb-6">The future moves fast, <br/>and we're sending you signals</h2>
+							<h2 className="text-3xl mb-6">The future moves fast, <br />and we're sending you signals</h2>
 							<p>The AI landscape changes by the hour. Luckily, we've got a warp drive.</p>
 							<p>We live on the bleeding-edge of creative tech, and we want to send field reports back to your studio. Sign up to keep your antennas tuned to our frequency.  </p>
 						</div>
