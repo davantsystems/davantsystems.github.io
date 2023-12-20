@@ -86,21 +86,22 @@ const IndexPage: React.FC<PageProps> = () => {
 									lg:text-3xl
 								">Real-time AI image transformation engine for mind-blowing interactive & next-gen creative workflows.</p>
 
-								<div className="grid grid-cols-2">
-									<div className="flex flex-col items-center">
-										<div className="alert w-auto">
-											<p>Open Beta now available until 2/17/24</p>
+								<div className="grid grid-cols-2 join join-horizontal  bg-base-300">
+									<div className="join join-vertical px-2 pt-10 pb-4">
+										<div className="">
+											<p className="text-xs mb-3">Beta available until 2/17/24</p>
 										</div>
 										<a href="/beta">
 											<button
-												className="btn btn-primary py-3 mb-2"
+												className="btn btn-primary text-lg mb-2 shadow-sm indicator"
 											>
+												<span className="indicator-item indicator-bottom badge badge-success">Free!</span>
 												Get Davant Studio
-												<div className="badge badge-success">Free!</div>
+												{/* <div className="badge badge-success">Free!</div> */}
 											</button>
 										</a>
 
-										<div className="alert w-auto text-xs grid-flow-col text-left px-0">
+										<div className="alert w-auto bg-transparent text-xs grid-flow-col text-left px-0">
 											<svg height="22px" width="24px" className="stroke-white" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452.986 452.986" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M165.265,53.107L21.689,81.753v132.531l143.575-2.416V53.107 M431.297,245.583l-233.18-3.991 v164.822l233.18,46.571V245.583 M165.265,241.097l-143.575-2.438v132.509l143.575,28.668V241.097 M431.297,0l-233.18,46.528 v164.822l233.18-3.969V0"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g> </g></svg>
 											{/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> */}
 											<div>
@@ -114,7 +115,7 @@ const IndexPage: React.FC<PageProps> = () => {
 									<div className="mockup-window shadow-xl border-2 border-black border-opacity-5 bg-black bg-opacity-40">
 										<StaticImage
 											src="../images/davant-studio-presets.png"
-											alt="Screenshot of the Davant Studio "
+											alt="Screenshot of Davant Studio software"
 										/>
 									</div>
 								</div>

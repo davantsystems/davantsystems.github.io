@@ -7,6 +7,7 @@
     position: relative;
     z-index: 99;
 }
+
 h1 {
     z-index: 99;
 }
@@ -275,4 +276,23 @@ h1 {
     100% {
         background-position: 120px 0px;
     }
+}
+
+
+
+.hero-gradient-1 {
+    background-color: rgb(0, 0, 0);
+    background-image: radial-gradient(at 54% 100%, rgb(19, 78, 74) 0, transparent 53%), radial-gradient(at 48% 98%, rgb(6, 95, 70) 0, transparent 30%), radial-gradient(at 29% 31%, rgb(88, 28, 135) 0, transparent 44%), radial-gradient(at 86% 21%, rgb(49, 46, 129) 0, transparent 77%), radial-gradient(at 53% 40%, rgb(136, 19, 55) 0, transparent 28%), radial-gradient(at 29% 82%, rgb(88, 28, 135) 0, transparent 43%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+.glow {
+    text-shadow:
+        0 0 0.03em rgba(209, 0, 177, 0.1),
+        0.0em -0.01em 0.02em rgba(255, 230, 255, 0.03),
+        0 0.04em 0.04em rgba(0, 0, 0, 0.1),
+        0 0 0.05em rgba(209, 0, 177, 0.05),
+        0 0 0.2em rgba(209, 0, 177, 0.1),
+        -0.035em 0.025em 0.02em rgba(0, 0, 0, 0.2);
 }

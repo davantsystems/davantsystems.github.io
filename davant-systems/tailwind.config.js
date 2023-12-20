@@ -23,6 +23,7 @@ module.exports = {
           ...require("daisyui/src/theming/themes")["synthwave"],
           primary: "hsl(309,80%,41%)",
           secondary: "hsl(187,90%,50%)",
+          "base-100": "hsl(270, 100%, 10%)"
         },
       },
     ]
