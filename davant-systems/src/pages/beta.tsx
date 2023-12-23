@@ -10,25 +10,29 @@ const BetaPage: React.FC<PageProps> = () => {
 		<main className="">
 			<section className="">
 				<div className="hero min-h-screen relative block overflow-hidden flex items-center justify-center">
-					<span className="hero-gradient-1 opacity-40 absolute t-0 l-0 w-screen h-screen"></span>
+					<span className="hero-gradient-1 opacity-20 absolute top-0 left-0 w-screen h-screen"></span>
 					<div className="
-					hero-content
-					flex
-					flex-col
-					text-center
-					text-neutral-content
-					py-20">
+						hero-content
+						flex
+						flex-col
+						text-center
+						text-neutral-content
+						py-20">
 						<div className="flex flex-col items-center mb-6">
-							<h1 className="text-6xl mb-8 bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent">
+							<h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl mb-8 bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent">
 								<span className="">Welcome to the future </span><span className="block text-5xl">of creativity</span>
 							</h1>
-							<div className="max-w-sm block">
+							<div className="screenshots-wrapper max-w-lg max-h-64 overflow-hidden grid grid-cols-2">
+								<StaticImage
+									src="../images/davant-studio-presets.png"
+									alt="Screenshot of Davant Studio software"
+								/>
 								<StaticImage
 									src="../images/davant-studio-presets.png"
 									alt="Screenshot of Davant Studio software"
 								/>
 							</div>
-							<div className="shadow-xl join join-vertical sm:join-horizontal flex flex-row items-stretch">
+							<div className="bg-base-100 shadow-xl join join-vertical sm:join-horizontal flex flex-row items-stretch">
 								<button className="
 								join-item
 								btn
@@ -48,8 +52,7 @@ const BetaPage: React.FC<PageProps> = () => {
 								text-left
 								py-2
 								px-6
-								bg-black
-								bg-opacity-20">
+								">
 									<svg height="22px" width="24px" className="stroke-white" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452.986 452.986" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M165.265,53.107L21.689,81.753v132.531l143.575-2.416V53.107 M431.297,245.583l-233.18-3.991 v164.822l233.18,46.571V245.583 M165.265,241.097l-143.575-2.438v132.509l143.575,28.668V241.097 M431.297,0l-233.18,46.528 v164.822l233.18-3.969V0"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g> </g></svg>
 									<div>
 										<p className="font-bold underline mb-1">System Requirements</p>
