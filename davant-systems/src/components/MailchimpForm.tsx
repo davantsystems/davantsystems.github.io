@@ -47,24 +47,23 @@ const MailchimpForm = () => {
                 noValidate onSubmit={handleSubmit}
             >
                 <div id="mc_embed_signup_scroll">
-                    <h2></h2>
                     <label
-                        htmlFor="mce-EMAIL" className="form-control mb-4">Email Address
+                        htmlFor="mce-EMAIL" className="form-control text-secondary text-sm py-2 mb-4">Email Address
                         <div className="label">
-                            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} name="EMAIL" className="required email input input-secondary" id="mce-EMAIL" required />
+                            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} name="EMAIL" className="required w-full email input input-secondary rounded-none" id="mce-EMAIL" required />
                         </div>
                     </label>
 
 
-                    <label htmlFor="mce-FNAME" className="form-control mb-4">First Name
+                    <label htmlFor="mce-FNAME" className="form-control text-secondary text-sm py-2 mb-4">First Name
                         <div className="label">
-                            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} name="FNAME" className="input input-secondary" id="mce-FNAME" />
+                            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} name="FNAME" className="input w-full input-secondary rounded-none" id="mce-FNAME" />
                         </div>
                     </label>
 
-                    <label htmlFor="mce-LNAME" className="form-control mb-2">Last Name
+                    <label htmlFor="mce-LNAME" className="form-control text-secondary text-sm py-2 mb-2">Last Name
                         <div className="label">
-                            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} name="LNAME" className="input input-secondary" id="mce-LNAME" />
+                            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} name="LNAME" className="input w-full input-secondary rounded-none" id="mce-LNAME" />
                         </div>
                     </label>
 
