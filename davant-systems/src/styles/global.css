@@ -259,7 +259,7 @@ h1 {
     top: 0;
     left: 0;
     background: linear-gradient(to right, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 20%, rgba(0, 255, 0, 1) 20%, rgba(0, 255, 0, 1) 40%, rgba(0, 0, 255, 1) 40%, rgba(0, 0, 255, 1) 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%) center repeat-x;
-    background-size: clamp(4px, 2.5vw, 200px) 100%;
+    background-size: clamp(4px, 1.5vw, 100px) 100%;
     opacity: 0.03;
     animation: vhs-lines-vert 10s infinite linear;
     /* z-index: 1; */

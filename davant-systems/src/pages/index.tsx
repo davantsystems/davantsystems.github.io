@@ -1,15 +1,21 @@
 import * as React from "react"
 import type { HeadFC, PageProps, graphql } from "gatsby"
 import MailchimpForm from "../components/MailchimpForm"
-import { StaticImage } from "gatsby-plugin-image"
+import { Image, StaticImage } from "gatsby-plugin-image"
 
 const IndexPage: React.FC<PageProps> = () => {
 	return (
 		<>
 			<main className="z-20">
-				<section className="hero">
+				<section className="hero
+					relative
+					block">
 					{/* <div className="hero-overlay bg-opacity-60"></div> */}
-					<div className="hero-content text-center text-neutral-content py-32">
+					<div className="hero-content
+						relative
+						block
+						z-20
+						text-center text-neutral-content py-32">
 						<div className="hero-content__inner
 							flex flex-col items-center">
 							<div className="logo">
@@ -142,6 +148,27 @@ const IndexPage: React.FC<PageProps> = () => {
 								</div>
 							</div>
 						</div>
+					</div>
+					<div className="background-image
+						absolute
+						block
+						top-0
+						left-1/2
+						-translate-x-1/2
+						min-w-full
+						z-0
+						h-full">
+						<StaticImage
+							className="
+							h-full
+							relative
+							block"
+							src="../images/hero1.png"
+							placeholder="blurred"
+							loading="eager"
+							objectFit="cover"
+							objectPosition="center"
+							alt="Screenshot of Davant Studio software"/>
 					</div>
 				</section>
 
