@@ -235,7 +235,7 @@ h1 {
     left: 0;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 29.5%, #000000 50%, rgba(0, 0, 0, 1) 70.5%) 0% center repeat-y;
     background-size: 100% clamp(20px, 2vw, 200px);
-    opacity: 0.05;
+    opacity: 0.03;
     animation: vhs-lines 5s infinite linear;
     /* z-index: 4; */
     mix-blend-mode: overlay;
@@ -260,7 +260,7 @@ h1 {
     left: 0;
     background: linear-gradient(to right, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 20%, rgba(0, 255, 0, 1) 20%, rgba(0, 255, 0, 1) 40%, rgba(0, 0, 255, 1) 40%, rgba(0, 0, 255, 1) 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%) center repeat-x;
     background-size: clamp(4px, 2.5vw, 200px) 100%;
-    opacity: 0.1;
+    opacity: 0.03;
     animation: vhs-lines-vert 10s infinite linear;
     /* z-index: 1; */
     mix-blend-mode: overlay;

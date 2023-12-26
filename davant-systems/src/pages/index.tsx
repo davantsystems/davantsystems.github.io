@@ -74,8 +74,10 @@ const IndexPage: React.FC<PageProps> = () => {
 									</svg>
 								</h1>
 							</div>
-							<div className="hero-content__content
-								max-w-4xl">
+							<div className="
+								hero-content__content
+								max-w-4xl
+								mx-2">
 								<p className="
 									max-w-sm
 									md:max-w-md
@@ -83,10 +85,15 @@ const IndexPage: React.FC<PageProps> = () => {
 									mx-auto
 									text-cyan-200
 									mb-44
-									text-sm
+									text-lg
 									sm:text-lg
 									md:text-1xl
 									lg:text-2xl
+									bg-gradient-to-br
+									from-cyan-200
+									to-cyan-400
+									bg-clip-text
+									text-transparent
 								">Real-time AI image tools for next-gen creative workflows & mind-blowing event experiences</p>
 
 								<div className="md:flex md:gap-4">
@@ -101,12 +108,15 @@ const IndexPage: React.FC<PageProps> = () => {
 												from-pink-400
 												via-fuchsia-500
 												to-purple-500
+												hover:from-pink-500
+												hover:to-purple-400
+												hover:scale-105
 												text-neutral
 												border-1
 												border-cyan-500 rounded-sm
 												border-opacity-50 shadow-pink-500 shadow-sm
 												">
-												<span className="indicator-item indicator-bottom badge badge-success border-1 border-green-200 border-opacity-50 shadow-success shadow-sm">Free!</span>
+												<span className="indicator-item indicator-bottom badge badge-success border-1 border-green-200 border-opacity-50 shadow-success shadow-sm">Free Access</span>
 												Get Davant Studio
 												{/* <div className="badge badge-success">Free!</div> */}
 											</button>
@@ -152,7 +162,6 @@ const IndexPage: React.FC<PageProps> = () => {
 					font-mono
 					w-full
 					mt-0
-					mb-48
 					mx-auto
 					max-w-sm
 					md:max-w-5xl
@@ -164,8 +173,8 @@ const IndexPage: React.FC<PageProps> = () => {
 					z-10
 					relative
 					">
-						<span className=" text-xs text-center bg-success text-neutral px-1">humans@davantsystems ~ %</span>
-						<h2 className="relative z-10 text-2xl lg:text-3xl text-center mb-10 filter drop-shadow-sm">--- Hello World ---</h2>
+						<h2 className="relative z-10 text-2xl lg:text-3xl text-center mb-12 md:mb-20 filter drop-shadow-sm">─── Hello World ───</h2>
+						<span className="text-xs text-center bg-success text-neutral px-1 mb-4 inline-block">humans@davantsystems ~ %</span>
 						<div className="relative mx-auto z-10 grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-4">
 							<div className="relative border border-opacity-10 border-success py-10 px-4 lg:px-8 lg:py-20">
 								<div className="content relative z-10">
@@ -240,10 +249,19 @@ const IndexPage: React.FC<PageProps> = () => {
 							opacity-30">
 					</div>
 				</section>
+				<div className="
+				relative
+				pb-32
+				bg-gradient-to-t
+				from-transparent
+				to-black
+				opacity-30
+				mb-0
+				"></div>
 
 				<section className="bg-base py-20 px-6">
 					<div className="flex flex-col mx-auto py-10 max-w-4xl md:flex-row ">
-						<div className="p-4 pt-8 max-w-lg">
+						<div className="md:p-4 pt-8 md:max-w-lg mb-10">
 							<h2 className="
 								text-5xl
 								bg-gradient-to-br
@@ -254,15 +272,28 @@ const IndexPage: React.FC<PageProps> = () => {
 								text-transparent
 								leading-10
 								mb-8">
-								The future moves <span className="italic">fast</span> <br /><span className="text-3xl pl-1">Let us help you keep up</span>
+								The future <span className="inline-block sm:inline-block">moves <span className="italic">fast</span></span> <br /><span className="text-xl sm:text-3xl pl-1">Let us help you keep up</span>
 							</h2>
 							<div className="pl-1 pr-4 text-cyan-100">
-								<p className="mb-4">The AI landscape changes by the hour. It's a full-time job to keep up with all the updates, tools, and techniques. Let us keep you up to speed so you can stay focused on making amazing things.</p>
+								<p className="mb-4 md:mb-0">The AI landscape changes by the hour. It's a full-time job to keep up with all the updates, tools, and techniques. Let us keep you up to speed so you can stay focused on making amazing things.</p>
 								<p>Sign up for the newsletter to get Davant product updates and technique demonstrations you can use to supercharge your work.</p>
 							</div>
 						</div>
-						<div className="min-w-sm w-full py-5 px-10 md:px-4 lg:px-10 bg-purple-900 bg-opacity-5 rounded-lg border-2 border-secondary border-opacity-5 shadow-sm shadow-purple-950">
+						<div className="relative min-w-sm w-full pt-5 pb-3 px-10 md:px-4 lg:px-10 bg-purple-900 bg-opacity-5 rounded-lg border-2 border-secondary border-opacity-5 shadow-sm shadow-purple-950">
 							<MailchimpForm />
+							<div className="bg-overlay
+								absolute
+								top-0
+								left-0
+								w-full
+								h-full
+								z-0
+								bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))]
+								from-purple-900
+								via-teal-900
+								to-black
+								opacity-5">
+							</div>
 						</div>
 					</div>
 				</section>
