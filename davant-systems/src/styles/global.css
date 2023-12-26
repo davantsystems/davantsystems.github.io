@@ -317,3 +317,8 @@ h1 {
 .gradient__dark {
     /* background-image: radial-gradient(at 54% 100%, rgba(19, 78, 74, 1) 0, transparent 53%), radial-gradient(at 48% 98%, rgb(6, 95, 70) 0, transparent 30%), radial-gradient(at 29% 31%, rgb(88, 28, 135) 0, transparent 44%), radial-gradient(at 86% 21%, rgb(49, 46, 129) 0, transparent 77%), radial-gradient(at 53% 40%, rgb(136, 19, 55) 0, transparent 28%), radial-gradient(at 29% 82%, rgb(88, 28, 135) 0, transparent 43%); */
 }
+
+
+.hero__background-image {
+    z-index: -2;
+}
