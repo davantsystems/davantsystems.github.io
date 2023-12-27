@@ -13,7 +13,7 @@ const BetaPage: React.FC<PageProps> = () => {
 				border-slate-400
 				border-opacity-5">
 				<div className="hero
-					min-h-screen relative overflow-hidden flex items-center
+					min-h-screen relative overflow-hidden flex flex-col sm:flex-row items-center
 					justify-center">
 					<span className="hero-gradient-1
 						block
@@ -24,12 +24,11 @@ const BetaPage: React.FC<PageProps> = () => {
 						z-40
 						w-screen
 						h-screen"></span>
-					<div className="
-						hero-content
+					<div className="hero-content
 						relative
-						block
 						flex
 						flex-col
+						items-center
 						text-center
 						text-neutral-content
 						pt-8
@@ -39,7 +38,7 @@ const BetaPage: React.FC<PageProps> = () => {
 
 							<div className="cta-wrapper flex flex-col items-center">
 								<div className="software-spotlight
-									flex flex-row">
+									flex flex-col sm:flex-row">
 									<div className="text flex flex-col pr-8 text-left">
 										<h1 className="mb-0 font-light bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text text-transparent">
 											{/* <span className="text-4xl lg:text-5xl pb-1 block bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent">Your imagination </span><span className="relative block text-4xl lg:text-5xl pl-2 pb-0 bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent -mt-3">is <span className="text-7xl font-bold  overflow-visible">infinite</span></span> */}
@@ -49,7 +48,7 @@ const BetaPage: React.FC<PageProps> = () => {
 									<span className="block text-2xl lg:text-6xl">Infinite imagination</span>
 									<span className="block text-2xl lg:text-5xl">Unlimited creativity</span>
 								</span> */}
-											<span className="block text-4xl lg:text-8xl font-bold -mb-4">Davant </span><span className="block leading-tight text-4xl lg:text-8xl">Studio</span>
+											<span className="block text-5xl sm:text-7xl md:text-8xl font-bold -mb-4">Davant </span><span className="block leading-tight text-5xl sm:text-7xl md:text-8xl">Studio</span>
 										</h1>
 
 										<div className="text-bg
@@ -104,7 +103,8 @@ const BetaPage: React.FC<PageProps> = () => {
 											</div>
 											<Link className="cta__button--download
 												btn btn-primary
-												text-lg
+												text-md
+												md:text-lg
 												mb-2
 												indicator
 												bg-gradient-to-br
@@ -144,11 +144,15 @@ const BetaPage: React.FC<PageProps> = () => {
 										border-opacity-20
 										shadow-sm
 										mb-0
-										w-72">
+										mx-auto
+										w-44
+										sm:w-60
+										md:w-72">
 										<div className="item
 											carousel-item">
 											<StaticImage
-												className="w-72"
+												className="w-44
+												sm:w-60 md:w-72"
 												src="../images/davant-studio-presets.png"
 												quality={100}
 												alt="Screenshot of Davant Studio software"
@@ -157,7 +161,8 @@ const BetaPage: React.FC<PageProps> = () => {
 										<div className="item
 											carousel-item">
 											<StaticImage
-												className="w-72"
+												className="w-44
+												sm:w-60 md:w-72"
 												src="../images/davant-studio-controls.png"
 												quality={100}
 												alt="Screenshot of Davant Studio software"
@@ -166,7 +171,8 @@ const BetaPage: React.FC<PageProps> = () => {
 										<div className="item
 											carousel-item">
 											<StaticImage
-												className="w-72"
+												className="w-44
+												sm:w-60 md:w-72"
 												src="../images/davant-studio-prompts.png"
 												quality={100}
 												alt="Screenshot of Davant Studio software"
@@ -179,21 +185,23 @@ const BetaPage: React.FC<PageProps> = () => {
 
 						<div className="
 							flex
+							flex-col
+							sm:flex-row
 							items-center
 							py-3
 							px-10
 							rounded">
 							<div className="flex flex-col items-center">
-								<span className="text-xs mr-3">Free access for</span>
+								<span className="text-xs mr-3 mb-2 sm:mb-auto">Free access for</span>
 							</div>
 							<Countdown targetDate="2024-02-17" />
-							<span className="block text-xs ml-3">until February 17, 2024</span>
+							<span className="block text-xs ml-3  mt-2 sm:mt-auto">until February 17, 2024</span>
 						</div>
 					</div>
 					<div className="background-image
 						absolute
 						block
-						top-0
+						bottom-0
 						left-1/2
 						-translate-x-1/2
 						min-w-full
