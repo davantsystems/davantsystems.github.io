@@ -114,7 +114,7 @@ const IndexPage: React.FC<PageProps> = () => {
 										<span className="pt-2 text-6xl font-bold block leading-10 lg:mb-1">Next-Gen </span>
 										<span className="block font-light leading-10 pl-0.5 mb-4">creative tools</span>
 										<span className="block text-5xl font-bold leading-10 lg:mb-3">Mind-blowing </span>
-										<span className="block font-light leading-3 pl-0.5 pb-8 -mb-4 overflow-visible">imagination</span></p>
+										<span className="block font-light leading-3 pl-0.5 pb-8 -mb-4 overflow-visible">possibilities</span></p>
 
 										<div className="join join-vertical px-8 pt-10 pb-4 -mt-12 md:mt-auto z-10 mb-auto mx-auto bg-base-300 bg-opacity-80 shadow-md">
 											<div className="">

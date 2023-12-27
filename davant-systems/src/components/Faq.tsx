@@ -202,11 +202,11 @@ const contentSections = [
 
 const Faq = () => {
     return (
-        <div className="py-8">
+        <div className="py-20">
             <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
             <div className="container mx-auto">
                 <div className="mb-10 sticky">
-                    <h2 className="text-2xl font-bold mb-2">Table of Contents</h2>
+                    <h2 className="text-2xl font-bold mb-4">Table of Contents</h2>
                     <ul className="list-decimal pl-5">
                         {contentSections.map((section) => (
                             <li key={section.id} className="text-secondary hover:text-sky-100">
