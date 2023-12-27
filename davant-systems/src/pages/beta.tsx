@@ -28,52 +28,86 @@ const BetaPage: React.FC<PageProps> = () => {
 						pb-20
 						z-20">
 						<div className="flex flex-col items-center mb-2">
-							<h1 className="mb-8 bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent">
-								<span className="text-4xl lg:text-6xl">Your imagination is infinite</span>
-								<span className="block text-3xl lg:text-5xl">Now your tools are too</span>
-								{/* <span className="text-3xl lg:text-4xl text-secondary">Introducing Davant Studio</span> */}
-								{/* <span className="bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent">
+
+							<div className="cta-wrapper flex flex-col items-center">
+								<div className="software-spotlight
+									flex flex-row">
+									<div className="text pr-8 text-left">
+										<h1 className="mb-8 font-light">
+											<span className="text-4xl lg:text-5xl pb-1 block bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent">Your imagination </span><span className="relative block text-4xl lg:text-5xl pl-2 pb-0 bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent -mt-3">is <span className="text-7xl font-bold  overflow-visible">infinite</span></span>
+											
+											{/* <span className="text-3xl lg:text-4xl text-secondary">Introducing Davant Studio</span> */}
+											{/* <span className="bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent">
 									<span className="block text-2xl lg:text-6xl">Infinite imagination</span>
 									<span className="block text-2xl lg:text-5xl">Unlimited creativity</span>
 								</span> */}
-							</h1>
+										</h1>
+										<p><span className="text-4xl leading-8 bg-gradient-to-br bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent">With Davant Studio</span> 
+										<span className="block text-5xl leading-8 pb-3 bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent">so are your tools</span></p>
 
-							<div className="cta-wrapper flex flex-col items-center">
-								<div className="screenshots-wrapper
-									max-w-3xl
-									mb-4
-									mx-auto
-									grid
-									grid-cols-3
-									gap-2">
-									<StaticImage
-										src="../images/davant-studio-presets.png"
-										quality={100}
-										alt="Screenshot of Davant Studio software"
-									/>
-									<StaticImage
-										src="../images/davant-studio-controls.png"
-										quality={100}
-										alt="Screenshot of Davant Studio software"
-									/>
-									<StaticImage
-										src="../images/davant-studio-prompts.png"
-										quality={100}
-										alt="Screenshot of Davant Studio software"
-									/>
-								</div>
-								<div className="text-bg
+										<div className="text-bg
+										mt-4
 									bg-gradient-to-br
 									from-cyan-300
 									via-secondary
 									to-purple-500
 									bg-clip-text
 									text-transparent
-									mb-4">
-									<p className="text-xl">Davant Studio brings the power of generative AI image transformation
-										<span className="inline-block">to your creative workflow, so you can create at the speed of thought.</span>
-									</p>
+									prose
+									text-left
+									mb-4
+									max-w-lg
+									pr-10">
+											{/* <p className="text-xl">
+												<span className="">An AI image transformation tool for professionals</span>
+											</p> */}
+											<ul className="list font-light leading-snug pl-3">
+												<li className="list-item"><span className="font-bold">Real-time generative AI engine: </span>Render as fast as your computer can handle</li>
+												<li className="list-item"><span className="font-bold">Control what matters: </span>What you need to dial in your vision</li>
+												<li className="list-item"><span className="font-bold">Adapts to you: </span>Use images, folders or screenshot as input</li>
+												<li className="list-item"><span className="font-bold">No internet required: </span>Your files never leave your computer</li>
+												<li className="list-item"><span className="font-bold">Expansive model library: </span>Use any Stable Diffusion checkpoint, embedding or LoRA from the community</li>
+											</ul>
+										</div>
+									</div>
+
+									<div className="screenshots-wrapper
+									carousel
+									carousel-center
+									max-w-44
+									w-72
+									mb-4						
+									">
+										<div className="item
+											carousel-item">
+											<StaticImage
+												className="w-72"
+												src="../images/davant-studio-presets.png"
+												quality={100}
+												alt="Screenshot of Davant Studio software"
+											/>
+										</div>
+										<div className="item
+											carousel-item">
+											<StaticImage
+												className="w-72"
+												src="../images/davant-studio-controls.png"
+												quality={100}
+												alt="Screenshot of Davant Studio software"
+											/>
+										</div>
+										<div className="item
+											carousel-item">
+											<StaticImage
+												className="w-72"
+												src="../images/davant-studio-prompts.png"
+												quality={100}
+												alt="Screenshot of Davant Studio software"
+											/>
+										</div>
+									</div>
 								</div>
+
 								<div className="bg-base-300 bg-opacity-30 py-2 px-4 shadow-xl flex flex-row items-center justify-center">
 									<Link className="
 										btn
@@ -112,7 +146,7 @@ const BetaPage: React.FC<PageProps> = () => {
 							px-10
 							rounded">
 							<div className="flex flex-col items-center">
-								<span className="text-xs mr-3">Free for the next</span>
+								<span className="text-xs mr-3">Free access for</span>
 							</div>
 							<Countdown targetDate="2024-02-17" />
 							<span className="block text-xs ml-3">until February 17, 2024</span>
