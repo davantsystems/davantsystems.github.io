@@ -259,9 +259,9 @@ h1 {
     top: 0;
     left: 0;
     background: linear-gradient(to right, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 20%, rgba(0, 255, 0, 1) 20%, rgba(0, 255, 0, 1) 40%, rgba(0, 0, 255, 1) 40%, rgba(0, 0, 255, 1) 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%) center repeat-x;
-    background-size: clamp(4px, 1.5vw, 100px) 100%;
-    opacity: 0.03;
-    animation: vhs-lines-vert 10s infinite linear;
+    background-size: clamp(4px, 2vw, 100px) 100%;
+    opacity: 0.02;
+    animation: vhs-lines-vert .1s infinite linear;
     /* z-index: 1; */
     mix-blend-mode: overlay;
     width: 100%;
@@ -309,8 +309,6 @@ h1 {
 }
 
 .screenshots-wrapper {
-    margin-bottom: -1px;
-    z-index: -1;
     box-shadow: 0 -0.3em 6em -4em #d100b1;
 }
 
