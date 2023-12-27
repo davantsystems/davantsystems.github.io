@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 const MailchimpForm = () => {
     const [email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -8,34 +9,39 @@ const MailchimpForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const formData = new FormData();
+    
+        const formData = new URLSearchParams();
         formData.append("EMAIL", email);
         formData.append("FNAME", firstName);
         formData.append("LNAME", lastName);
-
+    
+        // Custom endpoint for Galaxy Godspeed 5, replace with your actual endpoint
+        const endpoint = "https://gmail.us21.list-manage.com/subscribe/post?u=2edf9866c6815edca67996426&amp;id=f80cae6640&amp;f_id=003a55e1f0";
+    
+        const requestOptions = {
+            method: 'POST',
+            body: formData.toString(),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            mode: 'no-cors'
+        };
+    
         try {
-            const response = await fetch("https://gmail.us21.list-manage.com/subscribe/post?u=2edf9866c6815edca67996426&id=f80cae6640", {
-                method: "POST",
-                body: formData,
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                mode: "no-cors"
-            });
-
-            if (response.ok) {
-                setMessage("Thank you for subscribing!");
-                setEmail("");
-                setFirstName("");
-                setLastName("");
-            } else {
-                setMessage("An error occurred. Please try again.");
-            }
+            await fetch(endpoint, requestOptions);
+    
+            // Assuming the request is successful since no-cors mode limits response validation
+            setMessage("Subscription request sent. Check your email for confirmation.");
+            setEmail("");
+            setFirstName("");
+            setLastName("");
         } catch (error) {
             console.error("Error submitting form:", error);
             setMessage("An error occurred. Please try again.");
         }
     };
+    
+
 
     return (
         <div id="mc_embed_signup" className="relative z-10 bg border-secondary">
@@ -81,7 +87,7 @@ const MailchimpForm = () => {
                                 to-blue-400
                                 hover:via-cyan-300
                                 hover:to-cya-600"
-                            type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"/>
+                            type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" />
                     </div>
 
                     {message && <div>{message}</div>}

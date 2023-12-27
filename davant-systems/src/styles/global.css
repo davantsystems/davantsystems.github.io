@@ -41,7 +41,7 @@ h1 {
     background: -webkit-linear-gradient(top, #151C60, #C6CBF5 40%, black 40%, #E1A0CE 65%, white);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 0.02em;
+    -webkit-text-strokeWidth: 0.02em;
     -webkit-text-stroke-color: white;
 }
 
