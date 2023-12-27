@@ -309,6 +309,21 @@ const BetaPage: React.FC<PageProps> = () => {
 				</div>
 			</section>
 
+			<section className="container">
+				<div className="
+					py-32
+					px-4
+					max-w-3xl
+					text-center
+					mx-auto">
+					<p className="
+						text-2xl mb-2 text-cyan-300">Can't find what you're looking for?</p>
+					<a className="
+						bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text text-transparent"
+					href="mailto:support@davantsystems.com">support@davantsystems.com</a>
+				</div>
+			</section>
+
 		</main >
 	)
 }
