@@ -84,7 +84,7 @@ const contentSections = [
                             <li>Our recommended version is 1.6.1, which can be found <a href="#link-to-1.6.1">here</a>.</li>
                             <li>Tech-savvy users may clone the latest version, but be aware of potential compatibility issues.</li>
                             <li>After downloading, extract the files to a desired location.</li>
-                            <li><strong>Critical Step</strong>: In the <code>web-user.bat</code> file, add the <code>-API</code> argument in the command line. This is essential for operation.</li>
+                            <li><strong>Critical Step</strong>: In the <code>web-user.bat</code> file, add the <code>--api</code> argument in the command line. This is essential for operation.</li>
                             <li>To launch, double-click <code>web-user.bat</code>. This will open a console window and initiate Automatic 1111 setup.</li>
                         </ol>
                         <li><strong>Note</strong>: Ensure Python is installed on your system. If not, download Python <a href="#link-to-python-download">here</a>.</li>
