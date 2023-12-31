@@ -1,7 +1,8 @@
 import * as React from "react"
 import type { HeadFC, PageProps, graphql } from "gatsby"
 import MailchimpForm from "../components/MailchimpForm"
-import { Image, StaticImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
+import ContentContext from "../ContentContext"
 
 const IndexPage: React.FC<PageProps> = () => {
 	return (

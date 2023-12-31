@@ -3,7 +3,7 @@ import { Link, type HeadFC, type PageProps } from "gatsby"
 import Faq from "../components/Faq"
 import Countdown from "../components/Countdown"
 import { StaticImage } from "gatsby-plugin-image"
-
+import ExternalLink from "../icons/externalLink"
 
 const BetaPage: React.FC<PageProps> = () => {
 	return (
@@ -239,19 +239,20 @@ const BetaPage: React.FC<PageProps> = () => {
 				<div className="
 					relative
 					block
+					-mt-20
 					px-4
 					pt-4
 					pb-10
 					bg-black
 					bg-opacity-30
 					z-20">
-					<div className="container max-w-2xl mt-5 w-auto block mx-auto indicator pl-8 pr-4 py-4 text-sm border-2 border-slate-400 border-opacity-10">
+					<div className="container max-w-3xl mt-5 w-auto block mx-auto indicator pl-8 pr-4 py-4 text-sm border-2 border-slate-400 border-opacity-10">
 						<span className="indicator-item indicator-start badge badge-warning badge-xl py-4 px-1 mr-2">
 							<svg xmlns="http://www.w3.org/2000/svg" className="stroke-current h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
 						</span>
 						<div className="">
-							<p className="font-bold text-warning mb-4">Davant Studio is <span className="italic">not</span> a standalone AI system.</p>
-							<p className="mb-2">You must have API access to a running instance of the <a className="link" target="_blank" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">automatic1111 Stable Diffusion web UI.</a>. This open-source (and free) project manages and runs Stable Diffusion for image generation.</p>
+							<p className="text-lg font-bold text-warning mb-4">Davant Studio is <span className="italic">not</span> a standalone AI system. It requires automatic1111.</p>
+							<p className="mb-2">You must have API access to a running instance of the <a className="link" target="_blank" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">automatic1111 Stable Diffusion web UI<ExternalLink fillClass="fill-white"/></a>. This open-source (and free) project manages and runs Stable Diffusion for image generation.</p>
 							<p>See our instructions for installing auto1111 below.</p>
 						</div>
 					</div>
@@ -324,6 +325,7 @@ const BetaPage: React.FC<PageProps> = () => {
 				</div>
 			</section>
 
+			<div className="bg block fixed bottom-0 left-0 w-full h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-100 pointer-events-none z-50"></div>
 		</main >
 	)
 }
