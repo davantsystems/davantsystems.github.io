@@ -3,7 +3,6 @@ import { Link, type HeadFC, type PageProps } from "gatsby"
 import Faq from "../components/Faq"
 import Countdown from "../components/Countdown"
 import { StaticImage } from "gatsby-plugin-image"
-import ExternalLink from "../icons/externalLink"
 import RequirementsPane from "../components/requirementsPane"
 
 const BetaPage: React.FC<PageProps> = () => {
@@ -15,7 +14,7 @@ const BetaPage: React.FC<PageProps> = () => {
 					<div className="relative z-20 flex flex-col items-center pt-8 pb-20 text-center hero-content text-neutral-content">
 						<div className="flex flex-col items-center mb-2">
 
-							<div className="flex flex-col items-center cta-wrapper">
+							<div className="relative flex flex-col items-center cta-wrapper">
 								<div className="flex flex-col software-spotlight sm:flex-row">
 									<div className="flex flex-col pr-8 text-left text">
 										<h1 className="mb-0 font-light text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
@@ -30,18 +29,18 @@ const BetaPage: React.FC<PageProps> = () => {
 												<RequirementsPane />
 											</div>
 											<Link className="pl-0 pr-4 mx-auto mt-4 mb-0 rounded-sm shadow-sm bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-							to="#third-party-disclaimer">
+												to="#third-party-disclaimer">
 
-							<span className="p-2 bg-transparent rounded-full badge-neutral">
-								<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
-									<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-									<g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-									<g id="SVGRepo_iconCarrier">
-										<path d="M8 22.0002H16C18.8284 22.0002 20.2426 22.0002 21.1213 21.1215C22 20.2429 22 18.8286 22 16.0002V15.0002C22 12.1718 22 10.7576 21.1213 9.8789C20.3529 9.11051 19.175 9.01406 17 9.00195M7 9.00195C4.82497 9.01406 3.64706 9.11051 2.87868 9.87889C2 10.7576 2 12.1718 2 15.0002L2 16.0002C2 18.8286 2 20.2429 2.87868 21.1215C3.17848 21.4213 3.54062 21.6188 4 21.749" strokeWidth="1.5" strokeLinecap="round"></path>
-										<path d="M12 2L12 15M12 15L9 11.5M12 15L15 11.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
-							</span>
-							<span className="pt-1">Download Davant Studio Now</span>
-						</Link>
+												<span className="p-2 bg-transparent rounded-full badge-neutral">
+													<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+														<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+														<g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+														<g id="SVGRepo_iconCarrier">
+															<path d="M8 22.0002H16C18.8284 22.0002 20.2426 22.0002 21.1213 21.1215C22 20.2429 22 18.8286 22 16.0002V15.0002C22 12.1718 22 10.7576 21.1213 9.8789C20.3529 9.11051 19.175 9.01406 17 9.00195M7 9.00195C4.82497 9.01406 3.64706 9.11051 2.87868 9.87889C2 10.7576 2 12.1718 2 15.0002L2 16.0002C2 18.8286 2 20.2429 2.87868 21.1215C3.17848 21.4213 3.54062 21.6188 4 21.749" strokeWidth="1.5" strokeLinecap="round"></path>
+															<path d="M12 2L12 15M12 15L9 11.5M12 15L15 11.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
+												</span>
+												<span className="pt-1">Download Davant Studio Now</span>
+											</Link>
 										</div>
 									</div>
 
@@ -71,22 +70,20 @@ const BetaPage: React.FC<PageProps> = () => {
 											/>
 										</div>
 									</div>
+
+								</div>
+								<div className="absolute bottom-0 flex flex-col items-center w-full px-10 pt-8 pb-3 text-purple-500 translate-y-full rounded wrapper__countdown sm:flex-row sm:justify-center">
+									<div className="flex flex-col items-center">
+										<span className="mb-2 mr-3 text-xs sm:mb-auto">Free access for</span>
+									</div>
+									<Countdown targetDate="2024-02-17" />
+									<span className="block mt-2 ml-3 text-xs sm:mt-auto">until February 17, 2024</span>
 								</div>
 							</div>
+
 						</div>
-
-						<div className="flex flex-col items-center px-10 py-3 rounded wrapper__countdown sm:flex-row">
-							<div className="flex flex-col items-center">
-								<span className="mb-2 mr-3 text-xs sm:mb-auto">Free access for</span>
-							</div>
-							<Countdown targetDate="2024-02-17" />
-							<span className="block mt-2 ml-3 text-xs sm:mt-auto">until February 17, 2024</span>
-						</div>
-
-
-
-
 					</div>
+
 					<div className="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 background-image left-1/2 z-1">
 						<StaticImage
 							className="relative block h-full hero__background-image"
@@ -104,16 +101,22 @@ const BetaPage: React.FC<PageProps> = () => {
 
 				<div id="third-party-disclaimer"
 					className="relative z-20 block px-4 pt-4 pb-10 mt-0 bg-black disclaimer bg-opacity-30">
-					<div className="container block w-auto max-w-3xl py-12 pl-8 pr-4 mx-auto mt-5 text-sm border-2 -translate-y-1/4 indicator border-slate-400 border-opacity-10">
+					<div className="container block w-auto max-w-3xl py-12 pl-8 pr-4 mx-auto mt-5 text-sm border-2 -translate-y-0.5 indicator border-warning border-opacity-10">
 						<span className="px-1 py-4 mr-2 indicator-item indicator-center badge badge-warning badge-xl">
 							<svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
 						</span>
 						<div className="">
-							<p className="mb-4 text-lg font-bold text-warning">Davant Studio is <span className="italic">not</span> a standalone AI system. It requires automatic1111.</p>
-							<p className="mb-2">You must have API access to a running instance of the <a className="link" target="_blank" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">automatic1111 Stable Diffusion web UI<ExternalLink fillClass="fill-white" /></a>. This open-source (and free) project manages and runs Stable Diffusion for image generation.</p>
-							<p>See our instructions for installing auto1111 below.</p>
+							<span className="inline-block px-1 mb-3 font-mono text-xs italic font-light leading-normal text-center bg-warning text-neutral mix-blend-soft-light">dependencies ~ %</span>
+							<p className="mb-4 text-lg font-bold text-warning">Davant Studio is <span className="italic">not</span> a standalone AI system. <span className="inline-block">Additional installation of third-party software is required.</span></p>
+							<div className="pt-4 leading-relaxed">
+								<p className="mb-3">Stable Diffusion is the AI program that does the actual image processing and generation. It is free for anyone to use, produces amazing results and can be run on consumer-grade hardware at home.</p>
+								<p className="mb-3">Davant Studio is an <span className="italic">interface</span> that you can use to "interact" with a running Stable Difffusion program. Our goal is to make this process easier, but for now it does require some technical know-how to get set up.</p>
+								<p className="mb-4">If you aren't comfortable with the command line and installing programs like Python on your computer, this will likely feel daunting. We're working on a way to make that part much easier, so if it's too overwhelming rest assured an easier solution for you is on its way.</p>
+								<p className="mb-4">If you have an existing Automatic 1111 set up, you'll need to install the ControlNet extension and double-check a few things. More on that here.</p>
+							</div>
 						</div>
 					</div>
+
 
 					<div className="flex justify-center pb-24">
 						<Link className="pl-0 pr-4 mx-auto mt-4 mb-0 rounded-sm shadow-sm bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
@@ -131,7 +134,7 @@ const BetaPage: React.FC<PageProps> = () => {
 						</Link>
 					</div>
 				</div>
-			</section>
+			</section >
 
 			<section className="container flex justify-center border-b-2 border-slate-700 border-opacity-10">
 				<div className="relative block py-20 mx-auto ">

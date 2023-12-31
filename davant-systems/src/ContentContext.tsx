@@ -16,7 +16,8 @@ interface ContentVariables {
             releases: {
                 latest: string,
                 1_7_0: string,  
-            }
+            },
+            controlnetExtenstion: string
         }
     }
 }
@@ -37,7 +38,8 @@ const ContentContext = React.createContext<ContentVariables>({
             releases: {
                 latest: "",
                 1_7_0: ""
-            }
+            },
+            controlnetExtenstion: ""
         }
     }
 });

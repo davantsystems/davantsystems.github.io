@@ -21,7 +21,8 @@ const ContentProvider: React.FC<ContentProviderProps> = ({ children }) => {
         releases: {
           latest: "https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/latest",
           1_7_0: "https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/tag/v1.7.0"
-      }
+        },
+        controlnetExtenstion: "https://github.com/Mikubill/sd-webui-controlnet"
       }
     }
     // Add other content variables here
