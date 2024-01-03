@@ -101,18 +101,25 @@ const BetaPage: React.FC<PageProps> = () => {
 
 				<div id="third-party-disclaimer"
 					className="relative z-20 block px-4 pt-4 pb-10 mt-0 bg-black disclaimer bg-opacity-30">
-					<div className="container block w-auto max-w-3xl pt-12 pb-8 pl-8 pr-4 mx-auto mt-5 text-sm border-2 -translate-y-0.5 indicator border-warning border-opacity-10">
+
+					<div className="container block w-auto max-w-3xl mx-auto mt-5 p-0.5 text-sm -translate-y-0.5 indicator">
 						<span className="px-1 py-4 mr-2 indicator-item indicator-center badge badge-warning badge-xl">
 							<svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
 						</span>
-						<div className="">
-							<span className="inline-block px-1 mb-3 font-mono text-xs italic font-light leading-normal text-center bg-warning text-neutral mix-blend-soft-light">dependencies ~ %</span>
-							<p className="mb-4 text-lg font-bold text-warning">Davant Studio is <span className="italic">not</span> a standalone AI system. <span className="inline-block">Additional installation of third-party software is required.</span></p>
-							<div className="pt-4 leading-relaxed">
-								<p className="mb-3">Stable Diffusion is the AI program that does the actual image processing and generation. It is free for anyone to use, produces amazing results and can be run on consumer-grade hardware at home.</p>
-								<p className="mb-3">Davant Studio is an <span className="italic">interface</span> that you can use to "interact" with a running Stable Difffusion program. Our goal is to make this process easier, but for now it does require some technical know-how to get set up.</p>
-								<p className="mb-4">If you aren't comfortable with the command line and installing programs like Python on your computer, this will likely feel daunting. We're working on a way to make that part much easier, so if it's too overwhelming rest assured an easier solution for you is on its way.</p>
-								<p className="mb-4">If you have an existing Automatic 1111 set up, you'll need to install the ControlNet extension and double-check a few things. <a className="link secondary" href="#SetupConfiguration">More about that in the FAQ.</a></p>
+						<div className="relative p-0.5 overflow-hidden gradient-border-wrapper">
+							<div className="pt-12 pb-8 pl-8 pr-4 wrapper bg-base-300">
+
+								<div className="absolute top-0 left-0 w-full h-full duration-100 opacity-100 -z-10 from-warning bg bg-gradient-to-b via-orange-500 to-transparent"></div>
+								<div className="">
+									<span className="inline-block px-1 mb-3 font-mono text-xs italic font-light leading-normal text-center bg-warning text-neutral">dependencies ~ %</span>
+									<p className="mb-4 text-lg font-bold text-warning">Davant Studio is <span className="italic">not</span> a standalone AI system. <span className="inline-block">Additional installation of third-party software is required.</span></p>
+									<div className="pt-4 leading-relaxed">
+										<p className="mb-3">Stable Diffusion is the AI program that does the actual image processing and generation. It is free for anyone to use, produces amazing results and can be run on consumer-grade hardware at home.</p>
+										<p className="mb-3">Davant Studio is an <span className="italic">interface</span> that you can use to "interact" with a running Stable Diffusion program. Our goal is to make this process easier, but for now it does require some technical know-how to get set up.</p>
+										<p className="mb-4">If you aren't comfortable with the command line and installing programs like Python on your computer, this will likely feel daunting. We're working on a way to make that part much easier, so if it's too overwhelming rest assured an easier solution for you is on its way.</p>
+										<p className="mb-4">If you have an existing Automatic 1111 set up, you'll need to install the ControlNet extension and double-check a few things. <a className="link secondary" href="#SetupConfiguration">More about that in the FAQ.</a></p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -120,14 +127,19 @@ const BetaPage: React.FC<PageProps> = () => {
 
 					<div className="relative flex flex-col items-center justify-center pt-24 pb-24 text-cyan-200">
 						<div className="bg__gradient
-						absolute top-0 left-0 z-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
+						absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-0 w-5/6 h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
 					from-purple-950
 					via-transparent
-					to-transparent opacity-40"></div>
+					to-transparent opacity-100"></div>
+						<div className="bg__gradient
+						absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
+					from-fuchsia-300
+					via-transparent
+					to-transparent opacity-20 animate-spin-slow z-0 mix-blend-hard-light"></div>
 						<div className="relative flex flex-col items-center justify-center content">
 							<p className="text-lg font-bold">Ready to start creating?</p>
 							<p className="text-xs">Click to download the zipped .exe application</p>
-							<Link className="pl-0 pr-4 mx-auto mt-6 rounded-sm shadow shadow-lg shadow-purple-900 mb-7 bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
+							<Link className="pl-0 pr-4 mx-auto mt-6 overflow-hidden rounded-sm shadow shadow-lg shadow-purple-900 mb-7 bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
 								to="https://github.com/davantsystems/davant-studio-release/releases/download/v0.5.0/DavantStudio_v0.5.0.zip">
 
 								<span className="p-2 bg-transparent rounded-full badge-neutral">
@@ -141,7 +153,7 @@ const BetaPage: React.FC<PageProps> = () => {
 								<span className="pt-1">Download Davant Studio Now</span>
 							</Link>
 							<p className="mb-2 text-xs">Default location is your "Downloads" folder.</p>
-							<p className="text-xs max-w-ms">Extra/unzip the bundle and double-click the DavantStudio.exe to run
+							<p className="text-xs max-w-ms">Unzip the file and double-click the DavantStudio.exe to run
 							</p>
 						</div>
 					</div>

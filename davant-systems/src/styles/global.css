@@ -398,3 +398,43 @@ h1 {
 .hero__background-image {
     z-index: -2;
 }
+
+
+.animate-spin-slow {
+    transform-origin: 50% 50%;
+    transform: rotateZ(0deg)  scale(1.0);
+    animation: animation-spin-slow;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    animation-duration: 16s;
+    animation-delay: 2s;
+}
+
+@keyframes animation-spin-slow {
+    0% {
+        transform: rotateZ(0deg)  scale(0.5);
+    }
+
+    70% {
+        transform: rotateZ(5deg)  scale(1.0);
+    }
+
+
+    100% {
+        transform: rotateZ(180deg)  scale(0.5);
+    }
+}
+
+.animate-spin-bg-slow {
+    animation: animation-spin-bg-slow 3s linear infinite;
+}
+
+@keyframes animation-spin-bg-slow {
+    from {
+        transform: rotate(0deg) scaleY(2.0) scaleX(1.2);
+    }
+
+    to {
+        transform: rotate(360deg) scaleY(2.0) scaleX(1.2);
+    }
+}
