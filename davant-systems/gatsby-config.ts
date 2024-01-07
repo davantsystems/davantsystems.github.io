@@ -1,4 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -69,6 +72,20 @@ const config: GatsbyConfig = {
           // Delays processing pageview events on route update (in milliseconds)
           // delayOnRouteUpdate: 0,
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-s3`,
+      options: {
+        aws: {
+          credentials: {
+            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+          },
+          region: process.env.AWS_REGION,
+        },
+        buckets: ["davant-public", "user-delivery-1"],
+        expiration: 120,
       },
     },
   ]
