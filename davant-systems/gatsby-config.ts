@@ -84,7 +84,7 @@ const config: GatsbyConfig = {
           },
           region: process.env.AWS_REGION,
         },
-        buckets: ["davant-public", "user-delivery-1"],
+        buckets: ["davant-public"],
         expiration: 120,
       },
     },
