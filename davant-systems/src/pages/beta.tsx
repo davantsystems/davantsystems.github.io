@@ -1,11 +1,13 @@
-import * as React from "react"
+import React, { useContext } from 'react';
 import { Link, type HeadFC, type PageProps } from "gatsby"
 import Faq from "../components/Faq"
 import Countdown from "../components/Countdown"
 import { StaticImage } from "gatsby-plugin-image"
 import RequirementsPane from "../components/requirementsPane"
+import ContentContext from "../ContentContext"
 
 const BetaPage: React.FC<PageProps> = () => {
+	const contentVariables = useContext(ContentContext);
 	return (
 		<main className="">
 			<section className="border-b-2 hero__wrapper border-slate-400 border-opacity-5">
@@ -129,10 +131,13 @@ const BetaPage: React.FC<PageProps> = () => {
 										<p className="mb-4">Here's what you'll need:</p>
 										<p className=""><span className="font-extrabold text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion with Automatic111 SD Web UI</span></p>
 										<p className="">The AI system that generates the images. It is free and can be run on consumer-grade hardware.</p>
-										<p className="mb-4">It requires technical know-how to download from Github and install with Python.</p>
-
-										<p className="mb-4"><span className="font-extrabold text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">Davant Studio</span> is an interface to interact with an active instance of <span className="text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion.</span> For now you'll need to follow the guides from that project.</p>
-										<p className="mb-4">Not comfortable with the command line? We're working on distributing our own prebuilt Stable Diffusion to make setup easier soon.</p>
+										<p className="mb-4">The easiest way to get it running is our pre-built bundle of this third-party software.</p>
+										<Link
+										className="mb-4 btn btn-md btn-primary btn-outline"
+										to="https://davant-public.s3.us-west-1.amazonaws.com/sd.webui_built_mvp-models.zip">
+											Download our pre-Built Automatic1111 package
+										</Link>
+										<p className="mb-4"><span className="font-extrabold text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">Davant Studio</span> is an <span className="italic">interface</span> to interact with an active instance of <span className="text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion.</span> For issues or questions about that project, you'll need to refer to <a className="link" to={contentVariables.auto1111.links.repoUrl}>the documentation for that project.</a></p>
 									</div>
 
 									<Link className="px-2 py-0 opacity-70 btn mb-36 btn-secondary btn-outline btn-sm hover:opacity-100" to="#Installation">
