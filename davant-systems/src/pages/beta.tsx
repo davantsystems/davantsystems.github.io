@@ -123,7 +123,7 @@ const BetaPage: React.FC<PageProps> = () => {
 											<li className="list-item">Added <span className="px-1 mx-1 font-mono text-sm italic font-light text-success bg-indigo-950">--api</span> to commandline arguments</li>
 										</ul>
 										<div className="mb-4">
-											<Link className="px-2 py-0 opacity-70 btn btn-secondary btn-outline btn-sm hover:opacity-100" to="download-button"><span className="">Continue to download</span></Link>
+											<Link className="px-2 py-0 opacity-70 btn btn-secondary btn-outline btn-sm hover:opacity-100" to="#download-button"><span className="">Continue to download</span></Link>
 											<Link className="text-current btn btn-link btn-sm hover:text-cyan-300" to="#SetupConfiguration">More info in the FAQ.</Link>
 										</div>
 										<span className="mt-6 mb-6 divider"></span>
@@ -133,11 +133,11 @@ const BetaPage: React.FC<PageProps> = () => {
 										<p className="">The AI system that generates the images. It is free and can be run on consumer-grade hardware.</p>
 										<p className="mb-4">The easiest way to get it running is our pre-built bundle of this third-party software.</p>
 										<Link
-										className="mb-4 btn btn-md btn-primary btn-outline"
+										className="mb-4 border-purple-900 shadow-md hover:shadow-lg hover:border-indigo-800 hover:shadow-indigo-800 hover:bg-purple-900 hover:border-purple-900 hover:text-white btn btn-md btn-secondary shadow-purple-900"
 										to="https://davant-public.s3.us-west-1.amazonaws.com/software/stable-diffusion_auto1111_davant-quickstart.zip">
-											Download our pre-Built Automatic1111 package
+											Download Our Automatic1111 Quickstart
 										</Link>
-										<p className="mb-4"><span className="font-extrabold text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">Davant Studio</span> is an <span className="italic">interface</span> to interact with an active instance of <span className="text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion.</span> For issues or questions about that project, you'll need to refer to <a className="link" to={contentVariables.auto1111.links.repoUrl}>the documentation for that project.</a></p>
+										<p className="mb-4"><span className="font-extrabold text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">Davant Studio</span> is an <span className="italic">interface</span> to interact with an active instance of <span className="text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion.</span> For issues or questions about that project, you'll need to refer to <a className="link" href={contentVariables.auto1111.links.repoUrl} target="_blank">the documentation for that project.</a></p>
 									</div>
 
 									<Link className="px-2 py-0 opacity-70 btn mb-36 btn-secondary btn-outline btn-sm hover:opacity-100" to="#Installation">
@@ -168,7 +168,6 @@ const BetaPage: React.FC<PageProps> = () => {
 					to-transparent opacity-20 animate-spin-slow z-0 mix-blend-hard-light"></div>
 						<div className="relative flex flex-col items-center justify-center content">
 							<p className="text-lg font-bold">Ready to start creating?</p>
-							<p className="text-xs">Click to download the zipped .exe application</p>
 							<Link className="pl-0 pr-4 mx-auto mt-6 overflow-hidden rounded-sm shadow shadow-lg shadow-purple-900 mb-7 bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
 								to="https://github.com/davantsystems/davant-studio-release/releases/download/v0.6.1/DavantStudio_v0.6.1.zip">
 
@@ -182,8 +181,7 @@ const BetaPage: React.FC<PageProps> = () => {
 								</span>
 								<span className="pt-1">Download Davant Studio Now</span>
 							</Link>
-							<p className="text-xs max-w-ms">Unzip the file and double-click the DavantStudio.exe to run
-							</p>
+							<p className="text-xs text-center">Join the <Link to="https://community.davantsystems.com" className="link">community forum</Link> for support <br/>and to share what you create.</p>
 						</div>
 					</div>
 				</div>
