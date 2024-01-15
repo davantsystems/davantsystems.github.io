@@ -134,7 +134,7 @@ const BetaPage: React.FC<PageProps> = () => {
 										<p className="mb-4">The easiest way to get it running is our pre-built bundle of this third-party software.</p>
 										<Link
 										className="mb-4 btn btn-md btn-primary btn-outline"
-										to="https://davant-public.s3.us-west-1.amazonaws.com/sd.webui_built_mvp-models.zip">
+										to="https://davant-public.s3.us-west-1.amazonaws.com/software/stable-diffusion_auto1111_davant-quickstart.zip">
 											Download our pre-Built Automatic1111 package
 										</Link>
 										<p className="mb-4"><span className="font-extrabold text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">Davant Studio</span> is an <span className="italic">interface</span> to interact with an active instance of <span className="text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion.</span> For issues or questions about that project, you'll need to refer to <a className="link" to={contentVariables.auto1111.links.repoUrl}>the documentation for that project.</a></p>
@@ -170,7 +170,7 @@ const BetaPage: React.FC<PageProps> = () => {
 							<p className="text-lg font-bold">Ready to start creating?</p>
 							<p className="text-xs">Click to download the zipped .exe application</p>
 							<Link className="pl-0 pr-4 mx-auto mt-6 overflow-hidden rounded-sm shadow shadow-lg shadow-purple-900 mb-7 bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-								to="https://github.com/davantsystems/davant-studio-release/releases/download/v0.5.0/DavantStudio_v0.5.0.zip">
+								to="https://github.com/davantsystems/davant-studio-release/releases/download/v0.6.1/DavantStudio_v0.6.1.zip">
 
 								<span className="p-2 bg-transparent rounded-full badge-neutral">
 									<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
