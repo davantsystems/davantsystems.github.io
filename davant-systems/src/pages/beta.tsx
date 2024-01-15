@@ -101,6 +101,21 @@ const BetaPage: React.FC<PageProps> = () => {
 					</div>
 				</div>
 
+				<section className="container max-w-3xl mx-auto border-b-2 border-slate-700 border-opacity-10">
+					<div className="relative block py-20 mx-auto ">
+						<h2 className="relative inline-block w-auto px-2 py-0 mb-8 mr-auto text-4xl font-extrabold text-transparent bg-gradient-to-br from-cyan-300 via-secondary to-cyan-400 bg-clip-text">Features</h2>
+						<div className="max-w-2xl pr-10 mb-4 prose text-left text-transparent text-bg bg-gradient-to-br from-cyan-300 via-secondary to-purple-500 bg-clip-text">
+							<ul className="pl-0 font-light leading-snug list-none list">
+								<li className="mb-4 list-item"><span className="font-extrabold">Real-time generative AI engine: </span><span className="font-extralight">Render as fast as your computer can handle</span></li>
+								<li className="mb-4 list-item"><span className="font-extrabold">Control what matters: </span><span className="font-extralight">What you need to dial in your vision</span></li>
+								<li className="mb-4 list-item"><span className="font-extrabold">Adapts to you: </span><span className="font-extralight">Use images, folders or screenshot as input</span></li>
+								<li className="mb-4 list-item"><span className="font-extrabold">No internet required: </span><span className="font-extralight">Your files never leave your computer</span></li>
+								<li className="mb-4 list-item"><span className="font-extrabold">Expansive model library: </span><span className="font-extralight">Use any Stable Diffusion checkpoint, embedding or LoRA from the community</span></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
 				<div id="third-party-disclaimer"
 					className="relative z-20 block px-4 pt-4 pb-10 mt-0 bg-black disclaimer bg-opacity-30">
 
@@ -133,8 +148,8 @@ const BetaPage: React.FC<PageProps> = () => {
 										<p className="">The AI system that generates the images. It is free and can be run on consumer-grade hardware.</p>
 										<p className="mb-4">The easiest way to get it running is our pre-built bundle of this third-party software.</p>
 										<Link
-										className="mb-4 border-purple-900 shadow-md hover:shadow-lg hover:border-indigo-800 hover:shadow-indigo-800 hover:bg-purple-900 hover:border-purple-900 hover:text-white btn btn-md btn-secondary shadow-purple-900"
-										to="https://davant-public.s3.us-west-1.amazonaws.com/software/stable-diffusion_auto1111_davant-quickstart.zip">
+											className="mb-4 border-purple-900 shadow-md hover:shadow-lg hover:border-indigo-800 hover:shadow-indigo-800 hover:bg-purple-900 hover:border-purple-900 hover:text-white btn btn-md btn-secondary shadow-purple-900"
+											to="https://davant-public.s3.us-west-1.amazonaws.com/software/stable-diffusion_auto1111_davant-quickstart.zip">
 											Download Our Automatic1111 Quickstart
 										</Link>
 										<p className="mb-4"><span className="font-extrabold text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">Davant Studio</span> is an <span className="italic">interface</span> to interact with an active instance of <span className="text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion.</span> For issues or questions about that project, you'll need to refer to <a className="link" href={contentVariables.auto1111.links.repoUrl} target="_blank">the documentation for that project.</a></p>
@@ -181,26 +196,11 @@ const BetaPage: React.FC<PageProps> = () => {
 								</span>
 								<span className="pt-1">Download Davant Studio Now</span>
 							</Link>
-							<p className="text-xs text-center">Join the <Link to="https://community.davantsystems.com" className="link">community forum</Link> for support <br/>and to share what you create.</p>
+							<p className="text-xs text-center">Join the <Link to="https://community.davantsystems.com" className="link">community forum</Link> for support <br />and to share what you create.</p>
 						</div>
 					</div>
 				</div>
 			</section >
-
-			<section className="container flex justify-center border-b-2 border-slate-700 border-opacity-10">
-				<div className="relative block py-20 mx-auto ">
-					<h2 className="relative inline-block w-auto px-2 py-0 mb-8 mr-auto text-2xl font-bold bg-gradient-to-br from-cyan-300 via-secondary to-cyan-400 text-neutral">Features</h2>
-					<div className="max-w-2xl pr-10 mb-4 prose text-left text-transparent text-bg bg-gradient-to-br from-cyan-300 via-secondary to-purple-500 bg-clip-text">
-						<ul className="pl-0 font-light leading-snug list-none list">
-							<li className="mb-4 list-item"><span className="font-bold">Real-time generative AI engine: </span>Render as fast as your computer can handle</li>
-							<li className="mb-4 list-item"><span className="font-bold">Control what matters: </span>What you need to dial in your vision</li>
-							<li className="mb-4 list-item"><span className="font-bold">Adapts to you: </span>Use images, folders or screenshot as input</li>
-							<li className="mb-4 list-item"><span className="font-bold">No internet required: </span>Your files never leave your computer</li>
-							<li className="mb-4 list-item"><span className="font-bold">Expansive model library: </span>Use any Stable Diffusion checkpoint, embedding or LoRA from the community</li>
-						</ul>
-					</div>
-				</div>
-			</section>
 
 			<section className="container">
 				<div className="max-w-3xl mx-auto">
