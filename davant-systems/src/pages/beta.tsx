@@ -101,6 +101,21 @@ const BetaPage: React.FC<PageProps> = () => {
 					</div>
 				</div>
 
+				<section className="container max-w-3xl mx-auto border-b-2 border-slate-700 border-opacity-10">
+					<div className="relative block py-20 mx-auto ">
+						<h2 className="relative inline-block w-auto px-2 py-0 mb-8 mr-auto text-4xl font-extrabold text-transparent bg-gradient-to-br from-cyan-300 via-secondary to-cyan-400 bg-clip-text">Features</h2>
+						<div className="max-w-2xl pr-10 mb-4 prose text-left text-transparent text-bg bg-gradient-to-br from-cyan-300 via-secondary to-purple-500 bg-clip-text">
+							<ul className="pl-0 font-light leading-snug list-none list">
+								<li className="mb-4 list-item"><span className="font-extrabold">Real-time generative AI engine: </span><span className="font-extralight">Render as fast as your computer can handle</span></li>
+								<li className="mb-4 list-item"><span className="font-extrabold">Control what matters: </span><span className="font-extralight">What you need to dial in your vision</span></li>
+								<li className="mb-4 list-item"><span className="font-extrabold">Adapts to you: </span><span className="font-extralight">Use images, folders or screenshot as input</span></li>
+								<li className="mb-4 list-item"><span className="font-extrabold">No internet required: </span><span className="font-extralight">Your files never leave your computer</span></li>
+								<li className="mb-4 list-item"><span className="font-extrabold">Expansive model library: </span><span className="font-extralight">Use any Stable Diffusion checkpoint, embedding or LoRA from the community</span></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
 				<div id="third-party-disclaimer"
 					className="relative z-20 block px-4 pt-4 pb-10 mt-0 bg-black disclaimer bg-opacity-30">
 
@@ -123,7 +138,7 @@ const BetaPage: React.FC<PageProps> = () => {
 											<li className="list-item">Added <span className="px-1 mx-1 font-mono text-sm italic font-light text-success bg-indigo-950">--api</span> to commandline arguments</li>
 										</ul>
 										<div className="mb-4">
-											<Link className="px-2 py-0 opacity-70 btn btn-secondary btn-outline btn-sm hover:opacity-100" to="download-button"><span className="">Continue to download</span></Link>
+											<Link className="px-2 py-0 opacity-70 btn btn-secondary btn-outline btn-sm hover:opacity-100" to="#download-button"><span className="">Continue to download</span></Link>
 											<Link className="text-current btn btn-link btn-sm hover:text-cyan-300" to="#SetupConfiguration">More info in the FAQ.</Link>
 										</div>
 										<span className="mt-6 mb-6 divider"></span>
@@ -133,11 +148,11 @@ const BetaPage: React.FC<PageProps> = () => {
 										<p className="">The AI system that generates the images. It is free and can be run on consumer-grade hardware.</p>
 										<p className="mb-4">The easiest way to get it running is our pre-built bundle of this third-party software.</p>
 										<Link
-										className="mb-4 btn btn-md btn-primary btn-outline"
-										to="https://davant-public.s3.us-west-1.amazonaws.com/sd.webui_built_mvp-models.zip">
-											Download our pre-Built Automatic1111 package
+											className="mb-4 border-purple-900 shadow-md hover:shadow-lg hover:border-indigo-800 hover:shadow-indigo-800 hover:bg-purple-900 hover:border-purple-900 hover:text-white btn btn-md btn-secondary shadow-purple-900"
+											to="https://davant-public.s3.us-west-1.amazonaws.com/software/stable-diffusion_auto1111_davant-quickstart.zip">
+											Download Our Automatic1111 Quickstart
 										</Link>
-										<p className="mb-4"><span className="font-extrabold text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">Davant Studio</span> is an <span className="italic">interface</span> to interact with an active instance of <span className="text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion.</span> For issues or questions about that project, you'll need to refer to <a className="link" to={contentVariables.auto1111.links.repoUrl}>the documentation for that project.</a></p>
+										<p className="mb-4"><span className="font-extrabold text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">Davant Studio</span> is an <span className="italic">interface</span> to interact with an active instance of <span className="text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion.</span> For issues or questions about that project, you'll need to refer to <a className="link" href={contentVariables.auto1111.links.repoUrl} target="_blank">the documentation for that project.</a></p>
 									</div>
 
 									<Link className="px-2 py-0 opacity-70 btn mb-36 btn-secondary btn-outline btn-sm hover:opacity-100" to="#Installation">
@@ -168,9 +183,8 @@ const BetaPage: React.FC<PageProps> = () => {
 					to-transparent opacity-20 animate-spin-slow z-0 mix-blend-hard-light"></div>
 						<div className="relative flex flex-col items-center justify-center content">
 							<p className="text-lg font-bold">Ready to start creating?</p>
-							<p className="text-xs">Click to download the zipped .exe application</p>
 							<Link className="pl-0 pr-4 mx-auto mt-6 overflow-hidden rounded-sm shadow shadow-lg shadow-purple-900 mb-7 bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-								to="https://github.com/davantsystems/davant-studio-release/releases/download/v0.5.0/DavantStudio_v0.5.0.zip">
+								to="https://github.com/davantsystems/davant-studio-release/releases/download/v0.6.1/DavantStudio_v0.6.1.zip">
 
 								<span className="p-2 bg-transparent rounded-full badge-neutral">
 									<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
@@ -182,27 +196,11 @@ const BetaPage: React.FC<PageProps> = () => {
 								</span>
 								<span className="pt-1">Download Davant Studio Now</span>
 							</Link>
-							<p className="text-xs max-w-ms">Unzip the file and double-click the DavantStudio.exe to run
-							</p>
+							<p className="text-xs text-center">Join the <Link to="https://community.davantsystems.com" className="link">community forum</Link> for support <br />and to share what you create.</p>
 						</div>
 					</div>
 				</div>
 			</section >
-
-			<section className="container flex justify-center border-b-2 border-slate-700 border-opacity-10">
-				<div className="relative block py-20 mx-auto ">
-					<h2 className="relative inline-block w-auto px-2 py-0 mb-8 mr-auto text-2xl font-bold bg-gradient-to-br from-cyan-300 via-secondary to-cyan-400 text-neutral">Features</h2>
-					<div className="max-w-2xl pr-10 mb-4 prose text-left text-transparent text-bg bg-gradient-to-br from-cyan-300 via-secondary to-purple-500 bg-clip-text">
-						<ul className="pl-0 font-light leading-snug list-none list">
-							<li className="mb-4 list-item"><span className="font-bold">Real-time generative AI engine: </span>Render as fast as your computer can handle</li>
-							<li className="mb-4 list-item"><span className="font-bold">Control what matters: </span>What you need to dial in your vision</li>
-							<li className="mb-4 list-item"><span className="font-bold">Adapts to you: </span>Use images, folders or screenshot as input</li>
-							<li className="mb-4 list-item"><span className="font-bold">No internet required: </span>Your files never leave your computer</li>
-							<li className="mb-4 list-item"><span className="font-bold">Expansive model library: </span>Use any Stable Diffusion checkpoint, embedding or LoRA from the community</li>
-						</ul>
-					</div>
-				</div>
-			</section>
 
 			<section className="container">
 				<div className="max-w-3xl mx-auto">
