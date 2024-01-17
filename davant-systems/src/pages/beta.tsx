@@ -184,7 +184,7 @@ const BetaPage: React.FC<PageProps> = () => {
 						<div className="relative flex flex-col items-center justify-center content">
 							<p className="text-lg font-bold">Ready to start creating?</p>
 							<Link className="pl-0 pr-4 mx-auto mt-6 overflow-hidden rounded-sm shadow shadow-lg shadow-purple-900 mb-7 bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-								to="https://github.com/davantsystems/davant-studio-release/releases/download/v0.6.1/DavantStudio_v0.6.1.zip">
+								to="https://github.com/davantsystems/davant-studio-release/releases/download/v0.6.2/DavantStudio_v0.6.2.zip">
 
 								<span className="p-2 bg-transparent rounded-full badge-neutral">
 									<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
