@@ -82,7 +82,7 @@ const Faq = () => {
                                 <li>Visit the <a className="link link-secondary" href={contentVariables.auto1111.links.repoUrl}>Automatic 1111 GitHub Repository<ExternalLink /></a>.</li>
                                 <li>For Nvidia users, follow the standard installation guide.</li>
                                 <li>For AMD users, refer to the <a className="link link-secondary" href={contentVariables.auto1111.links.installation.windows.amd}>AMD Specific Section<ExternalLink /></a>.</li>
-                                <li>Our recommended version is 1.6.1, which can be found <a className="link link-secondary" href="#link-to-1.6.1">here<ExternalLink /></a>.</li>
+                                <li>Davant Studio has been tested on <a className="link link-secondary" href={contentVariables.auto1111.links.releases.v1_7_0} target="_blank">version {`${contentVariables.auto1111.links.releases.recommended.tag}`}<ExternalLink /></a>.</li>
                                 <li>Tech-savvy users may clone the latest version, but be aware of potential compatibility issues.</li>
                                 <li>After downloading, extract the files to a desired location.</li>
                                 <li><strong>Critical Step</strong>: In the <code>web-user.bat</code> file, add the <code>--api</code> argument in the command line. This is essential for operation.</li>
@@ -105,7 +105,7 @@ const Faq = () => {
                 <div className="pt-6">
                     <h4 className="mb-4 text-lg font-bold">Required:</h4>
                     <h3 className="font-bold text-md">Extensions</h3>
-                    <p className="mb-6"><a className="link link-secondary" href={contentVariables.auto1111.links.controlnetExtenstion}>ControlNet Extension</a> & recommended models</p>
+                    <p className="mb-6"><a className="link link-secondary" href={contentVariables.auto1111.links.controlnetExtension}>ControlNet Extension</a> & recommended models</p>
                     
                     <h3 className="font-bold text-md">Command line arguments in launcher file</h3>
                     <p className="mb-6">The <span className="px-1 mx-1 font-mono text-sm italic font-light bg-slate-800 text-success">--api</span> command line argument must be added in your user config file (<span className="px-1 mx-1 font-mono text-sm italic font-light bg-slate-800 text-success">webui-user.bat</span> on Windows).</p>
