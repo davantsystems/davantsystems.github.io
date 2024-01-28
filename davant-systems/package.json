@@ -25,6 +25,7 @@
     "gatsby-plugin-postcss": "^6.13.0",
     "gatsby-plugin-sharp": "^5.13.0",
     "gatsby-plugin-sitemap": "^6.13.0",
+    "gatsby-plugin-well-known": "^1.0.0",
     "gatsby-source-filesystem": "^5.13.0",
     "gatsby-source-s3": "^4.1.3",
     "gatsby-transformer-sharp": "^5.13.0",

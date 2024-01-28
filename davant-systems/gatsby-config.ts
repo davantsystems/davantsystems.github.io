@@ -18,6 +18,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-well-known",
     {
       resolve: "gatsby-plugin-google-fonts",
       options: {
