@@ -13,7 +13,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "deploy": "gatsby build && gh-pages -d public -b main"
+    "deploy": "gatsby build && gh-pages -d public -b main",
+    "deploy:github": "gh-pages -d public -b main"
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",
