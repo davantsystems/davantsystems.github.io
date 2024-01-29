@@ -13,7 +13,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "deploy": "gatsby build && gh-pages -d public -b main",
+    "predeploy": "gatsby build",
+    "deploy": "gh-pages --dist public --branch main --dotfiles",
     "deploy:github": "gh-pages -d public -b main"
   },
   "dependencies": {
