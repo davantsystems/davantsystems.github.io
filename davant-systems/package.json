@@ -14,7 +14,7 @@
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
     "predeploy": "gatsby build",
-    "deploy": "gh-pages --dist public --branch main --dotfiles",
+    "deploy": "gh-pages --dist public --branch main --dotfiles --nojekyll",
     "deploy:github": "gh-pages -d public -b main"
   },
   "dependencies": {
