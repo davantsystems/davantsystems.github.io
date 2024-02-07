@@ -8,7 +8,7 @@ const IndexPage: React.FC<PageProps> = () => {
 	return (
 		<>
 			<main className="z-20">
-				<section className="relative block overflow-x-hidden">
+				<section className="relative block">
 					<div className="max-w-3xl px-4 py-12 mx-auto md:py-20 text-secondary">
 						<div className="flex-1">
 							<p className="mb-8 text-4xl font-extrabold text-transparent text-cyan-200 md:mb-12 sm:text-6xl md:text-6xl lg:text-8xl bg-gradient-to-b from-cyan-500 via-secondary to-purple-500 bg-clip-text position">Davant Studio will be released Februrary 17th.</p>
@@ -22,9 +22,10 @@ const IndexPage: React.FC<PageProps> = () => {
 						</div>
 					</div>
 				</section>
-				<section className="relative block px-2 py-2 mb-24 overflow-visible">
+				<section className="relative z-10 block px-2 py-2 overflow-hidden pb-96 -mb-72 pt-96 -mt-96">
 					<div className="relative z-40 block max-w-3xl mx-auto border-4 shadow-sm shadow-indigo-800 rounded-xl border-violet-950 border-xl border-spacing-1">
 						<iframe
+							className="z-10"
 							src="https://lu.ma/embed-checkout/evt-gmDIemdg1zXKFnS"
 							width="100%"
 							height="500"
@@ -33,24 +34,31 @@ const IndexPage: React.FC<PageProps> = () => {
 							aria-hidden="false"
 							tabIndex={0}
 						></iframe>
-						<span className="absolute w-full h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-90 rounded-xl mix-blend-overlay top-1/2 left-1/2 bg-gradient-to-br from-violet-900 via-purple-900 to-base-300"></span>
-					</div>
+						<span className="absolute z-20 w-full h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-90 rounded-xl mix-blend-overlay top-1/2 left-1/2 bg-gradient-to-br from-violet-900 via-purple-900 to-base-300"></span>
 
-					<div className="bg__gradient
+						<div className="bg__gradient inline-block -z-10
 						absolute top-0 left-0 -translate-x-1/4 -translate-y-1/6 scale-150 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
 					from-fuchsia-500
 					via-transparent
-					to-transparent opacity-20 z-0 mix-blend-hard-light"></div>
-					<div className="bg__gradient
-						absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 z-0 scale-x-150 w-screen h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
+					to-transparent opacity-20 mix-blend-hard-light"></div>
+						<div className="bg__gradient -z-10
+						absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 scale-x-150 w-screen h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
 					from-primary
 					via-transparent
 					to-transparent opacity-20"></div>
-					<div className="bg__gradient
-						absolute bottom-0 right-0 translate-y-1/2 translate-x-1/6 z-0 scale-x-100 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
+						<div className="bg__gradient z-40
+						absolute bottom-0 right-0 translate-y-1/4 mix-blend-color-dodge translate-x-1/6 scale-x-100 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
 					from-purple-950
 					via-transparent
-					to-transparent opacity-60"></div>
+					to-transparent opacity-100"></div>
+					<div className="bg__gradient -z-10
+						absolute bottom-0 right-0 translate-y-1/2 mix-blend-overlay translate-x-1/6 scale-x-150 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
+					from-purple-950
+					via-transparent
+					to-transparent opacity-50"></div>
+					</div>
+
+
 				</section>
 				<section className="relative hero">
 					{/* <div className="hero-overlay bg-opacity-60"></div> */}
