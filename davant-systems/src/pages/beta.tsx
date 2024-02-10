@@ -149,7 +149,7 @@ const BetaPage: React.FC<PageProps> = () => {
 										<p className="mb-4">The easiest way to get it running is our pre-built bundle of this third-party software.</p>
 										<Link
 											className="mb-4 border-purple-900 shadow-md hover:shadow-lg hover:border-indigo-800 hover:shadow-indigo-800 hover:bg-purple-900 hover:border-purple-900 hover:text-white btn btn-md btn-secondary shadow-purple-900"
-											to="https://davant-public.s3.us-west-1.amazonaws.com/software/stable-diffusion_auto1111_davant-quickstart.zip">
+											to="https://davant-public.s3.us-west-1.amazonaws.com/software/StableDiffusion_Davant-Auto111-Quickstart.zip">
 											Download Our Automatic1111 Quickstart
 										</Link>
 										<p className="mb-4"><span className="font-extrabold text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">Davant Studio</span> is an <span className="italic">interface</span> to interact with an active instance of <span className="text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion.</span> For issues or questions about that project, you'll need to refer to <a className="link" href={contentVariables.auto1111.links.repoUrl} target="_blank">the documentation for that project.</a></p>
