@@ -34,7 +34,7 @@ const IndexPage: React.FC<PageProps> = () => {
 							/>
 							<a
 								href="https://lu.ma/event/evt-gmDIemdg1zXKFnS"
-								className="absolute block -translate-x-1/2 translate-y-full pointer-events-auto -bottom-4 left-1/2 md:translate-y-0 md:-translate-x-4 md:left-auto md:bottom-4 md:left-1/2"
+								className="absolute block -translate-x-1/2 translate-y-full pointer-events-auto -bottom-4 left-1/2 md:translate-y-0 md:-translate-x-4 md:bottom-4 md:left-1/2"
 								data-luma-action="checkout"
 								data-luma-event-id="evt-gmDIemdg1zXKFnS"
 							>
