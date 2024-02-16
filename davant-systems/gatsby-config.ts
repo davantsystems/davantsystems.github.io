@@ -22,7 +22,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-google-fonts",
       options: {
-        fonts: ["Orbitron:900", "Yellowtail"],
+        fonts: ["Orbitron:900", "Yellowtail", "Sacramento"],
         display: "swap",
       },
     },

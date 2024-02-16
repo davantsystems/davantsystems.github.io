@@ -48,7 +48,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 										</div>
 									</div>
 
-									<div className="relative mx-auto mb-0 space-x-2 border-4 shadow-md screenshot-carousel wrapper__screenshots carousel carousel-center border-base-300 border-opacity-20 w-44 sm:w-60 md:w-96">
+									<div className="relative mx-auto mb-0 space-x-2 border-2 border-opacity-50 shadow-lg shadow-base-300 border-indigo-950 shadow-black screenshot-carousel wrapper__screenshots carousel carousel-center w-44 sm:w-60 md:w-96">
 										<div className="relative shadow-md item carousel-item">
 											<StaticImage
 												className="z-10 w-44 sm:w-60 md:w-96"
