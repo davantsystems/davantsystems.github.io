@@ -8,6 +8,7 @@ import ContentContext from "../ContentContext"
 
 const DavantStudioPage: React.FC<PageProps> = () => {
 	const contentVariables = useContext(ContentContext);
+
 	return (
 		<main className="">
 			<section className="border-b-2 hero__wrapper border-slate-400 border-opacity-5">
@@ -24,17 +25,15 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 										</h1>
 
 										<p className="mb-4 text-transparent font-extralight bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
-											<span className="block -mb-1 text-3xl font-extrabold sm:text-4xl md:text-4xl lg:text-5xl">AI image tools <span className="font-extralight">for</span></span><span className="block text-3xl leading-tight sm:text-4xl md:text-4xl lg:text-5xl">professional creatives</span>
+											<span className="block -mb-1 text-3xl font-extrabold sm:text-4xl md:text-4xl lg:text-5xl">AI image tools <span className="font-extralight">for</span></span><span className="block text-3xl leading-tight sm:text-4xl md:text-4xl lg:text-5xl">creative professionals</span>
 										</p>
 
 										<div className="flex flex-col px-4 py-4 bg-opacity-100 shadow-xl bg-base-300">
 											<div className="mb-3">
 												<RequirementsPane />
 											</div>
-											<p className="pt-1">$100/month</p>
-											<p>Pause/resume your subscription any time.</p>
 											<Link className="pl-0 pr-4 mx-auto mt-4 mb-0 rounded-sm shadow-sm bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-												to="#third-party-disclaimer">
+												to={contentVariables.davant.links.davantStudioStripeCheckout}>
 												<span className="p-2 bg-transparent rounded-full badge-neutral">
 													<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
 														<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -45,6 +44,10 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 												</span>
 												<span className="pt-1">Buy Davant Studio Now</span>
 											</Link>
+											<div className="pt-4 pl-8">
+												<p className="pt-1 text-center">$100/month</p>
+												<p className="text-xs text-center">Pause/resume your subscription any time.</p>
+											</div>
 										</div>
 									</div>
 
@@ -99,6 +102,23 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 				</div>
 
 				<section className="container max-w-5xl px-6 mx-auto border-b-2 border-slate-700 border-opacity-10">
+					<div className="relative px-4 py-12">
+						<p className="block text-sm text-center">Already have a subscription?</p>
+						<div className="relative flex flex-wrap items-center justify-center gap-8 pt-4">
+							<Link
+								to="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.0/DavantStudio_v1.0.0.zip"
+								className="btn btn-sm btn-outline btn-secondary">
+								Download Davant Studio for Windows
+							</Link>
+							<Link
+								to={contentVariables.davant.links.davantStudioStripePortal}
+								target="_blank"
+								className="btn btn-sm btn-outline btn-secondary border-opacity-10">
+								Manage your subscription
+							</Link>
+						</div>
+					</div>
+
 					<div className="relative block mx-auto my-20 text-transparent text-bg bg-gradient-to-br from-sky-400 via-secondary to-purple-400 bg-clip-text">
 						<h2 className="inline-block w-auto py-0 mb-20 mr-auto text-4xl font-black text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 md:text-5xl lg:text-5xl bg-clip-text position">Features</h2>
 						<div className="w-full mb-4 text-left text-transparent">
@@ -179,9 +199,9 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 					via-transparent
 					to-transparent opacity-20 animate-spin-slow z-0 mix-blend-hard-light"></div>
 						<div className="relative flex flex-col items-center justify-center content">
-							<p className="text-lg font-bold">Ready to start creating?</p>
+							<p className="text-lg font-bold">Have a subscription?</p>
 							<Link className="pl-0 pr-4 mx-auto mt-6 overflow-hidden rounded-sm shadow shadow-lg shadow-purple-900 mb-7 bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-								to="https://github.com/davantsystems/davant-studio-release/releases/download/v0.6.2/DavantStudio_v0.6.2.zip">
+								to="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.0/DavantStudio_v1.0.0.zip">
 
 								<span className="p-2 bg-transparent rounded-full badge-neutral">
 									<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
@@ -193,6 +213,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 								</span>
 								<span className="pt-1">Download Davant Studio Now</span>
 							</Link>
+							<p className="text-xs text-center">On first startup, enter the email address you used for the purchase.</p>
 							<p className="text-xs text-center">Join the <Link to="https://community.davantsystems.com" className="link">community forum</Link> for support <br />and to share what you create.</p>
 						</div>
 					</div>

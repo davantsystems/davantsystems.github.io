@@ -2,6 +2,12 @@ import React from 'react';
 
 // Define a type for your content variables
 interface ContentVariables {
+    davant: {
+        links: {
+            davantStudioStripeCheckout: string,
+            davantStudioStripePortal: string
+        }
+    },
     auto1111: {
         links: {
             repoUrl: string,
@@ -15,7 +21,7 @@ interface ContentVariables {
             },
             releases: {
                 latest: string,
-                1_7_0: string,  
+                1_7_0: string,
             },
             controlnetExtenstion: string
         }
@@ -24,6 +30,12 @@ interface ContentVariables {
 
 // Create a context with a default value
 const ContentContext = React.createContext<ContentVariables>({
+    davant: {
+        links: {
+            davantStudioStripeCheckout: "",
+            davantStudioStripePortal: ""
+        }
+    },
     auto1111: {
         links: {
             repoUrl: "",

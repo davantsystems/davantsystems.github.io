@@ -7,6 +7,12 @@ interface ContentProviderProps {
 
 const ContentProvider: React.FC<ContentProviderProps> = ({ children }) => {
   const contentVariables = {
+    davant: {
+      links: {
+        davantStudioStripeCheckout: "https://buy.stripe.com/7sIg2v8Vz5IH5Fe145",
+        davantStudioStripePortal: "https://billing.stripe.com/p/login/6oEg26f8K3697yE144"
+      },
+    },
     auto1111: {
       links: {
         repoUrl: "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
@@ -25,13 +31,12 @@ const ContentProvider: React.FC<ContentProviderProps> = ({ children }) => {
         controlnetExtenstion: "https://github.com/Mikubill/sd-webui-controlnet"
       }
     }
-    // Add other content variables here
-  };
+  }
 
   return (
-    <ContentContext.Provider value={contentVariables}>
+    <ContentContext.Provider value={contentVariables} >
       {children}
-    </ContentContext.Provider>
+    </ContentContext.Provider >
   );
 };
 
