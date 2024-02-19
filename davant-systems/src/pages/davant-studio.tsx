@@ -106,7 +106,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 						<p className="block text-sm text-center">Already have a subscription?</p>
 						<div className="relative flex flex-wrap items-center justify-center gap-8 pt-4">
 							<Link
-								to="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.0/DavantStudio_v1.0.0.zip"
+								to="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.0-rc.1/DavantStudio_v1.0.0-rc.1.zip"
 								className="btn btn-sm btn-outline btn-secondary">
 								Download Davant Studio for Windows
 							</Link>
