@@ -15,7 +15,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 			<MainNav />
 			<main className="">
 				<section className="border-b-2 hero__wrapper border-slate-400 border-opacity-5">
-					<div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden hero sm:flex-row">
+					<div className="relative flex flex-col items-center justify-center min-h-screen pt-20 overflow-hidden hero sm:flex-row">
 						<span className="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span>
 						<div className="relative z-20 flex flex-col items-center pt-8 pb-20 text-center hero-content text-neutral-content">
 							<div className="flex flex-col items-center mb-2">
@@ -24,11 +24,11 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 									<div className="flex flex-col software-spotlight sm:flex-row">
 										<div className="flex flex-col pr-8 text-left text">
 											<h1 className="mb-4 font-light text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
-												<span className="block -mb-4 text-5xl font-bold sm:text-7xl md:text-6xl lg:text-8xl">Davant </span><span className="block text-5xl leading-tight sm:text-7xl md:text-6xl lg:text-8xl">Studio</span>
+												<span className="block -mb-4 text-5xl font-bold sm:text-7xl md:text-6xl lg:text-6xl">Davant </span><span className="block text-5xl leading-tight sm:text-7xl md:text-6xl lg:text-6xl">Studio</span>
 											</h1>
 
 											<p className="mb-4 text-transparent font-extralight bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
-												<span className="block -mb-1 text-3xl font-extrabold sm:text-4xl md:text-4xl lg:text-5xl">AI image tools <span className="font-extralight">for</span></span><span className="block text-3xl leading-tight sm:text-4xl md:text-4xl lg:text-5xl">creative professionals</span>
+												<span className="block -mb-1 text-3xl font-extrabold sm:text-4xl md:text-4xl lg:text-4xl">AI image tools <span className="font-extralight">for</span></span><span className="block text-3xl leading-tight sm:text-4xl md:text-4xl lg:text-4xl">creative professionals</span>
 											</p>
 
 											<div className="flex flex-col px-4 py-4 bg-opacity-100 shadow-xl bg-base-300">
