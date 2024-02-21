@@ -3,71 +3,16 @@ import type { HeadFC, PageProps, graphql } from "gatsby"
 import MailchimpForm from "../components/MailchimpForm"
 import { StaticImage } from "gatsby-plugin-image"
 import ContentContext from "../ContentContext"
+import MainNav from "../components/MainNav"
 
 const IndexPage: React.FC<PageProps> = () => {
 	return (
 		<>
 			<script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
 
+			<MainNav />
 			<main className="z-20">
-				<section className="relative block">
-					<div className="max-w-3xl px-4 py-12 mx-auto md:py-20 text-secondary">
-						<div className="flex-1">
-							<p className="mb-8 text-4xl font-extrabold text-transparent text-cyan-200 md:mb-12 sm:text-6xl md:text-6xl lg:text-8xl bg-gradient-to-b from-cyan-500 via-secondary to-purple-500 bg-clip-text position">Davant Studio will be released Februrary 17th.</p>
-							<p className="mb-12 text-3xl md:mb-12 font-extralight lg:text-4xl">Celebrate the launch and our first birthday with us!</p>
-							<ul className="flex flex-col flex-wrap italic font-light rounded-xl bg-opacity-5 text-1xl sm:text-2xl md:text-xl lg:text-2xl md:flex-row">
-								<li className="mb-4 md:w-1/2">🎨🤖  Interactive AI Demos</li>
-								<li className="mb-4 md:w-1/2">​📸🔥  Upgraded Photo Booth</li>
-								<li className="mb-4 md:w-1/2">🎩🐇  A roaming magician</li>
-								<li className="mb-4 md:w-1/2">​💃🎶  Dance music</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section className="relative z-10 block px-2 py-2 overflow-hidden pb-96 -mb-72 pt-96 -mt-96">
-					<div className="relative z-40 block max-w-3xl mx-auto border-4 shadow-sm shadow-indigo-800 rounded-xl border-violet-950 border-xl border-spacing-1">
-						<div className="w-full h-auto faux-embed">
-							<StaticImage
-								src="../images/luma-embed-image.jpg"
-								alt="Event details for Davant Studio launch party"
-								className="relative block w-full h-full rounded-xl"
-							/>
-							<a
-								href="https://lu.ma/event/evt-gmDIemdg1zXKFnS"
-								className="absolute block -translate-x-1/2 translate-y-full pointer-events-auto -bottom-4 left-1/2 md:translate-y-0 md:-translate-x-4 md:bottom-4 md:left-1/2"
-								data-luma-action="checkout"
-								data-luma-event-id="evt-gmDIemdg1zXKFnS"
-							>
-								<button className={"block mx-auto btn btn-primary"}>Register for Event</button>
-							</a>
-						</div>
-						<span className="absolute z-20 w-full h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none opacity-90 rounded-xl mix-blend-overlay top-1/2 left-1/2 bg-gradient-to-br from-violet-900 via-purple-900 to-base-300"></span>
-
-						<div className="bg__gradient inline-block -z-10 pointer-events-none
-						absolute top-0 left-0 -translate-x-1/4 -translate-y-1/6 scale-150 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-					from-fuchsia-500
-					via-transparent
-					to-transparent opacity-20 mix-blend-hard-light"></div>
-						<div className="bg__gradient -z-10 pointer-events-none
-						absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 scale-x-150 w-screen h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-					from-primary
-					via-transparent
-					to-transparent opacity-20"></div>
-						<div className="bg__gradient z-40 pointer-events-none
-						absolute bottom-0 right-0 translate-y-1/4 mix-blend-color-dodge translate-x-1/6 scale-x-100 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-					from-purple-950
-					via-transparent
-					to-transparent opacity-100"></div>
-						<div className="bg__gradient -z-10 pointer-events-none
-						absolute bottom-0 right-0 translate-y-1/2 mix-blend-overlay translate-x-1/6 scale-x-150 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-					from-purple-950
-					via-transparent
-					to-transparent opacity-50"></div>
-					</div>
-
-
-				</section>
-				<section className="relative hero">
+				<section className="relative hero snap-start">
 					{/* <div className="hero-overlay bg-opacity-60"></div> */}
 					<div className="relative z-20 block py-12 text-center hero-content text-neutral-content md:py-20">
 						<div className="flex flex-col items-center mx-auto hero-content__inner">
