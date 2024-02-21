@@ -30,6 +30,9 @@ const BetaPage: React.FC<PageProps> = () => {
 											<h1 className="mb-0 whitespace-pre">
 												<span className="-mb-4 text-5xl font-black text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-7xl md:text-8xl">AI </span><span className="-mr-4 text-5xl font-thin skew-x-12 glow__neon--secondary text-secondary font-sacramento sm:text-7xl md:text-8xl lg:text-8xl"><span className="neon-first">P</span>hoto <span className="neon-second">B</span>ooth</span>
 											</h1>
+											<div className="inline-block px-8 py-2 mx-auto mt-12 text-center border-2 opacity-60 border-secondary">
+											<p className="text-secondary">Booking form coming soon</p>
+											</div>
 
 
 											{/* <div className="flex flex-col px-4 py-3 mt-0 bg-opacity-100 shadow-xl bg-base-300">
