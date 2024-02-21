@@ -17,9 +17,9 @@ const MainNav = () => {
         </Link>
       </div>
       <div className="hidden navbar-center lg:flex">
-        <ul className="px-1 menu menu-horizontal">
+        <ul className="px-1 tracking-tight menu menu-horizontal">
           <li><Link to="/davant-studio/">Davant Studio</Link></li>
-          <li><Link to="/photobooth/">Magic Photob Booth</Link></li>
+          <li><Link to="/photobooth/">Magic Mirror Photo Booth</Link></li>
           <li><Link to="/consulting/">Consulting & Training</Link></li>
         </ul>
       </div>
@@ -32,7 +32,7 @@ const MainNav = () => {
         </div>
         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 right-0">
           <li><Link to="/davant-studio/">Davant Studio</Link></li>
-          <li><Link to="/photobooth/">Magic Photob Booth</Link></li>
+          <li><Link to="/photobooth/">Magic Mirror Photo Booth</Link></li>
           <li><Link to="/consulting/">Consulting & Training</Link></li>
         </ul>
       </div>
