@@ -5,7 +5,8 @@ interface ContentVariables {
     davant: {
         links: {
             davantStudioStripeCheckout: string,
-            davantStudioStripePortal: string
+            davantStudioStripePortal: string,
+            davantStudioDownload: string
         }
     },
     auto1111: {
@@ -33,7 +34,8 @@ const ContentContext = React.createContext<ContentVariables>({
     davant: {
         links: {
             davantStudioStripeCheckout: "",
-            davantStudioStripePortal: ""
+            davantStudioStripePortal: "",
+            davantStudioDownload: ""
         }
     },
     auto1111: {

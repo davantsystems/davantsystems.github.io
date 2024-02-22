@@ -109,7 +109,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 							<p className="block text-sm text-center">Already have a subscription?</p>
 							<div className="relative flex flex-wrap items-center justify-center gap-8 pt-4">
 								<Link
-									to="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.0-rc.1/DavantStudio_v1.0.0-rc.1.zip"
+									to={contentVariables.davant.links.davantStudioDownload}
 									className="btn btn-sm btn-outline btn-secondary">
 									Download Davant Studio for Windows
 								</Link>
@@ -204,7 +204,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 							<div className="relative flex flex-col items-center justify-center content">
 								<p className="text-lg font-bold">Have a subscription?</p>
 								<Link className="pl-0 pr-4 mx-auto mt-6 overflow-hidden rounded-sm shadow shadow-lg shadow-purple-900 mb-7 bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-									to="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.0/DavantStudio_v1.0.0.zip">
+									to={contentVariables.davant.links.davantStudioDownload}>
 
 									<span className="p-2 bg-transparent rounded-full badge-neutral">
 										<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
