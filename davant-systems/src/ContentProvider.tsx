@@ -11,7 +11,7 @@ const ContentProvider: React.FC<ContentProviderProps> = ({ children }) => {
       links: {
         davantStudioStripeCheckout: "https://buy.stripe.com/7sIg2v8Vz5IH5Fe145",
         davantStudioStripePortal: "https://billing.stripe.com/p/login/6oEg26f8K3697yE144",
-        davantStudioDownload: "https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.0-rc.1/DavantStudio_v1.0.0-rc.1.zip"
+        davantStudioDownload: "https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.2/DavantStudio_v1.0.2.zip"
       },
     },
     auto1111: {
