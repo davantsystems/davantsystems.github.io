@@ -36,7 +36,7 @@ const MainNav = () => {
           <li><Link to="/consulting/">Consulting & Training</Link></li>
         </ul>
       </div>
-      <span className="absolute top-0 w-full h-full pointer-events-none select-none opacity-20 -z-10 bg-gradient-to-b from-base-100 via-base-100 to-transparent"></span>
+      <span className="absolute top-0 left-0 w-full h-full pointer-events-none select-none opacity-20 -z-10 bg-gradient-to-b from-base-100 via-base-100 to-transparent"></span>
     </div>
   )
 };

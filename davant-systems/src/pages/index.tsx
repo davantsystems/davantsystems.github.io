@@ -4,6 +4,7 @@ import MailchimpForm from "../components/MailchimpForm"
 import { StaticImage } from "gatsby-plugin-image"
 import ContentContext from "../ContentContext"
 import MainNav from "../components/MainNav"
+import CardPerson from "../components/CardPerson"
 import { Link } from "gatsby"
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -91,76 +92,18 @@ const IndexPage: React.FC<PageProps> = () => {
 							objectPosition="center"
 							alt="Screenshot of Davant Studio software" />
 					</div>
+
+					<div className="absolute bottom-0 left-0 z-0 w-full mb-0 opacity-100 pb-28 bg-gradient-to-b from-transparent to-base-300"></div>
 				</section>
 
-				<div className="relative mb-0 opacity-100 pb-28 -mt-60 bg-gradient-to-b from-transparent to-base-300"></div>
-				<div className="pb-32 bg-base-300"></div>
-
 				<section className="relative">
-					<div className="relative z-10 w-full max-w-sm min-h-screen px-5 pb-2 mx-auto mt-0 font-mono text-sm text-success md:max-w-5xl lg:max-w-5xl pt-28">
-						<h2 className="relative z-10 mb-12 text-2xl text-center lg:text-3xl md:mb-20 filter drop-shadow-sm">─── Hello World ───</h2>
+					<div className="relative z-10 w-full max-w-sm min-h-screen px-5 pt-32 pb-2 mx-auto mt-0 font-mono text-sm text-success md:max-w-5xl lg:max-w-5xl">
+						<h2 className="relative z-10 mb-4 text-2xl text-center lg:text-3xl md:mb-8 filter drop-shadow-sm">─── Hello World ───</h2>
 						<span className="inline-block px-1 mb-4 text-xs text-center bg-success text-neutral">humans@davantsystems ~ %</span>
 						<div className="relative z-10 grid grid-rows-3 gap-4 mx-auto md:grid-rows-1 md:grid-cols-3">
-							<div className="relative px-4 py-10 border border-opacity-10 border-success lg:px-8 lg:py-20">
-								<div className="relative z-10 content">
-									<h4 className="mb-4 text-xl font-bold sm:text-3xl md:text-3xl lg:text-4xl lg:mb-6">Booking & Events</h4>
-									<p className="text-sm lg:text-lg">MC de Martino</p>
-									<a className="font-bold link-hover" href="mailto:mc@davantsystems.com">mc@davantsystems.com</a>
-								</div>
-								<div className="bg-overlay
-									absolute
-									top-0
-									left-0
-									w-full
-									h-full
-									z-0
-									bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))]
-									from-purple-900
-									via-teal-900
-									to-black
-									opacity-10">
-								</div>
-							</div>
-							<div className="relative px-4 py-10 border border-opacity-10 border-success lg:px-8 lg:py-20">
-								<div className="relative z-10 block content">
-									<h4 className="mb-4 text-xl font-bold sm:text-3xl md:text-3xl lg:text-4xl lg:mb-6">AI Magic & Workflow</h4>
-									<p className="text-sm lg:text-lg">David Shorey</p>
-									<a className="font-bold link-hover" href="mailto:david@davantsystems.com">david@davantsystems.com</a>
-								</div>
-								<div className="bg-overlay
-									absolute
-									top-0
-									left-0
-									w-full
-									h-full
-									z-0
-									bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))]
-									from-purple-900
-									via-teal-900
-									to-black
-									opacity-10">
-								</div>
-							</div>
-							<div className="relative max-w-6xl px-4 py-10 border border-opacity-10 border-success lg:px-8 lg:py-20">
-								<div className="relative z-10 block content">
-									<h4 className="mb-4 text-xl font-bold sm:text-3xl md:text-3xl lg:text-4xl lg:mb-6">Business Inquiries</h4>
-									<p className="text-sm lg:text-lg">Grant Keller</p>
-									<a className="font-bold link-hover" href="mailto:grant@davantsystems.com">grant@davantsystems.com</a>
-								</div>
-								<div className="bg-overlay
-										absolute
-										top-0
-										left-0
-										w-full
-										h-full
-										z-0
-										bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))]
-										from-purple-900
-										via-teal-900
-										to-black
-										opacity-10">
-								</div>
-							</div>
+							<CardPerson headline = "Booking & Events" name = "MC de Martino" email = "mc@davantsystems.com" />
+							<CardPerson headline="AI Magic & Workflow" name="David Shorey" email="david@davantsystems.com" />
+							<CardPerson headline="Business Inquiries" name="Grant Keller" email="grant@davantsystems.com" />
 						</div>
 					</div>
 					<div className="absolute top-0 left-0 z-0 w-full h-full bg-black bg-overlay opacity-30">
@@ -168,7 +111,7 @@ const IndexPage: React.FC<PageProps> = () => {
 				</section>
 				<div className="relative pb-12 mb-0 bg-gradient-to-t from-transparent to-black opacity-20"></div>
 
-				<section className="px-6 py-20 bg-base">
+				<section className="px-6 pb-20 bg-base">
 					<div className="flex flex-col max-w-4xl py-10 mx-auto md:flex-row ">
 						<div className="pt-8 mb-10 md:p-4 md:max-w-lg">
 							<h2 className="mb-8 text-5xl leading-10 text-transparent bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text">
@@ -180,16 +123,7 @@ const IndexPage: React.FC<PageProps> = () => {
 							</div>
 						</div>
 						<div className="relative w-full px-10 pt-5 pb-3 bg-purple-900 border-2 rounded-lg shadow-sm min-w-sm md:px-4 lg:px-10 bg-opacity-5 border-secondary border-opacity-5 shadow-purple-950">
-
-
 							<MailchimpForm />
-
-
-
-
-
-
-
 
 							<div className="bg-overlay
 								absolute

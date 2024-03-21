@@ -314,11 +314,10 @@ h1 {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 29.5%, #000000 50%, rgba(0, 0, 0, 1) 70.5%) 0% center repeat-y;
     background-size: 100% clamp(20px, 2vw, 200px);
     opacity: 0.03;
+    pointer-events: none;
     animation: vhs-lines 5s infinite linear;
-    /* z-index: 4; */
     mix-blend-mode: overlay;
     width: 100%;
-    height: 300%;
 }
 
 @keyframes vhs-lines {
@@ -340,10 +339,9 @@ h1 {
     background-size: clamp(4px, 2vw, 100px) 100%;
     opacity: 0.02;
     animation: vhs-lines-vert .1s infinite linear;
-    /* z-index: 1; */
+    pointer-events: none;
     mix-blend-mode: overlay;
     width: 100%;
-    height: 300%;
 }
 
 @keyframes vhs-lines-vert {
