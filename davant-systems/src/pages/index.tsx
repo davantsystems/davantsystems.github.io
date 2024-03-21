@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import ContentContext from "../ContentContext"
 import MainNav from "../components/MainNav"
 import CardPerson from "../components/CardPerson"
+import InstagramEmbed from "../components/InstagramEmbed"
 import { Link } from "gatsby"
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -96,35 +97,34 @@ const IndexPage: React.FC<PageProps> = () => {
 					<div className="absolute bottom-0 left-0 z-0 w-full mb-0 opacity-100 pb-28 bg-gradient-to-b from-transparent to-base-300"></div>
 				</section>
 
-				<section className="relative">
-					<div className="relative z-10 w-full max-w-sm min-h-screen px-5 pt-32 pb-2 mx-auto mt-0 font-mono text-sm text-success md:max-w-5xl lg:max-w-5xl">
+				<section className="relative snap-start">
+					<div className="relative z-10 w-full max-w-sm px-5 pt-32 pb-24 mx-auto mt-0 font-mono text-sm text-success md:max-w-5xl lg:max-w-5xl">
 						<h2 className="relative z-10 mb-4 text-2xl text-center lg:text-3xl md:mb-8 filter drop-shadow-sm">─── Hello World ───</h2>
 						<span className="inline-block px-1 mb-4 text-xs text-center bg-success text-neutral">humans@davantsystems ~ %</span>
 						<div className="relative z-10 grid grid-rows-3 gap-4 mx-auto md:grid-rows-1 md:grid-cols-3">
-							<CardPerson headline = "Booking & Events" name = "MC de Martino" email = "mc@davantsystems.com" />
+							<CardPerson headline="Booking & Events" name="MC de Martino" email="mc@davantsystems.com" />
 							<CardPerson headline="AI Magic & Workflow" name="David Shorey" email="david@davantsystems.com" />
 							<CardPerson headline="Business Inquiries" name="Grant Keller" email="grant@davantsystems.com" />
 						</div>
 					</div>
-					<div className="absolute top-0 left-0 z-0 w-full h-full bg-black bg-overlay opacity-30">
-					</div>
+					{/* <div className="absolute top-0 left-0 z-0 w-full h-full bg-black bg-overlay opacity-30">
+					</div> */}
 				</section>
-				<div className="relative pb-12 mb-0 bg-gradient-to-t from-transparent to-black opacity-20"></div>
 
-				<section className="px-6 pb-20 bg-base">
+				<section className="px-6 pt-12 pb-12 bg-base snap-start">
+					<div className="absolute top-0 left-0 w-full pb-12 mb-0 bg-gradient-to-t from-transparent to-black opacity-20"></div>
 					<div className="flex flex-col max-w-4xl py-10 mx-auto md:flex-row ">
-						<div className="pt-8 mb-10 md:p-4 md:max-w-lg">
+						<div className="block w-full pt-8 mb-10 md:p-4 md:w-1/2 basis-full">
 							<h2 className="mb-8 text-5xl leading-10 text-transparent bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text">
-								The future <span className="inline-block sm:inline-block">moves <span className="italic">fast</span></span> <br /><span className="pl-1 text-xl sm:text-3xl">Let us help you keep up</span>
+								Get updates <br /><span className="pl-1 text-xl sm:text-3xl">in our email newsletter</span>
 							</h2>
 							<div className="pl-1 pr-4 text-cyan-100">
-								<p className="mb-4 md:mb-0">The AI landscape changes by the hour. It's a full-time job to keep up with all the updates, tools, and techniques. Let us keep you up to speed so you can stay focused on making amazing things.</p>
-								<p>Sign up for the newsletter to get Davant product updates and technique demonstrations you can use to supercharge your work.</p>
+								<p className="mb-1">The best way to get "official" updates.</p>
+								<p>Product updates, event info, and updates in AI.</p>
 							</div>
 						</div>
-						<div className="relative w-full px-10 pt-5 pb-3 bg-purple-900 border-2 rounded-lg shadow-sm min-w-sm md:px-4 lg:px-10 bg-opacity-5 border-secondary border-opacity-5 shadow-purple-950">
+						<div className="relative block w-1/2 w-full px-10 pt-5 pb-3 bg-purple-900 border-2 rounded-lg shadow-sm basis-full min-w-sm md:px-4 lg:px-10 bg-opacity-5 border-secondary border-opacity-5 shadow-purple-950">
 							<MailchimpForm />
-
 							<div className="bg-overlay
 								absolute
 								pointer-events-none
@@ -162,4 +162,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Davant Systems | Open Beta available now</title>
+export const Head: HeadFC = () => <title>Davant Systems | AI for creative professionals</title>
