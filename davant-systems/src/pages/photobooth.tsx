@@ -19,43 +19,34 @@ const BetaPage: React.FC<PageProps> = () => {
 						<span className="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span>
 						<div className="relative z-20 flex flex-col items-center pt-8 pb-20 text-center hero-content text-neutral-content">
 							<div className="flex flex-col items-center mb-2">
-
 								<div className="relative flex flex-col items-center cta-wrapper">
-									<div className="flex flex-col software-spotlight sm:flex-row">
-										<div className="flex flex-col pr-8 text-left text">
-											{/* <h1 className="mb-0 font-light text-transparent bg-gradient-to-tr font-sacramento from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
-											<span className="block -mb-4 text-5xl font-bold sm:text-7xl md:text-8xl">Party </span><span className="block text-5xl leading-tight sm:text-7xl md:text-8xl">Portal</span>
-
-										</h1> */}
+									<div className="flex flex-col software-spotlight">
+										<div className="flex flex-col pr-8 mb-4 text-left text">
 											<h1 className="mb-0 whitespace-pre">
 												<span className="-mb-4 text-5xl font-black text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-7xl md:text-8xl">AI </span><span className="-mr-4 text-5xl font-thin skew-x-12 glow__neon--secondary text-secondary font-sacramento sm:text-7xl md:text-8xl lg:text-8xl"><span className="neon-first">P</span>hoto <span className="neon-second">B</span>ooth</span>
 											</h1>
-											<div className="inline-block px-8 py-2 mx-auto mt-12 text-center border-2 opacity-60 border-secondary">
-											<p className="text-secondary">Booking form coming soon</p>
-											</div>
-
-
-											{/* <div className="flex flex-col px-4 py-3 mt-0 bg-opacity-100 shadow-xl bg-base-300">
-											<div className="pt-4 pb-3">
-												
-											</div>
-
-											
-											<Link className="pl-0 pr-4 mx-auto mt-4 mb-0 rounded-sm shadow-sm bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-												to="#third-party-disclaimer">
-
-												<span className="p-2 bg-transparent rounded-full">Book Now</span>
-											</Link>
-										</div> */}
+											{/* <div className="inline-block px-8 py-2 mx-auto mt-12 text-center border-2 opacity-60 border-secondary">
+												<p className="text-secondary">Booking form coming soon</p>
+											</div> */}
 										</div>
 
+										<div className="relative w-full bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper min-w-sm bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
+											<iframe
+												className="w-full embed-video"
+												src="https://www.youtube.com/embed/vuYqdw3HwDc"
+												title="YouTube video player"
+												frameBorder="0"
+												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+												allowFullScreen
 
+											></iframe>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 
-						<div className="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 background-image left-1/2 z-1">
+						<div className="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 pointer-events-none select-none background-image left-1/2 z-1">
 							<StaticImage
 								className="relative block h-full hero__background-image"
 								src="../images/hero2.png"
