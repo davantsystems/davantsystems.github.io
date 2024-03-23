@@ -35,20 +35,23 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 												<div className="mb-3">
 													<RequirementsPane />
 												</div>
-												<Link className="pl-0 pr-4 mx-auto mt-4 mb-0 rounded-sm shadow-sm bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-													to={contentVariables.davant.links.davantStudioStripeCheckout}>
-													<span className="p-2 bg-transparent rounded-full badge-neutral">
-														<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
-															<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-															<g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-															<g id="SVGRepo_iconCarrier">
-																<path d="M8 22.0002H16C18.8284 22.0002 20.2426 22.0002 21.1213 21.1215C22 20.2429 22 18.8286 22 16.0002V15.0002C22 12.1718 22 10.7576 21.1213 9.8789C20.3529 9.11051 19.175 9.01406 17 9.00195M7 9.00195C4.82497 9.01406 3.64706 9.11051 2.87868 9.87889C2 10.7576 2 12.1718 2 15.0002L2 16.0002C2 18.8286 2 20.2429 2.87868 21.1215C3.17848 21.4213 3.54062 21.6188 4 21.749" strokeWidth="1.5" strokeLinecap="round"></path>
-																<path d="M12 2L12 15M12 15L9 11.5M12 15L15 11.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
-													</span>
-													<span className="pt-1">Buy Davant Studio Now</span>
-												</Link>
-												<div className="pt-4 pl-8">
-													<p className="pt-1 text-center">$100/month</p>
+												<div className="relative flex flex-col">
+													<Link className="relative z-10 pl-0 pr-4 mx-auto mt-4 mb-2 mb-4 rounded-sm shadow-sm bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
+														to={contentVariables.davant.links.davantStudioStripeCheckout}>
+														<span className="p-2 bg-transparent rounded-full badge-neutral">
+															<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+																<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+																<g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+																<g id="SVGRepo_iconCarrier">
+																	<path d="M8 22.0002H16C18.8284 22.0002 20.2426 22.0002 21.1213 21.1215C22 20.2429 22 18.8286 22 16.0002V15.0002C22 12.1718 22 10.7576 21.1213 9.8789C20.3529 9.11051 19.175 9.01406 17 9.00195M7 9.00195C4.82497 9.01406 3.64706 9.11051 2.87868 9.87889C2 10.7576 2 12.1718 2 15.0002L2 16.0002C2 18.8286 2 20.2429 2.87868 21.1215C3.17848 21.4213 3.54062 21.6188 4 21.749" strokeWidth="1.5" strokeLinecap="round"></path>
+																	<path d="M12 2L12 15M12 15L9 11.5M12 15L15 11.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
+														</span>
+														<span className="pt-1">Try Davant Studio Now</span>
+													</Link>
+													<span className="relative w-auto mx-auto text-center inlineblock badge badge-success">14-day free trial</span>
+												</div>
+												<div className="pt-1">
+													<p className="pt-1 mb-4 text-center">then $100/month</p>
 													<p className="text-xs text-center">Pause/resume your subscription any time.</p>
 												</div>
 											</div>
@@ -106,17 +109,17 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 
 					<section className="container max-w-5xl px-6 mx-auto border-b-2 border-slate-700 border-opacity-10">
 						<div className="relative px-4 py-12">
-							<p className="block text-sm text-center">Already have a subscription?</p>
+							<p className="block text-sm text-center text-cyan-100">Already have a subscription?</p>
 							<div className="relative flex flex-wrap items-center justify-center gap-8 pt-4">
 								<Link
 									to={contentVariables.davant.links.davantStudioDownload}
-									className="btn btn-sm btn-outline btn-secondary">
+									className="btn btn-md btn-outline btn-secondary">
 									Download Davant Studio for Windows
 								</Link>
 								<Link
 									to={contentVariables.davant.links.davantStudioStripePortal}
 									target="_blank"
-									className="btn btn-sm btn-outline btn-secondary border-opacity-10">
+									className="btn btn-md btn-outline btn-secondary border-opacity-10">
 									Manage your subscription
 								</Link>
 							</div>

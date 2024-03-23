@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import RequirementsPane from "../components/requirementsPane"
 import ContentContext from "../ContentContext"
 import MainNav from "../components/MainNav";
+import TypeformPhotoboothBooking from '../components/TypeformPhotoboothBooking';
 
 const BetaPage: React.FC<PageProps> = () => {
 	const contentVariables = useContext(ContentContext);
@@ -30,7 +31,7 @@ const BetaPage: React.FC<PageProps> = () => {
 											</div> */}
 										</div>
 
-										<div className="relative w-full bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper min-w-sm bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
+										<div className="relative w-full mb-12 bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper min-w-sm bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
 											<iframe
 												className="w-full embed-video"
 												src="https://www.youtube.com/embed/vuYqdw3HwDc"
@@ -41,6 +42,8 @@ const BetaPage: React.FC<PageProps> = () => {
 
 											></iframe>
 										</div>
+										<p className="mb-2 text-center text-cyan-100">Interested in booking?</p>
+										<TypeformPhotoboothBooking />
 									</div>
 								</div>
 							</div>

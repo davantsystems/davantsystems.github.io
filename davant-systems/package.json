@@ -18,6 +18,7 @@
     "deploy:github": "gh-pages -d public -b main"
   },
   "dependencies": {
+    "@typeform/embed-react": "^3.16.0",
     "autoprefixer": "^10.4.16",
     "gatsby": "^5.12.12",
     "gatsby-plugin-google-fonts": "^1.0.1",
