@@ -7,7 +7,7 @@ import RequirementsPane from "../components/requirementsPane"
 import ContentContext from "../ContentContext"
 import MainNav from '../components/MainNav';
 
-const BetaPage: React.FC<PageProps> = () => {
+const ConsultingPage: React.FC<PageProps> = () => {
 	const contentVariables = useContext(ContentContext);
 	return (
 		<>
@@ -70,6 +70,6 @@ const BetaPage: React.FC<PageProps> = () => {
 	)
 }
 
-export default BetaPage
+export default ConsultingPage
 
-export const Head: HeadFC = () => <title>Davant Systems | Download beta software</title>
+export const Head: HeadFC = () => <title>Davant Systems | Training & Consulting</title>

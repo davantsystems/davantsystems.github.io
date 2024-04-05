@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, type HeadFC, type PageProps } from "gatsby"
-import Faq from "../components/Faq"
-import Countdown from "../components/Countdown"
+import Faq from "../../components/Faq"
 import { StaticImage } from "gatsby-plugin-image"
-import RequirementsPane from "../components/requirementsPane"
-import ContentContext from "../ContentContext"
-import MainNav from '../components/MainNav';
+import RequirementsPane from "../../components/requirementsPane"
+import ContentContext from "../../ContentContext"
+import MainNav from '../../components/MainNav';
 
 const DavantStudioPage: React.FC<PageProps> = () => {
 	const contentVariables = useContext(ContentContext);
@@ -62,7 +61,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 												<StaticImage
 													className="z-10 w-44 sm:w-60 md:w-96"
 													objectFit="contain"
-													src="../images/davant-studio-presets.png"
+													src="../../images/davant-studio-presets.png"
 													quality={100}
 													alt="Screenshot of Davant Studio software"
 												/>
@@ -71,7 +70,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 												<StaticImage
 													className="z-10 w-44 sm:w-60 md:w-96"
 													objectFit="contain"
-													src="../images/davant-studio-controls.png"
+													src="../../images/davant-studio-controls.png"
 													quality={100}
 													alt="Screenshot of Davant Studio software"
 												/>
@@ -80,7 +79,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 												<StaticImage
 													className="z-10 w-44 sm:w-60 md:w-96"
 													objectFit="contain"
-													src="../images/davant-studio-prompts.png"
+													src="../../images/davant-studio-prompts.png"
 													quality={100}
 													alt="Screenshot of Davant Studio software"
 												/>
@@ -95,7 +94,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 						<div className="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 background-image left-1/2 z-1">
 							<StaticImage
 								className="relative block h-full hero__background-image"
-								src="../images/hero2.png"
+								src="../../images/hero2.png"
 								quality={100}
 								placeholder="blurred"
 								layout="fullWidth"

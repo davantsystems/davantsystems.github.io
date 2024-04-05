@@ -8,7 +8,7 @@ import ContentContext from "../ContentContext"
 import MainNav from "../components/MainNav";
 import TypeformPhotoboothBooking from '../components/TypeformPhotoboothBooking';
 
-const BetaPage: React.FC<PageProps> = () => {
+const PhotoboothPage: React.FC<PageProps> = () => {
 	const contentVariables = useContext(ContentContext);
 
 	return (
@@ -86,6 +86,6 @@ const BetaPage: React.FC<PageProps> = () => {
 	)
 }
 
-export default BetaPage
+export default PhotoboothPage
 
-export const Head: HeadFC = () => <title>Davant Systems | Download beta software</title>
+export const Head: HeadFC = () => <title>Davant Systems | Magic Mirror AI Photobooth</title>
