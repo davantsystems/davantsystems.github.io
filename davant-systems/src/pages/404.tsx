@@ -4,7 +4,7 @@ import { Link, HeadFC, PageProps } from "gatsby"
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
     <main>
-      <section>
+      <section className="container px-4 py-12">
         <h1 className="text-2xl">Page not found</h1>
         <p>
           Sorry 😔, we couldn’t find what you were looking for.
@@ -17,7 +17,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
             </>
           ) : null}
           <br />
-          <Link to="/">Go home</Link>.
+          <Link to="/">Go to home page</Link>.
         </p>
       </section>
     </main>

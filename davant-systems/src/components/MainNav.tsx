@@ -20,7 +20,7 @@ const MainNav = () => {
         <ul className="px-1 tracking-tight menu menu-horizontal text-cyan-100">
           <li><Link to="/davant-studio/">Davant Studio</Link></li>
           <li><Link to="/photobooth/">Magic Mirror Photo Booth</Link></li>
-          <li><Link to="/consulting/">Consulting & Training</Link></li>
+          <li><Link to="/training/">Training & Workshops</Link></li>
         </ul>
       </div>
       <div className="navbar-end">
