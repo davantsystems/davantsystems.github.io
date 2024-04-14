@@ -7,6 +7,7 @@ import RequirementsPane from "../components/requirementsPane"
 import ContentContext from "../ContentContext"
 import MainNav from "../components/MainNav";
 import TypeformPhotoboothBooking from '../components/TypeformPhotoboothBooking';
+import Footer from '../components/Footer';
 
 const PhotoboothPage: React.FC<PageProps> = () => {
 	const contentVariables = useContext(ContentContext);
@@ -82,6 +83,8 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 
 				<div className="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
 			</main >
+
+			<Footer />
 		</>
 	)
 }

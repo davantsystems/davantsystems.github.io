@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import RequirementsPane from "../../components/requirementsPane"
 import ContentContext from "../../ContentContext"
 import MainNav from '../../components/MainNav';
+import Footer from '../../components/Footer';
 
 const DavantStudioPage: React.FC<PageProps> = () => {
 	const contentVariables = useContext(ContentContext);
@@ -123,7 +124,29 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 								</Link>
 							</div>
 						</div>
+					</section>
 
+					<section className="container px-4 py-20">
+						<h2 className="max-w-2xl pr-4 mx-auto mb-8 text-lg sm:text-xl md:text-xl md:text-center lg:text-2xl xl:text-4xl text-cyan-100">As you design & paint in your favorite program, control and view limitless AI-enhanced versions of your image.</h2>
+						<div className="relative block p-2 mb-2">
+
+							<StaticImage
+								className="relative z-10 block w-full"
+								src="../../images/davant-studio-photoshop-screenshot.jpg"
+								quality={100}
+								placeholder="blurred"
+								loading="eager"
+								objectFit="contain"
+								objectPosition="center"
+								alt="Davant Studio and Photoshop" />
+
+							<div className="absolute top-0 left-0 block w-full h-full opacity-20 bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500">
+							</div>
+						</div>
+						<p className="italic text-right text-md text-cyan-100">Photoshop</p>
+					</section>
+
+					<section className="max-w-4xl px-4 mx-auto">
 						<div className="relative block mx-auto my-20 text-transparent text-bg bg-gradient-to-br from-sky-400 via-secondary to-purple-400 bg-clip-text">
 							<h2 className="inline-block w-auto py-0 mb-20 mr-auto text-4xl font-black text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 md:text-5xl lg:text-5xl bg-clip-text position">Features</h2>
 							<div className="w-full mb-4 text-left text-transparent">
@@ -137,6 +160,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 							</div>
 						</div>
 					</section>
+
 
 					<div id="third-party-disclaimer"
 						className="relative z-20 block px-4 pt-4 pb-10 mt-0 bg-black disclaimer bg-opacity-30">
@@ -241,6 +265,8 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 
 				<div className="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
 			</main >
+
+			<Footer />
 		</>
 	)
 }
