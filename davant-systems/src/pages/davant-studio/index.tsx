@@ -36,7 +36,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 													<RequirementsPane />
 												</div>
 												<div className="relative flex flex-col">
-													<Link className="relative z-10 pl-0 pr-4 mx-auto mt-4 mb-2 mb-4 rounded-sm shadow-sm bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
+													<Link className="relative z-10 w-auto pl-0 pr-4 mt-4 mb-2 mb-4 rounded-sm shadow-sm bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
 														to={contentVariables.davant.links.davantStudioStripeCheckout}>
 														<span className="p-2 bg-transparent rounded-full badge-neutral">
 															<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
@@ -46,13 +46,12 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 																	<path d="M8 22.0002H16C18.8284 22.0002 20.2426 22.0002 21.1213 21.1215C22 20.2429 22 18.8286 22 16.0002V15.0002C22 12.1718 22 10.7576 21.1213 9.8789C20.3529 9.11051 19.175 9.01406 17 9.00195M7 9.00195C4.82497 9.01406 3.64706 9.11051 2.87868 9.87889C2 10.7576 2 12.1718 2 15.0002L2 16.0002C2 18.8286 2 20.2429 2.87868 21.1215C3.17848 21.4213 3.54062 21.6188 4 21.749" strokeWidth="1.5" strokeLinecap="round"></path>
 																	<path d="M12 2L12 15M12 15L9 11.5M12 15L15 11.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
 														</span>
-														<span className="pt-1">Try Davant Studio Now</span>
+														<span className="pt-1">Try for Free</span>
 													</Link>
-													<span className="relative w-auto mx-auto text-center inlineblock badge badge-success">14-day free trial</span>
+													<span className="relative w-auto mx-auto text-center inlineblock badge badge-success">14-day trial</span>
 												</div>
 												<div className="pt-1">
-													<p className="pt-1 mb-4 text-center">then $100/month</p>
-													<p className="text-xs text-center">Pause/resume your subscription any time.</p>
+													<p className="pt-1 mb-4 text-xs text-center">No credit card required</p>
 												</div>
 											</div>
 										</div>
@@ -107,29 +106,14 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 						</div>
 					</div>
 
-					<section className="container max-w-5xl px-6 mx-auto border-b-2 border-slate-700 border-opacity-10">
-						<div className="relative px-4 py-12">
-							<p className="block text-sm text-center text-cyan-100">Already have a subscription?</p>
-							<div className="relative flex flex-wrap items-center justify-center gap-8 pt-4">
-								<Link
-									to={contentVariables.davant.links.davantStudioDownload}
-									className="btn btn-md btn-outline btn-secondary">
-									Download Davant Studio for Windows
-								</Link>
-								<Link
-									to={contentVariables.davant.links.davantStudioStripePortal}
-									target="_blank"
-									className="btn btn-md btn-outline btn-secondary border-opacity-10">
-									Manage your subscription
-								</Link>
-							</div>
-						</div>
-					</section>
-
 					<section className="container px-4 py-20">
-						<h2 className="max-w-2xl pr-4 mx-auto mb-8 text-lg sm:text-xl md:text-xl md:text-center lg:text-2xl xl:text-4xl text-cyan-100">As you design & paint in your favorite program, control and view limitless AI-enhanced versions of your image.</h2>
+						<div class="mb-12 max-w-2xl mx-auto">
+							<h2 className="pr-4 mx-auto mb-8 text-lg sm:text-xl md:text-xl md:text-center lg:text-2xl xl:text-4xl text-cyan-100">Your real-time art & design assistant</h2>
+							<p className="mb-2 text-xl">Design, paint & create in your favorite creative programs.</p>
+							<p className="mb-2 text-xl">Generate, view & control limitless AI-enhanced versions of your image.</p>
+							<p className="mb-2 text-xl">All on <em>your</em> local computer for 100% privacy & power.</p>
+						</div>
 						<div className="relative block p-2 mb-2">
-
 							<StaticImage
 								className="relative z-10 block w-full"
 								src="../../images/davant-studio-photoshop-screenshot.jpg"
@@ -144,6 +128,19 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 							</div>
 						</div>
 						<p className="italic text-right text-md text-cyan-100">Photoshop</p>
+					</section>
+
+					<section className="container max-w-5xl px-6 mx-auto border-b-2 border-slate-700 border-opacity-10">
+						<div className="relative px-4 py-12">
+							<p className="block text-sm text-center text-cyan-100">Looking for application files?</p>
+							<div className="relative flex flex-wrap items-center justify-center gap-8 pt-4">
+								<Link
+									to={contentVariables.davant.links.davantStudioAllDownloads}
+									className="btn btn-md btn-outline btn-secondary">
+									Download everything needed for Windows
+								</Link>
+							</div>
+						</div>
 					</section>
 
 					<section className="max-w-4xl px-4 mx-auto">
@@ -162,60 +159,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 					</section>
 
 
-					<div id="third-party-disclaimer"
-						className="relative z-20 block px-4 pt-4 pb-10 mt-0 bg-black disclaimer bg-opacity-30">
-
-						<div className="container block w-auto max-w-3xl mx-auto mt-5 p-0.5 text-sm -translate-y-0.5 indicator">
-							<span className="px-1 py-4 mr-2 indicator-item indicator-center badge badge-warning badge-xl">
-								<svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-							</span>
-							<div className="relative p-0.5 overflow-hidden gradient-border-wrapper">
-								<div className="pt-12 pb-8 pl-8 pr-4 wrapper bg-base-300">
-
-									<div className="absolute top-0 left-0 w-full h-full duration-100 opacity-100 -z-10 from-warning bg bg-gradient-to-b via-orange-500 to-transparent"></div>
-									<div className="">
-										<span className="inline-block px-1 mb-3 font-mono text-xs italic font-light leading-normal text-center bg-warning text-neutral">dependencies ~ %</span>
-										<p className="mb-4 text-lg font-bold text-warning">Davant Studio is <span className="italic">not</span> a standalone AI system. <span className="inline-block">Additional installation of third-party software is required.</span></p>
-										<div className="pt-4 mb-8 leading-relaxed">
-											<p className="mb-4 text-lg font-bold">Already have Automatic 1111 SD Web UI installed?</p>
-											<p className="mb-1">Great! Make sure you have:</p>
-											<ul className="mb-4 list-disc list-inside">
-												<li className="list-item">ControlNet extension installed</li>
-												<li className="list-item">Added <span className="px-1 mx-1 font-mono text-sm italic font-light text-success bg-indigo-950">--api</span> to commandline arguments</li>
-											</ul>
-											<div className="mb-4">
-												<Link className="px-2 py-0 opacity-70 btn btn-secondary btn-outline btn-sm hover:opacity-100" to="#download-button"><span className="">Continue to download</span></Link>
-												<Link className="text-current btn btn-link btn-sm hover:text-cyan-300" to="#SetupConfiguration">More info in the FAQ.</Link>
-											</div>
-											<span className="mt-6 mb-6 divider"></span>
-											<p className="mb-4 text-lg font-bold">Starting from scratch?</p>
-											<p className="mb-4">Here's what you'll need:</p>
-											<p className=""><span className="font-extrabold text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion with Automatic111 SD Web UI</span></p>
-											<p className="">The AI system that generates the images. It is free and can be run on consumer-grade hardware.</p>
-											<p className="mb-4">The easiest way to get it running is our pre-built bundle of this third-party software.</p>
-											<Link
-												className="mb-4 border-purple-900 shadow-md hover:shadow-lg hover:border-indigo-800 hover:shadow-indigo-800 hover:bg-purple-900 hover:border-purple-900 hover:text-white btn btn-md btn-secondary shadow-purple-900"
-												to="https://davant-public.s3.us-west-1.amazonaws.com/software/StableDiffusion_Davant-Auto111-Quickstart.zip">
-												Download Our Automatic1111 Quickstart
-											</Link>
-											<p className="mb-4"><span className="font-extrabold text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">Davant Studio</span> is an <span className="italic">interface</span> to interact with an active instance of <span className="text-transparent bg-indigo-900 bg-gradient-to-tr from-violet-500 via-indigo-400 to-purple-500 bg-clip-text">Stable Diffusion.</span> For issues or questions about that project, you'll need to refer to <a className="link" href={contentVariables.auto1111.links.repoUrl} target="_blank">the documentation for that project.</a></p>
-										</div>
-
-										<Link className="px-2 py-0 opacity-70 btn mb-36 btn-secondary btn-outline btn-sm hover:opacity-100" to="#Installation">
-											<span className="">See installation instructions in FAQ</span>
-										</Link>
-
-										<div className="flex items-center text-transparent bg-gradient-to-b from-yellow-300 via-amber-400 to-orange-500 bg-clip-text">
-											<span className="px-1 py-4 mr-2 badge badge-warning badge-xl bg-gradient-to-br from-yellow-300 via-amber-400 to-orange-500">
-												<svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-											</span>
-											Install & configure Automatic 1111 before launching Davant Studio.</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
+					<div id="cta-button" className="relative z-20 block px-4 pt-4 pb-10 mt-0 bg-black disclaimer bg-opacity-30">
 						<div id="download-button" className="relative flex flex-col items-center justify-center pt-24 pb-24 text-cyan-200">
 							<div className="bg__gradient
 						absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-0 w-5/6 h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
@@ -230,7 +174,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 							<div className="relative flex flex-col items-center justify-center content">
 								<p className="text-lg font-bold">Have a subscription?</p>
 								<Link className="pl-0 pr-4 mx-auto mt-6 overflow-hidden rounded-sm shadow shadow-lg shadow-purple-900 mb-7 bo rder-opacity-50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-									to={contentVariables.davant.links.davantStudioDownload}>
+									to={contentVariables.davant.links.davantStudioAllDownloads}>
 
 									<span className="p-2 bg-transparent rounded-full badge-neutral">
 										<svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
@@ -242,18 +186,16 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 									</span>
 									<span className="pt-1">Download Davant Studio Now</span>
 								</Link>
-								<p className="text-xs text-center">On first startup, enter the email address you used for the purchase.</p>
-								<p className="text-xs text-center">Join the <Link to="https://community.davantsystems.com" className="link">community forum</Link> for support <br />and to share what you create.</p>
 							</div>
 						</div>
 					</div>
 				</section >
 
-				<section className="container">
+				{/* <section className="container">
 					<div className="max-w-3xl mx-auto">
 						<Faq />
 					</div>
-				</section>
+				</section> */}
 
 				<section className="container">
 					<div className="max-w-3xl px-4 py-32 mx-auto text-center ">
