@@ -3,8 +3,7 @@ import ContentContext from "../ContentContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTwitter, faFacebook, faLinkedin, faYoutube, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
-const SocialIcon = ({ platform }: { platform: string }) => {
-    const contentVariables = React.useContext(ContentContext);
+const SocialIcon = ({ contentVariables, platform }: { contentVariables: object, platform: string }) => {
     const url = contentVariables.davant.links.social[platform as keyof typeof contentVariables.davant.links.social].url;
     const handle = contentVariables.davant.links.social[platform as keyof typeof contentVariables.davant.links.social].handle;
 
