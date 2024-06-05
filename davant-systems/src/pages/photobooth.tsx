@@ -59,16 +59,25 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					</div>
 				</section >
 
-				<section className="flex justify-center">
-					<div className="shadow stats">
+				<section className="relative flex justify-center py-48">
+					<div className="relative z-10 mx-auto shadow-lg bg-opacity-90 stats shadow-black">
 						<div className="stat">
 							<div className="stat-value">100k+</div>
-							<div className="stat-title">Images generated</div>
+							<div className="text-xl stat-title">Images generated</div>
 						</div>
 						<div className="stat">
 							<div className="stat-value">2.5k+</div>
-							<div className="stat-title">Photos printed</div>
+							<div className="text-xl stat-title">Photos printed</div>
 						</div>
+					</div>
+					<div className="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-10">
+						<StaticImage
+							src="../images/prints-mosaic_corrected.jpg"
+							quality={80}
+							placeholder="blurred"
+							loading="lazy"
+							alt="Photo prints"
+						/>
 					</div>
 				</section>
 
