@@ -465,7 +465,7 @@ h1 {
     0 0 0.5em rgba(0, 160, 200, 0.6), /* Softer, more spread outer glow */
     0.0em 0 0.05em rgba(10, 130, 180, 1.0), /* Subtle shadow for depth */
     0.025em 0.04em 0.01em rgba(1, 25, 40, 1.0); /* Subtle bottom shadow for roundness */
-    animation: neon 0.01s ease-in-out infinite alternate;
+    /* animation: neon 0.01s ease-in-out infinite alternate; */
 }
 
 @keyframes neon {

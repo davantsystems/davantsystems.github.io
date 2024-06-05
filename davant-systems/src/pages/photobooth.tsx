@@ -20,28 +20,25 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 				<section className="border-b-2 border-opacity-100 hero__wrapper border-base-300">
 					<div className="relative flex flex-col items-center justify-center overflow-hidden hero sm:flex-row">
 						<span className="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span>
-						<div className="relative z-20 flex flex-col items-center pt-8 pb-20 text-center hero-content text-neutral-content">
-							<div className="flex flex-col items-center mb-2">
-								<div className="relative flex flex-col items-center cta-wrapper">
-									<div className="flex flex-col software-spotlight">
-										<div className="flex flex-col pr-8 mb-4 text-left text">
-											<h1 className="mb-0 whitespace-pre">
-												<span className="-mb-4 text-5xl font-black text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-7xl md:text-8xl">AI </span><span className="-mr-4 text-5xl font-thin skew-x-12 glow__neon--secondary text-secondary font-sacramento sm:text-7xl md:text-8xl lg:text-8xl"><span className="neon-first">P</span>hoto <span className="neon-second">B</span>ooth</span>
-											</h1>
-										</div>
+						<div className="container relative z-20 flex flex-col justify-center max-w-2xl px-4 pt-24 pb-20 md:flex-row md:pt-32">
+							<div className="relative inline-block pr-8 mx-auto mt-0 mb-4 mb-auto md:ml-0">
+								<h1 className="mb-0 whitespace-pre">
+									<span className="block text-2xl font-extrabold text-primary pl-2.5 text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-4xl md:text-3xl">Magic Mirror</span>
+									<span className="-mb-4 text-4xl font-black text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-7xl md:text-6xl">AI </span>
+									<span className="-mr-4 text-4xl font-thin skew-x-12 glow__neon--secondary text-secondary font-sacramento sm:text-7xl md:text-6xl lg:text-6xl"><span className="neon-first">P</span>hoto <span className="neon-second">B</span>ooth</span>
+								</h1>
+							</div>
 
-										<div className="relative w-full mb-12 bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper min-w-sm bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
-											<iframe
-												className="w-full embed-video"
-												src="https://www.youtube.com/embed/vuYqdw3HwDc"
-												title="YouTube video player"
-												frameBorder="0"
-												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-												allowFullScreen
-
-											></iframe>
-										</div>
-									</div>
+							<div className="relative inline-block w-full md:w-1/2">
+								<div className="relative block bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
+									<iframe
+										className="w-full h-full embed-video"
+										src="https://www.youtube.com/embed/vuYqdw3HwDc"
+										title="YouTube video player"
+										frameBorder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+										allowFullScreen
+									></iframe>
 								</div>
 							</div>
 						</div>
@@ -88,10 +85,11 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					</div>
 				</section> */}
 
-				<section className="flex justify-center py-18 bg-base-300">
-					<div className="container flex flex-col py-12">
+				<section className="flex flex-row justify-center py-12 py-18 bg-base-300">
+					<div className="flex flex-col items-center px-20 py-8 border-2 rounded-md bg-purple-950 bg-opacity-5 border-purple-950 border-opacity-10">
 						<p className="mb-2 text-center text-cyan-100">Interested in booking?</p>
 						<TypeformPhotoboothBooking />
+						<p className="mt-8 text-center"><span className="block">Or contact us directly </span>Email: <a href="mailto:tone@davantsystems.com" className="link">tone@davantsystems.com</a></p>
 					</div>
 				</section>
 
