@@ -13,6 +13,32 @@ const ContentProvider: React.FC<ContentProviderProps> = ({ children }) => {
         davantStudioStripePortal: "https://billing.stripe.com/p/login/6oEg26f8K3697yE144",
         davantStudioDownload: "https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.2/DavantStudio_v1.0.2.zip",
         davantStudioAllDownloads: "/davant-studio/download",
+        social: {
+          instagram: {
+            handle: "@DavantSystems",
+            url: "https://instagram.com/DavantSystems"
+          },
+          twitter: {
+            handle: "@DavantSystems",
+            url: "https://twitter.com/DavantSystems"
+          },
+          facebook: {
+            handle: "@DavantSystems",
+            url: "https://facebook.com/DavantSystems"
+          },
+          linkedin: {
+            handle: "@DavantSystems",
+            url: "https://linkedin.com/company/DavantSystems"
+          },
+          youtube: {
+            handle: "@DavantSystems",
+            url: "https://youtube.com/DavantSystems"
+          },
+          googleBusiness: {
+            handle: "@DavantSystems",
+            url: "https://g.page/DavantSystems?gm"
+          }
+        }
       },
     },
     auto1111: {

@@ -6,7 +6,33 @@ interface ContentVariables {
         links: {
             davantStudioStripeCheckout: string,
             davantStudioStripePortal: string,
-            davantStudioDownload: string
+            davantStudioDownload: string,
+            social: {
+                instagram: {
+                    handle: string,
+                    url: string
+                },
+                twitter: {
+                    handle: string,
+                    url: string
+                },
+                facebook: {
+                    handle: string,
+                    url: string
+                },
+                linkedin: {
+                    handle: string,
+                    url: string
+                },
+                youtube: {
+                    handle: string,
+                    url: string
+                },
+                googleBusiness: {
+                    handle: string,
+                    url: string
+                }
+            }
         }
     },
     auto1111: {
@@ -35,7 +61,15 @@ const ContentContext = React.createContext<ContentVariables>({
         links: {
             davantStudioStripeCheckout: "",
             davantStudioStripePortal: "",
-            davantStudioDownload: ""
+            davantStudioDownload: "",
+            social: {
+                instagram: "",
+                twitter: "",
+                facebook: "",
+                linkedin: "",
+                youtube: "",
+                googleBusiness: ""
+            }
         }
     },
     auto1111: {
