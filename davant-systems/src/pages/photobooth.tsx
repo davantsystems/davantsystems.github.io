@@ -16,30 +16,30 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 	return (
 		<>
 			<MainNav />
-			<main className="">
+			<main className="font-open-sans">
 				<section className="border-b-2 border-opacity-100 hero__wrapper border-base-300">
 					<div className="relative flex flex-col items-center justify-center overflow-hidden hero sm:flex-row">
 						<span className="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span>
-						<div className="container relative z-20 flex flex-col justify-center max-w-2xl px-4 pt-24 pb-20 md:flex-row md:pt-32">
-							<div className="relative inline-block pr-8 mx-auto mt-0 mb-4 mb-auto md:ml-0">
-								<h1 className="mb-0 whitespace-pre">
-									<span className="block text-2xl font-extrabold text-primary pl-2.5 text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-4xl md:text-3xl">Magic Mirror</span>
-									<span className="-mb-4 text-4xl font-black text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-7xl md:text-6xl">AI </span>
-									<span className="-mr-4 text-4xl font-thin skew-x-12 glow__neon--secondary text-secondary font-sacramento sm:text-7xl md:text-6xl lg:text-6xl"><span className="neon-first">P</span>hoto <span className="neon-second">B</span>ooth</span>
+						<div className="container relative z-20 flex flex-col justify-center max-w-4xl px-4 pt-24 pb-20 sm:flex-row-reverse md:pt-32">
+							<div className="relative inline-block mx-auto mt-0 mb-8 sm:pt-8 sm:pl-8 sm:ml-0 sm:pl-0">
+								<h1 className="mb-4 whitespace-pre sm:mb-8">
+									<span className="block text-4xl font-extrabold text-primary pl-2.5 text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-2xl md:text-3xl">Magic Mirror</span>
+									<span className="-mb-4 text-6xl font-black text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-5xl md:text-6xl">AI </span>
+									<span className="-mr-4 text-6xl font-thin skew-x-12 glow__neon--secondary text-secondary font-sacramento sm:text-5xl md:text-6xl lg:text-6xl"><span className="neon-first">P</span>hoto <span className="neon-second">B</span>ooth</span>
 								</h1>
+								<div className="flex justify-center sm:block">
+									<TypeformPhotoboothBooking buttonText="Book Now" />
+								</div>
 							</div>
 
-							<div className="relative inline-block w-full md:w-1/2">
-								<div className="relative block bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
-									<iframe
-										className="w-full h-full embed-video"
-										src="https://www.youtube.com/embed/vuYqdw3HwDc"
-										title="YouTube video player"
-										frameBorder="0"
-										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-										allowFullScreen
-									></iframe>
-								</div>
+							<div className="relative inline-block w-full sm:w-1/2">
+								<StaticImage
+									src="../images/launch-party-hero.jpg"
+									quality={80}
+									placeholder="blurred"
+									loading="eager"
+									alt="Photobooth"
+								/>
 							</div>
 						</div>
 
@@ -59,7 +59,46 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					</div>
 				</section >
 
-				<section className="relative flex justify-center py-48">
+				<section>
+					<div className="container max-w-3xl py-20 mx-auto">
+						<h2 className="mb-4 text-lg text-center text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-xl md:text-2xl">See the experience in action</h2>
+						<div className="relative block bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
+							<iframe
+								className="w-full h-full embed-video"
+								src="https://www.youtube.com/embed/vuYqdw3HwDc"
+								title="YouTube video player"
+								frameBorder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowFullScreen
+							></iframe>
+						</div>
+					</div>
+				</section>
+
+				<section className="py-32 bg-base-300">
+					<div className="container max-w-2xl px-4">
+						<h2 className="max-w-lg mx-auto mb-16 text-2xl text-center text-transparent sm:text-3xl md:text-4xl bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">A unique interactive experience people can't stop talking about</h2>
+						<div className="flex flex-col justify-start sm:flex-row">
+							<div className="block w-full mb-2 mr-0 chat chat-start">
+								<div className="relative block w-full py-4 chat-bubble">
+									<h2 className="block w-full text-lg text-center md:text-xl break-keep font-open-sans">"So addicting!"</h2>
+								</div>
+							</div>
+							<div className="block w-full mb-2 ml-0 mr-auto chat chat-end">
+								<div className="relative block w-full py-4 chat-bubble">
+									<h2 className="w-full text-lg text-center md:text-xl font-open-sans">"This is the future."</h2>
+								</div>
+							</div>
+						</div>
+						<div className="mb-2 chat chat-start">
+							<div className="w-full py-4 sm:mx-auto sm:w-auto sm:px-8 chat-bubble">
+								<h2 className="text-lg text-center md:text-xl font-open-sans">"Hands-down my favorite part of the event!"</h2>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section className="relative flex justify-center py-48 overflow-hidden">
 					<div className="relative z-10 mx-auto shadow-lg bg-opacity-90 stats shadow-black">
 						<div className="stat">
 							<div className="stat-value">100k+</div>
@@ -97,7 +136,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 				<section className="flex flex-row justify-center py-12 py-18 bg-base-300">
 					<div className="flex flex-col items-center px-20 py-8 border-2 rounded-md bg-purple-950 bg-opacity-5 border-purple-950 border-opacity-10">
 						<p className="mb-2 text-center text-cyan-100">Interested in booking?</p>
-						<TypeformPhotoboothBooking />
+						<TypeformPhotoboothBooking buttonText="Tell us about your event" />
 						<p className="mt-8 text-center"><span className="block">Or contact us directly </span>Email: <a href="mailto:tone@davantsystems.com" className="link">tone@davantsystems.com</a></p>
 					</div>
 				</section>

@@ -12,7 +12,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'orbitron': ['Orbitron', 'sans-serif'],
-        'yellowtail': ['Yellowtail', 'sans-serif']
+        'yellowtail': ['Yellowtail', 'sans-serif'],
+        'open-sans': ['Open Sans', 'sans-serif'],
       },
     },
   },
