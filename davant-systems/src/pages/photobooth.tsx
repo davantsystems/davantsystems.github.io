@@ -20,13 +20,14 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 				<section className="border-b-2 border-opacity-100 hero__wrapper border-base-300">
 					<div className="relative flex flex-col items-center justify-center overflow-hidden hero sm:flex-row">
 						<span className="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span>
-						<div className="container relative z-20 flex flex-col justify-center max-w-4xl px-4 pt-24 pb-20 sm:flex-row-reverse md:pt-32">
-							<div className="relative inline-block mx-auto mt-0 mb-8 sm:pt-8 sm:pl-8 sm:ml-0 sm:pl-0">
-								<h1 className="mb-4 whitespace-pre sm:mb-8">
+						<div className="container relative z-20 flex flex-col justify-center px-4 pt-24 pb-20 sm:pl-0 md:w-full sm:flex-row-reverse md:pt-32">
+							<div className="relative inline-block mx-auto mt-0 mb-8 sm:w-1/2 sm:pt-2 md:pt-8 sm:pl-8 sm:ml-0 sm:pl-0 xl:pl-14 2xl:pl-24">
+								<h1 className="mb-4 whitespace-pre sm:mb-4">
 									<span className="block text-4xl font-extrabold text-primary pl-2.5 text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-2xl md:text-3xl">Magic Mirror</span>
 									<span className="-mb-4 text-6xl font-black text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-5xl md:text-6xl">AI </span>
 									<span className="-mr-4 text-6xl font-thin skew-x-12 glow__neon--secondary text-secondary font-sacramento sm:text-5xl md:text-6xl lg:text-6xl"><span className="neon-first">P</span>hoto <span className="neon-second">B</span>ooth</span>
 								</h1>
+								<p className="max-w-md mb-8 text-lg text-left sm:text-sm md:text-md lg:text-xl">Make your next event unforgettable with the next generation of interactive experiences.</p>
 								<div className="flex justify-center sm:block">
 									<TypeformPhotoboothBooking buttonText="Book Now" />
 								</div>
@@ -34,6 +35,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 
 							<div className="relative inline-block w-full sm:w-1/2">
 								<StaticImage
+									className="relative block rounded-lg shadow-lg max-h-96 hero__image"
 									src="../images/launch-party-hero.jpg"
 									quality={80}
 									placeholder="blurred"
@@ -60,8 +62,8 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 				</section>
 
 				<section>
-					<div className="container flex flex-col px-4 py-20 mx-auto md:flex-row">
-						<div className="block mb-8 md:w-1/2 md:pr-8 md:mb-unset">
+					<div className="container flex flex-col px-4 py-20 mx-auto md:flex-row md:items-center">
+						<div className="block max-w-lg mb-8 md:w-1/2 md:pr-8 md:mb-unset">
 							<h2 className="mb-8 text-lg text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">See yourself transformed <span className="block">by AI in real-time</span></h2>
 							<p className="mb-4">Our cutting-edge system snaps a photo every 3 seconds, and uses generative AI to transform people in amazing ways.</p>
 							<p>See youself as paper origami, a puppet made of felt, or as a gritty commic book hero.</p>
@@ -106,7 +108,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 				</section>
 
 				<section className="relative flex justify-center py-48 overflow-hidden">
-					<div className="relative z-10 mx-auto shadow-lg bg-opacity-90 stats shadow-black">
+					<div className="relative z-10 mx-auto shadow-lg bg-opacity-95 stats shadow-black">
 						<div className="stat">
 							<div className="stat-value">100k+</div>
 							<div className="text-xl stat-title">Images generated</div>
@@ -125,6 +127,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 							alt="Photo prints"
 						/>
 					</div>
+					<div className="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-br mix-blend-color from-cyan-950 to-fuchsia-950 opacity-70"></div>
 				</section>
 
 				{/* <section className="container max-w-3xl mx-auto border-b-2 border-slate-700 border-opacity-10">

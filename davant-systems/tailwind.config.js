@@ -15,6 +15,16 @@ module.exports = {
         'yellowtail': ['Yellowtail', 'sans-serif'],
         'open-sans': ['Open Sans', 'sans-serif'],
       },
+      fontSize: {
+        xs: ['0.75rem', '1.2'],
+        sm: ['0.875rem', '1.2'],
+        base: ['1rem', '1.3'],
+        lg: ['1.125rem', '1.2'],
+        xl: ['1.125rem', '1.2'],
+        '2xl': ['1.5rem', '1.25'],
+        '3xl': ['1.875rem', '1.2'],
+        '4xl': ['2.25rem', '1.2'],
+      }
     },
   },
   daisyui: {
@@ -25,9 +35,10 @@ module.exports = {
           primary: "hsl(309, 80%, 41%)",
           secondary: "hsl(187, 90%, 50%)",
           warning: "hsl(40, 100%, 67%)",
-          "base-100": "hsl(270, 60%, 5%)"
+          "base-100": "hsl(270, 60%, 5%)",
+          "okay": "hsl(120, 100%, 67%)",
         },
       },
-    ]
+    ],
   }
 }
