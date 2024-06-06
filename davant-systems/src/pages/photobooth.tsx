@@ -16,7 +16,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 	return (
 		<>
 			<MainNav />
-			<main className="font-open-sans">
+			<main className="relative font-open-sans">
 				<section className="border-b-2 border-opacity-100 hero__wrapper border-base-300">
 					<div className="relative flex flex-col items-center justify-center overflow-hidden hero sm:flex-row">
 						<span className="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span>
@@ -90,32 +90,36 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 						<div className="flex flex-col justify-start sm:flex-row">
 							<div className="block w-full mb-2 mr-0 chat chat-start">
 								<div className="relative block w-full py-4 chat-bubble">
-									<h2 className="block w-full text-lg text-center md:text-xl break-keep font-open-sans">"So addicting!"</h2>
+									<h2 className="block w-full text-lg text-center filter drop-shadow-[0.1em_0.2em_0.4em_rgba(0,0,0,1.0)] md:text-xl">"So addicting!"</h2>
 								</div>
 							</div>
 							<div className="block w-full mb-2 ml-0 mr-auto chat chat-end">
 								<div className="relative block w-full py-4 chat-bubble">
-									<h2 className="w-full text-lg text-center md:text-xl font-open-sans">"This is the future."</h2>
+									<h2 className="w-full text-lg text-center md:text-xl font-open-sans filter drop-shadow-[0.1em_0.2em_0.4em_rgba(0,0,0,1.0)]">"This is the future"</h2>
 								</div>
 							</div>
 						</div>
 						<div className="mb-2 chat chat-start">
 							<div className="w-full py-4 sm:mx-auto sm:w-auto sm:px-8 chat-bubble">
-								<h2 className="text-lg text-center md:text-xl font-open-sans">"Hands-down my favorite part of the event!"</h2>
+								<h2 className="text-lg text-center md:text-xl font-open-sans filter drop-shadow-[0.1em_0.2em_0.4em_rgba(0,0,0,1.0)]">"Hands-down my favorite part of the event"</h2>
 							</div>
 						</div>
 					</div>
 				</section>
 
-				<section className="relative flex justify-center py-48 overflow-hidden">
+				<section className="relative flex justify-center py-48 overflow-hidden border-t-2 border-b-2 border-opacity-100 border-purple-950">
 					<div className="relative z-10 mx-auto shadow-lg bg-opacity-95 stats shadow-black">
 						<div className="stat">
-							<div className="stat-value">100k+</div>
+							<div className="stat-value">175k+</div>
 							<div className="text-xl stat-title">Images generated</div>
 						</div>
 						<div className="stat">
 							<div className="stat-value">2.5k+</div>
 							<div className="text-xl stat-title">Photos printed</div>
+						</div>
+						<div className="stat">
+							<div className="stat-value">100%</div>
+							<div className="text-xl stat-title">Good times</div>
 						</div>
 					</div>
 					<div className="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-10">
@@ -143,15 +147,14 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					</div>
 				</section> */}
 
-				<section className="flex flex-row justify-center py-12 py-18 bg-base-300">
-					<div className="flex flex-col items-center px-20 py-8 border-2 rounded-md bg-purple-950 bg-opacity-5 border-purple-950 border-opacity-10">
-						<p className="mb-2 text-center text-cyan-100">Interested in booking?</p>
-						<TypeformPhotoboothBooking buttonText="Tell us about your event" />
+				<section className="relative flex flex-row justify-center py-20 bg-base-300">
+					<div className="relative z-10 flex flex-col items-center px-8 py-16 bg-opacity-50 border-2 rounded-md shadow-lg shadow-base-300 bg-base-300 border-purple-950 border-opacity-10">
+						<p className="max-w-2xl mb-8 text-lg text-center text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Bring the future of interactive entertainment to your next event.</p>
+						<TypeformPhotoboothBooking buttonText="Fill out interest form" />
 						<p className="mt-8 text-center"><span className="block">Or contact us directly </span>Email: <a href="mailto:tone@davantsystems.com" className="link">tone@davantsystems.com</a></p>
 					</div>
+					<span className="absolute top-0 left-0 z-0 block w-full h-full opacity-10 py-18 bg-gradient-to-br from-primary to-purple-800"></span>
 				</section>
-
-				<div className="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
 			</main >
 
 			<Footer />
