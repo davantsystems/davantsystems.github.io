@@ -16,7 +16,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 	return (
 		<>
 			<MainNav />
-			<main className="relative font-open-sans">
+			<main className="relative text-base font-open-sans">
 				<section className="border-b-2 border-opacity-100 hero__wrapper border-base-300">
 					<div className="relative flex flex-col items-center justify-center overflow-hidden hero sm:flex-row">
 						<span className="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span>
@@ -27,7 +27,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 									<span className="-mb-4 text-6xl font-black text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-5xl md:text-6xl">AI </span>
 									<span className="-mr-4 text-6xl font-thin skew-x-12 glow__neon--secondary text-secondary font-sacramento sm:text-5xl md:text-6xl lg:text-6xl"><span className="neon-first">P</span>hoto <span className="neon-second">B</span>ooth</span>
 								</h1>
-								<p className="max-w-md mb-8 text-lg text-left sm:text-sm md:text-md lg:text-xl">Make your next event unforgettable with the next generation of interactive experiences.</p>
+								<p className="max-w-sm mb-12 text-lg text-left sm:text-sm md:text-md lg:text-xl">Make your next event unforgettable with the next generation of interactive experiences.</p>
 								<div className="flex justify-center sm:block">
 									<TypeformPhotoboothBooking buttonText="Book Now" />
 								</div>
@@ -64,7 +64,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 				<section>
 					<div className="container flex flex-col px-4 py-20 mx-auto md:flex-row md:items-center">
 						<div className="block max-w-lg mb-8 md:w-1/2 md:pr-8 md:mb-unset">
-							<h2 className="mb-8 text-lg text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">See yourself transformed <span className="block">by AI in real-time</span></h2>
+							<h2 className="mb-8 text-lg text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Magically transformed <span className="block">by AI in real-time</span></h2>
 							<p className="mb-4">Our cutting-edge system snaps a photo every 3 seconds, and uses generative AI to transform people in amazing ways.</p>
 							<p>See youself as paper origami, a puppet made of felt, or as a gritty commic book hero.</p>
 						</div>
@@ -107,8 +107,8 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					</div>
 				</section>
 
-				<section className="relative flex justify-center py-48 overflow-hidden border-t-2 border-b-2 border-opacity-100 border-purple-950">
-					<div className="relative z-10 mx-auto shadow-lg bg-opacity-95 stats shadow-black">
+				<section className="relative flex justify-center py-24 overflow-hidden border-t-2 border-b-2 border-opacity-100 md:py-32 lg:py-48 border-purple-950">
+					<div className="relative z-10 mx-auto shadow-lg bg-opacity-95 stats shadow-black stats-vertical sm:stats-horizontal">
 						<div className="stat">
 							<div className="stat-value">175k+</div>
 							<div className="text-xl stat-title">Images generated</div>
@@ -122,8 +122,9 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 							<div className="text-xl stat-title">Good times</div>
 						</div>
 					</div>
-					<div className="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-10">
+					<div className="absolute object-cover w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-10">
 						<StaticImage
+							className="object-cover w-full h-full"
 							src="../images/prints-mosaic_corrected.jpg"
 							quality={80}
 							placeholder="blurred"
@@ -134,28 +135,61 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					<div className="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-br mix-blend-color from-cyan-950 to-fuchsia-950 opacity-70"></div>
 				</section>
 
-				{/* <section className="container max-w-3xl mx-auto border-b-2 border-slate-700 border-opacity-10">
-					<div className="relative block py-20 mx-auto ">
-						<h2 className="relative inline-block w-auto px-2 py-0 mb-8 mr-auto text-4xl font-extrabold text-transparent opacity-0 bg-gradient-to-br from-cyan-300 via-secondary to-cyan-400 bg-clip-text">Features</h2>
-						<div className="max-w-2xl pr-10 mb-4 prose text-left text-transparent text-bg bg-gradient-to-br from-cyan-300 via-secondary to-purple-500 bg-clip-text">
-							<ul className="pl-0 font-light leading-snug list-none md:grid md:grid-cols-3 list">
-								<li className="mb-4 list-item"><span className="font-extrabold">Real-time transformations </span><span className="font-extralight"></span></li>
-								<li className="mb-4 list-item"><span className="font-extrabold">Endless amazement </span><span className="font-extralight"></span></li>
-								<li className="mb-4 list-item"><span className="font-extrabold">Imaginative styles</span><span className="font-extralight"></span></li>
-							</ul>
+				<section>
+					<div className="container flex flex-col px-4 py-20 mx-auto">
+						<div className="w-full divider">
+							<h2 className="text-transparent text-md bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-2xl md:text-xl lg:text-2xl">Trusted by</h2>
+						</div>
+						<div className="grid grid-cols-2 md:grid-cols-4">
+							<div className="relative flex items-center justify-center p-8">
+								<StaticImage
+									src="../images/logos/RalphLauren_white.png"
+									quality={80}
+									placeholder="blurred"
+									loading="lazy"
+									alt="Client logo"
+								/>
+							</div>
+							<div className="relative flex items-center justify-center p-8">
+								<StaticImage
+									src="../images/logos/logo-AMD.png"
+									quality={80}
+									placeholder="blurred"
+									loading="lazy"
+									alt="Client logo"
+								/>
+							</div>
+							<div className="relative flex items-center justify-center p-8">
+								<StaticImage
+									src="../images/logos/Hackaday_300x225_white.png"
+									quality={80}
+									placeholder="blurred"
+									loading="lazy"
+									alt="Client logo"
+								/>
+							</div>
+							<div className="relative flex items-center justify-center p-8">
+								<StaticImage
+									src="../images/logos/logo-VanJones_white-transparent.png"
+									quality={80}
+									placeholder="blurred"
+									loading="lazy"
+									alt="Client logo"
+								/>
+							</div>
 						</div>
 					</div>
-				</section> */}
-
-				<section className="relative flex flex-row justify-center py-20 bg-base-300">
-					<div className="relative z-10 flex flex-col items-center px-8 py-16 bg-opacity-50 border-2 rounded-md shadow-lg shadow-base-300 bg-base-300 border-purple-950 border-opacity-10">
-						<p className="max-w-2xl mb-8 text-lg text-center text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Bring the future of interactive entertainment to your next event.</p>
-						<TypeformPhotoboothBooking buttonText="Fill out interest form" />
-						<p className="mt-8 text-center"><span className="block">Or contact us directly </span>Email: <a href="mailto:tone@davantsystems.com" className="link">tone@davantsystems.com</a></p>
-					</div>
-					<span className="absolute top-0 left-0 z-0 block w-full h-full opacity-10 py-18 bg-gradient-to-br from-primary to-purple-800"></span>
 				</section>
-			</main >
+
+			<section className="relative flex flex-row justify-center py-20 bg-base-300">
+				<div className="relative z-10 flex flex-col items-center px-8 py-16 bg-opacity-50 border-2 rounded-md shadow-lg shadow-base-300 bg-base-300 border-purple-950 border-opacity-10">
+					<p className="max-w-2xl mb-8 text-lg text-center text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Bring the future of interactive entertainment to your next event.</p>
+					<TypeformPhotoboothBooking buttonText="Fill out interest form" />
+					<p className="mt-8 text-center"><span className="block">Or contact us directly </span>Email: <a href="mailto:tone@davantsystems.com" className="link">tone@davantsystems.com</a></p>
+				</div>
+				<span className="absolute top-0 left-0 z-0 block w-full h-full opacity-10 py-18 bg-gradient-to-br from-primary to-purple-800"></span>
+			</section>
+		</main >
 
 			<Footer />
 		</>

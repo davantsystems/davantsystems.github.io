@@ -3,7 +3,6 @@ import SocialIcon from './SocialIcon';
 import ContentContext from "../ContentContext";
 import { Link } from 'gatsby';
 
-
 const Footer = () => {
     const contentVariables = useContext(ContentContext);
     return (
