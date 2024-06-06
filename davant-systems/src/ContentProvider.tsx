@@ -32,11 +32,11 @@ const ContentProvider: React.FC<ContentProviderProps> = ({ children }) => {
           },
           youtube: {
             handle: "@DavantSystems",
-            url: "https://youtube.com/DavantSystems"
+            url: "https://youtube.com/@DavantSystems"
           },
           googleBusiness: {
             handle: "@DavantSystems",
-            url: "https://g.page/DavantSystems?gm"
+            url: "https://www.google.com/search?q=Davant+Systems"
           }
         }
       },

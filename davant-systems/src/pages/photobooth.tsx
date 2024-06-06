@@ -57,20 +57,27 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 							<div className="absolute bottom-0 left-0 z-10 w-full opacity-100 gradient-fade pb-28 bg-gradient-to-b from-transparent to-base-300 "></div>
 						</div>
 					</div>
-				</section >
+				</section>
 
 				<section>
-					<div className="container max-w-3xl py-20 mx-auto">
-						<h2 className="mb-4 text-lg text-center text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-xl md:text-2xl">See the experience in action</h2>
-						<div className="relative block bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
-							<iframe
-								className="w-full h-full embed-video"
-								src="https://www.youtube.com/embed/vuYqdw3HwDc"
-								title="YouTube video player"
-								frameBorder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowFullScreen
-							></iframe>
+					<div className="container flex flex-col px-4 py-20 mx-auto md:flex-row">
+						<div className="block mb-8 md:w-1/2 md:pr-8 md:mb-unset">
+							<h2 className="mb-8 text-lg text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">See yourself transformed <span className="block">by AI in real-time</span></h2>
+							<p className="mb-4">Our cutting-edge system snaps a photo every 3 seconds, and uses generative AI to transform people in amazing ways.</p>
+							<p>See youself as paper origami, a puppet made of felt, or as a gritty commic book hero.</p>
+						</div>
+						<div className="block md:w-1/2">
+							<div className="relative block mb-2 bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
+								<iframe
+									className="w-full h-full embed-video"
+									src="https://www.youtube.com/embed/vuYqdw3HwDc"
+									title="YouTube video player"
+									frameBorder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowFullScreen
+								></iframe>
+							</div>
+							<p className="z-10 mb-4 text-sm italic text-center text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-sm md:text-md">Watch video to see the experience in action</p>
 						</div>
 					</div>
 				</section>

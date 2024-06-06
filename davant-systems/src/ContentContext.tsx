@@ -63,12 +63,30 @@ const ContentContext = React.createContext<ContentVariables>({
             davantStudioStripePortal: "",
             davantStudioDownload: "",
             social: {
-                instagram: "",
-                twitter: "",
-                facebook: "",
-                linkedin: "",
-                youtube: "",
-                googleBusiness: ""
+                instagram: {
+                    handle: "",
+                    url: ""
+                },
+                twitter: {
+                    handle: "",
+                    url: ""
+                },
+                facebook: {
+                    handle: "",
+                    url: ""
+                },
+                linkedin: {
+                    handle: "",
+                    url: ""
+                },
+                youtube: {
+                    handle: "",
+                    url: ""
+                },
+                googleBusiness: {
+                    handle: "",
+                    url: ""
+                }
             }
         }
     },
