@@ -107,6 +107,19 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					</div>
 				</section>
 
+				<section className="px-2 py-12 sm:px-4 md:px-8">
+					<p className="mb-4 text-lg text-center md:text-xl">Transformations that still look like you</p>
+					<div className="diff aspect-[16/9] container max-w-3xl">
+						<div className="diff-item-1">
+							<img alt="daisy" src="../image/holiday-Shot_0003_00807-1Before.jpg" />
+						</div>
+						<div className="diff-item-2">
+							<img alt="daisy" src="../image/holiday-Shot_0003_00807-2After.jpg" />
+						</div>
+						<div className="diff-resizer"></div>
+					</div>
+				</section>
+
 				<section className="relative flex justify-center py-24 overflow-hidden border-t-2 border-b-2 border-opacity-100 md:py-32 lg:py-48 border-purple-950">
 					<div className="relative z-10 mx-auto shadow-lg bg-opacity-95 stats shadow-black stats-vertical sm:stats-horizontal">
 						<div className="stat">
@@ -181,15 +194,15 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					</div>
 				</section>
 
-			<section className="relative flex flex-row justify-center py-20 bg-base-300">
-				<div className="relative z-10 flex flex-col items-center px-8 py-16 bg-opacity-50 border-2 rounded-md shadow-lg shadow-base-300 bg-base-300 border-purple-950 border-opacity-10">
-					<p className="max-w-2xl mb-8 text-lg text-center text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Bring the future of interactive entertainment to your next event.</p>
-					<TypeformPhotoboothBooking buttonText="Fill out interest form" />
-					<p className="mt-8 text-center"><span className="block">Or contact us directly </span>Email: <a href="mailto:tone@davantsystems.com" className="link">tone@davantsystems.com</a></p>
-				</div>
-				<span className="absolute top-0 left-0 z-0 block w-full h-full opacity-10 py-18 bg-gradient-to-br from-primary to-purple-800"></span>
-			</section>
-		</main >
+				<section className="relative flex flex-row justify-center py-20 bg-base-300">
+					<div className="relative z-10 flex flex-col items-center px-8 py-16 bg-opacity-50 border-2 rounded-md shadow-lg shadow-base-300 bg-base-300 border-purple-950 border-opacity-10">
+						<p className="max-w-2xl mb-8 text-lg text-center text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Bring the future of interactive entertainment to your next event.</p>
+						<TypeformPhotoboothBooking buttonText="Fill out interest form" />
+						<p className="mt-8 text-center"><span className="block">Or contact us directly </span>Email: <a href="mailto:tone@davantsystems.com" className="link">tone@davantsystems.com</a></p>
+					</div>
+					<span className="absolute top-0 left-0 z-0 block w-full h-full opacity-10 py-18 bg-gradient-to-br from-primary to-purple-800"></span>
+				</section>
+			</main >
 
 			<Footer />
 		</>
