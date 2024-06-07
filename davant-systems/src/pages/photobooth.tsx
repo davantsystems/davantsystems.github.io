@@ -111,10 +111,10 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					<p className="mb-4 text-lg text-center md:text-xl">Transformations that still look like you</p>
 					<div className="diff aspect-[16/9] container max-w-3xl">
 						<div className="diff-item-1">
-							<img alt="daisy" src="../image/holiday-Shot_0003_00807-1Before.jpg" />
+							<img alt="daisy" src="../image/holiday-Shot_0003_00807-2After.jpg" />
 						</div>
 						<div className="diff-item-2">
-							<img alt="daisy" src="../image/holiday-Shot_0003_00807-2After.jpg" />
+							<img alt="daisy" src="../image/holiday-Shot_0003_00807-1Before.jpg" />
 						</div>
 						<div className="diff-resizer"></div>
 					</div>
