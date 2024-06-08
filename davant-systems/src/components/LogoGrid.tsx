@@ -4,8 +4,8 @@ import { StaticImage } from "gatsby-plugin-image";
 const LogoGrid = () => {
     return (
         <>
-            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-4 lg:mb-8">
-                <div className="relative flex items-center justify-center px-2 py-4 sm:px-4 md:px-8 sm:py-2">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4 lg:mb-8">
+                <div className="relative flex items-center justify-center px-6 py-2 sm:py-4 sm:px-2 sm:px-4 md:px-8 sm:py-2">
                     <StaticImage
                         src="../images/logos/logo-RalphLauren-white.png"
                         quality={80}
@@ -14,7 +14,7 @@ const LogoGrid = () => {
                         alt="Ralph Lauren logo"
                     />
                 </div>
-                <div className="relative flex items-center justify-center px-2 py-4 sm:px-4 md:px-8 sm:py-2">
+                <div className="relative flex items-center justify-center px-6 py-2 sm:py-4 sm:px-2 sm:px-4 md:px-8 sm:py-2">
                     <StaticImage
                         src="../images/logos/logo-AMD-white.png"
                         quality={80}
@@ -23,7 +23,7 @@ const LogoGrid = () => {
                         alt="AMD logo"
                     />
                 </div>
-                <div className="relative flex items-center justify-center px-2 py-4 sm:px-4 md:px-8 sm:py-2">
+                <div className="relative flex items-center justify-center px-6 py-2 sm:py-4 sm:px-2 sm:px-4 md:px-8 sm:py-2">
                     <StaticImage
                         src="../images/logos/logo-UCLA-white.png"
                         quality={80}
@@ -32,7 +32,7 @@ const LogoGrid = () => {
                         alt="XRM logo"
                     />
                 </div>
-                <div className="relative flex items-center justify-center px-2 py-4 sm:px-4 md:px-8 sm:py-2">
+                <div className="relative flex items-center justify-center px-6 py-2 sm:py-4 sm:px-2 sm:px-4 md:px-8 sm:py-2">
                     <StaticImage
                         src="../images/logos/logo-Asus-white.png"
                         quality={80}
@@ -42,7 +42,7 @@ const LogoGrid = () => {
                     />
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-5">
+            <div className="grid grid-cols-4 gap-4 lg:grid-cols-7">
             <div className="relative flex items-center justify-center px-2 py-4 sm:px-4 md:px-8 sm:py-2">
                     <StaticImage
                         src="../images/logos/logo-Hackaday-white.png"

@@ -23,8 +23,8 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					<section className="relative z-10 hero__wrapper">
 						<div className="relative z-40 flex items-end justify-center hero__supertitle">
 							<div className="relative mb-4 text-wrapper">
-								<p className="relative tracking-tighter text-center text-transparent bg-clip-text bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-primary text-9xl">One of a kind</p>
-								<p className="absolute w-full tracking-tighter text-center -translate-x-1/2 -translate-y-1/2 -z-10 top-1/2 left-1/2 shadow-only bg-clip-text bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-primary text-9xl">One of a kind</p>
+								<p className="relative text-6xl font-black tracking-tighter text-center text-transparent bg-clip-text bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-primary sm:text-8xl md:text-9xl">One of a kind</p>
+								<p className="absolute w-full text-6xl font-black tracking-tighter text-center -translate-x-1/2 -translate-y-1/2 -z-10 top-1/2 left-1/2 sm:text-8xl shadow-only bg-clip-text bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-primary md:text-9xl">One of a kind</p>
 							</div>
 						</div>
 						<div className="relative z-50 hero sm:flex-row">
@@ -54,20 +54,6 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 									/>
 								</div>
 							</div>
-
-							{/* <div className="absolute bottom-0 z-10 block h-full min-w-full -translate-x-1/2 opacity-100 pointer-events-none select-none background-image left-1/2 z-1">
-								<StaticImage
-									className="relative block h-full opacity-50 hero__background-image"
-									src="../images/hero2.png"
-									quality={100}
-									placeholder="blurred"
-									layout="fullWidth"
-									loading="eager"
-									objectFit="cover"
-									objectPosition="center"
-									alt="Abstract color gradient from pink to dark purple" />
-								<div className="absolute bottom-0 left-0 z-10 w-full opacity-100 gradient-fade pb-28 bg-gradient-to-b from-transparent to-base-300 "></div>
-							</div> */}
 
 						</div>
 						<div className="absolute top-0 left-0 z-10 w-full h-full">
@@ -107,7 +93,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 				</div>
 
 				<section className="relative z-20 py-32 bg-base-300">
-					<div className="container max-w-2xl px-4">
+					<div className="container relative z-10 max-w-2xl px-4">
 						<h2 className="max-w-lg mx-auto mb-16 text-2xl text-center text-transparent sm:text-3xl md:text-4xl bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">A unique interactive experience people can't stop talking about</h2>
 						<div className="flex flex-col justify-start sm:flex-row">
 							<div className="block w-full mb-2 mr-0 chat chat-start">
@@ -127,18 +113,30 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 							</div>
 						</div>
 					</div>
-				</section>
-
-				<section className="relative z-20 px-2 py-12 bg-base-300 sm:px-4 md:px-8">
-					<p className="mb-4 text-lg text-center md:text-xl">Transformations that still look like you</p>
-					<div className="diff aspect-[16/9] container max-w-3xl">
-						<div className="diff-item-1">
-							<img alt="daisy" src="../image/holiday-Shot_0003_00807-2After.jpg" />
+					<div className="relative z-20 px-2 pt-48 sm:px-4 md:px-8">
+						<p className="mb-4 text-lg font-black text-center md:text-3xl">More than a filter. A truly imaginative transformation.</p>
+						<div className="diff aspect-[16/9] container max-w-3xl rounded-md shadow-black shadow-lg">
+							<div className="diff-item-1">
+								<img alt="daisy" src="../image/holiday-Shot_0003_00807-2After.jpg" />
+							</div>
+							<div className="diff-item-2">
+								<img alt="daisy" src="../image/holiday-Shot_0003_00807-1Before.jpg" />
+							</div>
+							<div className="diff-resizer"></div>
 						</div>
-						<div className="diff-item-2">
-							<img alt="daisy" src="../image/holiday-Shot_0003_00807-1Before.jpg" />
-						</div>
-						<div className="diff-resizer"></div>
+					</div>
+					<div className="absolute bottom-0 z-0 block h-full min-w-full -translate-x-1/2 opacity-100 pointer-events-none select-none background-image left-1/2 z-1">
+						<StaticImage
+							className="relative block h-full opacity-50 hero__background-image"
+							src="../images/hero2.png"
+							quality={100}
+							placeholder="blurred"
+							layout="fullWidth"
+							loading="eager"
+							objectFit="cover"
+							objectPosition="center"
+							alt="Abstract color gradient from pink to dark purple" />
+						<div className="absolute bottom-0 left-0 z-10 w-full opacity-100 gradient-fade pb-28 bg-gradient-to-b from-transparent to-base-300 "></div>
 					</div>
 				</section>
 
@@ -172,7 +170,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 
 				<section className="relative z-20 bg-base-300">
 					<div className="container flex flex-col px-4 py-20 mx-auto lg:max-w-7xl">
-						<div className="w-full mb-0 sm:mb-4 divider lg:mb-12">
+						<div className="w-full mb-6 sm:mb-4 divider lg:mb-12">
 							<h2 className="text-transparent text-md bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-2xl md:text-xl lg:text-2xl">Trusted by</h2>
 						</div>
 						<LogoGrid />
