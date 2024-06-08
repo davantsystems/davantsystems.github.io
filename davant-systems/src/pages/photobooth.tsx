@@ -72,7 +72,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 								<div className="max-w-lg ml-auto mr-auto md:mr-0">
 									<h2 className="mb-8 text-2xl text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Magically transformed <span className="sm:block">by AI in real-time</span></h2>
 									<p className="mb-4">Our cutting-edge system snaps a photo every 3 seconds, and uses generative AI to transform people in amazing ways.</p>
-									<p>See youself as paper origami, a puppet made of felt, or as a gritty commic book hero.</p>
+									<p>See youself as paper origami, a puppet made of felt, or a comic book hero.</p>
 								</div>
 							</div>
 							<div className="block md:w-1/2">
