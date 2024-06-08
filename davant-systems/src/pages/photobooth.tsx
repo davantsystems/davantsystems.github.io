@@ -35,7 +35,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 
 							<div className="relative inline-block w-full sm:w-1/2">
 								<StaticImage
-									className="relative block rounded-lg shadow-lg max-h-96 hero__image"
+									className="relative block rounded-lg shadow-md max-h-96 shadow-base-300 hero__image"
 									src="../images/launch-party-hero.jpg"
 									quality={80}
 									placeholder="blurred"
@@ -63,10 +63,12 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 
 				<section>
 					<div className="container flex flex-col px-4 py-20 mx-auto md:flex-row md:items-center">
-						<div className="block max-w-lg mb-8 md:w-1/2 md:pr-8 md:mb-unset">
-							<h2 className="mb-8 text-lg text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Magically transformed <span className="block">by AI in real-time</span></h2>
-							<p className="mb-4">Our cutting-edge system snaps a photo every 3 seconds, and uses generative AI to transform people in amazing ways.</p>
-							<p>See youself as paper origami, a puppet made of felt, or as a gritty commic book hero.</p>
+						<div className="block mb-8 md:w-1/2 md:pr-12 md:mb-unset">
+							<div className="max-w-lg ml-auto mr-auto md:mr-0">
+								<h2 className="mb-8 text-2xl text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Magically transformed <span className="sm:block">by AI in real-time</span></h2>
+								<p className="mb-4">Our cutting-edge system snaps a photo every 3 seconds, and uses generative AI to transform people in amazing ways.</p>
+								<p>See youself as paper origami, a puppet made of felt, or as a gritty commic book hero.</p>
+							</div>
 						</div>
 						<div className="block md:w-1/2">
 							<div className="relative block mb-2 bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
@@ -160,7 +162,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 									quality={80}
 									placeholder="blurred"
 									loading="lazy"
-									alt="Client logo"
+									alt="Ralph Lauren logo"
 								/>
 							</div>
 							<div className="relative flex items-center justify-center p-8">
@@ -169,7 +171,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 									quality={80}
 									placeholder="blurred"
 									loading="lazy"
-									alt="Client logo"
+									alt="AMD logo"
 								/>
 							</div>
 							<div className="relative flex items-center justify-center p-8">
@@ -178,7 +180,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 									quality={80}
 									placeholder="blurred"
 									loading="lazy"
-									alt="Client logo"
+									alt="Hackaday logo"
 								/>
 							</div>
 							<div className="relative flex items-center justify-center p-8">
@@ -187,7 +189,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 									quality={80}
 									placeholder="blurred"
 									loading="lazy"
-									alt="Client logo"
+									alt="Van Jones logo"
 								/>
 							</div>
 						</div>
