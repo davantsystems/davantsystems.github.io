@@ -7,7 +7,7 @@ const Footer = () => {
     const contentVariables = useContext(ContentContext);
     return (
         <>
-            <footer className="relative px-10 pt-16 pb-12 z-80 bg-base-300 footer text-cyan-400">
+            <footer className="relative z-50 px-10 pt-16 pb-12 bg-base-300 footer text-cyan-400">
                 <nav>
                     <Link to="/davant-studio/" className="link link-hover">Davant Studio</Link>
                     <Link to="/photobooth/" className="link link-hover">Magic Mirror AI Photo Booth</Link>

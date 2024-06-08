@@ -354,12 +354,25 @@ h1 {
     }
 }
 
+.hero__supertitle {
+    height: 90vh;
+}
+
+.hero__supertitle p.shadow-only {
+    /* filter: drop-shadow(0 0 0.2em rgba(0, 0, 0, 1.5)); */
+    text-shadow: 0 0 0.2em rgba(140, 0, 140, 1.0),
+    0 0 0.05em rgba(0, 0, 0, 1.0),
+    0 0 0.1em rgba(0, 0, 0, 1.0),
+    0 0 0.2em rgba(0, 0, 0, 1.0),
+    0 0 0.1em rgba(0, 0, 0, 1.0),
+    0 0 0.1em rgba(0, 0, 0, 1.0),
+    0 0 0.3em rgba(0, 0, 0, 1.0);
+}
 
 
 .hero-gradient-1 {
     background-color: rgb(0, 0, 0);
     background-image: radial-gradient(at 54% 100%, rgb(19, 78, 74) 0, transparent 53%), radial-gradient(at 48% 98%, rgb(6, 95, 70) 0, transparent 30%), radial-gradient(at 29% 31%, rgb(88, 28, 135) 0, transparent 44%), radial-gradient(at 86% 21%, rgb(49, 46, 129) 0, transparent 77%), radial-gradient(at 53% 40%, rgb(136, 19, 55) 0, transparent 28%), radial-gradient(at 29% 82%, rgb(88, 28, 135) 0, transparent 43%);
-    z-index: -2;
     pointer-events: none;
 
     &::before {
