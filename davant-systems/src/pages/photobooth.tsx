@@ -9,6 +9,8 @@ import MainNav from "../components/MainNav";
 import TypeformPhotoboothBooking from '../components/TypeformPhotoboothBooking';
 import Footer from '../components/Footer';
 import PhotoboothStats from '../components/photoboothStats';
+import LogoGrid from '../components/LogoGrid';
+
 
 const PhotoboothPage: React.FC<PageProps> = () => {
 	const contentVariables = useContext(ContentContext);
@@ -151,48 +153,11 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 				</section>
 
 				<section>
-					<div className="container flex flex-col px-4 py-20 mx-auto">
-						<div className="w-full divider">
+					<div className="container flex flex-col px-4 py-20 mx-auto lg:max-w-7xl">
+						<div className="w-full mb-0 sm:mb-4 divider lg:mb-12">
 							<h2 className="text-transparent text-md bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-2xl md:text-xl lg:text-2xl">Trusted by</h2>
 						</div>
-						<div className="grid grid-cols-2 md:grid-cols-4">
-							<div className="relative flex items-center justify-center p-8">
-								<StaticImage
-									src="../images/logos/RalphLauren_white.png"
-									quality={80}
-									placeholder="blurred"
-									loading="lazy"
-									alt="Ralph Lauren logo"
-								/>
-							</div>
-							<div className="relative flex items-center justify-center p-8">
-								<StaticImage
-									src="../images/logos/logo-AMD.png"
-									quality={80}
-									placeholder="blurred"
-									loading="lazy"
-									alt="AMD logo"
-								/>
-							</div>
-							<div className="relative flex items-center justify-center p-8">
-								<StaticImage
-									src="../images/logos/Hackaday_300x225_white.png"
-									quality={80}
-									placeholder="blurred"
-									loading="lazy"
-									alt="Hackaday logo"
-								/>
-							</div>
-							<div className="relative flex items-center justify-center p-8">
-								<StaticImage
-									src="../images/logos/logo-VanJones_white-transparent.png"
-									quality={80}
-									placeholder="blurred"
-									loading="lazy"
-									alt="Van Jones logo"
-								/>
-							</div>
-						</div>
+						<LogoGrid />
 					</div>
 				</section>
 

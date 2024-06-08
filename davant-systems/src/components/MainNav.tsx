@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Logo from "./Logo";
+import DavantLogo from "./DavantLogo";
 import { StaticImage } from "gatsby-plugin-image";
 import DavantStudioPage from "../pages/davant-studio";
 import { Link } from "gatsby";
