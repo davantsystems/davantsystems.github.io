@@ -5,7 +5,7 @@ const LogoGridItem = ({path, alt}: {path:string, alt:string}) => {
     return (
         <div className="relative flex items-center justify-center px-8 py-4">
             <StaticImage
-                src={path}
+                src=""
                 quality={80}
                 placeholder="blurred"
                 loading="lazy"
