@@ -65,8 +65,8 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 			const tlTitleOne = gsap.timeline({
 				scrollTrigger: {
 					trigger: "#megaTitleTwo",
-					start: "bottom 90%",
-					end: "bottom 0%",
+					start: "bottom 70%",
+					end: "bottom 10%",
 					// markers: true,
 					scrub: 1,
 					// toggleActions: "play pause resume reverse",
@@ -75,7 +75,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 						snapTo: "labels",
 						duration: { min: 0.2, max: 1 },
 						delay: 0.2,
-						// ease: "power1.inOut",
+						ease: "power1.inOut",
 						directional: true,
 					},
 				},
@@ -84,7 +84,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 			const tlMegaTitle = gsap.timeline({
 				scrollTrigger: {
 					trigger: "#megaTitle",
-					start: "bottom 75%",
+					start: "bottom 90%",
 					end: "bottom top",
 					// markers: true,
 					scrub: 1,
@@ -94,7 +94,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 						snapTo: "labels",
 						duration: { min: 0.2, max: 1 },
 						delay: 0.2,
-						// ease: "power1.inOut",
+						ease: "power1.inOut",
 						directional: true,
 					},
 				},
@@ -111,13 +111,13 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					scrub: 1,
 					// toggleActions: "play pause resume reverse",
 					pin: true,
-					// snap: {
-					// 	snapTo: "labels",
-					// 	duration: { min: 0.2, max: 1 },
-					// 	delay: 0.2,
-					// 	// ease: "power1.inOut",
-					// 	// directional: true,
-					// },
+					snap: {
+						snapTo: "labels",
+						duration: { min: 0.2, max: 1 },
+						delay: 0.2,
+						ease: "power1.inOut",
+						directional: true,
+					},
 				},
 			});
 
@@ -125,18 +125,19 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 
 
 			tlTitleOne
-				.fromTo("#megaTitleOneMain", { opacity: "0%", y: "10%", duration: 1 }, { opacity: "100%", y: "0%" }, "<")
-				.fromTo("#megaTitleOneShadow", { opacity: "0%", y: "10%", duration: 1 }, { opacity: "100%", y: "0%" }, "<")
-				.fromTo("#megaTitleTwoMain", { opacity: "90%", scale: 1.8, y: "50%", duration: 1,  ease: "power3.inOut" }, { opacity: "100%", scale: 1, y: "0%" }, "<")
-				.fromTo("#megaTitleTwoShadow", { opacity: "90%", scale: 1.8, y: "50%", duration: 1 }, { opacity: "100%", scale: 1, y: "0%" }, "<")
-
+				.addLabel("start")
+				.fromTo("#megaTitleOneMain", { opacity: "0%", y: "100%", duration: 1 }, { opacity: "100%", y: "0%" }, "<")
+				.fromTo("#megaTitleOneShadow", { opacity: "0%", y: "100%", duration: 1 }, { opacity: "100%", y: "0%" }, "<")
+				.fromTo("#megaTitleTwoMain", { opacity: "90%", scale: 1.5, y: "50%", duration: 1, ease: "power3.inOut" }, { opacity: "100%", scale: 1.0, y: "0%" }, "<")
+				.fromTo("#megaTitleTwoShadow", { opacity: "90%", scale: 1.5, y: "50%", duration: 1 }, { opacity: "100%", scale: 1.0, y: "0%" }, "<")				
+				.addLabel("end")
 
 			const tlGuestsSection = gsap.timeline({
 				scrollTrigger: {
 					trigger: "#guests-wrapper",
 					start: "top bottom",
 					end: "bottom top",
-					markers: true,
+					// markers: true,
 					scrub: 1,
 					// toggleActions: "play pause resume reverse",
 					pin: true,
@@ -370,7 +371,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 								<div id="megaTitleOne" className="relative block text-2xl font-black text-center opacity-100 sm:text-3xl md:text-4xl">
 									<p id="megaTitleOneMain" className="relative z-10 text-transparent opacity-100 bg-clip-text bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-primary">Make your event</p>
 									{/* <p id="megaTitleOneShadow" className="absolute z-0 text-transparent -translate-x-1/2 -translate-y-1/2 opacity-100 top-1/2 left-1/2 shadow-only bg-clip-text bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-primary">Make your event</p> */}
-									
+
 								</div>
 								<div id="megaTitleTwo" className="relative block text-6xl font-black text-center opacity-100 sm:text-8xl md:text-9xl">
 									<p id="megaTitleTwoMain" className="relative text-transparent opacity-100 bg-clip-text bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-primary">One of a kind</p>
@@ -378,7 +379,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 								</div>
 							</div>
 						</div>
-						<span className="relative z-50 block h-[100vh] bg-yellow-400 bg-opacity-0"></span>
+						<span className="relative z-50 block h-[120vh] bg-opacity-0"></span>
 						<div id="guests-wrapper" className="hidden max-w-6xl mx-auto bg-red-400">
 							<div className="">
 								<div className="">
