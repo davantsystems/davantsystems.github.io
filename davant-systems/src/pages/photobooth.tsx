@@ -1,14 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { Link, type HeadFC, type PageProps } from "gatsby"
-import Faq from "../components/Faq"
-import Countdown from "../components/Countdown"
 import { StaticImage } from "gatsby-plugin-image"
-import RequirementsPane from "../components/requirementsPane"
 import ContentContext from "../ContentContext"
 import MainNav from "../components/MainNav";
 import TypeformPhotoboothBooking from '../components/TypeformPhotoboothBooking';
 import Footer from '../components/Footer';
-import PhotoboothStats from '../components/photoboothStats';
 import LogoGrid from '../components/LogoGrid';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -603,15 +599,15 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					</div>
 
 					<div className="flex flex-row justify-center">
-						<div className="relative z-20 flex flex-col items-start px-2 pt-48 pb-32 mx-auto sm:px-4 md:px-8">
-							<p className="mb-2 font-black text-center sm:text-xl md:text-5xl lg:text-6xl">More than a filter.</p>
-							<p className="mb-4 text-lg lg:text-5xl">A truly imaginative transformation.</p>
-							<div className="diff aspect-[16/9] container max-w-3xl rounded-md shadow-black shadow-lg">
+						<div className="relative z-20 flex flex-col items-start w-full px-2 pt-48 pb-32 mx-auto sm:px-4 md:px-8 md:max-w-4xl lg:max-w-5xl">
+							<p className="mb-0 text-4xl font-black text-center text-transparent bg-clip-text bg-gradient-to-t from-cyan-700 via-indigo-100 text-x to-cyan-100 sm:text-6xl md:text-6xl lg:text-6xl">More than a filter.</p>
+							<p className="mb-4 text-3xl text-transparent sm:text-4xl md:text-4xl lg:text-5xl bg-clip-text bg-gradient-to-t from-purple-500 via-fuchsia-400 to-fuchsia-100">A truly imaginative transformation.</p>
+							<div className="diff aspect-[16/9] w-full rounded-md shadow-black shadow-lg">
 								<div className="diff-item-1">
-									<img alt="daisy" src="../image/holiday-Shot_0003_00807-2After.jpg" />
+									<img alt="" src="../image/holiday-Shot_0003_00807-2After.jpg" />
 								</div>
 								<div className="diff-item-2">
-									<img alt="daisy" src="../image/holiday-Shot_0003_00807-1Before.jpg" />
+									<img alt="" src="../image/holiday-Shot_0003_00807-1Before.jpg" />
 								</div>
 								<div className="diff-resizer"></div>
 							</div>
