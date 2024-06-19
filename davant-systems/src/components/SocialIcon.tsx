@@ -18,9 +18,9 @@ const SocialIcon = ({ contentVariables, platform }: { contentVariables: object, 
 
     return (
         <a
-            className="flex items-center mr-2 text-xl text-cyan-300"
+            className="flex items-center p-2 text-xl text-secondary hover:text-cyan-200"
             href={url} target="_blank">
-            {icon && <FontAwesomeIcon icon={icon} className="mr-2" />}
+            {icon && <FontAwesomeIcon icon={icon} />}
         </a>
     )
 }

@@ -9,15 +9,16 @@ const Footer = () => {
         <>
             <footer className="relative z-50 px-10 pt-16 pb-12 bg-base-300 footer text-cyan-400">
                 <nav>
-                    <Link to="/davant-studio/" className="link link-hover">Davant Studio</Link>
+                    <Link to="/davant-studio/" className="link link-hover">Davant Studio Software</Link>
                     <Link to="/photobooth/" className="link link-hover">Magic Mirror AI Photo Booth</Link>
                 </nav>
                 <nav>
                     <Link className="link link-hover" to="/training/">Training & Workshops</Link>
+                    <Link className="link link-hover" to="/ambassadors/">Creative Ambassadors Program</Link>
                     <a className="link link-hover" href="https://lu.ma/davantsystems">Events Calendar</a>
                 </nav>
-                <nav className="flex ml-auto">
-                    <div className="flex gap-4">
+                <nav className="flex self-end ml-auto">
+                    <div className="flex gap-1">
                         <SocialIcon platform="instagram" contentVariables={contentVariables} />
                         <SocialIcon platform="twitter" contentVariables={contentVariables} />
                         <SocialIcon platform="facebook" contentVariables={contentVariables} />
