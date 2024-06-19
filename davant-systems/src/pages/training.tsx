@@ -15,7 +15,7 @@ const TrainingPage: React.FC<PageProps> = () => {
 			<main className="">
 				<section className="border-b-2 hero__wrapper border-slate-400 border-opacity-5">
 					<div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden sm:flex-row">
-						<span className="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span>
+						{/* <span className="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span> */}
 						<div className="relative z-20 flex flex-col items-center pt-24 pb-20 text-center text-neutral-content">
 							<div className="flex flex-col items-center mb-2">
 
