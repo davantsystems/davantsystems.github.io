@@ -122,14 +122,12 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 			});
 
 
-
-
 			tlTitleOne
 				.addLabel("start")
 				.fromTo("#megaTitleOneMain", { opacity: "0%", y: "100%", duration: 1 }, { opacity: "100%", y: "0%" }, "<")
 				.fromTo("#megaTitleOneShadow", { opacity: "0%", y: "100%", duration: 1 }, { opacity: "100%", y: "0%" }, "<")
-				.fromTo("#megaTitleTwoMain", { opacity: "90%", scale: 1.5, y: "50%", duration: 1, ease: "power3.inOut" }, { opacity: "100%", scale: 1.0, y: "0%" }, "<")
-				.fromTo("#megaTitleTwoShadow", { opacity: "90%", scale: 1.5, y: "50%", duration: 1 }, { opacity: "100%", scale: 1.0, y: "0%" }, "<")				
+				.fromTo("#megaTitleTwoMain", { opacity: "90%", scale: 1.4, y: "50%", duration: 1, ease: "power3.inOut" }, { opacity: "100%", scale: 1.0, y: "0%" }, "<")
+				.fromTo("#megaTitleTwoShadow", { opacity: "90%", scale: 1.4, y: "50%", duration: 1 }, { opacity: "100%", scale: 1.0, y: "0%" }, "<")
 				.addLabel("end")
 
 			const tlGuestsSection = gsap.timeline({
@@ -331,32 +329,138 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					"<"
 				)
 
+			const tlHero = gsap.timeline({
+				scrollTrigger: {
+					trigger: "#basicHero",
+					start: "top bottom",
+					end: "bottom center",
+					// toggleActions: "play none none reverse",
+					// markers: true,
+					scrub: 1,
+					// snap: {
+					// 	snapTo: "labels",
+					// 	duration: { min: 0.2, max: 0.5 },
+					// 	delay: 0.2,
+					// 	ease: "power1.inOut",
+					// 	directional: true,
+					// },
+				},
+			});
 
-			// const tlOverview = gsap.timeline({
-			// 	scrollTrigger: {
-			// 		trigger: "#overview",
-			// 		start: "top bottom",
-			// 		end: "top center",
-			// 		markers: true,
-			// 		scrub: 1,
-			// 		toggleActions: "play none none reverse",
-			// 		snap: {
-			// 			snapTo: "labels",
-			// 			duration: { min: 0.2, max: 0.5 },
-			// 			delay: 0.2,
-			// 			ease: "power1.inOut",
-			// 			directional: true,
-			// 		},
-			// 	},
-			// });
+			tlHero
+				.add("start")
+				.from("#basicHero", { opacity: 0, y: 100, duration: 1 })
+				.addLabel("end");
 
-			// tlOverview
-			// 	.add("start")
-			// 	.from("#overview__content", { opacity: 0, x: -100, duration: 1 }, "start")
-			// 	.from("#overview__video", { opacity: 0, x: 100, duration: 1 }, "start")
-			// 	.addLabel("end");
+
+			const tlOverview = gsap.timeline({
+				scrollTrigger: {
+					trigger: "#overview",
+					start: "top bottom",
+					end: "top center",
+					// markers: true,
+					scrub: 1,
+					toggleActions: "play none none reverse",
+					snap: {
+						snapTo: "labels",
+						duration: { min: 0.2, max: 0.5 },
+						delay: 0.2,
+						ease: "power1.inOut",
+						directional: true,
+					},
+				},
+			});
+
+			tlOverview
+				.add("start")
+				.from("#overview__content", { opacity: 0, x: -100, duration: 1 }, "start")
+				.from("#overview__video", { opacity: 0, x: 100, duration: 1 }, "start")
+				.addLabel("end");
+
+
+			gsap.from("#testimonials__title", {
+				opacity: 0,
+				y: 200,
+				duration: 1,
+				scrollTrigger: {
+					trigger: "#testimonials__title",
+					start: "top bottom",
+					end: "top center",
+					// markers: true,
+					scrub: 1,
+					snap: {
+						snapTo: "labels",
+						duration: { min: 0.2, max: 0.5 },
+						delay: 0.2,
+						ease: "power1.inOut",
+						directional: true,
+					},
+				},
+			});
+
+
+			const tlTestimonials = gsap.timeline({
+			});
+
+			// select all elements with the class "chat"
+			const chatElements = document.querySelectorAll(".chat");
+			chatElements.forEach((chatElement, index) => {
+				const direction = index % 2 === 0 ? 1 : -1;
+
+				tlTestimonials.from(chatElement, {
+					opacity: 0,
+					y: 200,
+					x: -50 * direction,
+					duration: 1,
+					stagger: 2.5,
+					scrollTrigger: {
+						trigger: chatElement,
+						start: "top bottom",
+						end: "top center",
+						// markers: true,
+						scrub: 1,
+						snap: {
+							snapTo: "labels",
+							duration: { min: 0.2, max: 2.5 },
+							delay: 2.2,
+							ease: "power1.inOut",
+							directional: true,
+						},
+					},
+				});
+			});
+
+
+			const tlStats = gsap.timeline({
+				scrollTrigger: {
+					trigger: "#photoboothStats",
+					start: "top bottom",
+					end: "top 70%",
+					scrub: 1,
+					snap: {
+						snapTo: "labels",
+						duration: { min: 0.2, max: 1 },
+						delay: 0.5,
+						ease: "power1.inOut",
+						directional: true,
+					},
+				},
+			});
+
+			tlStats.from("#photoboothStats",
+				{
+					opacity: 0,
+					y: 200,
+					duration: 1,
+				}
+			)
+				.addLabel("end");
+
 		}
 	}, []);
+
+
+
 	const contentVariables = useContext(ContentContext);
 
 	return (
@@ -419,9 +523,9 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 					</section>
 
 					<section className="relative z-20 pt-32 pb-20 bg-base-300">
-						<div className="relative z-30 hero sm:flex-row" id="label1">
-							<div className="container relative z-50 flex flex-col justify-center px-4 pb-20 sm:pl-0 md:w-full sm:flex-row-reverse">
-								<div className="relative inline-block mx-auto mt-0 mb-8 hero__text sm:w-1/2 sm:pt-2 md:pt-8 sm:pl-8 sm:ml-0 sm:pl-0 xl:pl-14 2xl:pl-24">
+						<div className="relative z-30 hero sm:flex-row">
+							<div id="basicHero" className="container relative z-50 flex flex-col justify-center px-4 pb-20 sm:pl-0 md:w-full sm:flex-row-reverse">
+								<div id="hero__text" className="relative inline-block mx-auto mt-0 mb-8 hero__text sm:w-1/2 sm:pt-2 md:pt-8 sm:pl-8 sm:ml-0 sm:pl-0 xl:pl-14 2xl:pl-24">
 									<span className="absolute top-0 left-0 w-full h-full scale-95 rounded-lg opacity-40 -z-10 blur-xl bg-base-300 max-w-96"></span>
 									<h1 className="mb-4 whitespace-pre sm:mb-4 drop-shadow-md">
 										<span className="block text-4xl font-extrabold text-primary pl-2.5 text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-2xl md:text-3xl">Magic Mirror</span>
@@ -434,7 +538,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 									</div>
 								</div>
 
-								<div className="relative inline-block w-full m-2 mb-auto rounded-lg sm:w-1/2 bg-base-300">
+								<div id="hero__image" className="relative inline-block w-full m-2 mb-auto rounded-lg sm:w-1/2 bg-base-300">
 									<span className="absolute top-0 left-0 w-full h-full scale-95 opacity-30 blur-xl bg-gradient-to-bl from-primary via-secondary to-purple-950"></span>
 									<StaticImage
 										className="relative block rounded-lg shadow-lg max-h-96 hero__image shadow-base-300"
@@ -478,7 +582,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 
 				<section className="relative z-20 py-32 bg-base-300">
 					<div className="container relative z-10 max-w-2xl px-4" id="label3">
-						<h2 className="max-w-lg mx-auto mb-16 text-2xl text-center text-transparent sm:text-3xl md:text-4xl bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">A unique interactive experience people can't stop talking about</h2>
+						<h2 id="testimonials__title" className="max-w-lg mx-auto mb-16 text-2xl text-center text-transparent sm:text-3xl md:text-4xl bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">A unique interactive experience people can't stop talking about</h2>
 						<div className="flex flex-col justify-start sm:flex-row">
 							<div className="block w-full mb-2 mr-0 chat chat-start">
 								<div className="relative block w-full py-4 chat-bubble">
@@ -497,16 +601,20 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 							</div>
 						</div>
 					</div>
-					<div className="relative z-20 px-2 pt-48 sm:px-4 md:px-8">
-						<p className="mb-4 text-lg font-black text-center md:text-3xl">More than a filter. A truly imaginative transformation.</p>
-						<div className="diff aspect-[16/9] container max-w-3xl rounded-md shadow-black shadow-lg">
-							<div className="diff-item-1">
-								<img alt="daisy" src="../image/holiday-Shot_0003_00807-2After.jpg" />
+
+					<div className="flex flex-row justify-center">
+						<div className="relative z-20 flex flex-col items-start px-2 pt-48 pb-32 mx-auto sm:px-4 md:px-8">
+							<p className="mb-2 font-black text-center sm:text-xl md:text-5xl lg:text-6xl">More than a filter.</p>
+							<p className="mb-4 text-lg lg:text-5xl">A truly imaginative transformation.</p>
+							<div className="diff aspect-[16/9] container max-w-3xl rounded-md shadow-black shadow-lg">
+								<div className="diff-item-1">
+									<img alt="daisy" src="../image/holiday-Shot_0003_00807-2After.jpg" />
+								</div>
+								<div className="diff-item-2">
+									<img alt="daisy" src="../image/holiday-Shot_0003_00807-1Before.jpg" />
+								</div>
+								<div className="diff-resizer"></div>
 							</div>
-							<div className="diff-item-2">
-								<img alt="daisy" src="../image/holiday-Shot_0003_00807-1Before.jpg" />
-							</div>
-							<div className="diff-resizer"></div>
 						</div>
 					</div>
 					<div className="absolute bottom-0 z-0 block h-full min-w-full -translate-x-1/2 opacity-100 pointer-events-none select-none background-image left-1/2 z-1">
@@ -525,7 +633,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 				</section>
 
 				<section className="relative z-20 flex justify-center py-24 overflow-hidden border-t-2 border-b-2 border-opacity-100 md:py-32 lg:py-48 border-purple-950" id="label4">
-					<div className="relative z-10 mx-auto shadow-lg bg-opacity-95 stats shadow-black stats-vertical sm:stats-horizontal">
+					<div id="photoboothStats" className="relative z-10 mx-auto shadow-lg bg-opacity-95 stats shadow-black stats-vertical sm:stats-horizontal">
 						<div className="stat">
 							<div className="stat-value">175k+</div>
 							<div className="text-xl stat-title">Images generated</div>
