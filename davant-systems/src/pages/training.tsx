@@ -69,7 +69,7 @@ const TrainingPage: React.FC<PageProps> = () => {
 								loading="eager"
 								objectFit="cover"
 								objectPosition="center"
-								alt="Screenshot of Davant Studio software" />
+								alt="" />
 							<div className="absolute bottom-0 left-0 z-10 w-full opacity-100 gradient-fade pb-28 bg-gradient-to-b from-transparent to-base-300 "></div>
 						</div>
 					</div>

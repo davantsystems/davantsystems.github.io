@@ -1,25 +1,31 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from 'gatsby'
+import MainNav from '../components/MainNav'
+import Footer from "../components/Footer"
 
 export default function Template({ data }) {
   const { markdownRemark: post } = data
   if (!post) return <div>Post not found</div>
 
   return (
-    <div className="blog-post-container">
-      <Helmet title={`Davant Systems - ${post.frontmatter.title}`} />
-      <article className="blog-post">
-        <header className="container p-12 mx-auto text-center bg-purple-950">
-          <h1>{post.frontmatter.title}</h1>
-          <p>Published on {post.frontmatter.date}</p>
-        </header>
-        <div
-          className="container px-12 py-20 mx-auto"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-      </article>
-    </div>
+    <>
+      <MainNav />
+      <div className="blog-post-container">
+        <Helmet title={`Davant Systems - ${post.frontmatter.title}`} />
+        <article className="blog-post">
+          <header className="container p-12 mx-auto text-center bg-purple-950">
+            <h1>{post.frontmatter.title}</h1>
+            <p>Published on {post.frontmatter.date}</p>
+          </header>
+          <div
+            className="container px-12 py-20 mx-auto"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </article>
+      </div>
+      <Footer />
+    </>
   )
 }
 
