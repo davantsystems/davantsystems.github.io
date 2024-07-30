@@ -42,7 +42,7 @@ const TrainingPage: React.FC<PageProps> = () => {
 											</div>
 
 											<div className="flex flex-col px-6 py-8 mt-0 mb-12 rounded-md shadow-xl bg-opacity-90 bg-base-300">
-												<h2 className="text-4xl">Custom Training</h2>
+												<h2 className="text-4xl text-center">Custom Training</h2>
 												<div className="pt-8 mb-8">
 													<ul className="pl-0 font-light leading-snug list-none sm:columns-2 list">
 														<li className="mb-4 list-item">Group Workshops</li>

@@ -50,7 +50,23 @@ const config: GatsbyConfig = {
       },
       __key: "pages",
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
+        ],
+      },
+    },
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
@@ -116,7 +132,7 @@ const config: GatsbyConfig = {
         },
       },
     },
-    
+
     {
       resolve: `gatsby-source-s3`,
       options: {

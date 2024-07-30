@@ -148,7 +148,7 @@ const IndexPage: React.FC<PageProps> = () => {
 			</main>
 
 			<Footer />
-			
+
 			<div className="absolute z-0 vhs-effect"></div>
 			<div className="absolute z-0 vhs-effect-vert"></div>
 		</>
