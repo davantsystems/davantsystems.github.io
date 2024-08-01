@@ -21,11 +21,12 @@ const MainNav = () => {
           <li><Link to="/davant-studio/">Davant Studio</Link></li>
           <li><Link to="/photobooth/">Magic Mirror AI Photo Booth</Link></li>
           <li className="dropdown">
-              <div tabIndex={0} role="button">Learn & Create</div>
-              <ul tabIndex={0} className="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[1] p-2 shadow border-2 border-indigo-950 bg-base-300 rounded-md w-auto right-0">
-                <li><Link to="/training/" className="whitespace-nowrap">Training & Workshops</Link></li>
-                <li><Link to="/ambassadors/" className="whitespace-nowrap">Creative Ambassadors</Link></li>
-              </ul>
+            <div tabIndex={0} role="button">Learn & Create</div>
+            <ul tabIndex={0} className="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[1] p-2 shadow border-2 border-indigo-950 bg-base-300 rounded-md w-auto right-0">
+              <li><Link to="/articles/" className="whitespace-nowrap">Articles</Link></li>
+              <li><Link to="/training/" className="whitespace-nowrap">Training & Workshops</Link></li>
+              <li><Link to="/ambassadors/" className="whitespace-nowrap">Creative Ambassadors</Link></li>
+            </ul>
           </li>
 
         </ul>

@@ -11,6 +11,7 @@ const Footer = () => {
                 <nav>
                     <Link to="/davant-studio/" className="link link-hover">Davant Studio Software</Link>
                     <Link to="/photobooth/" className="link link-hover">Magic Mirror AI Photo Booth</Link>
+                    <Link to="/articles/" className="link link-hover">Articles</Link>
                 </nav>
                 <nav>
                     <Link className="link link-hover" to="/training/">Training & Workshops</Link>
