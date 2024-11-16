@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentContext from "../ContentContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faTwitter, faFacebook, faLinkedin, faYoutube, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faTwitter, faFacebook, faLinkedin, faYoutube, faGoogle, faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 const SocialIcon = ({ contentVariables, platform }: { contentVariables: object, platform: string }) => {
     const url = contentVariables.davant.links.social[platform as keyof typeof contentVariables.davant.links.social].url;
@@ -13,7 +13,8 @@ const SocialIcon = ({ contentVariables, platform }: { contentVariables: object, 
         facebook: faFacebook,
         linkedin: faLinkedin,
         youtube: faYoutube,
-        googleBusiness: faGoogle // Assume 'faGoogle' is correctly named and imported; if it's not available in FontAwesome, you need a different import
+        googleBusiness: faGoogle,
+        discord: faDiscord
     }[platform];
 
     return (

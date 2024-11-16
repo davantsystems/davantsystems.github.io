@@ -30,6 +30,10 @@ interface ContentVariables {
                 },
                 googleBusiness: {
                     handle: string,
+                    url: string,
+                },
+                discord: {
+                    handle: string,
                     url: string
                 }
             }
@@ -84,6 +88,10 @@ const ContentContext = React.createContext<ContentVariables>({
                     url: ""
                 },
                 googleBusiness: {
+                    handle: "",
+                    url: ""
+                },
+                discord: {
                     handle: "",
                     url: ""
                 }
