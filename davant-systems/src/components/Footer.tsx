@@ -25,6 +25,8 @@ const Footer = () => {
                         <SocialIcon platform="linkedin" contentVariables={contentVariables} />
                         <SocialIcon platform="youtube" contentVariables={contentVariables} />
                         <SocialIcon platform="googleBusiness" contentVariables={contentVariables} />
+                        <SocialIcon platform="discord" contentVariables={contentVariables} />
+                        <Link className="link link-hover" to="https://davant-public.s3.us-west-1.amazonaws.com/software/StableDiffusion_PC-NVIDIA.zip">SD Forge PC</Link>
                     </div>
                 </nav>
             </footer>

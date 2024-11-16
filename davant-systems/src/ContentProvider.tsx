@@ -37,6 +37,10 @@ const ContentProvider: React.FC<ContentProviderProps> = ({ children }) => {
           googleBusiness: {
             handle: "@DavantSystems",
             url: "https://www.google.com/search?q=Davant+Systems"
+          },
+          discord: {
+            handle: "@DavantSystems",
+            url: "https://discord.gg/P8JQtcxfym"
           }
         }
       },

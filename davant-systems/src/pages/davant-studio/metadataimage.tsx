@@ -56,6 +56,15 @@ function ImageMetadataExtractor() {
 
     const renderMetadata = (metadata: Metadata, prefix = ''): JSX.Element[] => {
         return Object.entries(metadata).map(([key, value]) => {
+            console.log(typeof value)
+            if (key == "parameters") {
+                // unstringify value
+                console.log(value)
+                value = `prompt: "${value}`
+                // find "Steps:" and add a line break
+                value = value.replace("Steps:", "\", Steps:")
+            }
+
             if (value && typeof value === 'object' && !Array.isArray(value) && value !== null) {
                 return <React.Fragment key={prefix + key}>
                     {renderMetadata(value, `${prefix}${key}.`)}
@@ -67,9 +76,9 @@ function ImageMetadataExtractor() {
 
     return (
         <div>
-            <div 
-                onDragOver={handleDragOver} 
-                onDragLeave={handleDragLeave} 
+            <div
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
                 onClick={handleClick}
                 style={{
@@ -83,11 +92,11 @@ function ImageMetadataExtractor() {
             >
                 Drag and drop an image file here, or click to select a file.
             </div>
-            <input 
-                type="file" 
-                onChange={handleFileChange} 
-                accept="image/*" 
-                style={{ display: 'none' }} 
+            <input
+                type="file"
+                onChange={handleFileChange}
+                accept="image/*"
+                style={{ display: 'none' }}
                 ref={fileInputRef}  // Add ref to the input
             />
             <div>
