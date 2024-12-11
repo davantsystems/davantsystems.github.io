@@ -24,7 +24,7 @@ const DownloadPage: React.FC<PageProps> = () => {
 
 								<div className="flex flex-col items-center flex-1 p-4 border-2 rounded-md bg-base-300 border-primary border-opacity-15">
 									<Link className="relative z-10 w-full pl-0 pr-4 mx-auto mb-4 border-opacity-50 rounded-sm shadow-sm cta__button--download effect__chromeflash btn btn-primary text-md lg:text-md indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 text-neutral border-1 border-cyan-500 shadow-pink-500"
-										to="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.2/DavantStudio_v1.0.2.zip">
+										to="https://davant-public.s3.us-west-1.amazonaws.com/software/Davant+Studio+Builds/PC-NVIDIA/DavantStudio-1.1.0rc11.rar">
 										<span className="p-2 bg-transparent rounded-full badge-neutral">
 											{/* <svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
 														<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -44,7 +44,7 @@ const DownloadPage: React.FC<PageProps> = () => {
 
 								<div className="flex flex-col items-center flex-1 p-4 border-2 rounded-md bg-base-300 border-primary border-opacity-15">
 									<Link className="relative z-10 w-full pl-0 pr-4 mx-auto mb-4 border-opacity-50 rounded-sm shadow-sm cta__button--download effect__chromeflash btn btn-primary text-md lg:text-md indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 text-neutral border-1 border-cyan-500 shadow-pink-500"
-										to="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.2/DavantStudio_v1.0.2.zip">
+										to="https://davant-public.s3.us-west-1.amazonaws.com/software/Davant+Studio+Builds/Mac/DavantStudio-1.1.0.dmg">
 										<span className="p-2 bg-transparent rounded-full badge-neutral">
 											{/* <svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
 														<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -90,6 +90,14 @@ const DownloadPage: React.FC<PageProps> = () => {
 					<p className="mb-4">You will receive your license key via email. Activate your license key in the Davant Launcher.	</p>
 					<p>Your key is unique to your account, do not share your license key.</p>
 				</section>
+
+				< section className="container" >
+					<div className="max-w-3xl px-4 py-32 mx-auto text-center ">
+						<p className="mb-2 text-2xl text-cyan-300">Can't find what you're looking for?</p>
+						<a className="text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text"
+							href="mailto:support@davantsystems.com">support@davantsystems.com</a>
+					</div>
+				</section >
 
 				<div className="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
 			</main >
