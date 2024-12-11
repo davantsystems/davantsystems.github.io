@@ -20,33 +20,9 @@ const DownloadPage: React.FC<PageProps> = () => {
 							<h1 className="mb-12 font-light text-center text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
 								<span className="block text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">Downloads</span>
 							</h1>
-							<div role="alert" className="container flex items-center max-w-lg py-2 mx-auto mb-4 text-center text-warning alert">
-  								<svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 stroke-current shrink-0" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-								<p className="text-lg">This is a 2-step download. You need BOTH of these!</p>
-								{/* <p>Click the buttons below to download Davant Studio and the Stable Diffusion Quickstart bundle.</p> */}
-							</div>
 							<div className="box-border flex flex-col w-full max-w-4xl gap-2 px-4 mx-auto md:flex-row md:box-content">
-								<div className="relative flex flex-col items-center flex-1 p-4 bg-opacity-100 border-2 rounded-md border-opacity-5 border-secondary bg-base-300">
-									<p className="mb-4 mr-auto badge badge-warning">Download 1 of 2</p>
-									<Link
-										className="w-full mb-4 border-purple-900 shadow-md l-0 text-md lg:text-md hover:shadow-lg hover:border-cyan-300 hover:bg-cyan-500 hover:border-purple-900 btn btn-md btn-secondary shadow-base-300"
-										to="https://davant-public.s3.us-west-1.amazonaws.com/software/StableDiffusion_Davant-Auto111-Quickstart.zip">
-										<span className="p-2 bg-transparent rounded-full badge-neutral">
-											<svg className="fill-base-300" fill="#000000" width="28px" height="28px" viewBox="0 -64 640 640" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M32,224H64V416H32A31.96166,31.96166,0,0,1,0,384V256A31.96166,31.96166,0,0,1,32,224Zm512-48V448a64.06328,64.06328,0,0,1-64,64H160a64.06328,64.06328,0,0,1-64-64V176a79.974,79.974,0,0,1,80-80H288V32a32,32,0,0,1,64,0V96H464A79.974,79.974,0,0,1,544,176ZM264,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,264,256Zm-8,128H192v32h64Zm96,0H288v32h64ZM456,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,456,256Zm-8,128H384v32h64ZM640,256V384a31.96166,31.96166,0,0,1-32,32H576V224h32A31.96166,31.96166,0,0,1,640,256Z"></path></g></svg>
-										</span>
-										Stable Diffusion Quickstart
-									</Link>
-									<div className="text-center text-md md:text-left md:mr-auto">
-										<p className="mb-2.5">The AI image-generation engine.</p>
-										<p>This must be running for Davant Studio to work!</p>
-										{/* <p className="mb-2">Custom bundle of the core Stable Diffusion engine.</p>
-										<p className="mb-1">Everything you need to get started.</p> */}
-										{/* <p>Built with <a href={contentVariables.auto1111.links.repoUrl} className="link" target="_blank" rel="noreferrer">Automatic1111</a></p> */}
-									</div>
-								</div>
 
 								<div className="flex flex-col items-center flex-1 p-4 border-2 rounded-md bg-base-300 border-primary border-opacity-15">
-									<p className="mb-4 mr-auto badge badge-warning">Download 2 of 2</p>
 									<Link className="relative z-10 w-full pl-0 pr-4 mx-auto mb-4 border-opacity-50 rounded-sm shadow-sm cta__button--download effect__chromeflash btn btn-primary text-md lg:text-md indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 text-neutral border-1 border-cyan-500 shadow-pink-500"
 										to="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.2/DavantStudio_v1.0.2.zip">
 										<span className="p-2 bg-transparent rounded-full badge-neutral">
@@ -61,8 +37,32 @@ const DownloadPage: React.FC<PageProps> = () => {
 										<span className="pt-1">Davant Studio for Windows</span>
 									</Link>
 									<div className="text-center text-md md:text-left">
-										<p className="mb-2.5">Our creative software application.</p>
-										<p>An interface to control Stable Diffusion and integrate it into your workflow.</p>
+										<p className="mb-2.5 mt-2">Requires Windows 10 or 11</p>
+										<p>NVIDIA RTX 3060 or better</p>
+									</div>
+								</div>
+
+								<div className="flex flex-col items-center flex-1 p-4 border-2 rounded-md bg-base-300 border-primary border-opacity-15">
+									<Link className="relative z-10 w-full pl-0 pr-4 mx-auto mb-4 border-opacity-50 rounded-sm shadow-sm cta__button--download effect__chromeflash btn btn-primary text-md lg:text-md indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 text-neutral border-1 border-cyan-500 shadow-pink-500"
+										to="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.2/DavantStudio_v1.0.2.zip">
+										<span className="p-2 bg-transparent rounded-full badge-neutral">
+											{/* <svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+														<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+														<g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+														<g id="SVGRepo_iconCarrier">
+															<path d="M8 22.0002H16C18.8284 22.0002 20.2426 22.0002 21.1213 21.1215C22 20.2429 22 18.8286 22 16.0002V15.0002C22 12.1718 22 10.7576 21.1213 9.8789C20.3529 9.11051 19.175 9.01406 17 9.00195M7 9.00195C4.82497 9.01406 3.64706 9.11051 2.87868 9.87889C2 10.7576 2 12.1718 2 15.0002L2 16.0002C2 18.8286 2 20.2429 2.87868 21.1215C3.17848 21.4213 3.54062 21.6188 4 21.749" strokeWidth="1.5" strokeLinecap="round"></path>
+															<path d="M12 2L12 15M12 15L9 11.5M12 15L15 11.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg> */}
+											<svg width="22px" height="22px" className="stroke-white fill-base-300" viewBox="-1.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+												<g id="SVGRepo_bgCarrier" stroke-width="0" />
+												<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+												<g id="SVGRepo_iconCarrier"> <title>apple [#173]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.0002" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-102.000000, -7439.000000)"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M57.5708873,7282.19296 C58.2999598,7281.34797 58.7914012,7280.17098 58.6569121,7279 C57.6062792,7279.04 56.3352055,7279.67099 55.5818643,7280.51498 C54.905374,7281.26397 54.3148354,7282.46095 54.4735932,7283.60894 C55.6455696,7283.69593 56.8418148,7283.03894 57.5708873,7282.19296 M60.1989864,7289.62485 C60.2283111,7292.65181 62.9696641,7293.65879 63,7293.67179 C62.9777537,7293.74279 62.562152,7295.10677 61.5560117,7296.51675 C60.6853718,7297.73474 59.7823735,7298.94772 58.3596204,7298.97372 C56.9621472,7298.99872 56.5121648,7298.17973 54.9134635,7298.17973 C53.3157735,7298.17973 52.8162425,7298.94772 51.4935978,7298.99872 C50.1203933,7299.04772 49.0738052,7297.68074 48.197098,7296.46676 C46.4032359,7293.98379 45.0330649,7289.44985 46.8734421,7286.3899 C47.7875635,7284.87092 49.4206455,7283.90793 51.1942837,7283.88393 C52.5422083,7283.85893 53.8153044,7284.75292 54.6394294,7284.75292 C55.4635543,7284.75292 57.0106846,7283.67793 58.6366882,7283.83593 C59.3172232,7283.86293 61.2283842,7284.09893 62.4549652,7285.8199 C62.355868,7285.8789 60.1747177,7287.09489 60.1989864,7289.62485" id="apple-[#173]"> </path> </g> </g> </g> </g>
+											</svg>
+										</span>
+										<span className="pt-1">Davant Studio for Mac</span>
+									</Link>
+									<div className="text-center text-md md:text-left">
+										<p className="mb-2.5 mt-2">Requires Apple Silicon</p>
+										<p>M1 or newer, macOS Sequoia 14.6 or newer</p>
 									</div>
 								</div>
 
@@ -86,9 +86,9 @@ const DownloadPage: React.FC<PageProps> = () => {
 				</section>
 
 				<section className="container max-w-xl px-4 pb-24 text-sm pt-14">
-					<h2 className="mb-4 font-bold">Advanced Users:</h2>
-					<p className="mb-4">If you already have a working installation of Automatic1111, you can use it. If it's running on a non-default port, be sure to change the IP & port in the "Settings" tab in Davant Studio.</p>
-					<p>Davant Studio is now compatible with <a href="https://github.com/lllyasviel/stable-diffusion-webui-forge" target="_blank" rel="noreferrer" className="link">SD Forge</a>. Our tests show a ~25% speed increase. A custom "quickstart" bundle for SD Forge is coming soon.</p>
+					<h2 className="mb-4 font-bold">If you purchased a Standard License</h2>
+					<p className="mb-4">You will receive your license key via email. Activate your license key in the Davant Launcher.	</p>
+					<p>Your key is unique to your account, do not share your license key.</p>
 				</section>
 
 				<div className="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
