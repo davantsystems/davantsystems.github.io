@@ -27,57 +27,47 @@ const IndexPage: React.FC<PageProps> = () => {
 
 								<div className="flex flex-col items-center justify-center sm:flex-row sm:gap-10">
 
-									<div>
-										<p className="block w-auto max-w-sm mx-auto mb-2 overflow-visible text-lg text-left text-transparent md:max-w-md lg:max-w-xl text-cyan-200 md:mb-12 sm:text-2g md:text-3xl lg:text-5xl bg-gradient-to-br from-cyan-500 via-secondary to-purple-500 bg-clip-text position">
-											<span className="block pt-2 text-4xl font-bold md:leading-10 md:text-6xl lg:mb-1">Next-Gen </span>
-											<span className="block font-light leading-tight md:leading-10 pl-0.5 mb-4">creative tools</span>
-											<span className="block text-3xl font-bold leading-tight md:leading-10 md:mb-3 md:text-5xl">Mind-blowing </span>
-											<span className="block font-light md:leading-3 pl-0.5 pb-8 -mb-4 overflow-visible">possibilities</span></p>
+									<div className="px-8 py-8 shadow-md card bg-base-300 bg-opacity-80">
+										<p className="block w-auto max-w-sm mx-auto mb-2 overflow-visible text-lg text-left text-transparent md:max-w-md lg:max-w-xl text-cyan-200 md:mb-8 sm:text-2g md:text-xl lg:text-2xl bg-gradient-to-br from-cyan-500 via-secondary to-purple-500 bg-clip-text position">
+											<span className="block pt-2 text-3xl font-bold md:leading-10 md:text-4xl lg:mb-1">Davant Studio </span>
+											<span className="block font-light leading-tight md:leading-10 pl-0.5 mb-4">AI image suite for creatives</span>
+										</p>
 
-										<div className="z-10 hidden px-8 pt-10 pb-4 mx-auto mb-auto shadow-md sm:block join join-vertical md:mt-auto bg-base-300 bg-opacity-80">
+										<div className="z-10 hidden px-8 pb-4 mx-auto mb-auto sm:block join join-vertical md:mt-auto">
 											<Link to="/davant-studio/">
 												<button
 													className="mb-2 text-lg border-opacity-50 rounded-sm shadow-sm btn btn-primary indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500 ">
-													Get Davant Studio
+													Explore Davant Studio
 												</button>
 											</Link>
 
-											<div className="w-auto grid-flow-col px-0 text-xs text-left bg-transparent border-0 alert">
-												<svg height="22px" width="24px" className="stroke-white fill-cyan-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452.986 452.986" fill="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M165.265,53.107L21.689,81.753v132.531l143.575-2.416V53.107 M431.297,245.583l-233.18-3.991 v164.822l233.18,46.571V245.583 M165.265,241.097l-143.575-2.438v132.509l143.575,28.668V241.097 M431.297,0l-233.18,46.528 v164.822l233.18-3.969V0"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g> </g></svg>
-												{/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="w-6 h-6 stroke-info shrink-0"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> */}
-												<div className="text-cyan-100">
-													<p className="font-bold">Recommended specs:</p>
-													<p>Windows 10/11 | 16gb RAM</p>
-													<p>Nvidia 2000 series | AMD 6000 series</p>
-												</div>
-											</div>
 										</div>
 									</div>
 
-									<div className="max-w-sm mb-4 bg-black border-2 shadow-lg sm:mb-0 border-primary border-opacity-5 bg-opacity-40">
+									<div className="px-8 py-8 shadow-md card bg-base-300 bg-opacity-80">
+										<p className="block w-auto max-w-sm mx-auto mb-2 overflow-visible text-lg text-left text-transparent md:max-w-md lg:max-w-xl text-cyan-200 md:mb-8 sm:text-2g md:text-xl lg:text-2xl bg-gradient-to-br from-cyan-500 via-secondary to-purple-500 bg-clip-text position">
+											<span className="block pt-2 text-3xl font-bold md:leading-10 md:text-4xl lg:mb-1">Magic Mirror</span>
+											<span className="block font-light leading-tight md:leading-10 pl-0.5 mb-4">Interactive AI Experience</span>
+										</p>
+
+										<div className="z-10 hidden px-8 pb-4 mx-auto mb-auto sm:block join join-vertical md:mt-auto">
+											<Link to="/photobooth/">
+												<button
+													className="mb-2 text-lg border-opacity-50 rounded-sm shadow-sm btn btn-primary indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500 ">
+													Explore Magic Mirror
+												</button>
+											</Link>
+
+										</div>
+									</div>
+
+									{/* <div className="max-w-sm mb-4 bg-black border-2 shadow-lg sm:mb-0 border-primary border-opacity-5 bg-opacity-40">
 										<StaticImage
 											src="../images/davant-studio-controls.png"
 											alt="Screenshot of Davant Studio software"
 										/>
-									</div>
-									<div className="z-10 block px-8 pt-10 pb-4 mx-auto mb-auto shadow-md sm:hidden join join-vertical md:mt-auto bg-base-300 bg-opacity-80">
-										<Link to="/davant-studio/">
-											<button
-												className="mb-2 text-lg border-opacity-50 rounded-sm shadow-sm btn btn-primary indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500 ">
-												Get Davant Studio
-											</button>
-										</Link>
-
-										<div className="w-auto grid-flow-col px-0 text-xs text-left bg-transparent border-0 alert">
-											<svg height="22px" width="24px" className="stroke-white fill-cyan-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452.986 452.986" fill="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M165.265,53.107L21.689,81.753v132.531l143.575-2.416V53.107 M431.297,245.583l-233.18-3.991 v164.822l233.18,46.571V245.583 M165.265,241.097l-143.575-2.438v132.509l143.575,28.668V241.097 M431.297,0l-233.18,46.528 v164.822l233.18-3.969V0"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g> </g></svg>
-											{/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="w-6 h-6 stroke-info shrink-0"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> */}
-											<div className="text-cyan-100">
-												<p className="font-bold">Recommended specs:</p>
-												<p>Windows 10/11 | 16gb RAM</p>
-												<p>Nvidia 2000 series | AMD 6000 series</p>
-											</div>
-										</div>
-									</div>
+									</div> */}
+									
 								</div>
 							</div>
 						</div>
@@ -137,7 +127,7 @@ const IndexPage: React.FC<PageProps> = () => {
 						<div className="relative z-10 grid grid-rows-3 gap-4 mx-auto md:grid-rows-1 md:grid-cols-3">
 							<CardPerson headline="Booking & Events" name="MC de Martino" email="mc@davantsystems.com" />
 							<CardPerson headline="AI Magic & Workflow" name="David Shorey" email="david@davantsystems.com" />
-							<CardPerson headline="Business Inquiries" name="Grant Keller" email="grant@davantsystems.com" />
+							<CardPerson headline="Business Inquiries" name="Matt Whitesell" email="matt@davantsystems.com" />
 						</div>
 					</div>
 					{/* <div className="absolute top-0 left-0 z-0 w-full h-full bg-black bg-overlay opacity-30">
