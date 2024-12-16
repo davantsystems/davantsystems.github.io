@@ -31,7 +31,7 @@ const PurchaseCard = ({ level }: { level: string }) => {
             <p className="justify-end mb-4 text-2xl text-center text-white">{level === "standard" ? ("$30/month") : ("Free")}</p>
 
             <Link className="justify-end pl-0 pr-4 mx-auto mt-auto mb-0 overflow-hidden border-opacity-50 rounded-sm shadow shadow-lg shadow-purple-900 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-                to={level === "standard" ? "https://buy.stripe.com/3cs7vZ6Nr3Azc3CbIK" : "/davant-studio/download/"}>
+                to={level === "standard" ? "https://buy.stripe.com/3cs7vZ6Nr3Azc3CbIK" : "https://mailchi.mp/davantsystems/davant-studio-free-download"}>
 
                 <span className="p-2 bg-transparent rounded-full badge-neutral">
                     <svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
