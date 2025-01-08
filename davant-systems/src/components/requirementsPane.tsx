@@ -15,6 +15,7 @@ const RequirementsPane = () => {
                                 <p className="mb-2 text-2xl font-bold underline">Windows</p>
                                 <p className="mb-2">Windows 10/11</p>
                                 <p>GPU: NVIDIA 3060 or better</p>
+                                <p className="italic">(AMD bundle coming soon)</p>
                             </div>
                         </div>
                     </div>

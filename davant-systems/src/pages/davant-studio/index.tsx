@@ -69,8 +69,17 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 											</div>
 										</div>
 
-										<div className="relative mx-auto mb-0 space-x-2 border-2 border-opacity-50 shadow-lg shadow-base-300 border-indigo-950 shadow-black screenshot-carousel wrapper__screenshots carousel carousel-center w-44 sm:w-60 md:w-96">
+										<div className="relative mx-auto mb-0 space-x-2 bg-opacity-0 border-0 border-opacity-50 border-indigo-950 screenshot-carousel wrapper__screenshots carousel carousel-center w-44 sm:w-60 md:w-96">
 											<div className="relative shadow-md item carousel-item">
+												<StaticImage
+													className="z-10 w-44 sm:w-60 md:w-96"
+													objectFit="contain"
+													src="../../images/DavantStudio_app_mac_defaultmountain_1.png"
+													quality={100}
+													alt="Screenshot of Davant Studio software"
+												/>
+											</div>
+											{/* <div className="relative shadow-md item carousel-item">
 												<StaticImage
 													className="z-10 w-44 sm:w-60 md:w-96"
 													objectFit="contain"
@@ -96,7 +105,7 @@ const DavantStudioPage: React.FC<PageProps> = () => {
 													quality={100}
 													alt="Screenshot of Davant Studio software"
 												/>
-											</div>
+											</div> */}
 										</div>
 									</div>
 								</div>
