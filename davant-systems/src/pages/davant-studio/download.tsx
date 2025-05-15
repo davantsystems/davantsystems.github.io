@@ -24,7 +24,7 @@ const DownloadPage: React.FC<PageProps> = () => {
 
 								<div className="flex flex-col items-center flex-1 p-4 border-2 rounded-md bg-base-300 border-primary border-opacity-15">
 									<Link className="relative z-10 w-full pl-0 pr-4 mx-auto mb-4 border-opacity-50 rounded-sm shadow-sm cta__button--download effect__chromeflash btn btn-primary text-md lg:text-md indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 text-neutral border-1 border-cyan-500 shadow-pink-500"
-										to="https://davant-public.s3.us-west-1.amazonaws.com/software/Davant+Studio+Builds/PC-NVIDIA/DavantStudio-1.1.1-win.zip">
+										to="https://davant-public.s3.us-west-1.amazonaws.com/software/Davant+Studio+Builds/PC-NVIDIA/DavantStudio-1.1.2-win.zip">
 										<span className="p-2 bg-transparent rounded-full badge-neutral">
 											{/* <svg className="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
 														<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
