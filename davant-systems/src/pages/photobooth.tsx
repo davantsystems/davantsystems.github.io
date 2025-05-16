@@ -9,6 +9,7 @@ import LogoGrid from '../components/LogoGrid';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import TimelapseVideo from '../components/TimelapseVideo';
 
 
 const PhotoboothPage: React.FC<PageProps> = () => {
@@ -550,6 +551,12 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 						</div>
 					</section>
 
+					<section className="relative z-20 py-8 bg-base-300">
+						<div>
+							<TimelapseVideo videoId="La7IxgcyliI" title="Prompted by Promise Studios and Curious Refuge" />
+						</div>
+					</section>
+
 					<section className="relative z-20 bg-base-300" id="overview">
 						<div className="container flex flex-col px-4 py-20 mx-auto md:flex-row md:items-center">
 							<div className="block mb-8 md:w-1/2 md:pr-12 md:mb-unset" id="overview__content">
@@ -672,7 +679,7 @@ const PhotoboothPage: React.FC<PageProps> = () => {
 						<span className="mt-12 divider">or</span>
 						<p className="mt-8 mb-8 text-2xl font-bold text-center">Contact us directly</p>
 						<div className="block text-left">
-							<p className="mb-4 text-xl">Email: <a href="mailto:tone@davantsystems.com" className="link link-secondary">tone@davantsystems.com</a></p>
+							<p className="mb-4 text-xl">Email: <a href="mailto:contact@davantsystems.com" className="link link-secondary">contact@davantsystems.com</a></p>
 							<p className="text-xl">Phone: <a href="tel:+1-702-561-5682" className="link link-secondary">(702)561-5682</a></p>
 						</div>
 					</div>
