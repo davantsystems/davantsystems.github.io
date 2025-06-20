@@ -12,11 +12,11 @@ const EventCard: React.FC<{
   children: React.ReactNode;
 }> = ({ title, date, description, galleryUrl, children }) => {
   return (
-    <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] overflow-hidden">
-      <figure className="relative h-64 overflow-hidden bg-base-200">
+    <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] overflow-hidden md:card-side">
+      <figure className="relative h-64 md:h-auto md:w-1/2 overflow-hidden bg-base-200">
         {children}
       </figure>
-      <div className="card-body">
+      <div className="card-body md:w-1/2">
         <h2 className="card-title text-2xl mb-2 text-secondary">
           {title}
         </h2>
@@ -58,7 +58,7 @@ const EventGalleriesPage: React.FC<PageProps> = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
               <EventCard
                 title="Ninja Penguin"
                 date="May 17, 2025"
