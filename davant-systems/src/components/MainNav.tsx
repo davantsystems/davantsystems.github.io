@@ -19,7 +19,13 @@ const MainNav = () => {
       <div className="hidden navbar-center md:flex">
         <ul className="px-1 tracking-tight menu menu-horizontal text-cyan-100 drop-shadow-sm">
           <li><Link to="/davant-studio/">Davant Studio</Link></li>
-          <li><Link to="/photobooth/">Magic Mirror AI Photo Booth</Link></li>
+          <li className="dropdown">
+            <div tabIndex={0} role="button">Magic Mirror</div>
+            <ul tabIndex={0} className="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[1] p-2 shadow border-2 border-indigo-950 bg-base-300 rounded-md w-auto right-0">
+              <li><Link to="/photobooth/" className="whitespace-nowrap">AI Photo Booth</Link></li>
+              <li><Link to="/event-galleries/" className="whitespace-nowrap">Event Galleries</Link></li>
+            </ul>
+          </li>
           <li className="dropdown">
             <div tabIndex={0} role="button">Learn & Create</div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[1] p-2 shadow border-2 border-indigo-950 bg-base-300 rounded-md w-auto right-0">
@@ -43,7 +49,13 @@ const MainNav = () => {
           <li>
             <Link to="/davant-studio/">Davant Studio</Link>
           </li>
-          <li><Link to="/photobooth/">Magic Mirror AI Photo Booth</Link></li>
+          <li>
+            <span className="hover:cursor-default hover:bg-transparent">Magic Mirror</span>
+            <ul>
+              <li><Link to="/photobooth/">AI Photo Booth</Link></li>
+              <li><Link to="/event-galleries/">Event Galleries</Link></li>
+            </ul>
+          </li>
           <li>
             <span className="hover:cursor-default hover:bg-transparent">Learn & Create</span>
             <ul>
