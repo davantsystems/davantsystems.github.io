@@ -95,7 +95,7 @@ const EventGalleriesPage: React.FC<PageProps> = () => {
                 title="Prompted by Promise Studios"
                 date="May 6, 2025"
                 description="Magic Mirror photos from the Prompted event by Promise Studios"
-                galleryUrl=""
+                galleryUrl="https://photos.davantsystems.com/share/PbYcHY_3xUX_h03DRxjK8hm6YDVUwyLfkS3eH1q3mYqta9WvIlM54dsBk004yNy9nGQ"
               >
                 <StaticImage
                   src="../images/events/prompted.jpg"
