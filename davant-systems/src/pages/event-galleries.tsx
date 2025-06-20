@@ -90,6 +90,22 @@ const EventGalleriesPage: React.FC<PageProps> = () => {
                   imgStyle={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 />
               </EventCard>
+
+              <EventCard
+                title="Prompted by Promise Studios"
+                date="May 6, 2025"
+                description="Magic Mirror photos from the Prompted event by Promise Studios"
+                galleryUrl=""
+              >
+                <StaticImage
+                  src="../images/events/prompted.jpg"
+                  alt="Prompted Event by Promise Studios"
+                  placeholder="blurred"
+                  layout="fullWidth"
+                  className="w-full h-full"
+                  imgStyle={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                />
+              </EventCard>
             </div>
 
             <div className="mt-16 mb-8">

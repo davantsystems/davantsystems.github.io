@@ -91,7 +91,3 @@ Update `MainNav.tsx` component with new menu items
 - Ensure all external links open in new tabs (target="_blank")
 - Keep image file sizes optimized for web performance
 
-### Git Commit Guidelines
-- **Always ask the user before creating any commits** - never commit automatically
-- **Commit messages should be concise** - ideally scannable on one line (longer is okay when necessary for clarity)
-- **Do not include Claude attributions** in commit messages (no "Generated with Claude Code" or similar)
