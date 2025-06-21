@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from 'daisyui';
+import typography from '@tailwindcss/typography';
+
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
@@ -20,25 +23,16 @@ export default {
 				'2xl': ['1.5rem', '1.3'],
 				'3xl': ['1.875rem', '1.3'],
 				'4xl': ['2.25rem', '1.3'],
+			},
+			colors: {
+				'base-100': 'oklch(0.138999 0.036212 306.761881 / 1)',
+				'base-200': 'oklch(0.129269 0.033571 306.761881 / 1)',
+				'base-300': 'oklch(0.119539 0.031142 306.761881 / 1)',
 			}
 		},
 	},
 	plugins: [
-		require("@tailwindcss/typography"),
-		require("daisyui")
+		typography,
+		daisyui
 	],
-	daisyui: {
-		themes: [
-			{
-				synthwave: {
-					...require("daisyui/src/theming/themes")["synthwave"],
-					primary: "hsl(309, 80%, 41%)",
-					secondary: "hsl(187, 90%, 50%)",
-					warning: "hsl(40, 100%, 67%)",
-					"base-100": "hsl(270, 60%, 5%)",
-					"okay": "hsl(120, 100%, 67%)",
-				},
-			},
-		],
-	}
 }
