@@ -2,10 +2,16 @@
 const { href, target, class: className } = Astro.props;
 
 const classNames = className ? className : 'text=fuchsia-500 hover:text-fuchsia-300';
+
+let dynamicClasses = classNames;
+
+if ("no-underline" != classNames && !classNames.includes("underline")) {
+  dynamicClasses += " underline";
+}
 ---
 
 
 <a
-  class={`inline-block underline ${classNames}`}
+  class={`inline-block ${classNames}`}
   href={href} target={target}><slot /></a
 >
