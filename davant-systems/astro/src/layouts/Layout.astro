@@ -3,16 +3,19 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="synthwave">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Davant Systems | AI for creative professionals</title>
-		<description>The easiest way to run Stable Diffusion on your own computer and create unlimited images.</description>
+		<meta name="description" content="The easiest way to run Stable Diffusion on your own computer and create unlimited images." />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Sacramento&family=Yellowtail&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body>
+	<body class="bg-base-100">
 		<slot />
 	</body>
 </html>

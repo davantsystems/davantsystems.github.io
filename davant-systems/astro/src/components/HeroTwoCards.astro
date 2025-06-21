@@ -1,0 +1,50 @@
+---
+import Link from './Link.astro';
+---
+
+<section class="relative hero snap-start min-h-screen flex items-center justify-center">
+  <div class="relative z-20 block py-12 text-center hero-content text-neutral-content md:py-20">
+    <div class="flex flex-col items-center mx-auto hero-content__inner">
+      <div class="logo mb-8">
+        <h1 class="sr-only">Davant Systems</h1>
+      </div>
+      <div class="max-w-4xl mx-2 hero-content__content">
+        <div class="flex flex-col items-center justify-center gap-8 sm:flex-row sm:gap-10">
+          <!-- Davant Studio Card -->
+          <div class="text-center">
+            <p class="mb-8">
+              <span class="block text-5xl font-bold text-cyan-400 mb-2">Davant Studio</span>
+              <span class="block text-xl text-cyan-300">AI image suite for creatives</span>
+            </p>
+            <Link to="/davant-studio/">
+              <button class="btn btn-primary bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 border-0 text-white px-8 py-3 text-lg">
+                Explore Davant Studio
+              </button>
+            </Link>
+          </div>
+
+          <!-- Magic Mirror Card -->
+          <div class="text-center">
+            <p class="mb-8">
+              <span class="block text-5xl font-bold text-cyan-400 mb-2">Magic Mirror</span>
+              <span class="block text-xl text-cyan-300">Interactive AI Experience</span>
+            </p>
+            <Link to="/photobooth/">
+              <button class="btn btn-primary bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 border-0 text-white px-8 py-3 text-lg">
+                Explore Magic Mirror
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Dark gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black via-purple-950/20 to-black opacity-95 z-10"></div>
+  
+  <!-- Background pattern or subtle effect -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-black"></div>
+  </div>
+</section>

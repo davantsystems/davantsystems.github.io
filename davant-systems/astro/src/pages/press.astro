@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
+
+const pageTitle = "Davant Systems | Press & Media Assets";
+
+// Define local assets for logos
+const logos = [
+  { name: "DavantSystems-logo-1000.png", path: "/src/assets/images/DavantSystems-logo-1000.png" }
+];
+
+// Define app screenshots
+const appScreenshots = [
+  { name: "davant-studio-controls.png", path: "/src/assets/images/davant-studio-controls.png" },
+  { name: "davant-studio-presets.png", path: "/src/assets/images/davant-studio-presets.png" },
+  { name: "davant-studio-prompts.png", path: "/src/assets/images/davant-studio-prompts.png" },
+  { name: "davant-studio-settings.png", path: "/src/assets/images/davant-studio-settings.png" },
+  { name: "davant-studio-controlnet.png", path: "/src/assets/images/davant-studio-controlnet.png" },
+  { name: "davant-studio-photoshop-screenshot.jpg", path: "/src/assets/images/davant-studio-photoshop-screenshot.jpg" }
+];
+
+// Define backgrounds
+const backgrounds = [
+  { name: "hero1.png", path: "/src/assets/images/hero1.png" },
+  { name: "hero2.png", path: "/src/assets/images/hero2.png" }
+];
+---
+
+<Layout title={pageTitle}>
+  <MainNavWithDropdowns />
+  <main class="relative px-8 pt-14 pb-96">
+    <section class="container relative z-10">
+      <div class="max-w-2xl mx-auto">
+        <h1 class="mb-4 mb-8 text-2xl text-primary">Press</h1>
+      </div>
+    </section>
+    
+    <section class="container max-w-2xl mb-24 brand">
+      <h2 class="inline mb-4 text-xl">Brand</h2>
+      <span class="ml-3 mr-3 text-xl">/</span>
+      <h3 class="inline mb-2 text-lg">Logos</h3>
+      <ul class="grid grid-cols-3 gap-4 mt-4">
+        {logos.map((logo) => (
+          <li class="w-full h-full">
+            <a 
+              class="block w-full h-full"
+              href={logo.path} 
+              download={logo.name}
+            >
+              <img 
+                class="object-contain w-full h-full" 
+                src={logo.path} 
+                alt={logo.name} 
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+    
+    <section class="container max-w-2xl mb-24 screenshots">
+      <h2 class="inline mb-4 text-xl">Davant Studio</h2>
+      <span class="ml-3 mr-3 text-xl">/</span>
+      <h3 class="inline mb-2 text-lg">Software Screenshots</h3>
+      <ul class="grid grid-cols-3 gap-3 mt-4">
+        {appScreenshots.map((screenshot) => (
+          <li class="w-full h-full">
+            <a 
+              class="block w-full h-full"
+              href={screenshot.path} 
+              download={screenshot.name}
+            >
+              <img 
+                class="object-contain w-full h-full" 
+                src={screenshot.path} 
+                alt={screenshot.name} 
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+    
+    <section class="mb-24 elements">
+      <div class="container max-w-2xl">
+        <h2 class="inline mb-4 text-xl">Elements</h2>
+      </div>
+      <ul class="grid grid-cols-4 gap-3 p-2 mt-4 bg-black bg-opacity-30">
+        {backgrounds.map((bg) => (
+          <li class="w-full h-full">
+            <a 
+              class="block w-full h-full"
+              href={bg.path} 
+              download={bg.name}
+            >
+              <img 
+                class="object-contain w-full h-full" 
+                src={bg.path} 
+                alt={bg.name} 
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+    
+    <div class="fixed top-0 left-0 w-full h-screen pointer-events-none -z-10 bg opacity-30">
+      <img
+        src="/src/assets/images/hero1.png"
+        alt="Davant Systems Press & Media Assets"
+        class="object-cover w-full h-full"
+      />
+    </div>
+  </main>
+</Layout>

@@ -3,7 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev > dev-server.log 2>&1 &",
+    "dev:logs": "tail -f dev-server.log",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

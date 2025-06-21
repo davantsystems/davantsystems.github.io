@@ -6,7 +6,7 @@ import Logo from "../assets/images/DavantSystems-logo-1000.png";
 ---
 
 <div
-  class="fixed top-0 z-50 bg-opacity-0 navbar bg-gradient-to-b from-black to-transparent"
+  class="fixed top-0 z-50 navbar bg-gradient-to-b from-black to-transparent bg-opacity-0"
 >
   <div class="navbar-start">
     <Link class="text-xl btn btn-ghost" to="/">
@@ -22,16 +22,16 @@ import Logo from "../assets/images/DavantSystems-logo-1000.png";
           >Davant Studio</Link
         >
       </li>
-      <li><Link to="/photobooth/">Magic Mirror AI Photo Booth</Link></li>
-      <li><Link to="/training/">Training & Workshops</Link></li>
+      <li><Link to="/photobooth/" class="hover:bg-base-100 hover:bg-opacity-70">Magic Mirror AI Photo Booth</Link></li>
+      <li><Link to="/training/" class="hover:bg-base-100 hover:bg-opacity-70">Training & Workshops</Link></li>
     </ul>
   </div>
   <div class="navbar-end">
-    <a class="btn btn-outline btn-secondary btn-xs" href="" target="_blank"
+    <a class="btn btn-outline btn-secondary btn-xs" href="https://billing.stripe.com/p/login/6oEg26f8K3697yE144" target="_blank"
       >Manage Subscription</a
     >
   </div>
-  <div class="dropdown">
+  <div class="dropdown dropdown-end">
     <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -40,19 +40,19 @@ import Logo from "../assets/images/DavantSystems-logo-1000.png";
         viewBox="0 0 24 24"
         stroke="currentColor"
         ><path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
           d="M4 6h16M4 12h8m-8 6h16"></path></svg
       >
     </div>
     <ul
       tabindex="0"
-      class="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 right-0"
+      class="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
     >
       <li><Link to="/davant-studio/">Davant Studio</Link></li>
-      <li><Link to="/photobooth/">Magic Mirror AI Photo Booth</Link></li>
-      <li><Link to="/training/">Training & Workshops</Link></li>
+      <li><Link to="/photobooth/" class="hover:bg-base-100 hover:bg-opacity-70">Magic Mirror AI Photo Booth</Link></li>
+      <li><Link to="/training/" class="hover:bg-base-100 hover:bg-opacity-70">Training & Workshops</Link></li>
     </ul>
   </div>
   <span

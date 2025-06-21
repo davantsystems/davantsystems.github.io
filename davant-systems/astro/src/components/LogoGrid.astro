@@ -1,0 +1,73 @@
+---
+import logoRalphLauren from '../assets/images/logos/logo-RalphLauren-white.png';
+import logoAMD from '../assets/images/logos/logo-AMD-white.png';
+import logoUCLA from '../assets/images/logos/logo-UCLA-white.png';
+import logoAsus from '../assets/images/logos/logo-Asus-white.png';
+import logoHackaday from '../assets/images/logos/logo-Hackaday-white.png';
+import logoVanJones from '../assets/images/logos/logo-VanJones-white.png';
+import logoTechWeekLA from '../assets/images/logos/logo-TechWeekLA-white.png';
+import logoSilverdraft from '../assets/images/logos/logo-silverdraft.png';
+import logoAILA from '../assets/images/logos/logo-AILA-white.png';
+import logoAIMVS from '../assets/images/logos/logo-AIMVS-white.png';
+import logoCuriousRefuge from '../assets/images/logos/logo-CuriousRefuge-white.png';
+import logoGlobalObjects from '../assets/images/logos/logo-GlobalObjects-white.png';
+import logoNFMLA from '../assets/images/logos/logo-NFMLA-white.png';
+import logoXRM from '../assets/images/logos/logo-XRM-white.png';
+import logoBruinAI from '../assets/images/logos/logo-BruinAI-white.png';
+import logoPugetSystems from '../assets/images/logos/logo-PugetSystems-white.png';
+import logoNuleep from '../assets/images/logos/logo-Nuleep-white.png';
+import logoFbrcAI from '../assets/images/logos/logo-FbrcAI-white.png';
+import logoImmerseStudio from '../assets/images/logos/logo-ImmerseStudio-white.png';
+
+const logos = [
+  { src: logoRalphLauren.src, alt: "Ralph Lauren logo", grid: "first" },
+  { src: logoAMD.src, alt: "AMD logo", grid: "first" },
+  { src: logoUCLA.src, alt: "UCLA logo", grid: "first" },
+  { src: logoAsus.src, alt: "Asus logo", grid: "first" },
+  { src: logoHackaday.src, alt: "Hackaday logo", grid: "second" },
+  { src: logoVanJones.src, alt: "Van Jones logo", grid: "second" },
+  { src: logoTechWeekLA.src, alt: "TechWeek LA logo", grid: "second" },
+  { src: logoSilverdraft.src, alt: "Silverdraft logo", grid: "second" },
+  { src: logoAILA.src, alt: "AILA logo", grid: "second" },
+  { src: logoAIMVS.src, alt: "AIMVS logo", grid: "second" },
+  { src: logoCuriousRefuge.src, alt: "CuriousRefuge logo", grid: "second" },
+  { src: logoGlobalObjects.src, alt: "GlobalObjects logo", grid: "second" },
+  { src: logoNFMLA.src, alt: "NFMLA logo", grid: "second" },
+  { src: logoXRM.src, alt: "XRM logo", grid: "second" },
+  { src: logoBruinAI.src, alt: "BruinAI logo", grid: "second" },
+  { src: logoPugetSystems.src, alt: "PugetSystems logo", grid: "second" },
+  { src: logoNuleep.src, alt: "Nuleep logo", grid: "second" },
+  { src: logoFbrcAI.src, alt: "FbrcAI logo", grid: "second" },
+  { src: logoImmerseStudio.src, alt: "ImmerseStudio logo", grid: "second" }
+];
+
+const firstGridLogos = logos.filter(logo => logo.grid === "first");
+const secondGridLogos = logos.filter(logo => logo.grid === "second");
+---
+
+<>
+  <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4 lg:mb-8">
+    {firstGridLogos.map((logo) => (
+      <div class="relative flex items-center justify-center px-6 py-2 sm:py-4 sm:px-2 sm:px-4 md:px-8 sm:py-2">
+        <img
+          src={logo.src}
+          loading="lazy"
+          alt={logo.alt}
+          class="max-w-full h-auto opacity-70 hover:opacity-100 transition-opacity"
+        />
+      </div>
+    ))}
+  </div>
+  <div class="grid grid-cols-4 gap-4 lg:grid-cols-7">
+    {secondGridLogos.map((logo) => (
+      <div class="relative flex items-center justify-center px-2 py-2 sm:px-4 md:px-8 sm:py-0">
+        <img
+          src={logo.src}
+          loading="lazy"
+          alt={logo.alt}
+          class="max-w-full h-auto opacity-70 hover:opacity-100 transition-opacity"
+        />
+      </div>
+    ))}
+  </div>
+</>

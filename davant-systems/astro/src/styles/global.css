@@ -1,3 +1,34 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 @plugin "daisyui";
+
+html, body {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+}
+
+:root {
+  font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-sacramento {
+  font-family: 'Sacramento', cursive;
+}
+
+.font-yellowtail {
+  font-family: 'Yellowtail', cursive;
+}
+
+.font-open-sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.logo {
+    display: block;
+    position: relative;
+    z-index: 99;
+}

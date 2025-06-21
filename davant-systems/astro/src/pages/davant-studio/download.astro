@@ -1,0 +1,108 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import MainNavWithDropdowns from "../../components/MainNavWithDropdowns.astro";
+import Footer from "../../components/Footer.astro";
+import Link from "../../components/Link.astro";
+
+const pageTitle = "Davant Systems | Download Davant Studio";
+---
+
+<Layout title={pageTitle}>
+  <MainNavWithDropdowns />
+  <main class="">
+    <section class="relative border-b-2 hero__wrapper border-slate-400 border-opacity-5">
+      <div class="relative pt-20">
+        <span class="absolute top-0 left-0 z-40 block w-screen opacity-100 hero-gradient-1"></span>
+        <div class="relative z-20 pt-8 pb-16">
+          <h1 class="mb-12 font-light text-center text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
+            <span class="block text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">Downloads</span>
+          </h1>
+          <div role="alert" class="container flex items-center max-w-lg py-2 mx-auto mb-4 text-center text-warning alert">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-current shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <p class="text-lg">This is a 2-step download. You need BOTH of these!</p>
+          </div>
+          <div class="box-border flex flex-col w-full max-w-4xl gap-2 px-4 mx-auto md:flex-row md:box-content">
+            <div class="relative flex flex-col items-center flex-1 p-4 bg-opacity-100 border-2 rounded-md border-opacity-5 border-secondary bg-base-300">
+              <p class="mb-4 mr-auto badge badge-warning">Download 1 of 2</p>
+              <a
+                class="w-full mb-4 border-purple-900 shadow-md l-0 text-md lg:text-md hover:shadow-lg hover:border-cyan-300 hover:bg-cyan-500 hover:border-purple-900 btn btn-md btn-secondary shadow-base-300"
+                href="https://davant-public.s3.us-west-1.amazonaws.com/software/StableDiffusion_Davant-Auto111-Quickstart.zip"
+              >
+                <span class="p-2 bg-transparent rounded-full badge-neutral">
+                  <svg class="fill-base-300" fill="#000000" width="28px" height="28px" viewBox="0 -64 640 640" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M32,224H64V416H32A31.96166,31.96166,0,0,1,0,384V256A31.96166,31.96166,0,0,1,32,224Zm512-48V448a64.06328,64.06328,0,0,1-64,64H160a64.06328,64.06328,0,0,1-64-64V176a79.974,79.974,0,0,1,80-80H288V32a32,32,0,0,1,64,0V96H464A79.974,79.974,0,0,1,544,176ZM264,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,264,256Zm-8,128H192v32h64Zm96,0H288v32h64ZM456,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,456,256Zm-8,128H384v32h64ZM640,256V384a31.96166,31.96166,0,0,1-32,32H576V224h32A31.96166,31.96166,0,0,1,640,256Z"></path></g></svg>
+                </span>
+                Stable Diffusion Quickstart
+              </a>
+              <div class="text-center text-md md:text-left md:mr-auto">
+                <p class="mb-2.5">The AI image-generation engine.</p>
+                <p>This must be running for Davant Studio to work!</p>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center flex-1 p-4 border-2 rounded-md bg-base-300 border-primary border-opacity-15">
+              <p class="mb-4 mr-auto badge badge-warning">Download 2 of 2</p>
+              <a 
+                class="relative z-10 w-full pl-0 pr-4 mx-auto mb-4 border-opacity-50 rounded-sm shadow-sm cta__button--download effect__chromeflash btn btn-primary text-md lg:text-md indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 text-neutral border-1 border-cyan-500 shadow-pink-500"
+                href="https://github.com/davantsystems/davant-studio-release/releases/download/v1.0.2/DavantStudio_v1.0.2.zip"
+              >
+                <span class="p-2 bg-transparent rounded-full badge-neutral">
+                  <svg height="22px" width="24px" class="stroke-white fill-base-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452.986 452.986" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M165.265,53.107L21.689,81.753v132.531l143.575-2.416V53.107 M431.297,245.583l-233.18-3.991 v164.822l233.18,46.571V245.583 M165.265,241.097l-143.575-2.438v132.509l143.575,28.668V241.097 M431.297,0l-233.18,46.528 v164.822l233.18-3.969V0"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g> </g></svg>
+                </span>
+                <span class="pt-1">Davant Studio for Windows</span>
+              </a>
+              <div class="text-center text-md md:text-left">
+                <p class="mb-2.5">Our creative software application.</p>
+                <p>An interface to control Stable Diffusion and integrate it into your workflow.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 pointer-events-none select-none background-image left-1/2 z-1">
+        <img
+          class="relative block h-full hero__background-image object-cover w-full"
+          src="/src/assets/images/hero2.png"
+          alt="Screenshot of Davant Studio software"
+        />
+        <div class="absolute bottom-0 left-0 z-10 w-full opacity-100 gradient-fade pb-28 bg-gradient-to-b from-transparent to-base-300"></div>
+      </div>
+    </section>
+
+    <section class="container max-w-xl px-4 pb-24 text-sm pt-14">
+      <h2 class="mb-4 font-bold">Advanced Users:</h2>
+      <p class="mb-4">If you already have a working installation of Automatic1111, you can use it. If it's running on a non-default port, be sure to change the IP & port in the "Settings" tab in Davant Studio.</p>
+      <p>Davant Studio is now compatible with <a href="https://github.com/lllyasviel/stable-diffusion-webui-forge" target="_blank" rel="noreferrer" class="link">SD Forge</a>. Our tests show a ~25% speed increase. A custom "quickstart" bundle for SD Forge is coming soon.</p>
+    </section>
+
+    <div class="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .hero-gradient-1 {
+    background-color: rgb(0, 0, 0);
+    background-image: radial-gradient(
+        at 54% 100%,
+        rgb(19, 78, 74) 0,
+        transparent 53%
+      ),
+      radial-gradient(at 48% 98%, rgb(6, 95, 70) 0, transparent 30%),
+      radial-gradient(at 29% 31%, rgb(88, 28, 135) 0, transparent 44%),
+      radial-gradient(at 86% 21%, rgb(49, 46, 129) 0, transparent 77%),
+      radial-gradient(at 53% 40%, rgb(136, 19, 55) 0, transparent 28%),
+      radial-gradient(at 29% 82%, rgb(88, 28, 135) 0, transparent 43%);
+    pointer-events: none;
+  }
+
+  .hero-gradient-1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgb(19, 136, 124) 0%, transparent 80%);
+  }
+</style>

@@ -1,19 +1,161 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MainNav from "../components/MainNav.astro";
-import HomeHero from "../components/HomeHero.astro";
+import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
+import HeroTwoCards from "../components/HeroTwoCards.astro";
+import Footer from "../components/Footer.astro";
+import MailchimpForm from "../components/MailchimpForm.astro";
+import CardPerson from "../components/CardPerson.astro";
 ---
 
 <Layout>
-  <MainNav />
-  <main class="z-20 pt-12"></main>
-  <HomeHero />
+  <div class="relative min-h-screen">
+    <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"
+    ></script>
+    <MainNavWithDropdowns />
+    <main class="z-20 pt-12">
+      <HeroTwoCards />
+
+      <section class="px-6 pt-12 pb-12 bg-base snap-start">
+        <div
+          class="absolute top-0 left-0 w-full pb-12 mb-0 bg-gradient-to-t from-transparent to-black/20"
+        >
+        </div>
+        <div class="flex flex-col max-w-4xl py-10 mx-auto md:flex-row ">
+          <div class="block w-full pt-8 mb-10 md:p-4 md:w-1/2 basis-full">
+            <h2
+              class="mb-8 text-5xl leading-10 text-transparent bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text"
+            >
+              Get updates <br /><span class="pl-1 text-xl sm:text-3xl"
+                >in our email newsletter</span
+              >
+            </h2>
+            <div class="pl-1 pr-4 text-cyan-100">
+              <p class="mb-1">The best way to get "official" updates.</p>
+              <p>Product updates, event info, and updates in AI.</p>
+            </div>
+          </div>
+          <div
+            class="relative block w-full px-10 pt-5 pb-3 border-2 rounded-lg shadow-sm bg-purple-900/5 md:w-1/2 basis-full min-w-sm md:px-4 lg:px-10 border-secondary/5 shadow-purple-950"
+          >
+            <MailchimpForm />
+            <div
+              class="bg-overlay
+								absolute
+								pointer-events-none
+								top-0
+								left-0
+								w-full
+								h-full
+								z-0
+								bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))]
+								from-purple-900
+								via-teal-900
+								to-black
+								opacity-5"
+            >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative snap-start">
+					<div class="relative z-10 w-full max-w-sm px-5 pt-32 pb-24 mx-auto mt-0 font-mono text-sm text-success md:max-w-5xl lg:max-w-5xl">
+						<h2 class="relative z-10 mb-4 text-2xl text-center lg:text-3xl md:mb-8 filter drop-shadow-sm">─── Hello World ───</h2>
+						<span class="inline-block px-1 mb-4 text-xs text-center bg-success text-neutral">humans@davantsystems ~ %</span>
+						<div class="relative z-10 grid grid-rows-3 gap-4 mx-auto md:grid-rows-1 md:grid-cols-3">
+							<CardPerson headline="Booking & Events" name="MC de Martino" email="mc@davantsystems.com" />
+							<CardPerson headline="AI Magic & Workflow" name="David Shorey" email="david@davantsystems.com" />
+							<CardPerson headline="Business Inquiries" name="Matt Whitesell" email="matt@davantsystems.com" />
+						</div>
+					</div>
+					{/* <div className="absolute top-0 left-0 z-0 w-full h-full bg-black bg-overlay opacity-30">
+					</div> */}
+				</section>
+
+      <section class="px-6 pt-12 pb-12 bg-base snap-start">
+        <div
+          class="absolute top-0 left-0 w-full pb-12 mb-0 bg-gradient-to-t from-transparent to-black/20"
+        >
+        </div>
+        <div class="flex flex-col max-w-4xl py-10 mx-auto md:flex-row">
+          <div class="block w-full pt-8 mb-10 md:p-4 md:w-1/2 basis-full">
+            <h2
+              class="mb-8 text-5xl leading-10 text-transparent bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text"
+            >
+              Get updates <span
+                class="text-transparent bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text"
+                >in our email newsletter</span
+              >
+            </h2>
+            <div class="pl-1 pr-4 text-cyan-100">
+              <p class="mb-1">The best way to get "official" updates.</p>
+              <p>Product updates, event info, and updates in AI.</p>
+            </div>
+          </div>
+          <div
+            class="relative block w-full px-10 pt-5 pb-3 md:w-1/2 basis-full min-w-sm md:px-4 lg:px-10"
+          >
+            <MailchimpForm />
+            <div
+              class="bg-overlay
+            absolute
+            pointer-events-none
+            top-0
+            left-0
+            w-full
+            h-full
+            z-0
+            bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))]
+            from-purple-600
+            via-blue-600
+            to-transparent
+            opacity-20"
+            >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative py-20 bg-black snap-start">
+        <div
+          class="relative z-10 w-full max-w-sm px-5 mx-auto font-mono text-sm md:max-w-5xl lg:max-w-5xl"
+        >
+          <h2
+            class="relative z-10 mb-4 text-2xl text-center text-green-400 lg:text-3xl md:mb-8"
+          >
+            ─── Hello World ───
+          </h2>
+          <span
+            class="inline-block px-2 py-1 mb-8 text-xs font-bold text-black bg-green-400"
+            >humans@davantsystems ~ %</span
+          >
+          <div
+            class="relative z-10 grid grid-rows-3 gap-4 mx-auto md:grid-rows-1 md:grid-cols-3"
+          >
+            <CardPerson
+              headline="Booking & Events"
+              name="MC de Martino"
+              email="mc@davantsystems.com"
+            />
+            <CardPerson
+              headline="AI Magic & Workflow"
+              name="David Shorey"
+              email="david@davantsystems.com"
+            />
+            <CardPerson
+              headline="Business Inquiries"
+              name="Matt Whitesell"
+              email="matt@davantsystems.com"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+    <div class="absolute top-0 left-0 z-0 w-full h-full vhs-effect"></div>
+    <div class="absolute top-0 left-0 z-0 w-full h-full vhs-effect-vert"></div>
+  </div>
 </Layout>
-
-<!-- <Footer /> -->
-
-<div class="absolute z-0 vhs-effect"></div>
-<div class="absolute z-0 vhs-effect-vert"></div>
 
 <style>
   @keyframes logo-float {
@@ -51,7 +193,7 @@ import HomeHero from "../components/HomeHero.astro";
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-strokewidth: 0.02em;
+    -webkit-text-stroke-width: 0.02em;
     -webkit-text-stroke-color: white;
   }
 

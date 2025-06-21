@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
+
+const pageTitle = "Davant Systems | Training & Workshops";
+---
+
+<Layout title={pageTitle}>
+  <MainNavWithDropdowns />
+  <main class="">
+    <section class="border-b-2 hero__wrapper border-slate-400 border-opacity-5">
+      <div class="relative flex flex-col items-center justify-center min-h-screen overflow-hidden sm:flex-row">
+        <span class="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span>
+        <div class="relative z-20 flex flex-col items-center pt-24 pb-20 text-center text-neutral-content">
+          <div class="flex flex-col items-center mb-2">
+            <div class="relative flex flex-col items-center">
+              <div class="flex flex-col software-spotlight sm:flex-row">
+                <div class="flex flex-col px-4 text-left text">
+                  <h1 class="mb-2 font-light text-transparent sm:mb-4 sm:pb-4 bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
+                    <span class="text-3xl font-black sm:text-4xl md:text-5xl">Training </span><span class="text-3xl leading-normal font-extralight sm:text-4xl md:text-5xl">& Workshops</span>
+                  </h1>
+
+                  <div class="max-w-2xl mb-12 max-w-screen">
+                    <iframe
+                      src="https://lu.ma/embed/calendar/cal-1Q7AVkEK2CIEJHR/events?lt=dark"
+                      width="100%"
+                      height="600"
+                      frameborder="0"
+                      style="border: 1px solid black; border-radius: 4px;"
+                      aria-hidden="false"
+                      tabindex="0"
+                    ></iframe>
+                  </div>
+
+                  <div class="flex flex-col px-6 py-8 mt-0 mb-12 rounded-md shadow-xl bg-opacity-90 bg-base-300">
+                    <h2 class="text-4xl">Custom Training</h2>
+                    <div class="pt-8 mb-8">
+                      <ul class="pl-0 font-light leading-snug list-none sm:columns-2 list">
+                        <li class="mb-4 list-item">Group Workshops</li>
+                        <li class="mb-4 list-item">Private In-Office Training</li>
+                        <li class="mb-4 list-item">AI Workflow design</li>
+                        <li class="mb-4 list-item">Custom AI asset pipelines</li>
+                      </ul>
+                    </div>
+                    <p class="text-center text-secondary">Email <a href="mailto:david@davantsystems.com" class="link" target="_blank">david@davantsystems.com</a> for more info</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 background-image left-1/2 z-1">
+          <img
+            class="relative block h-full hero__background-image object-cover w-full"
+            src="/src/assets/images/hero2.png"
+            alt="Screenshot of Davant Studio software"
+          />
+          <div class="absolute bottom-0 left-0 z-10 w-full opacity-100 gradient-fade pb-28 bg-gradient-to-b from-transparent to-base-300"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
+  </main>
+</Layout>
+
+<style>
+  .hero-gradient-1 {
+    background-color: rgb(0, 0, 0);
+    background-image: radial-gradient(
+        at 54% 100%,
+        rgb(19, 78, 74) 0,
+        transparent 53%
+      ),
+      radial-gradient(at 48% 98%, rgb(6, 95, 70) 0, transparent 30%),
+      radial-gradient(at 29% 31%, rgb(88, 28, 135) 0, transparent 44%),
+      radial-gradient(at 86% 21%, rgb(49, 46, 129) 0, transparent 77%),
+      radial-gradient(at 53% 40%, rgb(136, 19, 55) 0, transparent 28%),
+      radial-gradient(at 29% 82%, rgb(88, 28, 135) 0, transparent 43%);
+    pointer-events: none;
+  }
+
+  .hero-gradient-1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgb(19, 136, 124) 0%, transparent 80%);
+  }
+</style>

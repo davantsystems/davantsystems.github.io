@@ -27,38 +27,6 @@ export default {
 		require("@tailwindcss/typography"),
 		require("daisyui")
 	],
-}
-
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-	content: ["./src/**/*.{js,ts,jsx,tsx}"],
-	plugins: [
-		require("@tailwindcss/typography"),
-		require("daisyui")
-	],
-	theme: {
-		container: {
-			center: true,
-		},
-		extend: {
-			fontFamily: {
-				'orbitron': ['Orbitron', 'sans-serif'],
-				'yellowtail': ['Yellowtail', 'sans-serif'],
-				'open-sans': ['Open Sans', 'sans-serif'],
-			},
-			fontSize: {
-				xs: ['0.75rem', '1.3'],
-				sm: ['0.875rem', '1.3'],
-				base: ['1rem', '1.5'],
-				lg: ['1.125rem', '1.3'],
-				xl: ['1.125rem', '1.3'],
-				'2xl': ['1.5rem', '1.3'],
-				'3xl': ['1.875rem', '1.3'],
-				'4xl': ['2.25rem', '1.3'],
-			}
-		},
-	},
 	daisyui: {
 		themes: [
 			{
