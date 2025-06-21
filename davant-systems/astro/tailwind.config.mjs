@@ -28,6 +28,9 @@ export default {
 				'base-100': 'oklch(0.138999 0.036212 306.761881 / 1)',
 				'base-200': 'oklch(0.129269 0.033571 306.761881 / 1)',
 				'base-300': 'oklch(0.119539 0.031142 306.761881 / 1)',
+			},
+			backgroundImage: {
+				'radial-tl': 'radial-gradient(ellipse at top left, var(--tw-gradient-stops))',
 			}
 		},
 	},
