@@ -14,7 +14,7 @@ import People from "../components/People.astro";
     <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"
     ></script>
     <MainNavWithDropdowns />
-    <main class="z-20 pt-12">
+    <main class="relative z-20 pt-12">
       <HeroTwoCards />
 
       <section class="relative px-6 pt-12 pb-12 bg-base snap-start">
@@ -24,89 +24,10 @@ import People from "../components/People.astro";
       </section>
 
       <People />
-
-      <section class="px-6 pt-12 pb-12 bg-base snap-start">
-        <div
-          class="absolute top-0 left-0 w-full pb-12 mb-0 bg-gradient-to-t from-transparent to-black/20"
-        >
-        </div>
-        <div class="flex flex-col max-w-4xl py-10 mx-auto md:flex-row">
-          <div class="block w-full pt-8 mb-10 md:p-4 md:w-1/2 basis-full">
-            <h2
-              class="mb-8 text-5xl leading-10 text-transparent bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text"
-            >
-              Get updates <span
-                class="text-transparent bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text"
-                >in our email newsletter</span
-              >
-            </h2>
-            <div class="pl-1 pr-4 text-cyan-100">
-              <p class="mb-1">The best way to get "official" updates.</p>
-              <p>Product updates, event info, and updates in AI.</p>
-            </div>
-          </div>
-          <div
-            class="relative block w-full px-10 pt-5 pb-3 md:w-1/2 basis-full min-w-sm md:px-4 lg:px-10"
-          >
-            <MailchimpForm />
-            <div
-              class="bg-overlay
-            absolute
-            pointer-events-none
-            top-0
-            left-0
-            w-full
-            h-full
-            z-0
-            bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))]
-            from-purple-600
-            via-blue-600
-            to-transparent
-            opacity-20"
-            >
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="relative py-20 bg-black snap-start">
-        <div
-          class="relative z-10 w-full max-w-sm px-5 mx-auto font-mono text-sm md:max-w-5xl lg:max-w-5xl"
-        >
-          <h2
-            class="relative z-10 mb-4 text-2xl text-center text-green-400 lg:text-3xl md:mb-8"
-          >
-            ─── Hello World ───
-          </h2>
-          <span
-            class="inline-block px-2 py-1 mb-8 text-xs font-bold text-black bg-green-400"
-            >humans@davantsystems ~ %</span
-          >
-          <div
-            class="relative z-10 grid grid-rows-3 gap-4 mx-auto md:grid-rows-1 md:grid-cols-3"
-          >
-            <CardPerson
-              headline="Booking & Events"
-              name="MC de Martino"
-              email="mc@davantsystems.com"
-            />
-            <CardPerson
-              headline="AI Magic & Workflow"
-              name="David Shorey"
-              email="david@davantsystems.com"
-            />
-            <CardPerson
-              headline="Business Inquiries"
-              name="Matt Whitesell"
-              email="matt@davantsystems.com"
-            />
-          </div>
-        </div>
-      </section>
     </main>
     <Footer />
-    <div class="absolute top-0 left-0 z-0 w-full h-full vhs-effect"></div>
-    <div class="absolute top-0 left-0 z-0 w-full h-full vhs-effect-vert"></div>
+    <div class="absolute top-0 left-0 z-50 w-full h-full vhs-effect"></div>
+    <div class="absolute top-0 left-0 z-50 w-full h-full vhs-effect-vert"></div>
   </div>
 </Layout>
 
@@ -463,21 +384,23 @@ import People from "../components/People.astro";
 
   .vhs-effect {
     position: absolute;
-    z-index: -1;
+    /* z-index: -1; */
     top: 0;
     left: 0;
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0) 29.5%,
+        rgba(255, 255, 255, 1) 29.5%,
         #000000 50%,
-        rgba(0, 0, 0, 1) 70.5%
+        rgba(255, 255, 255, 1) 70.5%
       )
       0% center repeat-y;
     background-size: 100% clamp(20px, 2vw, 200px);
-    opacity: 0.03;
+    opacity: 0.05;
     pointer-events: none;
     animation: vhs-lines 5s infinite linear;
-    mix-blend-mode: overlay;
+    /* mix-blend-mode: overlay; */
+    mix-blend-mode: soft-light;
+    filter: blur(0.4rem);
     width: 100%;
   }
 
@@ -493,7 +416,6 @@ import People from "../components/People.astro";
 
   .vhs-effect-vert {
     position: absolute;
-    z-index: -1;
     top: 0;
     left: 0;
     background: linear-gradient(
@@ -508,11 +430,14 @@ import People from "../components/People.astro";
         rgba(0, 0, 0, 0) 100%
       )
       center repeat-x;
-    background-size: clamp(4px, 2vw, 100px) 100%;
-    opacity: 0.02;
+    background-size: clamp(4px, 1vw, 50px) 100%;
+    opacity: 0.2;
     animation: vhs-lines-vert 0.1s infinite linear;
     pointer-events: none;
-    mix-blend-mode: overlay;
+    /* mix-blend-mode: overlay; */
+    mix-blend-mode: hue;
+    /* mix-blend-mode: color; */
+    filter: blur(0.2rem);
     width: 100%;
   }
 
@@ -618,9 +543,6 @@ import People from "../components/People.astro";
     }
   }
 
-  .font-sacramento {
-    font-family: "Sacramento", cursive;
-  }
 
   .neon-first {
     display: inline-block;

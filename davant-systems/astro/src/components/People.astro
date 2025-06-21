@@ -1,5 +1,5 @@
 ---
-import CardPerson from './CardPerson.astro';
+import CardPerson from "./CardPerson.astro";
 ---
 
 <section class="relative snap-start">
@@ -7,12 +7,12 @@ import CardPerson from './CardPerson.astro';
     class="relative z-10 w-full max-w-sm px-5 pt-32 pb-24 mx-auto mt-0 font-mono text-sm text-success md:max-w-5xl lg:max-w-5xl"
   >
     <h2
-      class="relative z-10 block mb-4 text-2xl text-center lg:text-3xl md:mb-8 filter drop-shadow-sm"
+      class="relative z-10 block mb-4 text-2xl text-center lg:text-3xl md:mb-8 filter drop-shadow-sm retroglow"
     >
       ─── Hello World ───
     </h2>
     <span
-      class="inline-block px-1 mb-4 text-xs text-center bg-success text-neutral"
+      class="inline-block px-1 mb-4 text-xs text-center bg-success text-neutral justblur"
       >humans@davantsystems ~ %</span
     >
     <div
@@ -36,3 +36,21 @@ import CardPerson from './CardPerson.astro';
     </div>
   </div>
 </section>
+
+<style>
+  .justblur {
+    /* filter: blur(0.3em); */
+    box-shadow: 0 0 0.5em 0.02em rgba(100, 225, 120, 1);
+  }
+  .retroglow {
+    filter: blur(0.02em);
+    text-shadow:
+      0em -0.02em 0.02em rgba(180, 255, 200, 1),
+      /* Almost-white inner highlight */ 0 0 0.05em rgba(80, 255, 245, 0.8),
+      /* Almost-white inner highlight */ 0 0 0.3em rgba(0, 100, 145, 0.6),
+      0 0 0.3em rgba(0, 100, 145, 0.6),
+      /* Soft outer glow */ 0 0 0.5em rgba(0, 160, 200, 0.6),
+      /* Softer, more spread outer glow */ /* Subtle shadow for depth */ 0.025em
+        0.04em 0.01em rgba(1, 25, 40, 1); /* Subtle bottom shadow for roundness */
+  }
+</style>
