@@ -1,16 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import hero2 from "../assets/images/hero2.png";
 
-const pageTitle = "Davant Systems | Training & Workshops";
+const pageTitle = "Training & Workshops | Davant Systems";
+const pageDescription = "Professional AI training workshops and custom corporate training programs for teams and organizations.";
 ---
 
-<Layout title={pageTitle}>
+<Layout title={pageTitle} description={pageDescription}>
   <MainNavWithDropdowns />
   <main class="">
     <section class="border-b-2 hero__wrapper border-slate-400 border-opacity-5">
       <div class="relative flex flex-col items-center justify-center min-h-screen overflow-hidden sm:flex-row">
-        <span class="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span>
+        <!-- <span class="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span> -->
         <div class="relative z-20 flex flex-col items-center pt-24 pb-20 text-center text-neutral-content">
           <div class="flex flex-col items-center mb-2">
             <div class="relative flex flex-col items-center">
@@ -51,10 +55,13 @@ const pageTitle = "Davant Systems | Training & Workshops";
         </div>
 
         <div class="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 background-image left-1/2 z-1">
-          <img
-            class="relative block h-full hero__background-image object-cover w-full"
-            src="/src/assets/images/hero2.png"
+          <Image
+            src={hero2}
             alt="Screenshot of Davant Studio software"
+            class="relative block h-full hero__background-image object-cover w-full"
+            loading="eager"
+            width={1920}
+            height={1080}
           />
           <div class="absolute bottom-0 left-0 z-10 w-full opacity-100 gradient-fade pb-28 bg-gradient-to-b from-transparent to-base-300"></div>
         </div>
@@ -63,6 +70,7 @@ const pageTitle = "Davant Systems | Training & Workshops";
 
     <div class="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
   </main>
+  <Footer />
 </Layout>
 
 <style>
