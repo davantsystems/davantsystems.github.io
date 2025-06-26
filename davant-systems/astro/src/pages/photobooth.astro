@@ -4,213 +4,461 @@ import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
 import Footer from "../components/Footer.astro";
 import LogoGrid from "../components/LogoGrid.astro";
 
+// Import images properly
+import launchPartyHero from "../assets/images/launch-party-hero.jpg";
+import hero2Image from "../assets/images/hero2.png";
+import printsMosaic from "../assets/images/prints-mosaic_corrected.jpg";
+
 const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
 ---
 
 <Layout title={pageTitle}>
   <MainNavWithDropdowns />
-  <main class="relative z-10 text-base font-open-sans">
+  <main class="relative z-10 text-base font-open-sans overflow-x-hidden bg-base-300">
     <div class="relative mega-hero-wrapper">
       <section class="relative z-10 hero__wrapper">
-        <div class="relative z-40 flex items-end justify-center hero__supertitle">
-          <div class="relative mb-4 text-wrapper">
-            <p class="relative text-6xl font-black tracking-tighter text-center text-transparent bg-clip-text bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-primary sm:text-8xl md:text-9xl">One of a kind</p>
-            <p class="absolute w-full text-6xl font-black tracking-tighter text-center -translate-x-1/2 -translate-y-1/2 -z-10 top-1/2 left-1/2 sm:text-8xl shadow-only bg-clip-text bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-primary md:text-9xl">One of a kind</p>
+        <div class="relative z-40 flex items-center justify-center min-h-screen px-4">
+          <div class="relative text-wrapper animate-fade-in-up">
+            <h1 class="relative text-5xl font-black tracking-tight text-center text-transparent bg-clip-text bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-600 sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.85] mb-6 md:mb-8" aria-label="One of a kind">One of a kind</h1>
+            <span class="absolute w-full text-5xl font-black tracking-tight text-center -translate-x-1/2 -translate-y-1/2 -z-10 top-1/2 left-1/2 sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl shadow-glow opacity-40 leading-[0.85]" aria-hidden="true">One of a kind</span>
+            <div class="text-center mt-6 md:mt-8">
+              <p class="text-lg md:text-xl lg:text-2xl text-base-content/50 font-light tracking-wider uppercase">Experience the Magic</p>
+            </div>
           </div>
         </div>
-        <div class="relative z-50 hero sm:flex-row">
-          <div class="container relative z-50 flex flex-col justify-center px-4 pb-20 sm:pl-0 md:w-full sm:flex-row-reverse">
-            <div class="relative inline-block mx-auto mt-0 mb-8 hero__text sm:w-1/2 sm:pt-2 md:pt-8 sm:pl-8 sm:ml-0 sm:pl-0 xl:pl-14 2xl:pl-24">
-              <span class="absolute top-0 left-0 w-full h-full scale-95 rounded-lg opacity-40 -z-10 blur-xl bg-base-300 max-w-96"></span>
-              <h1 class="mb-4 whitespace-pre sm:mb-4 drop-shadow-md">
-                <span class="block text-4xl font-extrabold text-primary pl-2.5 text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-2xl md:text-3xl">Magic Mirror</span>
-                <span class="-mb-4 text-6xl font-black text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text sm:text-5xl md:text-6xl">AI </span>
-                <span class="-mr-4 text-6xl font-thin skew-x-12 glow__neon--secondary text-secondary font-sacramento sm:text-5xl md:text-6xl lg:text-6xl"><span class="neon-first">P</span>hoto <span class="neon-second">B</span>ooth</span>
-              </h1>
-              <p class="max-w-sm mb-12 text-lg text-left sm:text-sm md:text-md lg:text-xl">Make your next event unforgettable with the next generation of interactive experiences.</p>
-              <div class="flex justify-center sm:block">
-                <button 
-                  data-tf-popup="KJvQaJXG" 
-                  data-tf-opacity="100" 
-                  data-tf-size="100" 
-                  data-tf-iframe-props="title=Book Davant Systems AI Photobooth" 
-                  data-tf-transitive-search-params 
-                  data-tf-medium="snippet" 
-                  class="text-sm rounded-sm shadow-sm btn bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
-                >
-                  Book Now
-                </button>
+        <div class="relative z-50 lg:-mt-32 mt-8">
+          <div class="container relative z-50 flex flex-col justify-center px-4 pb-16 sm:pb-20 mx-auto max-w-7xl lg:flex-row-reverse lg:items-center lg:gap-16">
+            <div class="relative lg:w-1/2 lg:pl-8">
+              <div class="relative p-6 sm:p-8 lg:p-12 rounded-2xl bg-base-300/40 backdrop-blur-xl border border-purple-500/10 shadow-2xl">
+                <h2 class="mb-6">
+                  <span class="block text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text mb-2 tracking-wider uppercase">Magic Mirror</span>
+                  <span class="inline-block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text leading-none">AI </span>
+                  <span class="inline-block -ml-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-thin -skew-x-12 neon-glow-secondary text-cyan-400 font-sacramento animate-pulse-slow"><span class="neon-first">P</span>hoto <span class="neon-second">B</span>ooth</span>
+                </h2>
+                <p class="mb-8 text-base md:text-lg lg:text-xl text-base-content/70 leading-relaxed max-w-xl">Transform your guests into living art with AI-powered real-time transformations that create unforgettable memories.</p>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <button 
+                    data-tf-popup="KJvQaJXG" 
+                    data-tf-opacity="100" 
+                    data-tf-size="100" 
+                    data-tf-iframe-props="title=Book Davant Systems AI Photobooth" 
+                    data-tf-transitive-search-params 
+                    data-tf-medium="snippet" 
+                    class="btn btn-md sm:btn-lg bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 hover:from-pink-600 hover:via-fuchsia-600 hover:to-purple-700 text-white border-0 shadow-lg shadow-purple-500/30 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/50 px-6 sm:px-8 font-semibold group w-full sm:w-auto"
+                  >
+                    <span class="relative z-10">Book Your Event</span>
+                    <span class="absolute inset-0 bg-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </button>
+                  <a href="#learn-more" class="btn btn-md sm:btn-lg btn-outline border-purple-500/50 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500 hover:text-purple-300 transition-all duration-300 font-medium w-full sm:w-auto">
+                    Explore Features
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div class="relative inline-block w-full rounded-lg sm:w-1/2 bg-base-300">
-              <span class="absolute top-0 left-0 w-full h-full scale-95 rounded-lg opacity-30 blur-xl bg-gradient-to-bl from-primary via-secondary to-purple-950"></span>
-              <img
-                class="relative block rounded-lg shadow-lg max-h-96 hero__image shadow-base-300"
-                src="/src/assets/images/launch-party-hero.jpg"
-                loading="eager"
-                alt="Photobooth"
-              />
+            <div class="relative lg:w-1/2 mt-12 lg:mt-0">
+              <div class="relative group">
+                <div class="absolute -inset-4 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-2xl opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500 animate-pulse-slow"></div>
+                <div class="relative overflow-hidden rounded-2xl shadow-2xl border border-purple-500/20">
+                  <img
+                    class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                    src={launchPartyHero.src}
+                    loading="eager"
+                    alt="AI Photo Booth experience at an event with guests enjoying the interactive transformation"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-base-300/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="absolute top-0 left-0 z-10 w-full h-full">
-          <span class="absolute bottom-0 left-0 z-10 w-full h-full opacity-100 bg-gradient-to-t from-base-300 to-transparent"></span>
-          <span class="absolute bottom-0 left-0 z-20 w-full opacity-100 h-1/2 bg-gradient-to-t from-base-300 to-transparent"></span>
-          <video class="fixed top-0 left-0 z-0 object-cover w-full h-full opacity-100" autoplay loop muted playsinline>
+        <div class="absolute top-0 left-0 z-10 w-full h-full pointer-events-none">
+          <div class="absolute inset-0 bg-gradient-to-b from-base-300 via-transparent to-base-300 opacity-90"></div>
+          <div class="absolute bottom-0 left-0 w-full h-96 bg-gradient-to-t from-base-300 to-transparent"></div>
+          <video 
+            class="fixed top-0 left-0 z-0 object-cover w-full h-full opacity-100" 
+            autoplay 
+            loop 
+            muted 
+            playsinline
+            preload="metadata"
+          >
             <source src="/video/NinjaPenguin-02_timelapse-afters.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
-          <span class="absolute top-0 left-0 z-50 block w-screen h-full opacity-50 mix-blend-color hero-gradient-1"></span>
+          <div class="absolute top-0 left-0 z-50 block w-full h-full opacity-30 mix-blend-multiply bg-gradient-to-br from-purple-900/60 via-pink-900/40 to-cyan-900/60"></div>
+          <!-- Subtle animated particles overlay -->
+          <div class="absolute inset-0 z-40 opacity-30">
+            <div class="absolute top-20 left-10 w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-3 h-3 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+            <div class="absolute bottom-32 left-1/4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 right-1/3 w-4 h-4 bg-fuchsia-400 rounded-full animate-pulse opacity-50" style="animation-delay: 1.5s;"></div>
+          </div>
         </div>
       </section>
 
-      <section class="relative z-20 bg-base-300">
-        <div class="container flex flex-col px-4 py-20 mx-auto md:flex-row md:items-center">
-          <div class="block mb-8 md:w-1/2 md:pr-12 md:mb-unset">
-            <div class="max-w-lg ml-auto mr-auto md:mr-0">
-              <h2 class="mb-8 text-2xl text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Magically transformed <span class="sm:block">by AI in real-time</span></h2>
-              <p class="mb-4">Our cutting-edge system snaps a photo every 3 seconds, and uses generative AI to transform people in amazing ways.</p>
-              <p>See youself as paper origami, a puppet made of felt, or a comic book hero.</p>
+      <section class="relative z-20 py-24 bg-gradient-to-b from-base-300 to-base-100 texture-overlay" id="learn-more">
+        <div class="container flex flex-col px-4 mx-auto max-w-7xl lg:flex-row lg:items-center lg:gap-16">
+          <div class="lg:w-1/2 mb-12 lg:mb-0">
+            <div class="max-w-xl">
+              <h2 class="mb-8 text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight">
+                <span class="text-transparent bg-gradient-to-br from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">Magically transformed</span>
+                <span class="block text-xl sm:text-2xl lg:text-3xl mt-2 text-base-content/50 font-light">by AI in real-time</span>
+              </h2>
+              <div class="space-y-4 text-lg text-base-content/80">
+                <p class="leading-relaxed">Our cutting-edge system captures a photo every 3 seconds and uses generative AI to transform your guests in amazing ways.</p>
+                <p class="leading-relaxed">Watch as they become paper origami, felt puppets, comic book heroes, or any of dozens of artistic styles.</p>
+              </div>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <span class="badge badge-lg badge-primary badge-outline">Real-time Processing</span>
+                <span class="badge badge-lg badge-secondary badge-outline">30+ Art Styles</span>
+                <span class="badge badge-lg badge-accent badge-outline">Instant Prints</span>
+              </div>
             </div>
           </div>
-          <div class="block md:w-1/2">
-            <div class="relative block mb-2 bg-purple-900 border-2 rounded-lg shadow-lg embed-video-container faux-border-wrapper bg-opacity-5 border-secondary border-opacity-5 shadow-slate-950">
-              <iframe
-                class="w-full h-full embed-video"
-                src="https://www.youtube.com/embed/vuYqdw3HwDc"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
+          <div class="lg:w-1/2">
+            <div class="relative group">
+              <div class="absolute -inset-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div class="relative overflow-hidden rounded-2xl shadow-2xl border border-purple-500/20 video-container-16-9 bg-base-300">
+                <iframe
+                  src="https://www.youtube.com/embed/vuYqdw3HwDc"
+                  title="Magic Mirror AI Photo Booth Demo Video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy"
+                  class="absolute inset-0 w-full h-full"
+                ></iframe>
+                <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-base-300/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
             </div>
-            <p class="z-10 mb-4 text-sm italic text-center text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-sm md:text-md">Watch video to see the experience in action</p>
+            <p class="mt-4 text-center text-base-content/60 text-sm">Watch the magic happen in real-time</p>
           </div>
         </div>
       </section>
     </div>
 
-    <section class="relative z-20 py-32 bg-base-300">
-      <div class="container relative z-10 max-w-2xl px-4">
-        <h2 class="max-w-lg mx-auto mb-16 text-2xl text-center text-transparent sm:text-3xl md:text-4xl bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">A unique interactive experience people can't stop talking about</h2>
-        <div class="flex flex-col justify-start sm:flex-row">
-          <div class="block w-full mb-2 mr-0 chat chat-start">
-            <div class="relative block w-full py-4 chat-bubble">
-              <h2 class="block w-full text-lg text-center filter drop-shadow-[0.1em_0.2em_0.4em_rgba(0,0,0,1.0)] md:text-xl">"So addicting!"</h2>
-            </div>
-          </div>
-          <div class="block w-full mb-2 ml-0 mr-auto chat chat-end">
-            <div class="relative block w-full py-4 chat-bubble">
-              <h2 class="w-full text-lg text-center md:text-xl font-open-sans filter drop-shadow-[0.1em_0.2em_0.4em_rgba(0,0,0,1.0)]">"This is the future"</h2>
-            </div>
-          </div>
+    <section class="relative z-20 py-24 md:py-32 bg-gradient-to-b from-base-100 to-base-300">
+      <div class="container relative z-10 max-w-6xl px-4 mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4 leading-tight">
+            <span class="text-transparent bg-gradient-to-br from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">Guests can't stop raving</span>
+          </h2>
+          <p class="text-lg lg:text-xl text-base-content/50 font-light">Real reactions from real events</p>
         </div>
-        <div class="mb-2 chat chat-start">
-          <div class="w-full py-4 sm:mx-auto sm:w-auto sm:px-8 chat-bubble">
-            <h2 class="text-lg text-center md:text-xl font-open-sans filter drop-shadow-[0.1em_0.2em_0.4em_rgba(0,0,0,1.0)]">"Hands-down my favorite part of the event"</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div class="group relative transform hover:-translate-y-2 transition-all duration-300">
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative bg-base-300/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 hover:border-purple-500/40 transition-colors duration-300">
+              <div class="text-4xl text-purple-400 mb-4">❝</div>
+              <p class="text-lg lg:text-2xl font-semibold text-base-content mb-4">"So addicting!"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex-shrink-0"></div>
+                <div>
+                  <p class="text-sm font-semibold">Sarah M.</p>
+                  <p class="text-xs text-base-content/60">Birthday Party</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="group relative transform hover:-translate-y-2 transition-all duration-300 md:mt-8">
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative bg-base-300/50 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/20 hover:border-cyan-500/40 transition-colors duration-300">
+              <div class="text-4xl text-cyan-400 mb-4">❝</div>
+              <p class="text-lg lg:text-2xl font-semibold text-base-content mb-4">"This is the future"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-400 flex-shrink-0"></div>
+                <div>
+                  <p class="text-sm font-semibold">Mike T.</p>
+                  <p class="text-xs text-base-content/60">Corporate Event</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="group relative transform hover:-translate-y-2 transition-all duration-300">
+            <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative bg-base-300/50 backdrop-blur-sm rounded-2xl p-8 border border-fuchsia-500/20 hover:border-fuchsia-500/40 transition-colors duration-300">
+              <div class="text-4xl text-fuchsia-400 mb-4">❝</div>
+              <p class="text-lg lg:text-2xl font-semibold text-base-content mb-4">"My favorite part!"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-fuchsia-400 to-purple-400 flex-shrink-0"></div>
+                <div>
+                  <p class="text-sm font-semibold">Jessica L.</p>
+                  <p class="text-xs text-base-content/60">Wedding Reception</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="relative z-20 px-2 pt-48 sm:px-4 md:px-8">
-        <p class="mb-4 text-lg font-black text-center md:text-3xl">More than a filter. A truly imaginative transformation.</p>
-        <div class="diff aspect-[16/9] container max-w-3xl rounded-md shadow-black shadow-lg">
-          <div class="diff-item-1">
-            <img alt="After transformation" src="/image/holiday-Shot_0003_00807-2After.jpg" />
+      <div class="relative z-20 px-4 pt-16 pb-32">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h3 class="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6">
+            <span class="text-transparent bg-gradient-to-r from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text leading-tight">More than a filter.</span>
+            <span class="block text-xl sm:text-2xl lg:text-4xl mt-3 text-base-content/70 font-light">A truly imaginative transformation</span>
+          </h3>
+          <p class="text-lg text-base-content/60 max-w-2xl mx-auto">Drag the slider to see how our AI transforms reality into art in real-time</p>
+        </div>
+        
+        <div class="relative max-w-5xl mx-auto">
+          <!-- Glow effect -->
+          <div class="absolute -inset-8 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-3xl opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-700"></div>
+          
+          <!-- Main container -->
+          <div class="relative bg-base-300/30 backdrop-blur-sm rounded-3xl p-4 lg:p-8">
+            <!-- Labels -->
+            <div class="absolute top-4 sm:top-8 left-4 sm:left-8 z-20 pointer-events-none">
+              <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-base-300/90 backdrop-blur-md border border-purple-500/30 shadow-lg">
+                <span class="text-xs sm:text-sm font-semibold text-base-content/80">Before</span>
+              </span>
+            </div>
+            <div class="absolute top-4 sm:top-8 right-4 sm:right-8 z-20 pointer-events-none">
+              <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-pink-500/20 to-purple-500/20 backdrop-blur-md border border-purple-500/30 shadow-lg">
+                <span class="text-xs sm:text-sm font-semibold text-transparent bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text">After AI Magic</span>
+              </span>
+            </div>
+            
+            <!-- Professional Comparison Slider -->
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl border border-purple-500/20 group comparison-slider" data-comparison-slider>
+              <div class="relative aspect-[16/9] w-full">
+                <!-- After Image (Bottom Layer) -->
+                <div class="absolute inset-0">
+                  <img 
+                    alt="After transformation - Guest transformed into paper origami art style" 
+                    src="/image/holiday-Shot_0003_00807-2After.jpg" 
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <!-- Subtle gradient overlay -->
+                  <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-purple-900/10"></div>
+                </div>
+                
+                <!-- Before Image (Top Layer with Clip) -->
+                <div class="absolute inset-0 comparison-before" style="clip-path: inset(0 50% 0 0);">
+                  <img 
+                    alt="Before transformation - Original photo of guests" 
+                    src="/image/holiday-Shot_0003_00807-1Before.jpg" 
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <!-- Subtle gradient overlay -->
+                  <div class="absolute inset-0 bg-gradient-to-bl from-transparent via-transparent to-base-300/10"></div>
+                </div>
+                
+                <!-- Slider Control -->
+                <div class="absolute inset-y-0 comparison-slider-handle" style="left: 50%;">
+                  <!-- Vertical divider line -->
+                  <div class="absolute top-0 bottom-0 left-1/2 w-0.5 -translate-x-1/2 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
+                  
+                  <!-- Extra glow lines -->
+                  <div class="absolute top-0 bottom-0 left-1/2 w-4 -translate-x-1/2 bg-gradient-to-b from-transparent via-white/10 to-transparent blur-sm"></div>
+                  <div class="absolute top-0 bottom-0 left-1/2 w-8 -translate-x-1/2 bg-gradient-to-b from-transparent via-purple-400/20 to-transparent blur-xl"></div>
+                  
+                  <!-- Draggable handle -->
+                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-col-resize touch-none">
+                    <div class="relative group/handle">
+                      <!-- Handle background -->
+                      <div class="relative w-14 h-14 bg-gradient-to-br from-white to-gray-100 rounded-full shadow-2xl ring-2 ring-purple-500 ring-offset-2 ring-offset-transparent group-hover/handle:scale-110 group-hover/handle:ring-purple-400 group-hover/handle:ring-offset-purple-500/20 transition-all duration-300">
+                        <!-- Handle icon -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                          <svg class="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 24 24">
+                            <path d="M7 16V8M17 16V8M12 16V8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M3 12L7 8V16L3 12Z" fill="currentColor" opacity="0.7"/>
+                            <path d="M21 12L17 16V8L21 12Z" fill="currentColor" opacity="0.7"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <!-- Hover glow -->
+                      <div class="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 blur-xl scale-150 opacity-0 group-hover/handle:opacity-100 transition-opacity duration-300"></div>
+                      
+                      <!-- Pulse animation on hover -->
+                      <div class="absolute inset-0 rounded-full bg-white/20 scale-100 opacity-0 group-hover/handle:scale-150 group-hover/handle:opacity-0 transition-all duration-700"></div>
+                    </div>
+                  </div>
+                  
+                  <!-- Touch area for mobile -->
+                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-24 cursor-col-resize touch-none"></div>
+                </div>
+                
+                <!-- Interactive hint -->
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none transition-opacity duration-500 comparison-hint">
+                  <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-base-300/90 backdrop-blur-md border border-purple-500/30 shadow-lg">
+                    <svg class="w-4 h-4 text-purple-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l-3 3 3 3m8-6l3 3-3 3"></path>
+                    </svg>
+                    <span class="text-xs font-medium text-base-content/70">Drag to compare</span>
+                  </div>
+                </div>
+                
+                <!-- Percentage indicator -->
+                <div class="absolute -top-16 left-1/2 -translate-x-1/2 pointer-events-none opacity-0 transition-all duration-300 comparison-percentage">
+                  <div class="relative">
+                    <div class="px-4 py-2 rounded-lg bg-gradient-to-br from-purple-600/90 to-pink-600/90 backdrop-blur-md shadow-xl">
+                      <span class="text-sm font-bold text-white">50%</span>
+                    </div>
+                    <!-- Arrow pointing down -->
+                    <div class="absolute left-1/2 -bottom-2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-purple-600/90"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Bottom text -->
+            <div class="mt-6 text-center">
+              <p class="text-sm text-base-content/60">One moment captured, infinite artistic possibilities</p>
+            </div>
           </div>
-          <div class="diff-item-2">
-            <img alt="Before transformation" src="/image/holiday-Shot_0003_00807-1Before.jpg" />
-          </div>
-          <div class="diff-resizer"></div>
         </div>
       </div>
       <div class="absolute bottom-0 z-0 block h-full min-w-full -translate-x-1/2 opacity-100 pointer-events-none select-none background-image left-1/2 z-1">
         <img
           class="relative block h-full opacity-50 hero__background-image object-cover w-full"
-          src="/src/assets/images/hero2.png"
-          loading="eager"
-          alt="Abstract color gradient from pink to dark purple"
+          src={hero2Image.src}
+          loading="lazy"
+          alt="Abstract gradient background from pink to dark purple"
         />
         <div class="absolute bottom-0 left-0 z-10 w-full opacity-100 gradient-fade pb-28 bg-gradient-to-b from-transparent to-base-300"></div>
       </div>
     </section>
 
-    <section class="relative z-20 flex justify-center py-24 overflow-hidden border-t-2 border-b-2 border-opacity-100 md:py-32 lg:py-48 border-purple-950">
-      <div class="relative z-10 mx-auto shadow-lg bg-opacity-95 stats shadow-black stats-vertical sm:stats-horizontal">
-        <div class="stat">
-          <div class="stat-value">175k+</div>
-          <div class="text-xl stat-title">Images generated</div>
+    <section class="relative z-20 py-20 md:py-32 overflow-hidden bg-gradient-to-b from-base-300 to-base-100 texture-overlay">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text">Proven Impact</h2>
         </div>
-        <div class="stat">
-          <div class="stat-value">2.5k+</div>
-          <div class="text-xl stat-title">Photos printed</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value">100%</div>
-          <div class="text-xl stat-title">Good times</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative bg-base-300/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 transform hover:-translate-y-1">
+              <div class="text-5xl lg:text-6xl font-black text-transparent bg-gradient-to-br from-pink-400 to-purple-600 bg-clip-text mb-2 animate-count">175k+</div>
+              <p class="text-lg text-base-content/80">Images generated</p>
+            </div>
+          </div>
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative bg-base-300/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 transform hover:-translate-y-1">
+              <div class="text-5xl lg:text-6xl font-black text-transparent bg-gradient-to-br from-cyan-400 to-blue-600 bg-clip-text mb-2 animate-count">2.5k+</div>
+              <p class="text-lg text-base-content/80">Photos printed</p>
+            </div>
+          </div>
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative bg-base-300/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-fuchsia-500/20 hover:border-fuchsia-500/40 transition-all duration-300 transform hover:-translate-y-1">
+              <div class="text-5xl lg:text-6xl font-black text-transparent bg-gradient-to-br from-fuchsia-400 to-purple-600 bg-clip-text mb-2 animate-count">100%</div>
+              <p class="text-lg text-base-content/80">Good times</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="absolute object-cover w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-10">
+      <div class="absolute inset-0 -z-10 overflow-hidden">
         <img
-          class="object-cover w-full h-full"
-          src="/src/assets/images/prints-mosaic_corrected.jpg"
+          class="object-cover w-full h-full opacity-20"
+          src={printsMosaic.src}
           loading="lazy"
-          alt="Photo prints"
+          alt="Mosaic of AI-transformed photo prints from various events showcasing different artistic styles"
         />
+        <div class="absolute inset-0 bg-gradient-to-br from-base-300/90 via-purple-900/50 to-base-300/90"></div>
       </div>
-      <div class="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-br mix-blend-color from-cyan-950 to-fuchsia-950 opacity-70"></div>
     </section>
 
-    <section class="relative z-20 bg-base-300">
-      <div class="container flex flex-col px-4 py-20 mx-auto lg:max-w-7xl">
-        <div class="w-full mb-6 sm:mb-4 divider lg:mb-12">
-          <h2 class="text-transparent text-md bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-2xl md:text-xl lg:text-2xl">Trusted by</h2>
+    <section class="relative z-20 py-24 bg-base-300">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl lg:text-3xl font-bold text-transparent bg-gradient-to-r from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">Trusted by Industry Leaders</h2>
         </div>
-        <LogoGrid />
+        <div class="opacity-80 hover:opacity-100 transition-opacity duration-300">
+          <LogoGrid />
+        </div>
       </div>
     </section>
 
-    <section class="relative z-20 flex flex-row justify-center w-full py-20 bg-base-300">
-      <div class="relative z-30 flex flex-col items-center px-8 py-16 bg-black bg-opacity-50 border-opacity-0 rounded-md shadow-lg border-purple-950">
-        <p class="max-w-2xl mb-8 text-lg text-center text-transparent bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text sm:text-4xl md:text-3xl lg:text-4xl">Bring the future of interactive entertainment to your next event.</p>
-        <button 
-          data-tf-popup="KJvQaJXG" 
-          data-tf-opacity="100" 
-          data-tf-size="100" 
-          data-tf-iframe-props="title=Book Davant Systems AI Photobooth" 
-          data-tf-transitive-search-params 
-          data-tf-medium="snippet" 
-          class="text-sm rounded-sm shadow-sm btn bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral border-1 border-cyan-500 shadow-pink-500"
+    <section class="relative z-20 py-20 md:py-32 overflow-hidden texture-overlay">
+      <div class="container mx-auto px-4 max-w-4xl relative z-30">
+        <div class="relative group">
+          <div class="absolute -inset-8 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-3xl opacity-20 blur-3xl group-hover:opacity-30 transition-opacity duration-500 animate-pulse-slow"></div>
+          <div class="relative bg-base-300/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-purple-500/20 p-12 lg:p-16 text-center">
+            <h2 class="text-3xl lg:text-5xl font-bold mb-8 leading-tight">
+              <span class="text-transparent bg-gradient-to-br from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">Bring the future of interactive entertainment</span>
+              <span class="block text-2xl lg:text-4xl mt-4 text-base-content/60 font-light">to your next event</span>
+            </h2>
+            <button 
+              data-tf-popup="KJvQaJXG" 
+              data-tf-opacity="100" 
+              data-tf-size="100" 
+              data-tf-iframe-props="title=Book Davant Systems AI Photobooth" 
+              data-tf-transitive-search-params 
+              data-tf-medium="snippet" 
+              class="btn btn-lg bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 hover:from-pink-600 hover:via-fuchsia-600 hover:to-purple-700 text-white border-0 shadow-xl shadow-purple-500/30 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/50 px-10 py-4 text-lg font-semibold group mb-12"
+            >
+              <span class="relative z-10">Start Your Journey</span>
+              <span class="absolute inset-0 bg-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            </button>
+            
+            <div class="relative py-8">
+              <div class="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
+              <p class="relative inline-block px-6 bg-base-300/80 backdrop-blur-sm text-base-content/60">or get in touch directly</p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center mt-8">
+              <a href="mailto:tone@davantsystems.com" class="group flex items-center gap-3 text-lg hover:text-primary transition-all duration-300">
+                <div class="p-3 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
+                  <svg class="w-6 h-6 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <span class="font-medium">tone@davantsystems.com</span>
+              </a>
+              
+              <a href="tel:+1-702-561-5682" class="group flex items-center gap-3 text-lg hover:text-primary transition-all duration-300">
+                <div class="p-3 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20 group-hover:from-cyan-500/30 group-hover:to-blue-500/30 transition-all duration-300">
+                  <svg class="w-6 h-6 text-cyan-400 group-hover:text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
+                </div>
+                <span class="font-medium">(702) 561-5682</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-0 z-0">
+        <video 
+          class="absolute inset-0 w-full h-full object-cover opacity-10" 
+          autoplay 
+          loop 
+          muted 
+          playsinline
+          preload="metadata"
         >
-          Fill out interest form
-        </button>
-        <span class="mt-12 divider">or</span>
-        <p class="mt-8 mb-8 text-2xl font-bold text-center">Contact us directly</p>
-        <div class="block text-left">
-          <p class="mb-4 text-xl">Email: <a href="mailto:tone@davantsystems.com" class="link link-secondary">tone@davantsystems.com</a></p>
-          <p class="text-xl">Phone: <a href="tel:+1-702-561-5682" class="link link-secondary">(702)561-5682</a></p>
-        </div>
+          <source src="/video/banneranimation-01_5.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-pink-900/60 to-cyan-900/80 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-base-300 via-transparent to-transparent"></div>
       </div>
-      <span class="absolute top-0 left-0 z-10 block w-full h-full opacity-80 glass py-18 bg-gradient-to-br from-fuchsia-600 via-secondary to-purple-950 mix-blend-color"></span>
-
-      <video class="absolute top-0 left-0 z-0 object-cover w-full h-full opacity-20" autoplay loop muted playsinline>
-        <source src="/video/banneranimation-01_5.mp4" type="video/mp4" />
-      </video>
-      <video class="absolute top-0 left-0 z-20 object-cover w-full h-full opacity-100 blur-md mix-blend-overlay" autoplay loop muted playsinline>
-        <source src="/video/banneranimation-01_5.mp4" type="video/mp4" />
-      </video>
     </section>
   </main>
   <Footer />
 </Layout>
 
 <style>
+  /* Hero styles */
   .hero__supertitle {
-    height: 90vh;
+    min-height: 100vh;
   }
 
-  .hero__supertitle p.shadow-only {
+  /* Typography */
+  .font-sacramento {
+    font-family: "Sacramento", cursive;
+  }
+
+  /* Shadow effects */
+  .shadow-glow {
     text-shadow:
-      0 0 0.2em rgba(140, 0, 140, 1),
+      0 0 0.2em rgba(140, 0, 140, 0.8),
       0 0 0.05em rgba(0, 0, 0, 1),
       0 0 0.1em rgba(0, 0, 0, 1),
       0 0 0.2em rgba(0, 0, 0, 1),
@@ -219,32 +467,8 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
       0 0 0.3em rgba(0, 0, 0, 1);
   }
 
-  .hero-gradient-1 {
-    background-color: rgb(0, 0, 0);
-    background-image: radial-gradient(
-        at 54% 100%,
-        rgb(19, 78, 74) 0,
-        transparent 53%
-      ),
-      radial-gradient(at 48% 98%, rgb(6, 95, 70) 0, transparent 30%),
-      radial-gradient(at 29% 31%, rgb(88, 28, 135) 0, transparent 44%),
-      radial-gradient(at 86% 21%, rgb(49, 46, 129) 0, transparent 77%),
-      radial-gradient(at 53% 40%, rgb(136, 19, 55) 0, transparent 28%),
-      radial-gradient(at 29% 82%, rgb(88, 28, 135) 0, transparent 43%);
-    pointer-events: none;
-  }
-
-  .hero-gradient-1::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(rgb(19, 136, 124) 0%, transparent 80%);
-  }
-
-  .glow__neon--secondary {
+  /* Neon glow effect */
+  .neon-glow-secondary {
     color: rgb(18, 170, 223);
     text-shadow:
       0em -0.02em 0.02em rgba(0, 110, 140, 1),
@@ -255,10 +479,7 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
       0.025em 0.04em 0.01em rgba(1, 25, 40, 1);
   }
 
-  .font-sacramento {
-    font-family: "Sacramento", cursive;
-  }
-
+  /* Neon letter spacing adjustments */
   .neon-first {
     display: inline-block;
     margin-right: -0.05em;
@@ -270,14 +491,15 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
     margin-right: -0.075em;
   }
 
-  .embed-video-container {
+  /* Responsive video container */
+  .video-container-16-9 {
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-top: 56.25%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
   }
 
-  .embed-video {
+  .video-container-16-9 iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -286,6 +508,338 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
     width: 100%;
     height: 100%;
   }
+
+  /* Animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes count {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-count {
+    animation: count 0.8s ease-out;
+    animation-fill-mode: both;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced focus states */
+  :focus-visible {
+    outline: 2px solid rgb(236, 72, 153);
+    outline-offset: 2px;
+  }
+
+  /* Optimized hover states */
+  @media (hover: hover) {
+    .group:hover .group-hover\:scale-105 {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Professional comparison slider styling */
+  .comparison-slider {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  .comparison-before {
+    will-change: clip-path;
+  }
+  
+  .comparison-slider-handle {
+    will-change: left;
+  }
+  
+  .comparison-slider-handle::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    bottom: -20px;
+    left: -20px;
+    right: -20px;
+  }
+  
+  /* Hide hint when interacting */
+  .comparison-slider.is-dragging .comparison-hint {
+    opacity: 0 !important;
+  }
+  
+  /* Show percentage when dragging */
+  .comparison-slider.is-dragging .comparison-percentage {
+    opacity: 1 !important;
+  }
+  
+  /* Active dragging state */
+  .comparison-slider.is-dragging {
+    cursor: col-resize !important;
+  }
+  
+  .comparison-slider.is-dragging .comparison-slider-handle {
+    transform: scale(1.1);
+  }
+  
+  /* Prevent text selection during drag */
+  .comparison-slider.is-dragging * {
+    user-select: none !important;
+  }
+  
+  /* Smooth transitions */
+  .comparison-before,
+  .comparison-slider-handle {
+    transition: none;
+  }
+  
+  .comparison-slider:not(.is-dragging) .comparison-before,
+  .comparison-slider:not(.is-dragging) .comparison-slider-handle {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Edge glow effects */
+  .comparison-slider[data-position="0"] .comparison-before::after,
+  .comparison-slider[data-position="100"] .comparison-before::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    opacity: 0.3;
+    animation: edge-pulse 2s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  .comparison-slider[data-position="0"] .comparison-before::after {
+    left: 0;
+    background: linear-gradient(to right, rgba(168, 85, 247, 0.5), transparent);
+  }
+  
+  .comparison-slider[data-position="100"] .comparison-before::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(236, 72, 153, 0.5), transparent);
+  }
+  
+  @keyframes edge-pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+  }
+
+  /* Loading animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Improved mobile responsiveness */
+  @media (max-width: 640px) {
+    .hero__supertitle {
+      min-height: 80vh;
+    }
+    
+    .font-sacramento {
+      font-size: 90%;
+    }
+  }
+
+  /* Performance optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Better gradient text rendering */
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Subtle texture overlay */
+  .texture-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
 </style>
 
 <script src="https://embed.typeform.com/next/embed.js"></script>
+
+<script>
+  // Add smooth image loading
+  document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    images.forEach(img => {
+      img.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+      
+      if (img.complete) {
+        img.classList.remove('opacity-0');
+      } else {
+        img.addEventListener('load', () => {
+          img.classList.remove('opacity-0');
+        });
+      }
+    });
+    
+    // Professional comparison slider functionality
+    // Custom implementation with smooth dragging, edge effects, and visual feedback
+    const comparisonSlider = document.querySelector('[data-comparison-slider]');
+    if (comparisonSlider) {
+      const beforeImage = comparisonSlider.querySelector('.comparison-before');
+      const sliderHandle = comparisonSlider.querySelector('.comparison-slider-handle');
+      const percentageIndicator = comparisonSlider.querySelector('.comparison-percentage span');
+      const hint = comparisonSlider.querySelector('.comparison-hint');
+      
+      let isDragging = false;
+      let currentPosition = 50; // Start at 50%
+      
+      // Update slider position
+      function updateSliderPosition(percentage) {
+        percentage = Math.max(0, Math.min(100, percentage));
+        currentPosition = percentage;
+        
+        beforeImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+        sliderHandle.style.left = `${percentage}%`;
+        
+        if (percentageIndicator) {
+          percentageIndicator.textContent = `${Math.round(percentage)}%`;
+        }
+        
+        // Set data attribute for edge effects
+        if (percentage <= 5) {
+          comparisonSlider.setAttribute('data-position', '0');
+        } else if (percentage >= 95) {
+          comparisonSlider.setAttribute('data-position', '100');
+        } else {
+          comparisonSlider.removeAttribute('data-position');
+        }
+      }
+      
+      // Get position from mouse/touch event
+      function getPositionFromEvent(e, rect) {
+        const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        const relativeX = x - rect.left;
+        const percentage = (relativeX / rect.width) * 100;
+        return percentage;
+      }
+      
+      // Start dragging
+      function startDragging(e) {
+        e.preventDefault();
+        isDragging = true;
+        comparisonSlider.classList.add('is-dragging');
+        document.body.style.cursor = 'col-resize';
+        
+        // Hide hint after first interaction
+        if (hint) {
+          hint.style.display = 'none';
+        }
+      }
+      
+      // During drag
+      function drag(e) {
+        if (!isDragging) return;
+        
+        const rect = comparisonSlider.getBoundingClientRect();
+        const percentage = getPositionFromEvent(e, rect);
+        updateSliderPosition(percentage);
+      }
+      
+      // Stop dragging
+      function stopDragging() {
+        isDragging = false;
+        comparisonSlider.classList.remove('is-dragging');
+        document.body.style.cursor = '';
+      }
+      
+      // Mouse events
+      sliderHandle.addEventListener('mousedown', startDragging);
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('mouseup', stopDragging);
+      
+      // Touch events
+      sliderHandle.addEventListener('touchstart', startDragging, { passive: false });
+      document.addEventListener('touchmove', drag, { passive: false });
+      document.addEventListener('touchend', stopDragging);
+      
+      // Click to position
+      comparisonSlider.addEventListener('click', (e) => {
+        if (e.target === sliderHandle || sliderHandle.contains(e.target)) return;
+        
+        const rect = comparisonSlider.getBoundingClientRect();
+        const percentage = getPositionFromEvent(e, rect);
+        updateSliderPosition(percentage);
+        
+        // Hide hint after interaction
+        if (hint) {
+          hint.style.display = 'none';
+        }
+      });
+      
+      // Keyboard support
+      comparisonSlider.setAttribute('tabindex', '0');
+      comparisonSlider.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          updateSliderPosition(currentPosition - 5);
+        } else if (e.key === 'ArrowRight') {
+          updateSliderPosition(currentPosition + 5);
+        }
+      });
+      
+      // Initialize position
+      updateSliderPosition(50);
+    }
+  });
+</script>
