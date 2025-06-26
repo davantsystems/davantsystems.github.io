@@ -1,0 +1,166 @@
+01:51:19 [types] Generated 1ms
+01:51:19 [content] Syncing content
+01:51:19 [content] Synced content
+01:51:19 [vite] Re-optimizing dependencies because vite config has changed
+
+ astro  v5.10.0 ready in 325 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+01:51:19 watching for file changes...
+/*! 🌼 daisyUI 5.0.43 */
+01:53:53 [200] / 89ms
+01:53:53 [200] / 7ms
+01:53:53 [200] / 5ms
+01:53:53 [404] /favicon.svg 3ms
+01:54:09 [200] /davant-studio/ 7ms
+01:56:44 [200] /davant-studio/ 10ms
+01:59:36 [200] /davant-studio/ 6ms
+02:01:28 [watch] src/pages/davant-studio/index.astro
+02:01:28 [200] /davant-studio/ 54ms
+02:10:08 [watch] /src/pages/davant-studio/index.astro?astro&type=style&index=0&lang.css
+02:10:08 [200] /davant-studio/ 28ms
+02:10:27 [watch] src/pages/davant-studio/index.astro
+02:10:27 [200] /davant-studio/ 35ms
+02:12:28 [watch] /src/pages/davant-studio/index.astro?astro&type=style&index=0&lang.css
+02:12:29 [200] /davant-studio/ 37ms
+02:12:33 [200] /davant-studio/ 4ms
+02:12:37 [200] /davant-studio/ 4ms
+02:12:55 [watch] src/components/PurchaseCard.astro
+02:12:55 [watch] src/components/PurchaseCard.astro
+02:12:55 [200] /davant-studio/ 18ms
+02:17:30 [200] /davant-studio/ 9ms
+02:17:36 [200] /davant-studio/ 5ms
+02:17:37 [200] /davant-studio/ 3ms
+02:17:37 [200] /davant-studio/ 3ms
+02:17:42 [200] /davant-studio/ 4ms
+02:17:42 [200] /davant-studio/ 7ms
+02:17:42 [200] /davant-studio/ 10ms
+02:17:42 [200] /davant-studio/ 3ms
+02:17:42 [404] /favicon.svg 3ms
+02:17:47 [200] /davant-studio/ 2ms
+02:18:46 [200] /davant-studio/ 5ms
+02:18:46 [404] /favicon.svg 3ms
+02:22:02 [watch] src/pages/davant-studio/index.astro
+02:22:03 [200] /davant-studio/ 39ms
+02:22:09 [200] /davant-studio/ 2ms
+02:22:41 [200] /davant-studio/ 5ms
+02:24:58 [watch] src/pages/davant-studio/index.astro
+02:24:58 [200] /davant-studio/ 37ms
+02:25:08 [watch] /src/pages/davant-studio/index.astro?astro&type=style&index=0&lang.css
+02:25:08 [200] /davant-studio/ 38ms
+02:25:14 [200] /davant-studio/ 2ms
+02:26:52 [200] /davant-studio/ 5ms
+02:27:37 [watch] src/components/PurchaseCard.astro
+02:27:37 [watch] src/components/PurchaseCard.astro
+02:27:37 [200] /davant-studio/ 26ms
+02:27:37 [200] /davant-studio/ 26ms
+02:28:07 [watch] src/pages/davant-studio/index.astro
+02:28:07 [200] /davant-studio/ 46ms
+02:28:07 [200] /davant-studio/ 46ms
+02:28:25 [watch] src/pages/davant-studio/index.astro
+02:28:26 [200] /davant-studio/ 20ms
+02:28:26 [200] /davant-studio/ 20ms
+02:33:22 [200] /davant-studio/ 6ms
+02:35:29 [watch] src/pages/davant-studio/index.astro
+02:35:29 [200] /davant-studio/ 35ms
+02:35:29 [200] /davant-studio/ 35ms
+02:35:34 [200] /davant-studio/ 5ms
+02:35:53 [watch] src/pages/davant-studio/index.astro
+02:35:53 [200] /davant-studio/ 46ms
+02:35:53 [200] /davant-studio/ 46ms
+02:36:38 [watch] src/pages/davant-studio/index.astro
+02:36:38 [200] /davant-studio/ 24ms
+02:36:38 [200] /davant-studio/ 24ms
+02:36:44 [watch] src/pages/davant-studio/index.astro
+02:36:44 [200] /davant-studio/ 19ms
+02:36:44 [200] /davant-studio/ 19ms
+02:37:56 [watch] src/pages/davant-studio/index.astro
+02:37:56 [200] /davant-studio/ 36ms
+02:37:56 [200] /davant-studio/ 36ms
+02:38:01 [watch] src/pages/davant-studio/index.astro
+02:38:01 [200] /davant-studio/ 19ms
+02:38:01 [200] /davant-studio/ 19ms
+02:38:03 [200] /davant-studio/ 2ms
+02:38:06 [404] /.well-known/appspecific/com.chrome.devtools.json 7ms
+02:38:57 [404] /.well-known/appspecific/com.chrome.devtools.json 10ms
+02:40:56 [watch] src/pages/davant-studio/index.astro
+02:40:56 [200] /davant-studio/ 35ms
+02:40:56 [200] /davant-studio/ 35ms
+02:40:57 [404] /.well-known/appspecific/com.chrome.devtools.json 29ms
+02:43:02 [watch] src/pages/davant-studio/index.astro
+02:43:02 [200] /davant-studio/ 37ms
+02:43:02 [200] /davant-studio/ 37ms
+02:43:02 [404] /.well-known/appspecific/com.chrome.devtools.json 5ms
+02:43:03 [watch] src/pages/davant-studio/index.astro
+02:43:03 [200] /davant-studio/ 20ms
+02:43:03 [200] /davant-studio/ 20ms
+02:43:03 [404] /.well-known/appspecific/com.chrome.devtools.json 10ms
+02:43:13 [watch] src/pages/davant-studio/index.astro
+02:43:13 [200] /davant-studio/ 18ms
+02:43:13 [200] /davant-studio/ 18ms
+02:43:13 [404] /.well-known/appspecific/com.chrome.devtools.json 14ms
+02:46:16 [watch] src/pages/davant-studio/index.astro
+02:46:16 [200] /davant-studio/ 24ms
+02:46:16 [200] /davant-studio/ 24ms
+02:46:16 [404] /.well-known/appspecific/com.chrome.devtools.json 20ms
+02:48:12 [watch] src/pages/davant-studio/index.astro
+02:48:12 [200] /davant-studio/ 50ms
+02:48:12 [200] /davant-studio/ 50ms
+02:48:12 [404] /.well-known/appspecific/com.chrome.devtools.json 8ms
+02:54:19 [watch] src/pages/davant-studio/index.astro
+02:54:19 [200] /davant-studio/ 34ms
+02:54:19 [200] /davant-studio/ 34ms
+02:54:19 [404] /.well-known/appspecific/com.chrome.devtools.json 21ms
+02:54:45 [watch] src/components/PurchaseCard.astro
+02:54:45 [watch] src/components/PurchaseCard.astro
+02:54:45 [200] /davant-studio/ 27ms
+02:54:45 [200] /davant-studio/ 27ms
+02:54:45 [404] /.well-known/appspecific/com.chrome.devtools.json 3ms
+02:57:00 [watch] src/components/RequirementsPane.astro
+02:57:00 [watch] src/components/RequirementsPane.astro
+02:57:00 [200] /davant-studio/ 53ms
+02:57:00 [200] /davant-studio/ 53ms
+02:57:01 [404] /.well-known/appspecific/com.chrome.devtools.json 7ms
+02:58:09 [200] / 6ms
+02:58:15 [200] /articles/ 3ms
+02:58:21 [200] /ambassadors/ 3ms
+02:58:23 [200] /training/ 4ms
+02:58:25 [200] /davant-studio/ 3ms
+02:58:26 [200] /photobooth/ 6ms
+02:58:33 [404] /.well-known/appspecific/com.chrome.devtools.json 9ms
+03:01:15 [watch] /src/app.css
+03:01:16 [200] /davant-studio/ 249ms
+03:01:16 [200] /photobooth/ 254ms
+03:01:16 [404] /.well-known/appspecific/com.chrome.devtools.json 46ms
+03:01:16 [404] /.well-known/appspecific/com.chrome.devtools.json 4ms
+03:01:18 [200] /davant-studio/ 8ms
+03:01:18 [404] /.well-known/appspecific/com.chrome.devtools.json 4ms
+03:01:33 [watch] /src/app.css
+03:01:34 [200] /davant-studio/ 189ms
+03:01:34 [200] /photobooth/ 193ms
+03:01:34 [404] /.well-known/appspecific/com.chrome.devtools.json 6ms
+03:01:34 [404] /.well-known/appspecific/com.chrome.devtools.json 4ms
+03:02:46 [watch] /src/app.css
+03:02:46 [200] /photobooth/ 93ms
+03:02:46 [404] /.well-known/appspecific/com.chrome.devtools.json 6ms
+03:02:47 [200] /davant-studio/ 5ms
+03:02:47 [404] /.well-known/appspecific/com.chrome.devtools.json 3ms
+03:02:52 [200] /davant-studio/ 6ms
+03:02:52 [404] /.well-known/appspecific/com.chrome.devtools.json 3ms
+13:19:55 [404] /favicon.svg 14ms
+17:42:50 [200] /davant-studio/ 44ms
+02:43:27 [200] / 39ms
+02:45:06 [200] / 19ms
+02:45:06 [404] /favicon.svg 8ms
+02:45:55 [200] /photobooth/ 19ms
+02:49:54 [200] / 16ms
+02:49:54 [404] /favicon.svg 14ms
+02:50:33 [200] /photobooth/ 18ms
+02:51:11 [200] /davant-studio/ 24ms
+09:56:34 [200] /davant-studio/ 19ms
+13:38:11 [200] /davant-studio/ 35ms
+13:38:28 [200] /davant-studio/ 14ms
+23:48:31 [200] /davant-studio/ 39ms
+23:48:31 [404] /favicon.svg 19ms

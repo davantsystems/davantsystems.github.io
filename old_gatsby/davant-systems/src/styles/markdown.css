@@ -1,0 +1,55 @@
+.markdown {
+  @apply mx-auto prose prose-lg;
+}
+
+.markdown p {
+  @apply mb-8;
+}
+
+.markdown h1 {
+  @apply mb-8 text-4xl font-bold;
+}
+
+.markdown h2 {
+  @apply mb-6 text-3xl font-semibold;
+}
+
+.markdown h3 {
+  @apply mb-4 text-2xl font-medium;
+}
+
+.markdown ul {
+  @apply pl-6 mt-0 list-disc mb-14;
+}
+
+.markdown ol {
+  @apply pl-6 mt-0 mb-6 list-decimal;
+}
+
+.markdown li {
+  @apply mt-0 mb-2;
+}
+
+.markdown a {
+  @apply underline text-secondary hover:text-sky-100;
+}
+
+.markdown blockquote {
+  @apply p-4 pl-4 mt-0 mb-4 font-mono text-sm italic text-green-200 border-l-4 border-purple-950 bg-purple-950 bg-opacity-10 rounded-tr-md rounded-br-md;
+}
+
+.markdown p + blockquote {
+  @apply -mt-6;
+}
+
+.markdown blockquote p {
+  @apply mt-0 mb-0;
+}
+
+.markdown pre {
+  @apply p-4 overflow-x-auto font-mono text-white bg-gray-800 rounded-md;
+}
+
+.markdown code {
+  @apply px-1 font-mono text-green-200 bg-black border border-green-200 rounded border-opacity-20;
+}
