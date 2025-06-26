@@ -11,42 +11,72 @@ const pageDescription = "Professional AI training workshops and custom corporate
 
 <Layout title={pageTitle} description={pageDescription}>
   <MainNavWithDropdowns />
-  <main class="">
-    <section class="border-b-2 hero__wrapper border-slate-400 border-opacity-5">
+  <main class="relative">
+    <section class="border-b-2 hero__wrapper border-slate-400/5">
       <div class="relative flex flex-col items-center justify-center min-h-screen overflow-hidden sm:flex-row">
         <!-- <span class="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span> -->
         <div class="relative z-20 flex flex-col items-center pt-24 pb-20 text-center text-neutral-content">
-          <div class="flex flex-col items-center mb-2">
-            <div class="relative flex flex-col items-center">
-              <div class="flex flex-col software-spotlight sm:flex-row">
-                <div class="flex flex-col px-4 text-left text">
-                  <h1 class="mb-2 font-light text-transparent sm:mb-4 sm:pb-4 bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
-                    <span class="text-3xl font-black sm:text-4xl md:text-5xl">Training </span><span class="text-3xl leading-normal font-extralight sm:text-4xl md:text-5xl">& Workshops</span>
-                  </h1>
+          <div class="w-full max-w-6xl px-6">
+            <!-- Header -->
+            <h1 class="mb-12 font-light text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text text-center">
+              <span class="text-4xl font-black sm:text-5xl md:text-6xl">Training </span><span class="text-4xl leading-tight font-extralight sm:text-5xl md:text-6xl">& Workshops</span>
+            </h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+              <!-- Left Column: Custom Training -->
+              <div class="space-y-8">
 
-                  <div class="max-w-2xl mb-12 max-w-screen">
+                <div class="flex flex-col justify-between px-8 py-10 rounded-xl shadow-2xl bg-base-300/95 backdrop-blur-sm border border-base-content/5 h-full">
+                  <h2 class="mb-6 text-3xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-left">Custom Training</h2>
+                    <div class="mb-8">
+                      <ul class="grid grid-cols-1 gap-4 list-none">
+                        <li class="flex items-center space-x-3 p-3 rounded-lg bg-base-200/50 border border-base-content/5 transition-all duration-200 hover:bg-base-200/80 hover:border-base-content/10">
+                          <span class="w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex-shrink-0"></span>
+                          <span class="font-medium">Group Workshops</span>
+                        </li>
+                        <li class="flex items-center space-x-3 p-3 rounded-lg bg-base-200/50 border border-base-content/5 transition-all duration-200 hover:bg-base-200/80 hover:border-base-content/10">
+                          <span class="w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex-shrink-0"></span>
+                          <span class="font-medium">Private In-Office Training</span>
+                        </li>
+                        <li class="flex items-center space-x-3 p-3 rounded-lg bg-base-200/50 border border-base-content/5 transition-all duration-200 hover:bg-base-200/80 hover:border-base-content/10">
+                          <span class="w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex-shrink-0"></span>
+                          <span class="font-medium">AI Workflow Design</span>
+                        </li>
+                        <li class="flex items-center space-x-3 p-3 rounded-lg bg-base-200/50 border border-base-content/5 transition-all duration-200 hover:bg-base-200/80 hover:border-base-content/10">
+                          <span class="w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex-shrink-0"></span>
+                          <span class="font-medium">Custom AI Asset Pipelines</span>
+                        </li>
+                      </ul>
+                    </div>
+                  <div class="text-center">
+                    <p class="mb-6 text-base-content/80">Ready to level up your team's AI capabilities?</p>
+                    <div class="space-y-4">
+                      <a href="mailto:contact@davantsystems.com" class="inline-flex items-center px-6 py-3 text-sm font-semibold transition-all duration-200 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-base-300" target="_blank">
+                        Contact Us
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                      </a>
+                      <p class="text-sm text-base-content/60">
+                        Email us directly at <span class="font-medium text-secondary">contact@davantsystems.com</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Right Column: Events Calendar -->
+              <div class="space-y-8">
+                <div class="w-full">
+                  <div class="overflow-hidden rounded-lg border border-base-content/10 shadow-lg">
                     <iframe
                       src="https://lu.ma/embed/calendar/cal-1Q7AVkEK2CIEJHR/events?lt=dark"
                       width="100%"
                       height="600"
-                      frameborder="0"
-                      style="border: 1px solid black; border-radius: 4px;"
-                      aria-hidden="false"
+                      class="border-0 block"
+                      aria-label="Upcoming training workshops calendar"
                       tabindex="0"
                     ></iframe>
-                  </div>
-
-                  <div class="flex flex-col px-6 py-8 mt-0 mb-12 rounded-md shadow-xl bg-opacity-90 bg-base-300">
-                    <h2 class="text-4xl">Custom Training</h2>
-                    <div class="pt-8 mb-8">
-                      <ul class="pl-0 font-light leading-snug list-none sm:columns-2 list">
-                        <li class="mb-4 list-item">Group Workshops</li>
-                        <li class="mb-4 list-item">Private In-Office Training</li>
-                        <li class="mb-4 list-item">AI Workflow design</li>
-                        <li class="mb-4 list-item">Custom AI asset pipelines</li>
-                      </ul>
-                    </div>
-                    <p class="text-center text-secondary">Email <a href="mailto:contact@davantsystems.com" class="link" target="_blank">contact@davantsystems.com</a> for more info</p>
                   </div>
                 </div>
               </div>
