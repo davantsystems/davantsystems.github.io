@@ -8,9 +8,14 @@ import { Image } from "astro:assets";
 import hero1 from "../assets/images/hero1.png";
 
 const pageTitle = "Creative Ambassadors Program | Davant Systems";
-const pageDescription = "Join our community of AI creative pioneers. Share your expertise, inspire others, and shape the future of AI-powered creative tools.";
+const pageDescription = "Join our ambassador program for visual creatives. Get free Davant Studio Pro, connect with fellow artists, and help shape the future of creative tools. No AI experience required.";
 
 const benefits = [
+  {
+    icon: "🎁",
+    title: "Free Pro License",
+    description: "Get a complimentary Davant Studio Pro license with all premium features unlocked"
+  },
   {
     icon: "🎯",
     title: "Early Access",
@@ -22,51 +27,50 @@ const benefits = [
     description: "Free access to advanced workshops and one-on-one mentorship sessions"
   },
   {
-    icon: "💰",
-    title: "Revenue Share",
-    description: "Earn commissions on referrals and custom training programs you deliver"
-  },
-  {
-    icon: "🌟",
-    title: "Recognition",
-    description: "Featured showcases, speaking opportunities, and co-marketing initiatives"
+    icon: "🏆",
+    title: "Creative Contests",
+    description: "Participate in fun challenges, competitions, and showcase opportunities"
   },
   {
     icon: "🤝",
     title: "Community",
-    description: "Connect with leading AI artists, designers, and creative technologists"
+    description: "Join the vanguard of AI creative pioneers shaping the future of creative tools"
   },
   {
-    icon: "🛠️",
-    title: "Resources",
-    description: "Professional licenses, compute credits, and technical support"
+    icon: "🌟",
+    title: "Recognition",
+    description: "Get featured in our showcases and co-marketing initiatives"
   }
 ];
 
 const requirements = [
-  "Active professional in creative industries (design, photography, film, etc.)",
-  "Demonstrated expertise in AI creative workflows",
-  "Passion for teaching and community building",
-  "Strong social media or professional network presence",
-  "Commitment to ethical AI practices"
+  "Professional or serious hobbyist in visual creative fields",
+  "Open to exploring new creative technologies",
+  "Naturally enthusiastic about sharing discoveries",
+  "Interested in being part of a creative community",
+  "Commitment to ethical and responsible AI use"
 ];
 
 const faqs = [
   {
-    question: "How much time commitment is required?",
-    answer: "We recommend 5-10 hours per month for community activities, content creation, and feedback sessions. The program is flexible to accommodate your schedule."
+    question: "What's the time commitment?",
+    answer: "There's no set time requirement or mandatory activities. We simply want ambassadors who are genuinely excited about the tools and naturally want to share their experiences. Engage at whatever level feels right for you."
   },
   {
-    question: "Do I need to be an expert in AI?",
-    answer: "You should have practical experience using AI tools in your creative work, but you don't need to be a technical expert. We value diverse perspectives and skill levels."
+    question: "Do I need experience with AI?",
+    answer: "Not at all! We welcome creators at all stages of their AI journey, including those who haven't tried it yet. In fact, fresh perspectives from traditional artists are incredibly valuable. We'll provide all the training you need."
+  },
+  {
+    question: "What kind of creatives are you looking for?",
+    answer: "All visual creatives! Digital designers, traditional painters, photographers, sculptors, filmmakers, illustrators, ceramicists. If you create visual art professionally or as a serious hobby, we want to hear from you. Non-digital artists bring unique perspectives we highly value."
   },
   {
     question: "Is there a cost to join?",
-    answer: "No, the ambassador program is free to join. In fact, you'll receive free licenses, training, and earning opportunities."
+    answer: "No, the ambassador program is free to join. In fact, you'll receive a free Davant Studio Pro license, exclusive training, and opportunities to participate in creative contests."
   },
   {
-    question: "How are ambassadors selected?",
-    answer: "We review applications monthly, looking for passionate creators who align with our mission. We consider your portfolio, experience, and community involvement."
+    question: "How does the selection process work?",
+    answer: "We open applications periodically on a rolling basis. We look for creators who are a great fit for our community: those who are passionate, curious, and excited about the future of creative tools. There are no fixed terms or periods."
   }
 ];
 ---
@@ -85,8 +89,8 @@ const faqs = [
                 <span class="text-5xl font-black sm:text-6xl md:text-7xl">Creative </span>
                 <span class="text-5xl leading-tight font-extralight sm:text-6xl md:text-7xl">Ambassadors</span>
               </h1>
-              <p class="max-w-3xl mx-auto text-xl text-base-content/80 sm:text-2xl font-light">
-                Join our community of AI creative pioneers. Shape the future of creative technology.
+              <p class="max-w-3xl mx-auto text-xl font-light text-base-content/80 sm:text-2xl">
+                Be part of the new wave of AI creative tools. <span class="inline-block">Get free software and help shape the future.</span>
               </p>
             </div>
 
@@ -94,7 +98,7 @@ const faqs = [
             <div class="mb-16">
               <a 
                 href="#apply" 
-                class="inline-flex items-center px-8 py-4 text-lg font-semibold transition-all duration-300 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/50"
+                class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/50"
               >
                 Apply Now
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,7 +114,7 @@ const faqs = [
           <Image
             src={hero1}
             alt="AI Creative Technology"
-            class="relative block h-full hero__background-image object-cover w-full"
+            class="relative block object-cover w-full h-full hero__background-image"
             loading="eager"
             width={1920}
             height={1080}
@@ -125,13 +129,13 @@ const faqs = [
       <div class="container max-w-6xl px-6 mx-auto">
         <div class="max-w-4xl mx-auto text-center">
           <h2 class="mb-8 text-4xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text">
-            Empowering Creative Leaders
+            Join the Creative Revolution
           </h2>
-          <p class="mb-6 text-lg text-base-content/80 leading-relaxed">
-            The Davant Systems Ambassador Program brings together forward-thinking creators who are passionate about AI's potential in creative industries. As an ambassador, you'll help shape our products, educate your community, and lead the conversation about ethical AI in creative work.
+          <p class="mb-6 text-lg leading-relaxed text-left text-base-content/80">
+            The Davant Systems Ambassador Program is about joining a movement. We're building the next generation of creative tools, and we want passionate creators to be part of the journey. As an ambassador, you'll get free access to Davant Studio Pro while helping us build something revolutionary.
           </p>
-          <p class="text-lg text-base-content/80 leading-relaxed">
-            Whether you're a designer, photographer, filmmaker, or digital artist, if you're excited about the intersection of creativity and AI, we want to hear from you.
+          <p class="text-lg leading-relaxed text-left text-base-content/80">
+            Whether you're a digital designer, traditional painter, photographer, sculptor, filmmaker, or any kind of visual creative: if you're curious about how AI might enhance (not replace) your creative process, we want you on our team.
           </p>
         </div>
       </div>
@@ -158,7 +162,7 @@ const faqs = [
     <!-- Requirements Section -->
     <section class="py-20 bg-base-200/50">
       <div class="container max-w-6xl px-6 mx-auto">
-        <div class="grid gap-12 md:grid-cols-2 items-center">
+        <div class="grid items-center gap-12 md:grid-cols-2">
           <div>
             <h2 class="mb-8 text-4xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text">
               What We're Looking For
@@ -176,19 +180,21 @@ const faqs = [
               ))}
             </ul>
           </div>
-          <div class="p-8 rounded-2xl bg-gradient-to-br from-purple-900/20 to-pink-900/20 border border-purple-500/20">
+          <div class="p-8 border rounded-2xl bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-purple-500/20">
             <h3 class="mb-4 text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text">
               Ideal Candidates
             </h3>
             <p class="mb-4 text-base-content/70">
-              We're looking for creators who are already exploring AI in their work and want to help others do the same. You might be:
+              We welcome creators from all backgrounds and experience levels. You might be:
             </p>
             <ul class="space-y-2 text-base-content/70">
-              <li>• A designer using AI for concept development</li>
-              <li>• A photographer enhancing workflows with AI</li>
-              <li>• A filmmaker exploring AI in post-production</li>
-              <li>• An educator teaching AI creative skills</li>
-              <li>• A creative technologist building AI tools</li>
+              <li>• A traditional artist curious about digital tools</li>
+              <li>• A photographer looking to expand your creative toolkit</li>
+              <li>• A designer ready to explore new possibilities</li>
+              <li>• A filmmaker interested in cutting-edge techniques</li>
+              <li>• A sculptor or painter wondering how AI fits your practice</li>
+              <li>• An educator excited to share new technologies</li>
+              <li>• Anyone creating visual art who values innovation</li>
             </ul>
           </div>
         </div>
@@ -203,13 +209,13 @@ const faqs = [
         </h2>
         <div class="space-y-6">
           {faqs.map((faq, index) => (
-            <div class="collapse collapse-arrow bg-base-200/50 border border-base-content/10">
+            <div class="border collapse collapse-arrow bg-base-200/50 border-base-content/10">
               <input type="radio" name="faq-accordion" checked={index === 0} />
-              <div class="collapse-title text-lg font-medium text-secondary">
+              <div class="text-lg font-medium collapse-title text-secondary">
                 {faq.question}
               </div>
               <div class="collapse-content">
-                <p class="text-base-content/70 pt-2">{faq.answer}</p>
+                <p class="pt-2 text-base-content/70">{faq.answer}</p>
               </div>
             </div>
           ))}
@@ -220,18 +226,18 @@ const faqs = [
     <!-- Apply Section -->
     <section id="apply" class="py-20 bg-base-200/50 scroll-mt-20">
       <div class="container max-w-6xl px-6 mx-auto">
-        <div class="text-center mb-12">
+        <div class="mb-12 text-center">
           <h2 class="mb-8 text-4xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-fuchsia-500 bg-clip-text">
             Ready to Join?
           </h2>
-          <p class="mb-8 text-lg text-base-content/80 max-w-3xl mx-auto">
-            Complete the application form below. Applications are reviewed monthly, and we'll reach out within 2-3 weeks if you're selected for an interview.
+          <p class="max-w-3xl mx-auto mb-8 text-lg text-base-content/80">
+            Complete the application form below. We review applications on a rolling basis and reach out to selected candidates when we open new spots in the program.
           </p>
         </div>
         
         <div class="max-w-4xl mx-auto">
           <!-- Application Form Tabs -->
-          <div class="tabs tabs-boxed justify-center mb-8 bg-base-300/50 p-1">
+          <div class="justify-center p-1 mb-8 tabs tabs-boxed bg-base-300/50">
             <button class="tab tab-active" id="form-tab" onclick="showForm()">
               Application Form
             </button>
@@ -241,19 +247,19 @@ const faqs = [
           </div>
           
           <!-- Form Container -->
-          <div id="form-container" class="p-8 rounded-2xl bg-base-300/80 backdrop-blur-sm border border-base-content/10">
+          <div id="form-container" class="p-8 border rounded-2xl bg-base-300/80 backdrop-blur-sm border-base-content/10">
             <AmbassadorForm />
           </div>
           
           <!-- Email Container -->
-          <div id="email-container" class="p-8 rounded-2xl bg-base-300/80 backdrop-blur-sm border border-base-content/10 hidden">
+          <div id="email-container" class="hidden p-8 border rounded-2xl bg-base-300/80 backdrop-blur-sm border-base-content/10">
             <div class="text-center">
               <p class="mb-6 text-lg text-base-content/80">
                 Prefer to apply via email? Send us your information directly.
               </p>
               <a 
                 href="mailto:ambassadors@davantsystems.com?subject=Ambassador Program Application" 
-                class="inline-flex items-center px-8 py-4 text-lg font-semibold transition-all duration-300 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/50"
+                class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/50"
               >
                 Apply via Email
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -263,25 +269,25 @@ const faqs = [
               <p class="mt-6 text-base text-base-content/60">
                 Include the following in your email:
               </p>
-              <ul class="mt-4 text-left max-w-md mx-auto space-y-2 text-base-content/70">
+              <ul class="max-w-md mx-auto mt-4 space-y-2 text-left text-base-content/70">
                 <li class="flex items-start">
-                  <span class="text-secondary mr-2">•</span>
+                  <span class="mr-2 text-secondary">•</span>
                   Your portfolio or website
                 </li>
                 <li class="flex items-start">
-                  <span class="text-secondary mr-2">•</span>
+                  <span class="mr-2 text-secondary">•</span>
                   Social media links (Instagram, LinkedIn, etc.)
                 </li>
                 <li class="flex items-start">
-                  <span class="text-secondary mr-2">•</span>
+                  <span class="mr-2 text-secondary">•</span>
                   Brief description of your creative work
                 </li>
                 <li class="flex items-start">
-                  <span class="text-secondary mr-2">•</span>
-                  How you're currently using AI in your process
+                  <span class="mr-2 text-secondary">•</span>
+                  Your experience with AI (if any) or what interests you about it
                 </li>
                 <li class="flex items-start">
-                  <span class="text-secondary mr-2">•</span>
+                  <span class="mr-2 text-secondary">•</span>
                   Why you want to be an ambassador
                 </li>
               </ul>
