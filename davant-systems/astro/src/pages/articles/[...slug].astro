@@ -1,0 +1,115 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import MainNavWithDropdowns from "../../components/MainNavWithDropdowns.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: article,
+  }));
+}
+
+type Props = CollectionEntry<"articles">;
+
+const article = Astro.props;
+const { Content } = await article.render();
+
+const pageTitle = `${article.data.title} | Davant Systems`;
+const pageDescription = article.data.description;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <MainNavWithDropdowns />
+  <main class="relative pt-24 pb-32 min-h-screen bg-base-100">
+    <!-- Article Header -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-base-300 via-base-200 to-base-100">
+      <div class="container px-8 py-16 mx-auto">
+        <div class="max-w-4xl mx-auto">
+          <!-- Breadcrumb -->
+          <nav class="mb-8 text-sm breadcrumbs">
+            <ul>
+              <li><a href="/" class="text-base-content/60 hover:text-primary">Home</a></li>
+              <li><a href="/articles" class="text-base-content/60 hover:text-primary">Articles</a></li>
+              <li class="text-base-content">{article.data.title}</li>
+            </ul>
+          </nav>
+
+          <!-- Article Meta -->
+          <div class="flex flex-wrap items-center gap-4 mb-6">
+            {article.data.featured && (
+              <div class="badge badge-primary badge-outline">Featured</div>
+            )}
+            <time class="text-sm text-base-content/60" datetime={article.data.pubDate.toISOString()}>
+              {article.data.pubDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </time>
+            <span class="text-sm text-base-content/60">by {article.data.author}</span>
+          </div>
+
+          <!-- Article Title -->
+          <h1 class="mb-6 text-4xl font-bold leading-tight text-transparent bg-gradient-to-r from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text md:text-5xl lg:text-6xl">
+            {article.data.title}
+          </h1>
+
+          <!-- Article Description -->
+          <p class="text-xl leading-relaxed text-base-content/80 md:text-2xl">
+            {article.data.description}
+          </p>
+
+          <!-- Tags -->
+          {article.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mt-6">
+              {article.data.tags.map((tag) => (
+                <span class="badge badge-secondary">{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="container px-8 py-16 mx-auto">
+      <div class="max-w-4xl mx-auto markdown">
+        <Content />
+      </div>
+    </article>
+
+    <!-- Article Navigation -->
+    <section class="container px-8 py-8 mx-auto border-t border-base-300">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <a href="/articles" class="btn btn-outline btn-primary">
+            ← Back to Articles
+          </a>
+          
+          <!-- Newsletter CTA -->
+          <div class="text-center">
+            <p class="mb-2 text-sm text-base-content/80">Enjoyed this article?</p>
+            <a href="/#newsletter" class="btn btn-primary btn-sm">
+              Subscribe for More
+            </a>
+          </div>
+          
+          <!-- Share buttons could go here -->
+          <div class="text-center">
+            <p class="text-sm text-base-content/60">Share this article</p>
+            <div class="flex gap-2 mt-1">
+              <button class="btn btn-ghost btn-xs" onclick="navigator.share ? navigator.share({title: '{article.data.title}', url: window.location.href}) : navigator.clipboard.writeText(window.location.href)">
+                Share
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
