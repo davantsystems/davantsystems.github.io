@@ -58,7 +58,22 @@ const pageDescription = "Professional AI training workshops and custom corporate
                         </svg>
                       </a>
                       <p class="text-sm text-base-content/60">
-                        Email us directly at <span class="font-medium text-secondary">contact@davantsystems.com</span>
+                        Email us directly at 
+                        <span class="relative inline-block">
+                          <button 
+                            class="font-medium text-secondary hover:text-primary transition-colors cursor-pointer underline decoration-dotted underline-offset-2"
+                            onclick="copyEmail()"
+                            id="email-button"
+                          >
+                            contact@davantsystems.com
+                          </button>
+                          <span 
+                            id="copy-tooltip" 
+                            class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-success text-success-content text-xs px-3 py-2 rounded-md opacity-0 invisible transition-all duration-200 pointer-events-none whitespace-nowrap shadow-lg border border-success"
+                          >
+                            Copied!
+                          </span>
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -128,4 +143,53 @@ const pageDescription = "Professional AI training workshops and custom corporate
     height: 100%;
     background-image: radial-gradient(rgb(19, 136, 124) 0%, transparent 80%);
   }
+
 </style>
+
+<script is:inline>
+  function copyEmail() {
+    const email = 'contact@davantsystems.com';
+    const tooltip = document.getElementById('copy-tooltip');
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(email).then(() => {
+      showTooltip();
+    }).catch((error) => {
+      // Fallback for older browsers
+      fallbackCopyTextToClipboard(email);
+    });
+  }
+
+  function showTooltip() {
+    const tooltip = document.getElementById('copy-tooltip');
+    tooltip.style.opacity = '1';
+    tooltip.style.visibility = 'visible';
+    
+    setTimeout(() => {
+      tooltip.style.opacity = '0';
+      setTimeout(() => {
+        tooltip.style.visibility = 'hidden';
+      }, 200);
+    }, 2000);
+  }
+
+  function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      document.execCommand('copy');
+      showTooltip();
+    } catch (err) {
+      console.error('Fallback: Could not copy text');
+    }
+
+    document.body.removeChild(textArea);
+  }
+</script>
