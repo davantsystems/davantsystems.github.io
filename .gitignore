@@ -5,4 +5,11 @@ src/gatsby-types.d.ts
 .env
 .env.*
 
+# Claude Code and Serena directories
+.claudedocs/
+.serena/
+
+# Development logs
+davant-systems/logs/
+
 **/.DS_Store
