@@ -2,17 +2,340 @@
 import Layout from "../layouts/Layout.astro";
 import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
 import Footer from "../components/Footer.astro";
+import NewsletterCTA from "../components/NewsletterCTA.astro";
+import AmbassadorForm from "../components/AmbassadorForm.astro";
+import { Image } from "astro:assets";
+import hero1 from "../assets/images/hero1.png";
 
-const pageTitle = "Davant Systems | Creative Ambassadors Program";
+const pageTitle = "Creative Ambassadors Program | Davant Systems";
+const pageDescription = "Join our community of AI creative pioneers. Share your expertise, inspire others, and shape the future of AI-powered creative tools.";
+
+const benefits = [
+  {
+    icon: "🎯",
+    title: "Early Access",
+    description: "Be first to test new features and provide feedback that shapes our products"
+  },
+  {
+    icon: "🎓",
+    title: "Exclusive Training",
+    description: "Free access to advanced workshops and one-on-one mentorship sessions"
+  },
+  {
+    icon: "💰",
+    title: "Revenue Share",
+    description: "Earn commissions on referrals and custom training programs you deliver"
+  },
+  {
+    icon: "🌟",
+    title: "Recognition",
+    description: "Featured showcases, speaking opportunities, and co-marketing initiatives"
+  },
+  {
+    icon: "🤝",
+    title: "Community",
+    description: "Connect with leading AI artists, designers, and creative technologists"
+  },
+  {
+    icon: "🛠️",
+    title: "Resources",
+    description: "Professional licenses, compute credits, and technical support"
+  }
+];
+
+const requirements = [
+  "Active professional in creative industries (design, photography, film, etc.)",
+  "Demonstrated expertise in AI creative workflows",
+  "Passion for teaching and community building",
+  "Strong social media or professional network presence",
+  "Commitment to ethical AI practices"
+];
+
+const faqs = [
+  {
+    question: "How much time commitment is required?",
+    answer: "We recommend 5-10 hours per month for community activities, content creation, and feedback sessions. The program is flexible to accommodate your schedule."
+  },
+  {
+    question: "Do I need to be an expert in AI?",
+    answer: "You should have practical experience using AI tools in your creative work, but you don't need to be a technical expert. We value diverse perspectives and skill levels."
+  },
+  {
+    question: "Is there a cost to join?",
+    answer: "No, the ambassador program is free to join. In fact, you'll receive free licenses, training, and earning opportunities."
+  },
+  {
+    question: "How are ambassadors selected?",
+    answer: "We review applications monthly, looking for passionate creators who align with our mission. We consider your portfolio, experience, and community involvement."
+  }
+];
 ---
 
-<Layout title={pageTitle}>
+<Layout title={pageTitle} description={pageDescription}>
   <MainNavWithDropdowns />
-  <main class="relative pt-24 pb-32">
-    <section class="container px-8">
-      <h1 class="mb-8 text-4xl text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">Creative Ambassadors Program</h1>
-      <p class="text-xl text-cyan-300">Coming soon...</p>
+  <main class="relative">
+    <!-- Hero Section -->
+    <section class="border-b-2 hero__wrapper border-slate-400/5">
+      <div class="relative flex flex-col items-center justify-center min-h-[80vh] overflow-hidden">
+        <div class="relative z-20 flex flex-col items-center pt-32 pb-20 text-center text-neutral-content">
+          <div class="w-full max-w-6xl px-6">
+            <!-- Header -->
+            <div class="mb-12">
+              <h1 class="mb-6 font-light text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
+                <span class="text-5xl font-black sm:text-6xl md:text-7xl">Creative </span>
+                <span class="text-5xl leading-tight font-extralight sm:text-6xl md:text-7xl">Ambassadors</span>
+              </h1>
+              <p class="max-w-3xl mx-auto text-xl text-base-content/80 sm:text-2xl font-light">
+                Join our community of AI creative pioneers. Shape the future of creative technology.
+              </p>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="mb-16">
+              <a 
+                href="#apply" 
+                class="inline-flex items-center px-8 py-4 text-lg font-semibold transition-all duration-300 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/50"
+              >
+                Apply Now
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Background Image -->
+        <div class="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 background-image left-1/2 z-1">
+          <Image
+            src={hero1}
+            alt="AI Creative Technology"
+            class="relative block h-full hero__background-image object-cover w-full"
+            loading="eager"
+            width={1920}
+            height={1080}
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-base-300/95 via-base-300/50 to-base-300"></div>
+        </div>
+      </div>
     </section>
+
+    <!-- Introduction Section -->
+    <section class="py-20 bg-base-200/50">
+      <div class="container max-w-6xl px-6 mx-auto">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="mb-8 text-4xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text">
+            Empowering Creative Leaders
+          </h2>
+          <p class="mb-6 text-lg text-base-content/80 leading-relaxed">
+            The Davant Systems Ambassador Program brings together forward-thinking creators who are passionate about AI's potential in creative industries. As an ambassador, you'll help shape our products, educate your community, and lead the conversation about ethical AI in creative work.
+          </p>
+          <p class="text-lg text-base-content/80 leading-relaxed">
+            Whether you're a designer, photographer, filmmaker, or digital artist, if you're excited about the intersection of creativity and AI, we want to hear from you.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-base-300/50">
+      <div class="container max-w-6xl px-6 mx-auto">
+        <h2 class="mb-12 text-4xl font-bold text-center text-transparent bg-gradient-to-r from-pink-400 to-fuchsia-500 bg-clip-text">
+          Ambassador Benefits
+        </h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {benefits.map((benefit) => (
+            <div class="p-6 transition-all duration-300 border rounded-xl bg-base-300/80 backdrop-blur-sm border-base-content/10 hover:border-secondary/30 hover:shadow-lg hover:shadow-secondary/10 hover:-translate-y-1">
+              <div class="mb-4 text-4xl">{benefit.icon}</div>
+              <h3 class="mb-3 text-xl font-bold text-secondary">{benefit.title}</h3>
+              <p class="text-base-content/70">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="py-20 bg-base-200/50">
+      <div class="container max-w-6xl px-6 mx-auto">
+        <div class="grid gap-12 md:grid-cols-2 items-center">
+          <div>
+            <h2 class="mb-8 text-4xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text">
+              What We're Looking For
+            </h2>
+            <ul class="space-y-4">
+              {requirements.map((req) => (
+                <li class="flex items-start space-x-3">
+                  <span class="flex-shrink-0 w-6 h-6 mt-0.5 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
+                  <span class="text-base-content/80">{req}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="p-8 rounded-2xl bg-gradient-to-br from-purple-900/20 to-pink-900/20 border border-purple-500/20">
+            <h3 class="mb-4 text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text">
+              Ideal Candidates
+            </h3>
+            <p class="mb-4 text-base-content/70">
+              We're looking for creators who are already exploring AI in their work and want to help others do the same. You might be:
+            </p>
+            <ul class="space-y-2 text-base-content/70">
+              <li>• A designer using AI for concept development</li>
+              <li>• A photographer enhancing workflows with AI</li>
+              <li>• A filmmaker exploring AI in post-production</li>
+              <li>• An educator teaching AI creative skills</li>
+              <li>• A creative technologist building AI tools</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-base-300/50">
+      <div class="container max-w-4xl px-6 mx-auto">
+        <h2 class="mb-12 text-4xl font-bold text-center text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text">
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-6">
+          {faqs.map((faq, index) => (
+            <div class="collapse collapse-arrow bg-base-200/50 border border-base-content/10">
+              <input type="radio" name="faq-accordion" checked={index === 0} />
+              <div class="collapse-title text-lg font-medium text-secondary">
+                {faq.question}
+              </div>
+              <div class="collapse-content">
+                <p class="text-base-content/70 pt-2">{faq.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Apply Section -->
+    <section id="apply" class="py-20 bg-base-200/50 scroll-mt-20">
+      <div class="container max-w-6xl px-6 mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="mb-8 text-4xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-fuchsia-500 bg-clip-text">
+            Ready to Join?
+          </h2>
+          <p class="mb-8 text-lg text-base-content/80 max-w-3xl mx-auto">
+            Complete the application form below. Applications are reviewed monthly, and we'll reach out within 2-3 weeks if you're selected for an interview.
+          </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <!-- Application Form Tabs -->
+          <div class="tabs tabs-boxed justify-center mb-8 bg-base-300/50 p-1">
+            <button class="tab tab-active" id="form-tab" onclick="showForm()">
+              Application Form
+            </button>
+            <button class="tab" id="email-tab" onclick="showEmail()">
+              Apply via Email
+            </button>
+          </div>
+          
+          <!-- Form Container -->
+          <div id="form-container" class="p-8 rounded-2xl bg-base-300/80 backdrop-blur-sm border border-base-content/10">
+            <AmbassadorForm />
+          </div>
+          
+          <!-- Email Container -->
+          <div id="email-container" class="p-8 rounded-2xl bg-base-300/80 backdrop-blur-sm border border-base-content/10 hidden">
+            <div class="text-center">
+              <p class="mb-6 text-lg text-base-content/80">
+                Prefer to apply via email? Send us your information directly.
+              </p>
+              <a 
+                href="mailto:ambassadors@davantsystems.com?subject=Ambassador Program Application" 
+                class="inline-flex items-center px-8 py-4 text-lg font-semibold transition-all duration-300 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/50"
+              >
+                Apply via Email
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </a>
+              <p class="mt-6 text-base text-base-content/60">
+                Include the following in your email:
+              </p>
+              <ul class="mt-4 text-left max-w-md mx-auto space-y-2 text-base-content/70">
+                <li class="flex items-start">
+                  <span class="text-secondary mr-2">•</span>
+                  Your portfolio or website
+                </li>
+                <li class="flex items-start">
+                  <span class="text-secondary mr-2">•</span>
+                  Social media links (Instagram, LinkedIn, etc.)
+                </li>
+                <li class="flex items-start">
+                  <span class="text-secondary mr-2">•</span>
+                  Brief description of your creative work
+                </li>
+                <li class="flex items-start">
+                  <span class="text-secondary mr-2">•</span>
+                  How you're currently using AI in your process
+                </li>
+                <li class="flex items-start">
+                  <span class="text-secondary mr-2">•</span>
+                  Why you want to be an ambassador
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-base-300/30">
+      <div class="container max-w-4xl px-6 mx-auto">
+        <NewsletterCTA />
+      </div>
+    </section>
+
+    <div class="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .hero__wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero__background-image {
+    filter: brightness(0.7) contrast(1.1);
+  }
+</style>
+
+<script is:inline>
+  function showForm() {
+    const formTab = document.getElementById('form-tab');
+    const emailTab = document.getElementById('email-tab');
+    const formContainer = document.getElementById('form-container');
+    const emailContainer = document.getElementById('email-container');
+    
+    formTab.classList.add('tab-active');
+    emailTab.classList.remove('tab-active');
+    formContainer.classList.remove('hidden');
+    emailContainer.classList.add('hidden');
+  }
+  
+  function showEmail() {
+    const formTab = document.getElementById('form-tab');
+    const emailTab = document.getElementById('email-tab');
+    const formContainer = document.getElementById('form-container');
+    const emailContainer = document.getElementById('email-container');
+    
+    emailTab.classList.add('tab-active');
+    formTab.classList.remove('tab-active');
+    emailContainer.classList.remove('hidden');
+    formContainer.classList.add('hidden');
+  }
+</script>

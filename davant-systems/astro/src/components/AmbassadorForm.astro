@@ -1,0 +1,42 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`ambassador-form-container ${className}`}>
+  <iframe 
+    id="zoho-ambassador-form"
+    src="https://qtrxb-cmpzourl.maillist-manage.com/ua/Optin?od=11287ecca10f9a&zx=132c9c623&tD=111d9744311ba67a9&sD=111d9744311bb176f" 
+    width="100%" 
+    height="800"
+    frameborder="0"
+    class="rounded-lg"
+    loading="lazy"
+    title="Ambassador Program Application Form"
+  ></iframe>
+</div>
+
+<script src="https://campaigns.zoho.com/js/zc.iframe.js" is:inline></script>
+
+<style>
+  .ambassador-form-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  #zoho-ambassador-form {
+    border: none;
+    background: transparent;
+    transition: opacity 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
+    #zoho-ambassador-form {
+      height: 900px;
+    }
+  }
+</style>

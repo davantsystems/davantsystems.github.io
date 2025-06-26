@@ -9,7 +9,10 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   integrations: [react()],
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    server: {
+      allowedHosts: ['8876-2603-8000-cf01-9e88-5daf-3c2b-d450-5dfb.ngrok-free.app']
+    }
   },
   experimental: {
     fonts: [{
