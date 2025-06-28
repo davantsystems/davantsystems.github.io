@@ -334,43 +334,43 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
       </div>
     </section>
 
-    <section class="relative z-20 py-20 md:py-32 overflow-hidden bg-gradient-to-b from-base-300 to-base-100 texture-overlay">
+    <section class="relative z-20 py-20 md:py-32 overflow-hidden bg-base-200 texture-overlay">
       <div class="container mx-auto px-4 max-w-6xl">
         <div class="text-center mb-16">
           <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text">Proven Impact</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div class="relative group">
-            <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div class="relative bg-base-300/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 transform hover:-translate-y-1">
-              <div class="text-5xl lg:text-6xl font-black text-transparent bg-gradient-to-br from-pink-400 to-purple-600 bg-clip-text mb-2 animate-count">175k+</div>
-              <p class="text-lg text-base-content">Images generated</p>
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl" style="animation: backdrop-pulse 4s ease-in-out infinite;"></div>
+            <div class="relative bg-base-100/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-base-content/10" style="animation: stat-glow 4s ease-in-out infinite; animation-delay: 0s;">
+              <div class="text-5xl lg:text-6xl font-black text-base-content mb-2 animate-count" data-count="175" data-delay="0">122k+</div>
+              <p class="text-lg text-base-content/80 animate-count" data-delay="0">Images generated</p>
             </div>
           </div>
           <div class="relative group">
-            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div class="relative bg-base-300/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 transform hover:-translate-y-1">
-              <div class="text-5xl lg:text-6xl font-black text-transparent bg-gradient-to-br from-cyan-400 to-blue-600 bg-clip-text mb-2 animate-count">2.5k+</div>
-              <p class="text-lg text-base-content">Photos printed</p>
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl" style="animation: backdrop-pulse 4s ease-in-out infinite; animation-delay: 0.33s;"></div>
+            <div class="relative bg-base-100/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-base-content/10" style="animation: stat-glow 4s ease-in-out infinite; animation-delay: 1.33s;">
+              <div class="text-5xl lg:text-6xl font-black text-base-content mb-2 animate-count" data-count="2.5" data-delay="500">0k+</div>
+              <p class="text-lg text-base-content/80 animate-count" data-delay="500">Photos printed</p>
             </div>
           </div>
           <div class="relative group">
-            <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div class="relative bg-base-300/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-fuchsia-500/20 hover:border-fuchsia-500/40 transition-all duration-300 transform hover:-translate-y-1">
-              <div class="text-5xl lg:text-6xl font-black text-transparent bg-gradient-to-br from-fuchsia-400 to-purple-600 bg-clip-text mb-2 animate-count">100%</div>
-              <p class="text-lg text-base-content">Good times</p>
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl" style="animation: backdrop-pulse 4s ease-in-out infinite; animation-delay: 0.66s;"></div>
+            <div class="relative bg-base-100/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-base-content/10" style="animation: stat-glow 4s ease-in-out infinite; animation-delay: 2.66s;">
+              <div class="text-5xl lg:text-6xl font-black text-base-content mb-2 animate-count" data-count="100" data-delay="1000">70%</div>
+              <p class="text-lg text-base-content/80 animate-count" data-delay="1000">Good times</p>
             </div>
           </div>
         </div>
       </div>
       <div class="absolute inset-0 -z-10 overflow-hidden">
         <img
-          class="object-cover w-full h-full opacity-20"
+          class="object-cover w-full h-full opacity-60"
           src={printsMosaic.src}
           loading="lazy"
           alt="Mosaic of AI-transformed photo prints from various events showcasing different artistic styles"
         />
-        <div class="absolute inset-0 bg-gradient-to-br from-base-300/90 via-purple-900/50 to-base-300/90"></div>
+        <div class="absolute inset-0 bg-base-300/30"></div>
       </div>
     </section>
 
@@ -551,6 +551,35 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
     }
   }
 
+  @keyframes stat-float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes stat-glow {
+    0%, 100% {
+      border-color: rgba(139, 92, 246, 0.1);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.05);
+    }
+    50% {
+      border-color: rgba(139, 92, 246, 0.3);
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.15), 0 0 60px rgba(139, 92, 246, 0.1);
+    }
+  }
+
+  @keyframes backdrop-pulse {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
   .animate-fade-in-up {
     animation: fade-in-up 1s ease-out;
   }
@@ -560,8 +589,14 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
   }
 
   .animate-count {
-    animation: count 0.8s ease-out;
+    opacity: 0;
+    transform: translateY(20px);
     animation-fill-mode: both;
+  }
+
+  .animate-count.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+    animation-fill-mode: forwards;
   }
 
   /* Smooth scroll */
@@ -792,5 +827,74 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   updateSliderPosition(50);
+});
+
+// Count-up animation for stats
+document.addEventListener('DOMContentLoaded', () => {
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.hasAttribute('data-animated')) {
+        entry.target.setAttribute('data-animated', 'true');
+        const delay = parseInt(entry.target.getAttribute('data-delay')) || 0;
+        
+        setTimeout(() => {
+          // Start fade-in animation
+          entry.target.classList.add('animate-fade-in-up');
+          // Start count-up animation only for elements with data-count
+          if (entry.target.hasAttribute('data-count')) {
+            animateCounter(entry.target);
+          }
+        }, delay);
+      }
+    });
+  }, observerOptions);
+
+  function animateCounter(element) {
+    const target = parseFloat(element.getAttribute('data-count'));
+    const isPercentage = element.textContent.includes('%');
+    const isKilo = element.textContent.includes('k');
+    const isInteger = Number.isInteger(target);
+    
+    let start = target > 10 ? target * 0.7 : 0;
+    const duration = 2000;
+    const startTime = performance.now();
+
+    function updateCount(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      const current = start + (target - start) * easeOutCubic;
+      
+      if (isPercentage) {
+        element.textContent = Math.round(current) + '%';
+      } else if (isKilo) {
+        if (isInteger || current >= 1) {
+          element.textContent = Math.round(current) + 'k+';
+        } else {
+          element.textContent = current.toFixed(1) + 'k+';
+        }
+      } else {
+        element.textContent = Math.round(current);
+      }
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      }
+    }
+    
+    requestAnimationFrame(updateCount);
+  }
+
+  // Observe all elements with animate-count class
+  document.querySelectorAll('.animate-count').forEach(element => {
+    observer.observe(element);
+  });
 });
 </script>
