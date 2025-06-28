@@ -337,26 +337,26 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
     <section class="relative z-20 py-20 md:py-32 overflow-hidden bg-base-200 texture-overlay">
       <div class="container mx-auto px-4 max-w-6xl">
         <div class="text-center mb-16">
-          <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text">Proven Impact</h2>
+          <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text drop-shadow-md">Proven Impact</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div class="relative group">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl" style="animation: backdrop-pulse 4s ease-in-out infinite;"></div>
-            <div class="relative bg-base-100/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-base-content/10" style="animation: stat-glow 4s ease-in-out infinite; animation-delay: 0s;">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl animate-backdrop-pulse"></div>
+            <div class="relative bg-base-100/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-base-content/10 animate-stat-glow">
               <div class="text-5xl lg:text-6xl font-black text-base-content mb-2 animate-count" data-count="175" data-delay="0">122k+</div>
               <p class="text-lg text-base-content/80 animate-count" data-delay="0">Images generated</p>
             </div>
           </div>
           <div class="relative group">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl" style="animation: backdrop-pulse 4s ease-in-out infinite; animation-delay: 0.33s;"></div>
-            <div class="relative bg-base-100/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-base-content/10" style="animation: stat-glow 4s ease-in-out infinite; animation-delay: 1.33s;">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl animate-backdrop-pulse-delay-1"></div>
+            <div class="relative bg-base-100/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-base-content/10 animate-stat-glow-delay-1">
               <div class="text-5xl lg:text-6xl font-black text-base-content mb-2 animate-count" data-count="2.5" data-delay="500">0k+</div>
               <p class="text-lg text-base-content/80 animate-count" data-delay="500">Photos printed</p>
             </div>
           </div>
           <div class="relative group">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl" style="animation: backdrop-pulse 4s ease-in-out infinite; animation-delay: 0.66s;"></div>
-            <div class="relative bg-base-100/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-base-content/10" style="animation: stat-glow 4s ease-in-out infinite; animation-delay: 2.66s;">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl animate-backdrop-pulse-delay-2"></div>
+            <div class="relative bg-base-100/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-base-content/10 animate-stat-glow-delay-2">
               <div class="text-5xl lg:text-6xl font-black text-base-content mb-2 animate-count" data-count="100" data-delay="1000">70%</div>
               <p class="text-lg text-base-content/80 animate-count" data-delay="1000">Good times</p>
             </div>
@@ -597,6 +597,34 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
   .animate-count.animate-fade-in-up {
     animation: fade-in-up 0.8s ease-out;
     animation-fill-mode: forwards;
+  }
+
+  .animate-backdrop-pulse {
+    animation: backdrop-pulse 4s ease-in-out infinite;
+  }
+
+  .animate-backdrop-pulse-delay-1 {
+    animation: backdrop-pulse 4s ease-in-out infinite;
+    animation-delay: 0.33s;
+  }
+
+  .animate-backdrop-pulse-delay-2 {
+    animation: backdrop-pulse 4s ease-in-out infinite;
+    animation-delay: 0.66s;
+  }
+
+  .animate-stat-glow {
+    animation: stat-glow 4s ease-in-out infinite;
+  }
+
+  .animate-stat-glow-delay-1 {
+    animation: stat-glow 4s ease-in-out infinite;
+    animation-delay: 1.33s;
+  }
+
+  .animate-stat-glow-delay-2 {
+    animation: stat-glow 4s ease-in-out infinite;
+    animation-delay: 2.66s;
   }
 
   /* Smooth scroll */
