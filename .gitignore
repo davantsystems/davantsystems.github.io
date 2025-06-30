@@ -1,3 +1,5 @@
+source-images/
+
 node_modules/
 .cache/
 public
