@@ -4,6 +4,9 @@ import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
 import Footer from "../components/Footer.astro";
 import LogoGrid from "../components/LogoGrid.astro";
 import Testimonials from "../components/Testimonials.astro";
+import ComparisonSlider from "../components/ComparisonSlider.astro";
+import StatCard from "../components/StatCard.astro";
+import GradientButton from "../components/GradientButton.astro";
 
 // Import images properly
 import launchPartyHero from "../assets/images/launch-party-hero.jpg";
@@ -41,23 +44,27 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
                 </h2>
                 <p class="max-w-xl mb-10 text-base leading-relaxed md:text-lg lg:text-xl text-base-content">Transform your guests into living art with AI-powered real-time transformations that create unforgettable memories.</p>
                 <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
-                  <button 
+                  <GradientButton
                     data-tf-popup="KJvQaJXG" 
                     data-tf-opacity="100" 
                     data-tf-size="100" 
                     data-tf-iframe-props="title=Book Davant Systems AI Photobooth" 
                     data-tf-transitive-search-params 
-                    data-tf-medium="snippet" 
-                    class="relative btn btn-md sm:btn-lg bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-700 text-white border-0 shadow-xl shadow-blue-500/40 transform transform-origin-center transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-blue-500/60 px-8 sm:px-10 font-semibold group w-full sm:w-auto overflow-hidden cta-button-shadow"
+                    data-tf-medium="snippet"
+                    variant="primary"
+                    size="md"
+                    class="w-full sm:w-auto cta-button-shadow from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-700 shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-[1.03]"
                   >
-                    <span class="relative z-10 tracking-wide">Book Your Event</span>
-                    <span class="absolute inset-0 transition-transform duration-700 ease-out -translate-x-full pointer-events-none bg-gradient-to-r from-white/0 via-white/20 to-white/0 group-hover:translate-x-full"></span>
-                    <span class="absolute inset-0 transition-opacity duration-300 rounded-lg opacity-0 pointer-events-none bg-white/10 group-hover:opacity-100"></span>
-                  </button>
-                  <a href="#learn-more" class="relative w-full px-8 overflow-hidden font-medium transition-all border-2 btn btn-md sm:btn-lg btn-outline border-slate-400/50 text-slate-300 hover:bg-blue-500/15 hover:border-blue-400 hover:text-slate-200 duration-400 sm:w-auto sm:px-10 group backdrop-blur-sm">
-                    <span class="relative z-10 tracking-wide">Explore Features</span>
-                    <span class="absolute inset-0 transition-transform duration-700 ease-out -translate-x-full pointer-events-none bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 group-hover:translate-x-full"></span>
-                  </a>
+                    Book Your Event
+                  </GradientButton>
+                  <GradientButton
+                    href="#learn-more"
+                    variant="secondary"
+                    size="md"
+                    class="w-full sm:w-auto"
+                  >
+                    Explore Features
+                  </GradientButton>
                 </div>
                 </div>
               </div>
@@ -161,115 +168,12 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
           <p class="max-w-2xl mx-auto text-lg text-base-content">Drag the slider to see how our AI transforms reality into art in real-time</p>
         </div>
         
-        <div class="relative max-w-5xl mx-auto">
-          <!-- Glow effect -->
-          <div class="absolute transition-opacity duration-700 -inset-8 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-3xl opacity-10 blur-3xl group-hover:opacity-20"></div>
-          
-          <!-- Main container -->
-          <div class="relative p-4 bg-base-300/30 backdrop-blur-sm rounded-3xl lg:p-8">
-            <!-- Labels -->
-            <div class="absolute z-20 pointer-events-none top-4 sm:top-8 left-4 sm:left-8">
-              <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-base-300/70 backdrop-blur-md border border-purple-500/30 shadow-lg">
-                <span class="text-xs font-semibold sm:text-sm text-base-content">Before</span>
-              </span>
-            </div>
-            <div class="absolute z-20 pointer-events-none top-4 sm:top-8 right-4 sm:right-8">
-              <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-base-300/70 backdrop-blur-md border border-purple-500/30 shadow-lg">
-                <span class="text-xs font-semibold text-transparent sm:text-sm bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text">After AI Magic</span>
-              </span>
-            </div>
-            
-            <!-- Professional Comparison Slider -->
-            <div class="relative overflow-hidden border shadow-2xl rounded-2xl border-purple-500/20 group comparison-slider" data-comparison-slider>
-              <div class="relative aspect-[16/9] w-full">
-                <!-- After Image (Bottom Layer) -->
-                <div class="absolute inset-0">
-                  <img 
-                    alt="After transformation - Guest transformed into paper origami art style" 
-                    src="/image/holiday-Shot_0003_00807-2After.jpg" 
-                    class="object-cover w-full h-full"
-                    loading="lazy"
-                  />
-                  <!-- Subtle gradient overlay -->
-                  <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-purple-900/10"></div>
-                </div>
-                
-                <!-- Before Image (Top Layer with Clip) -->
-                <div class="absolute inset-0 comparison-before clip-left-half">
-                  <img 
-                    alt="Before transformation - Original photo of guests" 
-                    src="/image/holiday-Shot_0003_00807-1Before.jpg" 
-                    class="object-cover w-full h-full"
-                    loading="lazy"
-                  />
-                  <!-- Subtle gradient overlay -->
-                  <div class="absolute inset-0 bg-gradient-to-bl from-transparent via-transparent to-base-300/10"></div>
-                </div>
-                
-                <!-- Slider Control -->
-                <div class="absolute inset-y-0 comparison-slider-handle slider-position-center">
-                  <!-- Vertical divider line -->
-                  <div class="absolute top-0 bottom-0 left-1/2 w-0.5 -translate-x-1/2 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
-                  
-                  <!-- Extra glow lines -->
-                  <div class="absolute top-0 bottom-0 w-4 -translate-x-1/2 left-1/2 bg-gradient-to-b from-transparent via-white/10 to-transparent blur-sm"></div>
-                  <div class="absolute top-0 bottom-0 w-8 -translate-x-1/2 left-1/2 bg-gradient-to-b from-transparent via-purple-400/20 to-transparent blur-xl"></div>
-                  
-                  <!-- Draggable handle -->
-                  <div class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 cursor-col-resize touch-none">
-                    <div class="relative group/handle">
-                      <!-- Handle background -->
-                      <div class="relative transition-all duration-300 rounded-full shadow-2xl w-14 h-14 bg-gradient-to-br from-white to-gray-100 ring-2 ring-purple-500 ring-offset-2 ring-offset-transparent group-hover/handle:scale-110 group-hover/handle:ring-purple-400 group-hover/handle:ring-offset-purple-500/20">
-                        <!-- Handle icon -->
-                        <div class="absolute inset-0 flex items-center justify-center">
-                          <svg class="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 24 24">
-                            <path d="M7 16V8M17 16V8M12 16V8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                            <path d="M3 12L7 8V16L3 12Z" fill="currentColor" opacity="0.7"/>
-                            <path d="M21 12L17 16V8L21 12Z" fill="currentColor" opacity="0.7"/>
-                          </svg>
-                        </div>
-                      </div>
-                      <!-- Hover glow -->
-                      <div class="absolute inset-0 transition-opacity duration-300 scale-150 rounded-full opacity-0 bg-gradient-to-r from-purple-500/30 to-pink-500/30 blur-xl group-hover/handle:opacity-100"></div>
-                      
-                      <!-- Pulse animation on hover -->
-                      <div class="absolute inset-0 transition-all duration-700 scale-100 rounded-full opacity-0 bg-white/20 group-hover/handle:scale-150 group-hover/handle:opacity-0"></div>
-                    </div>
-                  </div>
-                  
-                  <!-- Touch area for mobile -->
-                  <div class="absolute w-16 h-24 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 cursor-col-resize touch-none"></div>
-                </div>
-                
-                <!-- Interactive hint -->
-                <div class="absolute transition-opacity duration-500 -translate-x-1/2 pointer-events-none bottom-4 left-1/2 comparison-hint">
-                  <div class="flex items-center gap-2 px-4 py-2 border rounded-full shadow-lg bg-base-300/90 backdrop-blur-md border-purple-500/30">
-                    <svg class="w-4 h-4 text-purple-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l-3 3 3 3m8-6l3 3-3 3"></path>
-                    </svg>
-                    <span class="text-xs font-medium text-base-content">Drag to compare</span>
-                  </div>
-                </div>
-                
-                <!-- Percentage indicator -->
-                <div class="absolute transition-all duration-300 -translate-x-1/2 opacity-0 pointer-events-none -top-16 left-1/2 comparison-percentage">
-                  <div class="relative">
-                    <div class="px-4 py-2 rounded-lg shadow-xl bg-gradient-to-br from-purple-600/90 to-pink-600/90 backdrop-blur-md">
-                      <span class="text-sm font-bold text-white">50%</span>
-                    </div>
-                    <!-- Arrow pointing down -->
-                    <div class="absolute left-1/2 -bottom-2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-purple-600/90"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Bottom text -->
-            <div class="mt-8 text-center">
-              <p class="text-sm text-base-content">One moment captured, infinite artistic possibilities</p>
-            </div>
-          </div>
-        </div>
+        <ComparisonSlider
+          beforeImage="/image/holiday-Shot_0003_00807-1Before.jpg"
+          beforeAlt="Before transformation - Original photo of guests"
+          afterImage="/image/holiday-Shot_0003_00807-2After.jpg"
+          afterAlt="After transformation - Guest transformed into paper origami art style"
+        />
       </div>
       <div class="absolute bottom-0 z-0 block h-full min-w-full -translate-x-1/2 opacity-100 pointer-events-none select-none background-image left-1/2 z-1">
         <img
@@ -288,27 +192,27 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
           <h2 class="text-2xl font-bold text-transparent stroke-2 sm:text-3xl lg:text-5xl bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text drop-shadow-sm">Proven Impact</h2>
         </div>
         <div class="grid max-w-4xl grid-cols-1 gap-10 mx-auto md:grid-cols-3">
-          <div class="relative group">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl animate-backdrop-pulse"></div>
-            <div class="relative p-10 text-center border bg-base-100/50 backdrop-blur-sm rounded-2xl border-base-content/10 animate-stat-glow">
-              <div class="mb-2 text-5xl font-black lg:text-6xl text-base-content animate-count" data-count="175" data-delay="0">122k+</div>
-              <p class="text-lg text-base-content/80 animate-count" data-delay="0">Images generated</p>
-            </div>
-          </div>
-          <div class="relative group">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl animate-backdrop-pulse-delay-1"></div>
-            <div class="relative p-10 text-center border bg-base-100/50 backdrop-blur-sm rounded-2xl border-base-content/10 animate-stat-glow-delay-1">
-              <div class="mb-2 text-5xl font-black lg:text-6xl text-base-content animate-count" data-count="2.5" data-delay="500">0k+</div>
-              <p class="text-lg text-base-content/80 animate-count" data-delay="500">Photos printed</p>
-            </div>
-          </div>
-          <div class="relative group">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl blur-xl animate-backdrop-pulse-delay-2"></div>
-            <div class="relative p-10 text-center border bg-base-100/50 backdrop-blur-sm rounded-2xl border-base-content/10 animate-stat-glow-delay-2">
-              <div class="mb-2 text-5xl font-black lg:text-6xl text-base-content animate-count" data-count="100" data-delay="1000">70%</div>
-              <p class="text-lg text-base-content/80 animate-count" data-delay="1000">Good times</p>
-            </div>
-          </div>
+          <StatCard
+            value="122k+"
+            label="Images generated"
+            delay={0}
+            countTo={175}
+            animationDelay={0}
+          />
+          <StatCard
+            value="0k+"
+            label="Photos printed"
+            delay={500}
+            countTo={2.5}
+            animationDelay={1}
+          />
+          <StatCard
+            value="70%"
+            label="Good times"
+            delay={1000}
+            countTo={100}
+            animationDelay={2}
+          />
         </div>
       </div>
       <div class="absolute inset-0 overflow-hidden -z-10">
@@ -344,18 +248,19 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
               <span class="block mb-6 text-3xl font-bold leading-tight text-transparent sm:text-4xl lg:text-5xl bg-gradient-to-br from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">Ready to wow your guests?</span>
               <span class="block text-xl font-light sm:text-2xl lg:text-3xl text-base-content/90">Book the Magic Mirror for your next event</span>
             </h2>
-            <button 
+            <GradientButton
               data-tf-popup="KJvQaJXG" 
               data-tf-opacity="100" 
               data-tf-size="100" 
               data-tf-iframe-props="title=Book Davant Systems AI Photobooth" 
               data-tf-transitive-search-params 
-              data-tf-medium="snippet" 
-              class="btn btn-lg bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 hover:from-pink-600 hover:via-fuchsia-600 hover:to-purple-700 text-white border-0 shadow-xl shadow-purple-500/30 transform transform-origin-center transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/50 px-10 py-4 text-lg font-semibold group mb-16"
+              data-tf-medium="snippet"
+              variant="primary"
+              size="lg"
+              class="mb-16"
             >
-              <span class="relative z-10">Check Availability</span>
-              <span class="absolute inset-0 transition-opacity duration-300 rounded-lg opacity-0 pointer-events-none bg-white/20 group-hover:opacity-100"></span>
-            </button>
+              Check Availability
+            </GradientButton>
             
             <div class="relative py-10">
               <p class="relative inline-flex items-center text-base-content divider-text">
@@ -364,13 +269,13 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
             </div>
             
             <div class="flex flex-col justify-center gap-8 mt-10 sm:flex-row sm:gap-10">
-              <a href="mailto:contact@davantsystems.com" class="flex items-center gap-3 text-lg transition-all duration-300 group hover:text-primary">
+              <a href="mailto:booking@davantsystems.com" class="flex items-center gap-3 text-lg transition-all duration-300 group hover:text-primary">
                 <div class="p-3 transition-all duration-300 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 group-hover:from-purple-500/30 group-hover:to-pink-500/30">
                   <svg class="w-6 h-6 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
                 </div>
-                <span class="font-medium">contact@davantsystems.com</span>
+                <span class="font-medium">booking@davantsystems.com</span>
               </a>
               
               <!-- <a href="tel:+1-702-561-5682" class="flex items-center gap-3 text-lg transition-all duration-300 group hover:text-primary">
