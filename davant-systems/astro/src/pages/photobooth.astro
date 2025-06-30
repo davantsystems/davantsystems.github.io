@@ -7,6 +7,7 @@ import Testimonials from "../components/Testimonials.astro";
 import ComparisonSlider from "../components/ComparisonSlider.astro";
 import StatCard from "../components/StatCard.astro";
 import GradientButton from "../components/GradientButton.astro";
+import BookingForm from "../components/BookingForm.astro";
 
 // Import images properly
 import launchPartyHero from "../assets/images/launch-party-hero.jpg";
@@ -45,12 +46,7 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
                 <p class="max-w-xl mb-10 text-base leading-relaxed md:text-lg lg:text-xl text-base-content">Transform your guests into living art with AI-powered real-time transformations that create unforgettable memories.</p>
                 <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
                   <GradientButton
-                    data-tf-popup="KJvQaJXG" 
-                    data-tf-opacity="100" 
-                    data-tf-size="100" 
-                    data-tf-iframe-props="title=Book Davant Systems AI Photobooth" 
-                    data-tf-transitive-search-params 
-                    data-tf-medium="snippet"
+                    onClick="openBookingForm('booking')"
                     variant="primary"
                     size="md"
                     class="w-full sm:w-auto cta-button-shadow from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-700 shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-[1.03]"
@@ -249,12 +245,7 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
               <span class="block text-xl font-light sm:text-2xl lg:text-3xl text-base-content/90">Book the Magic Mirror for your next event</span>
             </h2>
             <GradientButton
-              data-tf-popup="KJvQaJXG" 
-              data-tf-opacity="100" 
-              data-tf-size="100" 
-              data-tf-iframe-props="title=Book Davant Systems AI Photobooth" 
-              data-tf-transitive-search-params 
-              data-tf-medium="snippet"
+              onClick="openBookingForm('booking')"
               variant="primary"
               size="lg"
               class="mb-16"
@@ -336,6 +327,9 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
       </div>
   </main>
   <Footer />
+  
+  <!-- Booking Form Modal -->
+  <BookingForm id="booking" />
 </Layout>
 
 <style>

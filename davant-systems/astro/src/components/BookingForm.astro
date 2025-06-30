@@ -1,0 +1,507 @@
+---
+export interface Props {
+  id?: string;
+}
+
+const { id = 'booking-form' } = Astro.props;
+---
+
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none bg-black/50 backdrop-blur-sm booking-modal" id={`${id}-modal`}>
+  <div class="relative w-full max-w-2xl transition-all duration-300 transform scale-95 bg-base-100 rounded-2xl shadow-2xl">
+    <!-- Close button -->
+    <button 
+      class="absolute top-4 right-4 p-2 transition-colors rounded-full hover:bg-base-200"
+      onclick={`closeBookingForm('${id}')`}
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Form content -->
+    <div class="p-8">
+      <div class="mb-8 text-center">
+        <h2 class="mb-2 text-3xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text">
+          Book Your Magic Mirror Experience
+        </h2>
+        <p class="text-base-content/80">
+          Tell us about your event and we'll get back to you within 24 hours
+        </p>
+      </div>
+
+      <form class="space-y-8" onsubmit={`submitBookingForm(event, '${id}')`}>
+        <!-- Event Date -->
+        <div class="date-picker-container">
+          <label for={`${id}-date`} class="block mb-2 text-sm font-semibold text-slate-200">
+            Event Date <span class="text-pink-400">*</span>
+          </label>
+          <div class="relative">
+            <!-- Custom Date Input -->
+            <div class="relative">
+              <input 
+                type="text" 
+                id={`${id}-date`}
+                name="eventDate"
+                placeholder="MM/DD/YYYY"
+                required
+                autocomplete="off"
+                class="w-full px-4 py-3 pr-12 border rounded-lg bg-white/10 backdrop-blur-sm border-cyan-400/50 text-slate-100 placeholder:text-slate-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:shadow-lg focus:shadow-purple-500/20 transition-all duration-300 hover:border-cyan-300/70"
+                onFocus={`openDatePicker('${id}')`}
+                onInput={`formatDateInput(this)`}
+                onKeydown={`handleDateKeydown(event, '${id}')`}
+              />
+              <!-- Calendar/Close Icon -->
+              <button 
+                type="button"
+                onclick={`toggleDatePicker('${id}')`}
+                class="absolute inset-y-0 right-0 flex items-center pr-3 text-cyan-400 hover:text-purple-400 transition-colors"
+              >
+                <!-- Calendar Icon (default) -->
+                <svg id={`${id}-calendar-icon`} class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <!-- Close Icon (hidden by default) -->
+                <svg id={`${id}-close-icon`} class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Custom Date Picker Calendar -->
+            <div 
+              id={`${id}-calendar`}
+              class="absolute z-50 hidden w-full mt-2 bg-white/95 backdrop-blur-sm border border-cyan-400/50 rounded-lg shadow-xl shadow-purple-500/20 date-calendar"
+            >
+              <div class="p-4">
+                <!-- Month/Year Navigation -->
+                <div class="flex items-center justify-between mb-4">
+                  <button type="button" onclick={`changeMonth('${id}', -1)`} class="p-1 text-slate-700 hover:text-purple-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                  </button>
+                  <h3 id={`${id}-month-year`} class="text-lg font-semibold text-slate-800"></h3>
+                  <button type="button" onclick={`changeMonth('${id}', 1)`} class="p-1 text-slate-700 hover:text-purple-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                </div>
+                
+                <!-- Days Grid -->
+                <div class="grid grid-cols-7 gap-1 mb-2 text-xs font-semibold text-slate-600">
+                  <div class="p-2 text-center">Sun</div>
+                  <div class="p-2 text-center">Mon</div>
+                  <div class="p-2 text-center">Tue</div>
+                  <div class="p-2 text-center">Wed</div>
+                  <div class="p-2 text-center">Thu</div>
+                  <div class="p-2 text-center">Fri</div>
+                  <div class="p-2 text-center">Sat</div>
+                </div>
+                <div id={`${id}-days`} class="grid grid-cols-7 gap-1"></div>
+              </div>
+            </div>
+          </div>
+          <p class="mt-1 text-xs text-slate-400">Select your event date or type MM/DD/YYYY</p>
+        </div>
+
+        <!-- Location -->
+        <div>
+          <label for={`${id}-location`} class="block mb-2 text-sm font-semibold text-slate-200">
+            Event Location <span class="text-pink-400">*</span>
+          </label>
+          <input 
+            type="text" 
+            id={`${id}-location`}
+            name="location"
+            placeholder="Venue name, address, or general area"
+            required
+            class="w-full px-4 py-3 border rounded-lg bg-white/10 backdrop-blur-sm border-cyan-400/50 text-slate-100 placeholder:text-slate-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:shadow-lg focus:shadow-purple-500/20 transition-all duration-300 hover:border-cyan-300/70"
+          />
+        </div>
+
+        <!-- Event Type -->
+        <div>
+          <label for={`${id}-type`} class="block mb-2 text-sm font-semibold text-slate-200">
+            Event Type <span class="text-pink-400">*</span>
+          </label>
+          <select 
+            id={`${id}-type`}
+            name="eventType"
+            required
+            class="w-full px-4 py-3 border rounded-lg bg-white/10 backdrop-blur-sm border-cyan-400/50 text-slate-100 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:shadow-lg focus:shadow-purple-500/20 transition-all duration-300 hover:border-cyan-300/70"
+          >
+            <option value="">Select event type</option>
+            <option value="wedding">Wedding</option>
+            <option value="birthday">Birthday Party</option>
+            <option value="corporate">Corporate Event</option>
+            <option value="holiday">Holiday Party</option>
+            <option value="graduation">Graduation</option>
+            <option value="anniversary">Anniversary</option>
+            <option value="fundraiser">Fundraiser</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- Description -->
+        <div>
+          <label for={`${id}-description`} class="block mb-2 text-sm font-semibold text-slate-200">
+            Event Description
+          </label>
+          <textarea 
+            id={`${id}-description`}
+            name="description"
+            placeholder="Tell us more about your event - guest count, theme, special requests, etc."
+            rows="4"
+            class="w-full px-4 py-3 border rounded-lg resize-none bg-white/10 backdrop-blur-sm border-cyan-400/50 text-slate-100 placeholder:text-slate-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:shadow-lg focus:shadow-purple-500/20 transition-all duration-300 hover:border-cyan-300/70"
+          ></textarea>
+        </div>
+
+        <!-- Contact Info Section -->
+        <div class="pt-4">
+          <h3 class="mb-4 text-lg font-semibold text-transparent bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text">
+            Contact Information
+          </h3>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div>
+            <label for={`${id}-name`} class="block mb-2 text-sm font-semibold text-slate-200">
+              Your Name <span class="text-pink-400">*</span>
+            </label>
+            <input 
+              type="text" 
+              id={`${id}-name`}
+              name="name"
+              required
+              class="w-full px-4 py-3 border rounded-lg bg-white/10 backdrop-blur-sm border-cyan-400/50 text-slate-100 placeholder:text-slate-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:shadow-lg focus:shadow-purple-500/20 transition-all duration-300 hover:border-cyan-300/70"
+            />
+          </div>
+          <div>
+            <label for={`${id}-email`} class="block mb-2 text-sm font-semibold text-slate-200">
+              Email Address <span class="text-pink-400">*</span>
+            </label>
+            <input 
+              type="email" 
+              id={`${id}-email`}
+              name="email"
+              required
+              class="w-full px-4 py-3 border rounded-lg bg-white/10 backdrop-blur-sm border-cyan-400/50 text-slate-100 placeholder:text-slate-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:shadow-lg focus:shadow-purple-500/20 transition-all duration-300 hover:border-cyan-300/70"
+            />
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label for={`${id}-phone`} class="block mb-2 text-sm font-semibold text-slate-200">
+            Phone Number <span class="text-slate-400 text-xs">(optional)</span>
+          </label>
+          <input 
+            type="tel" 
+            id={`${id}-phone`}
+            name="phone"
+            placeholder="Your phone number"
+            class="w-full px-4 py-3 border rounded-lg bg-white/10 backdrop-blur-sm border-cyan-400/50 text-slate-100 placeholder:text-slate-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:shadow-lg focus:shadow-purple-500/20 transition-all duration-300 hover:border-cyan-300/70"
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-4">
+          <button 
+            type="submit"
+            class="w-full px-8 py-4 font-semibold text-white transition-all duration-300 transform rounded-lg bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 hover:from-pink-600 hover:via-fuchsia-600 hover:to-purple-700 hover:scale-[1.02] shadow-xl shadow-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/50"
+          >
+            Send Booking Request
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  .booking-modal.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .booking-modal.show > div {
+    transform: scale(1);
+  }
+
+  /* Enhanced form styling */
+  .booking-modal form {
+    position: relative;
+  }
+
+  /* Add subtle section separators */
+  .booking-modal form > div:nth-child(4)::after,
+  .booking-modal form > div:nth-child(6)::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.5), transparent);
+  }
+
+  /* Date picker calendar icon hover effect */
+  .booking-modal input[type="date"]:focus + div svg {
+    color: rgb(168, 85, 247);
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6));
+  }
+
+  /* Custom select arrow styling for better visibility */
+  .booking-modal select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236ee7b7' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+  }
+
+  /* Input focus glow animation */
+  .booking-modal input:focus,
+  .booking-modal textarea:focus,
+  .booking-modal select:focus {
+    animation: synthwave-glow 0.3s ease-out;
+  }
+
+  @keyframes synthwave-glow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(168, 85, 247, 0.1), 0 0 20px rgba(168, 85, 247, 0.3);
+    }
+    100% {
+      box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.2), 0 0 12px rgba(168, 85, 247, 0.2);
+    }
+  }
+</style>
+
+<script>
+  // Global functions for form management
+  window.openBookingForm = function(formId) {
+    const modal = document.getElementById(`${formId}-modal`);
+    if (modal) {
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeBookingForm = function(formId) {
+    const modal = document.getElementById(`${formId}-modal`);
+    if (modal) {
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+  };
+
+  window.submitBookingForm = function(event, formId) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Simple mailto fallback (you can replace with your form handler)
+    const subject = encodeURIComponent(`Magic Mirror Booking Request - ${data.eventType}`);
+    const body = encodeURIComponent(`
+Event Details:
+- Date: ${data.eventDate}
+- Location: ${data.location}
+- Type: ${data.eventType}
+- Description: ${data.description}
+
+Contact Information:
+- Name: ${data.name}
+- Email: ${data.email}
+- Phone: ${data.phone}
+    `);
+    
+    window.location.href = `mailto:booking@davantsystems.com?subject=${subject}&body=${body}`;
+    
+    // Close the modal
+    window.closeBookingForm(formId);
+  };
+
+  // Close modal when clicking outside
+  document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('booking-modal')) {
+      const formId = event.target.id.replace('-modal', '');
+      window.closeBookingForm(formId);
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      const openModal = document.querySelector('.booking-modal.show');
+      if (openModal) {
+        const formId = openModal.id.replace('-modal', '');
+        window.closeBookingForm(formId);
+      }
+    }
+  });
+
+  // Custom Date Picker Functions
+  window.datePickerData = {};
+
+  window.openDatePicker = function(formId) {
+    const calendar = document.getElementById(`${formId}-calendar`);
+    if (calendar) {
+      calendar.classList.remove('hidden');
+      updateDatePickerIcon(formId, true);
+      initializeDatePicker(formId);
+    }
+  };
+
+  window.toggleDatePicker = function(formId) {
+    const calendar = document.getElementById(`${formId}-calendar`);
+    if (calendar) {
+      if (calendar.classList.contains('hidden')) {
+        window.openDatePicker(formId);
+      } else {
+        calendar.classList.add('hidden');
+        updateDatePickerIcon(formId, false);
+      }
+    }
+  };
+
+  window.formatDateInput = function(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length >= 2) {
+      value = value.substring(0, 2) + '/' + value.substring(2);
+    }
+    if (value.length >= 5) {
+      value = value.substring(0, 5) + '/' + value.substring(5, 9);
+    }
+    input.value = value;
+  };
+
+  window.handleDateKeydown = function(event, formId) {
+    // Allow backspace, delete, tab, escape, enter
+    if ([8, 9, 27, 13, 46].indexOf(event.keyCode) !== -1 ||
+        // Allow Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
+        (event.keyCode === 65 && event.ctrlKey === true) ||
+        (event.keyCode === 67 && event.ctrlKey === true) ||
+        (event.keyCode === 86 && event.ctrlKey === true) ||
+        (event.keyCode === 88 && event.ctrlKey === true)) {
+      return;
+    }
+    // Ensure that it is a number and stop the keypress
+    if ((event.shiftKey || (event.keyCode < 48 || event.keyCode > 57)) && (event.keyCode < 96 || event.keyCode > 105)) {
+      event.preventDefault();
+    }
+  };
+
+  function initializeDatePicker(formId) {
+    const today = new Date();
+    if (!window.datePickerData[formId]) {
+      window.datePickerData[formId] = {
+        currentMonth: today.getMonth(),
+        currentYear: today.getFullYear()
+      };
+    }
+    renderCalendar(formId);
+  }
+
+  function renderCalendar(formId) {
+    const data = window.datePickerData[formId];
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
+    
+    const monthYear = document.getElementById(`${formId}-month-year`);
+    const daysContainer = document.getElementById(`${formId}-days`);
+    
+    if (!monthYear || !daysContainer) return;
+    
+    monthYear.textContent = `${monthNames[data.currentMonth]} ${data.currentYear}`;
+    
+    const firstDay = new Date(data.currentYear, data.currentMonth, 1).getDay();
+    const daysInMonth = new Date(data.currentYear, data.currentMonth + 1, 0).getDate();
+    
+    daysContainer.innerHTML = '';
+    
+    // Add empty cells for days before the first day of the month
+    for (let i = 0; i < firstDay; i++) {
+      const emptyCell = document.createElement('div');
+      emptyCell.className = 'p-2';
+      daysContainer.appendChild(emptyCell);
+    }
+    
+    // Add days of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dayCell = document.createElement('button');
+      dayCell.type = 'button';
+      dayCell.textContent = day;
+      dayCell.className = 'p-2 text-sm text-slate-700 hover:bg-purple-100 hover:text-purple-700 rounded transition-colors';
+      dayCell.onclick = () => selectDate(formId, day);
+      daysContainer.appendChild(dayCell);
+    }
+  }
+
+  function selectDate(formId, day) {
+    const data = window.datePickerData[formId];
+    const input = document.getElementById(`${formId}-date`);
+    const calendar = document.getElementById(`${formId}-calendar`);
+    
+    if (input) {
+      const month = String(data.currentMonth + 1).padStart(2, '0');
+      const dayStr = String(day).padStart(2, '0');
+      input.value = `${month}/${dayStr}/${data.currentYear}`;
+    }
+    
+    // Keep calendar open for additional selections/editing
+    // Don't close automatically - user can close by clicking outside or pressing escape
+  }
+
+  window.changeMonth = function(formId, direction) {
+    const data = window.datePickerData[formId];
+    data.currentMonth += direction;
+    
+    if (data.currentMonth > 11) {
+      data.currentMonth = 0;
+      data.currentYear++;
+    } else if (data.currentMonth < 0) {
+      data.currentMonth = 11;
+      data.currentYear--;
+    }
+    
+    renderCalendar(formId);
+  };
+
+  // Helper function to update date picker icon
+  function updateDatePickerIcon(formId, isOpen) {
+    const calendarIcon = document.getElementById(`${formId}-calendar-icon`);
+    const closeIcon = document.getElementById(`${formId}-close-icon`);
+    
+    if (calendarIcon && closeIcon) {
+      if (isOpen) {
+        calendarIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      } else {
+        calendarIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    }
+  }
+
+  // Close calendar when clicking outside
+  document.addEventListener('click', function(event) {
+    const calendars = document.querySelectorAll('.date-calendar');
+    calendars.forEach(calendar => {
+      const container = calendar.closest('.date-picker-container');
+      if (container && !container.contains(event.target)) {
+        calendar.classList.add('hidden');
+        // Get the form ID from the calendar ID
+        const formId = calendar.id.replace('-calendar', '');
+        updateDatePickerIcon(formId, false);
+      }
+    });
+  });
+</script>
