@@ -1,0 +1,46 @@
+---
+export interface Props {
+  quote: string;
+  author: string;
+  accentColor: 'purple' | 'cyan' | 'fuchsia';
+  gradientFrom: string;
+  gradientTo: string;
+  offset?: boolean;
+}
+
+const { quote, author, accentColor, gradientFrom, gradientTo, offset = false } = Astro.props;
+
+const colorClasses = {
+  purple: {
+    glow: 'from-purple-500/20 to-pink-500/20',
+    border: 'border-purple-500/20 hover:border-purple-500/40',
+    quote: 'text-purple-400'
+  },
+  cyan: {
+    glow: 'from-cyan-500/20 to-blue-500/20',
+    border: 'border-cyan-500/20 hover:border-cyan-500/40',
+    quote: 'text-cyan-400'
+  },
+  fuchsia: {
+    glow: 'from-fuchsia-500/20 to-purple-500/20',
+    border: 'border-fuchsia-500/20 hover:border-fuchsia-500/40',
+    quote: 'text-fuchsia-400'
+  }
+};
+
+const colors = colorClasses[accentColor];
+---
+
+<div class={`relative transition-all duration-300 transform group hover:-translate-y-2 ${offset ? 'md:mt-8' : ''}`}>
+  <div class={`absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-br ${colors.glow} rounded-2xl blur-xl group-hover:opacity-100`}></div>
+  <div class={`relative p-8 transition-colors duration-300 border bg-base-300/50 backdrop-blur-sm pt-16 pb-16 rounded-2xl ${colors.border}`}>
+    <div class={`mb-4 text-4xl absolute top-0 left-2 ${colors.quote}`}>❝</div>
+    <p class="mb-6 text-lg font-semibold text-center lg:text-2xl text-base-content">"{quote}"</p>
+    <div class="flex items-center justify-center gap-3">
+      <!-- <div class={`flex-shrink-0 w-10 h-10 rounded-full sm:w-12 sm:h-12 bg-gradient-to-br ${gradientFrom} ${gradientTo}`}></div> -->
+      <div>
+        <p class="text-xs font-normal">{author}</p>
+      </div>
+    </div>
+  </div>
+</div>

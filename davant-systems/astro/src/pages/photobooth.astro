@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
 import Footer from "../components/Footer.astro";
 import LogoGrid from "../components/LogoGrid.astro";
+import Testimonials from "../components/Testimonials.astro";
 
 // Import images properly
 import launchPartyHero from "../assets/images/launch-party-hero.jpg";
@@ -150,58 +151,7 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
     </div>
 
     <section class="relative z-20 py-24 md:py-32 bg-gradient-to-b from-base-100 to-base-300">
-      <div class="container relative z-10 max-w-6xl px-4 mx-auto mt-24">
-        <div class="mb-16 text-center">
-          <h2 class="mb-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-5xl">
-            <span class="text-transparent bg-gradient-to-br from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">Guests can't stop raving</span>
-          </h2>
-          <p class="text-lg font-light lg:text-xl text-base-content">Real reactions from real events</p>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-6 mb-48 md:grid-cols-3">
-          <div class="relative transition-all duration-300 transform group hover:-translate-y-2">
-            <div class="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl blur-xl group-hover:opacity-100"></div>
-            <div class="relative p-8 transition-colors duration-300 border bg-base-300/50 backdrop-blur-sm rounded-2xl border-purple-500/20 hover:border-purple-500/40">
-              <div class="mb-4 text-4xl text-purple-400">❝</div>
-              <p class="mb-4 text-lg font-semibold lg:text-2xl text-base-content">"So addicting!"</p>
-              <div class="flex items-center gap-3">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full sm:w-12 sm:h-12 bg-gradient-to-br from-purple-400 to-pink-400"></div>
-                <div>
-                  <p class="text-sm font-semibold">Sarah M.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="relative transition-all duration-300 transform group hover:-translate-y-2 md:mt-8">
-            <div class="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl blur-xl group-hover:opacity-100"></div>
-            <div class="relative p-8 transition-colors duration-300 border bg-base-300/50 backdrop-blur-sm rounded-2xl border-cyan-500/20 hover:border-cyan-500/40">
-              <div class="mb-4 text-4xl text-cyan-400">❝</div>
-              <p class="mb-4 text-lg font-semibold lg:text-2xl text-base-content">"This is the future"</p>
-              <div class="flex items-center gap-3">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-400 to-blue-400"></div>
-                <div>
-                  <p class="text-sm font-semibold">Mike T.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="relative transition-all duration-300 transform group hover:-translate-y-2">
-            <div class="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-br from-fuchsia-500/20 to-purple-500/20 rounded-2xl blur-xl group-hover:opacity-100"></div>
-            <div class="relative p-8 transition-colors duration-300 border bg-base-300/50 backdrop-blur-sm rounded-2xl border-fuchsia-500/20 hover:border-fuchsia-500/40">
-              <div class="mb-4 text-4xl text-fuchsia-400">❝</div>
-              <p class="mb-4 text-lg font-semibold lg:text-2xl text-base-content">"My favorite part!"</p>
-              <div class="flex items-center gap-3">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full sm:w-12 sm:h-12 bg-gradient-to-br from-fuchsia-400 to-purple-400"></div>
-                <div>
-                  <p class="text-sm font-semibold">Jessica L.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Testimonials />
       <div class="relative z-20 px-4 pt-24 pb-48">
         <div class="max-w-4xl mx-auto mb-8 text-center">
           <h3 class="mb-8 text-2xl font-bold sm:text-3xl lg:text-5xl">
