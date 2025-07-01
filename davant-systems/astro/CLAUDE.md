@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # Davant Systems Astro Project
 
 ## Project Overview
@@ -11,16 +15,33 @@ This is the marketing website for Davant Systems (www.davantsystems.com), built 
 
 This project uses a special setup for the development server that allows both Claude and the user to monitor the output:
 
-- `npm run dev` - Starts the development server on port 4322 with output logging to `dev-server.log`
+- `npm run dev` - Starts the development server on port 3100 with output logging to `../logs/dev-server.log`
 - `npm run dev:logs` - Tails the dev server log file in real-time
 
 ### Usage
 
-1. Run `npm run dev` to start the server (logs will be written to `dev-server.log`)
+1. Run `npm run dev` to start the server (logs will be written to `../logs/dev-server.log`)
 2. In a separate terminal, run `npm run dev:logs` to monitor the server output
-3. The dev server will be available at http://localhost:4322/
+3. The dev server will be available at http://localhost:3100/
+
+**Port Assignment**: This project is assigned port 3100 (Claude-managed frontend range: 3100-3999)
 
 This setup ensures that Claude can see and react to compilation errors and server status while also allowing the user to monitor the output.
+
+## Commands
+
+### Build & Development
+- `npm install` - Install dependencies
+- `npm run dev` - Start dev server on port 3100 with logging
+- `npm run dev:logs` - Tail the dev server log file
+- `npm run build` - Build production site to `./dist/`
+- `npm run preview` - Preview the production build locally
+- `npm run astro [command]` - Run Astro CLI commands
+
+### TypeScript & Quality Checks
+- `npm run astro check` - Type-check all `.astro` and TypeScript files
+- Uses strict TypeScript configuration extending `astro/tsconfigs/strict`
+- React JSX is configured with `react-jsx` and React as JSX import source
 
 ## Design System
 
@@ -52,11 +73,12 @@ Five core animations: pulse, float, shine, bounce, and sparkle. Used strategical
 
 ## Tech Stack
 
-- **Framework**: Astro v5
-- **Styling**: Tailwind CSS + DaisyUI (synthwave theme)
-- **Fonts**: Google Fonts
+- **Framework**: Astro v5 with React integration (@astrojs/react)
+- **Styling**: Tailwind CSS v4 (via @tailwindcss/vite) + DaisyUI (synthwave theme)
+- **Fonts**: Google Fonts (configured in astro.config.mjs)
 - **Icons**: Custom SVG with gradient fills
-- **Build**: Vite
+- **Build**: Vite with custom configuration
+- **Language**: TypeScript with strict mode
 
 ## Key Pages
 
@@ -74,19 +96,28 @@ Five core animations: pulse, float, shine, bounce, and sparkle. Used strategical
 ## Project Structure
 
 ```
-astro/
-├── src/
-│   ├── pages/           # Route components
-│   ├── components/      # Reusable UI components  
-│   ├── layouts/         # Page layouts
-│   ├── styles/          # Global styles and typography
-│   ├── assets/          # Images and static assets
-│   └── content/         # Content collections (articles)
-├── docs/
-│   ├── DESIGN_SYSTEM.md # Comprehensive design documentation
-│   └── AMBASSADORS_DESIGN.md # Specific page design details
-└── public/              # Static assets
+davant-systems/
+├── astro/
+│   ├── src/
+│   │   ├── pages/           # Route components (.astro files)
+│   │   ├── components/      # Reusable UI components (.astro, .tsx)
+│   │   ├── layouts/         # Page layouts
+│   │   ├── styles/          # Global styles and typography
+│   │   ├── assets/          # Images and static assets
+│   │   └── content/         # Content collections (articles)
+│   ├── docs/
+│   │   ├── DESIGN_SYSTEM.md # Comprehensive design documentation
+│   │   └── AMBASSADORS_DESIGN.md # Specific page design details
+│   ├── public/              # Static assets served as-is
+│   └── dist/                # Production build output
+└── logs/                    # Development server logs
 ```
+
+### Component Architecture
+- **Astro Components** (`.astro`): Primary for static content and layout
+- **React Components** (`.tsx`): Used for interactive features (e.g., ImageMetadataExtractor)
+- **Naming Convention**: PascalCase for components, kebab-case for pages
+- **Props**: TypeScript interfaces for type safety
 
 ## Deployment
 
@@ -109,6 +140,22 @@ astro/
 3. **Consistency**: Follow design system patterns, use established color/spacing tokens
 4. **Code Quality**: No inline comments, clean component structure, semantic HTML
 
+## Development Workflow
+
+1. **Editing Files**: Check existing patterns in similar components
+2. **Adding Features**: Review design system documentation first
+3. **Debugging**: Monitor `../logs/dev-server.log` for compilation errors
+4. **Type Safety**: Run `npm run astro check` before committing
+5. **Building**: Always test with `npm run build` before deployment
+
+## Common Tasks
+
+- **Add a new page**: Create `.astro` file in `src/pages/`
+- **Add a component**: Create in `src/components/`, import where needed
+- **Update styles**: Modify Tailwind classes or files in `src/styles/`
+- **Add content**: Use content collections in `src/content/`
+- **Debug issues**: Check `../logs/dev-server.log` for errors
+
 ## Notes for Claude
 
 - The site emphasizes visual appeal with a premium feel
@@ -116,3 +163,5 @@ astro/
 - Gradient usage is a key brand element
 - The ambassadors page serves as a reference implementation for feature showcases
 - Always consider both technical and creative professionals as the audience
+- When making changes, preserve the Creative Synthwave aesthetic
+- Log output is crucial for debugging - always check `../logs/dev-server.log`
