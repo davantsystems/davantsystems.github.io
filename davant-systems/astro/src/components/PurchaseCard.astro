@@ -1,39 +1,39 @@
 ---
 interface Props {
-  level: 'standard' | 'free';
+  level: 'pro' | 'standard';
 }
 
 const { level } = Astro.props;
 ---
 
-<div class="flex-1 px-8 pt-8 pb-8 shadow-lg card bg-base-300 shadow-purple-900 border border-purple-900/20">
-  <h3 class="mb-8 text-3xl font-bold text-center text-white">{level === "standard" ? "Standard" : "Lite"}</h3>
+<div class="flex-1 px-8 pt-8 pb-8 border shadow-sm card bg-base-300 shadow-purple-900 border-purple-900/20">
+  <h3 class="mb-8 text-3xl font-bold text-center text-white">{level === "pro" ? "Pro" : "Standard"}</h3>
 
   <ul class="mb-8 space-y-2 list-none">
-    {level === "standard" ? (
+    {level === "pro" ? (
       <>
-        <li class="pb-2 text-cyan-200 border-b border-purple-950/20">Max size: 2048x2048</li>
-        <li class="pb-2 text-cyan-200 border-b border-purple-950/20">Active ControlNets: 2</li>
-        <li class="pb-2 text-cyan-200 border-b border-purple-950/20">Seed Control: Random, manual number or alphanumeric</li>
-        <li class="pb-2 text-cyan-200 border-b border-purple-950/20">Save presets?: Yes</li>
-        <li class="pb-2 text-cyan-200 border-b border-purple-950/20">Create preset groups?: Yes</li>
+        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Max size: 2048x2048</li>
+        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Active ControlNets: 2</li>
+        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Seed Control: Random, manual number or alphanumeric</li>
+        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Save presets?: Yes</li>
+        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Create preset groups?: Yes</li>
       </>
     ) : (
       <>
-        <li class="pb-2 text-cyan-200 border-b border-purple-950/20">Max size: 1024x1024</li>
-        <li class="pb-2 text-cyan-200 border-b border-purple-950/20">Active ControlNets: 1</li>
-        <li class="pb-2 text-cyan-200 border-b border-purple-950/20">Seed Control: Random only</li>
-        <li class="pb-2 text-cyan-200 border-b border-purple-950/20">Save presets?: No</li>
-        <li class="pb-2 text-cyan-200 border-b border-purple-950/20">Create preset groups?: No</li>
+        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Max size: 1024x1024</li>
+        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Active ControlNets: 1</li>
+        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Seed Control: Random only</li>
+        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Save presets?: No</li>
+        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Create preset groups?: No</li>
       </>
     )}
   </ul>
 
-  <p class="mb-8 text-2xl font-bold text-center text-white">{level === "standard" ? "$30/month" : "Free"}</p>
+  <p class="mb-8 text-2xl font-bold text-center text-white">{level === "pro" ? "$30/month" : "Free"}</p>
 
   <a 
-    class="w-full pl-0 pr-4 mx-auto overflow-hidden border-cyan-500/50 rounded-sm shadow-lg cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral shadow-pink-500"
-    href={level === "standard" ? "https://buy.stripe.com/3cs7vZ6Nr3Azc3CbIK" : "https://mailchi.mp/davantsystems/davant-studio-free-download"}
+    class="w-full pl-0 pr-4 mx-auto overflow-hidden rounded-none shadow-lg border-cyan-500/50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral shadow-fuchsia-500/30"
+    href={level === "pro" ? "https://buy.stripe.com/3cs7vZ6Nr3Azc3CbIK" : "https://davantsystems.com/davant-studio/download"}
   >
     <span class="p-2 bg-transparent rounded-full badge-neutral">
       <svg class="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
@@ -45,6 +45,6 @@ const { level } = Astro.props;
         </g>
       </svg>
     </span>
-    <span class="pt-1">{level === "standard" ? "Unlock Features" : "Download"}</span>
+    <span class="pt-1">{level === "pro" ? "Unlock Features" : "Download"}</span>
   </a>
 </div>
