@@ -217,7 +217,7 @@ const { beforeImage, beforeAlt, afterImage, afterAlt } = Astro.props;
   }
 </style>
 
-<script>
+<script is:inline>
 // Comparison slider functionality
 document.addEventListener('DOMContentLoaded', () => {
   const comparisonSlider = document.querySelector('[data-comparison-slider]');

@@ -7,7 +7,7 @@ import Testimonials from "../components/Testimonials.astro";
 import ComparisonSlider from "../components/ComparisonSlider.astro";
 import StatCard from "../components/StatCard.astro";
 import GradientButton from "../components/GradientButton.astro";
-import BookingForm from "../components/BookingForm.astro";
+import TypeformBookingButton from "../components/TypeformBookingButton.tsx";
 
 // Import images properly
 import launchPartyHero from "../assets/images/launch-party-hero.jpg";
@@ -45,14 +45,13 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
                 </h2>
                 <p class="max-w-xl mb-10 text-base leading-relaxed md:text-lg lg:text-xl text-base-content">Transform your guests into living art with AI-powered real-time transformations that create unforgettable memories.</p>
                 <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
-                  <GradientButton
-                    onClick="openBookingForm('booking')"
-                    variant="primary"
+                  <TypeformBookingButton
+                    buttonText="Book Your Event"
+                    variant="secondary"
                     size="md"
-                    class="w-full sm:w-auto cta-button-shadow from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-700 shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-[1.03]"
-                  >
-                    Book Your Event
-                  </GradientButton>
+                    className="w-full sm:w-auto cta-button-shadow from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-700 shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-[1.03]"
+                    client:load
+                  />
                   <GradientButton
                     href="#learn-more"
                     variant="secondary"
@@ -244,14 +243,13 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
               <span class="block mb-6 text-3xl font-bold leading-tight text-transparent sm:text-4xl lg:text-5xl bg-gradient-to-br from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">Ready to wow your guests?</span>
               <span class="block text-xl font-light sm:text-2xl lg:text-3xl text-base-content/90">Book the Magic Mirror for your next event</span>
             </h2>
-            <GradientButton
-              onClick="openBookingForm('booking')"
+            <TypeformBookingButton
+              buttonText="Check Availability"
               variant="primary"
               size="lg"
-              class="mb-16"
-            >
-              Check Availability
-            </GradientButton>
+              className="mb-16"
+              client:load
+            />
             
             <div class="relative py-10">
               <p class="relative inline-flex items-center text-base-content divider-text">
@@ -328,8 +326,8 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
   </main>
   <Footer />
   
-  <!-- Booking Form Modal -->
-  <BookingForm id="booking" />
+  <!-- Booking Form Modal - Replaced with Typeform -->
+  <!-- <BookingForm id="booking" /> -->
 </Layout>
 
 <style>
@@ -905,7 +903,7 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
   }
 </style>
 
-<script is:inline src="//embed.typeform.com/next/embed.js"></script>
+<!-- Typeform script removed - using @typeform/embed-react package instead -->
 
 <script is:inline>
 // Comparison slider functionality
