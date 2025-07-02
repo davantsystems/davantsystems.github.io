@@ -112,21 +112,27 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
     }
 
     /* Staggered reveals */
+    .os-info-card {
+      animation: cardReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 0.1s;
+      opacity: 0;
+    }
+
     .stagger-1 {
       animation: cardReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      animation-delay: 0.2s;
+      animation-delay: 0.3s;
       opacity: 0;
     }
 
     .stagger-2 {
       animation: cardReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      animation-delay: 0.4s;
+      animation-delay: 0.5s;
       opacity: 0;
     }
 
     .stagger-3 {
       animation: cardReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      animation-delay: 0.6s;
+      animation-delay: 0.7s;
       opacity: 0;
     }
 
@@ -157,7 +163,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
         }
       }
 
-      .stagger-1, .stagger-2, .stagger-3 {
+      .os-info-card, .stagger-1, .stagger-2, .stagger-3 {
         animation-duration: 0.4s;
       }
       
@@ -256,7 +262,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                 <!-- Detection Legend - Top Right -->
                 <div class="p-3 border rounded-lg bg-purple-900/20 border-purple-800/20">
                   <div class="flex items-center gap-4 text-xs">
-                    <span class="text-purple-300 font-medium">Confidence:</span>
+                    <span class="font-medium text-purple-300">Confidence:</span>
                     <div class="flex gap-3 text-cyan-100/70">
                       <span><span class="text-green-400">✓</span> High</span>
                       <span><span class="text-yellow-400">~</span> Medium</span>
@@ -479,7 +485,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
               <!-- Score Circle -->
               <div class="relative flex-shrink-0">
                 <!-- Glow effect -->
-                <div id="score-glow" class="absolute inset-0 w-40 h-40 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 blur-xl opacity-30 transition-all duration-2000"></div>
+                <div id="score-glow" class="absolute inset-0 w-40 h-40 transition-all rounded-full bg-gradient-to-r from-purple-500 to-pink-500 blur-xl opacity-30 duration-2000"></div>
                 
                 <!-- Score Circle -->
                 <div class="relative w-40 h-40">
@@ -537,6 +543,25 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
               </div>
             </div>
 
+            <!-- OS Information -->
+            <div class="mb-6 os-info-card">
+              <div class="relative p-4 border bg-gradient-to-br from-purple-900/20 to-transparent border-purple-800/30 rounded-xl">
+                <div>
+                  <h3 class="mb-2 text-sm font-medium tracking-wider text-purple-300 uppercase">Operating System</h3>
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <svg id="os-icon" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <!-- Default/Unknown OS icon -->
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                      </svg>
+                      <span id="os-name" class="text-lg font-semibold text-white">Detecting...</span>
+                    </div>
+                    <span id="os-version" class="text-sm text-cyan-100/70"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- Component Breakdown -->
             <div class="grid gap-4 mb-8 md:grid-cols-3">
               <!-- GPU Status -->
@@ -558,8 +583,8 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                       <span id="gpu-status" class="absolute top-1 right-1 px-2 py-0.5 text-xs transition-all duration-300 rounded"></span>
                     </div>
                     <div class="mt-2">
-                      <p id="gpu-model-display" class="text-sm text-cyan-100/90 font-medium"></p>
-                      <p id="gpu-score" class="text-xs text-cyan-100/60 mt-0.5"></p>
+                      <p id="gpu-model-display" class="mb-2 text-sm font-medium text-cyan-100/90"></p>
+                      <p id="gpu-score" class="mb-1 text-xs text-cyan-100/60"></p>
                     </div>
                   </div>
                   <!-- Progress bar for component contribution -->
@@ -588,8 +613,8 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                       <span id="ram-status" class="absolute top-1 right-1 px-2 py-0.5 text-xs transition-all duration-300 rounded"></span>
                     </div>
                     <div class="mt-2">
-                      <p id="ram-amount" class="text-sm text-cyan-100/90 font-medium"></p>
-                      <p id="ram-score" class="text-xs text-cyan-100/60 mt-0.5"></p>
+                      <p id="ram-amount" class="text-sm mb-2 font-medium text-cyan-100/90"></p>
+                      <p id="ram-score" class="text-xs text-cyan-100/60 mb-1"></p>
                     </div>
                   </div>
                   <!-- Progress bar for component contribution -->
@@ -618,8 +643,8 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                       <span id="cpu-status" class="absolute top-1 right-1 px-2 py-0.5 text-xs transition-all duration-300 rounded"></span>
                     </div>
                     <div class="mt-2">
-                      <p id="cpu-model-display" class="text-sm text-cyan-100/90 font-medium"></p>
-                      <p id="cpu-score" class="text-xs text-cyan-100/60 mt-0.5"></p>
+                      <p id="cpu-model-display" class="text-sm mb-2 font-medium text-cyan-100/90"></p>
+                      <p id="cpu-score" class="text-xs text-cyan-100/60 mb-1"></p>
                     </div>
                   </div>
                   <!-- Progress bar for component contribution -->
@@ -883,13 +908,13 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
     const platform = navigator.platform.toLowerCase();
 
     if (platform.includes('win') || userAgent.includes('windows')) {
-      return 'windows';
+      return 'Windows';
     } else if (platform.includes('mac') || userAgent.includes('macintosh')) {
-      return 'mac';
+      return 'macOS';
     } else if (platform.includes('linux') || userAgent.includes('linux')) {
-      return 'linux';
+      return 'Linux';
     }
-    return 'unknown';
+    return 'Unknown';
   }
   
   function detectOSVersion() {
@@ -1305,7 +1330,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
     const platform = detectPlatform();
     const gpuInfo = detectGPU();
     
-    if (platform === 'mac' && gpuInfo.renderer.toLowerCase().includes('apple')) {
+    if (platform === 'macOS' && gpuInfo.renderer.toLowerCase().includes('apple')) {
       // Apple Silicon detection based on GPU renderer and cores
       const appleModel = detectAppleSiliconModel(null);
       if (appleModel && appleModel !== 'Apple Silicon') {
@@ -1315,7 +1340,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
         model = 'Apple Silicon';
         confidence = 'medium';
       }
-    } else if (platform === 'windows' || platform === 'linux') {
+    } else if (platform === 'Windows' || platform === 'Linux') {
       // Enhanced CPU detection for Windows/Linux
       const cpuClass = classifyCPUByPerformance(cores);
       model = cpuClass.description;
@@ -1646,6 +1671,57 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
     }
   }
 
+  function updateOSDisplay(platform, osVersion) {
+    const osName = document.getElementById('os-name');
+    const osVersionElement = document.getElementById('os-version');
+    const osIcon = document.getElementById('os-icon');
+    
+    // Update OS name with proper capitalization
+    let displayName = platform || 'Unknown OS';
+    osName.textContent = displayName;
+    
+    // Extract version from osVersion string
+    if (osVersion) {
+      if (osVersion.includes('Windows')) {
+        osVersionElement.textContent = osVersion.replace('Windows ', '');
+      } else if (osVersion.includes('macOS')) {
+        osVersionElement.textContent = osVersion.replace('macOS ', '');
+      } else if (osVersion.includes('Linux')) {
+        osVersionElement.textContent = osVersion.replace('Linux ', '');
+      } else {
+        osVersionElement.textContent = osVersion;
+      }
+    } else {
+      osVersionElement.textContent = '';
+    }
+    
+    // Update icon based on platform
+    if (platform === 'Windows') {
+      // Windows icon
+      osIcon.innerHTML = `
+        <path d="M3 5.5L9.5 4.5V12H3V5.5Z" fill="currentColor"/>
+        <path d="M10.5 4.25L20 3V12H10.5V4.25Z" fill="currentColor"/>
+        <path d="M3 13H9.5V20.5L3 19.5V13Z" fill="currentColor"/>
+        <path d="M10.5 13H20V21L10.5 19.75V13Z" fill="currentColor"/>
+      `;
+    } else if (platform === 'macOS') {
+      // Apple icon
+      osIcon.innerHTML = `
+        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="currentColor"/>
+      `;
+    } else if (platform === 'Linux') {
+      // Linux penguin icon
+      osIcon.innerHTML = `
+        <path d="M14.62 8.35C14.2 8.63 12.87 9.39 12.67 9.54C12.28 9.85 11.92 9.83 11.53 9.53C11.33 9.37 10 8.61 9.58 8.34C9.1 8.03 9 7.67 9.72 7.29C10.3 6.97 11.42 6.6 12 6.6C12.59 6.6 13.7 6.97 14.28 7.29C15 7.67 14.9 8.03 14.62 8.35M12 2C13.41 2 14.56 3.15 14.56 4.56C14.56 5.97 13.41 7.12 12 7.12C10.59 7.12 9.44 5.97 9.44 4.56C9.44 3.15 10.59 2 12 2M16 12C16 10 14.5 8.5 14.5 8.5C14.5 9.5 14 10.18 13 10.18H11C10 10.18 9.5 9.5 9.5 8.5C9.5 8.5 8 10 8 12C8 14 9.5 15.5 9.5 15.5L10.41 14.41C10.73 15.85 11.32 16.9 12 16.9C12.69 16.9 13.27 15.85 13.59 14.41L14.5 15.5C14.5 15.5 16 14 16 12M12 22C10 22 4 21 4 11C4 5.5 8 2 8 2C8 2 8.5 2 9 2C9.25 1 10.25 0 12 0C13.75 0 14.75 1 15 2C15.5 2 16 2 16 2C16 2 20 5.5 20 11C20 21 14 22 12 22Z" fill="currentColor"/>
+      `;
+    } else {
+      // Default computer icon (already set in HTML)
+      osIcon.innerHTML = `
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+      `;
+    }
+  }
+
   function updateComponentStatus(component, score, specs) {
     const statusElement = document.getElementById(`${component}-status`);
     const progressElement = document.getElementById(`${component}-progress`);
@@ -1772,6 +1848,9 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
     
     // Update tier display with new user-friendly messages
     updateTierDisplay(result.tier);
+    
+    // Update OS display
+    updateOSDisplay(systemSpecs.detected.platform, systemSpecs.detected.osVersion);
     
     // Update components
     updateComponentStatus('gpu', result.scores.gpu, systemSpecs);
