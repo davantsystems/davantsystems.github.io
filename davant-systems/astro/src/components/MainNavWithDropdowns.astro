@@ -5,7 +5,7 @@ import NavbarLogo from './NavbarLogo.astro';
 const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K3697yE144";
 ---
 
-<div class="fixed top-0 z-50 navbar bg-gradient-to-b from-black to-transparent bg-opacity-0">
+<div class="fixed top-0 z-50 navbar bg-gradient-to-b from-black to-transparent" data-nav-component>
   <div class="navbar-start">
     <Link class="btn btn-ghost p-2" href="/">
       <NavbarLogo />
@@ -14,20 +14,20 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
   <div class="hidden navbar-center md:flex">
     <ul class="px-1 tracking-tight menu menu-horizontal text-cyan-100 drop-shadow-sm">
       <li>
-        <Link href="/davant-studio/" class="hover:bg-base-100 hover:bg-opacity-70 transition-all">Davant Studio</Link>
+        <Link href="/davant-studio/" class="hover:bg-base-100/70 transition-all nav-item">Davant Studio</Link>
       </li>
-      <li class="dropdown dropdown-hover">
-        <div tabindex="0" role="button" class="hover:bg-base-100 hover:bg-opacity-70 transition-all">Magic Mirror</div>
-        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 bg-opacity-95 backdrop-blur-sm rounded-box w-52 mt-1">
-          <li><Link href="/photobooth/" class="hover:bg-primary hover:bg-opacity-20 text-cyan-100 transition-all">AI Photo Booth</Link></li>
+      <li class="dropdown">
+        <div tabindex="0" role="button" class="hover:bg-base-100/70 transition-all dropdown-trigger" data-dropdown-trigger>Magic Mirror</div>
+        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52">
+          <li><Link href="/photobooth/" class="hover:bg-primary/20 text-cyan-100 transition-all">AI Photo Booth</Link></li>
         </ul>
       </li>
-      <li class="dropdown dropdown-hover">
-        <div tabindex="0" role="button" class="hover:bg-base-100 hover:bg-opacity-70 transition-all">Learn & Create</div>
-        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 bg-opacity-95 backdrop-blur-sm rounded-box w-52 mt-1">
-          <li><Link href="/training/" class="hover:bg-primary hover:bg-opacity-20 text-cyan-100 transition-all">Training & Workshops</Link></li>
-          <li><Link href="/articles/" class="hover:bg-primary hover:bg-opacity-20 text-cyan-100 transition-all">Articles</Link></li>
-          <li><Link href="/ambassadors/" class="hover:bg-primary hover:bg-opacity-20 text-cyan-100 transition-all">Creative Ambassadors Program</Link></li>
+      <li class="dropdown">
+        <div tabindex="0" role="button" class="hover:bg-base-100/70 transition-all dropdown-trigger" data-dropdown-trigger>Learn & Create</div>
+        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52">
+          <li><Link href="/training/" class="hover:bg-primary/20 text-cyan-100 transition-all">Training & Workshops</Link></li>
+          <li><Link href="/articles/" class="hover:bg-primary/20 text-cyan-100 transition-all">Articles</Link></li>
+          <li><Link href="/ambassadors/" class="hover:bg-primary/20 text-cyan-100 transition-all">Creative Ambassadors Program</Link></li>
         </ul>
       </li>
     </ul>
@@ -39,13 +39,13 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
     <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
     </div>
-    <ul tabindex="0" class="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[1] p-2 shadow bg-base-100 bg-opacity-95 backdrop-blur-sm rounded-box w-52">
-      <li><Link href="/davant-studio/" class="hover:bg-primary hover:bg-opacity-20 transition-all">Davant Studio</Link></li>
+    <ul tabindex="0" class="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[1] p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52">
+      <li><Link href="/davant-studio/" class="hover:bg-primary/20 transition-all">Davant Studio</Link></li>
       <li>
         <details>
           <summary>Magic Mirror</summary>
           <ul>
-            <li><Link href="/photobooth/" class="hover:bg-primary hover:bg-opacity-20 transition-all">AI Photo Booth</Link></li>
+            <li><Link href="/photobooth/" class="hover:bg-primary/20 transition-all">AI Photo Booth</Link></li>
           </ul>
         </details>
       </li>
@@ -53,9 +53,9 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
         <details>
           <summary>Learn & Create</summary>
           <ul>
-            <li><Link href="/training/" class="hover:bg-primary hover:bg-opacity-20 transition-all">Training & Workshops</Link></li>
-            <li><Link href="/articles/" class="hover:bg-primary hover:bg-opacity-20 transition-all">Articles</Link></li>
-            <li><Link href="/ambassadors/" class="hover:bg-primary hover:bg-opacity-20 transition-all">Creative Ambassadors Program</Link></li>
+            <li><Link href="/training/" class="hover:bg-primary/20 transition-all">Training & Workshops</Link></li>
+            <li><Link href="/articles/" class="hover:bg-primary/20 transition-all">Articles</Link></li>
+            <li><Link href="/ambassadors/" class="hover:bg-primary/20 transition-all">Creative Ambassadors Program</Link></li>
           </ul>
         </details>
       </li>
@@ -63,3 +63,109 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
   </div>
   <span class="absolute top-0 left-0 w-full h-full scale-y-150 pointer-events-none select-none opacity-40 -z-10 bg-gradient-to-b from-base-100 via-base-100 to-transparent"></span>
 </div>
+
+<style>
+  /* Common styles for all nav items */
+  .nav-item,
+  .dropdown-trigger {
+    position: relative;
+  }
+  
+  /* Active/open state for dropdown triggers */
+  .dropdown.dropdown-open .dropdown-trigger {
+    background-color: rgb(15 23 42 / 0.7);
+    color: rgb(251 191 36);
+  }
+  
+  /* Add subtle underline effect on hover for all nav items */
+  .nav-item::after,
+  .dropdown-trigger::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, rgb(236 72 153), rgb(139 92 246));
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  
+  .nav-item:hover::after,
+  .dropdown-trigger:hover::after {
+    width: 80%;
+    left: 10%;
+  }
+  
+  /* Active state - full width underline */
+  .dropdown.dropdown-open .dropdown-trigger::after {
+    width: 100%;
+    left: 0;
+  }
+  
+  /* Optional: Add a subtle glow effect on active state */
+  .dropdown.dropdown-open .dropdown-trigger {
+    text-shadow: 0 0 10px rgb(251 191 36 / 0.5);
+  }
+</style>
+
+<script>
+  function initializeNavDropdowns() {
+    const navComponent = document.querySelector('[data-nav-component]');
+    if (!navComponent) return;
+
+    const dropdownTriggers = navComponent.querySelectorAll('[data-dropdown-trigger]');
+    
+    dropdownTriggers.forEach(trigger => {
+      const dropdown = trigger.parentElement;
+      const content = dropdown?.querySelector('.dropdown-content');
+      
+      if (!dropdown || !content) return;
+
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isOpen = dropdown.classList.contains('dropdown-open');
+        
+        // Close all other dropdowns
+        document.querySelectorAll('.dropdown').forEach(d => {
+          if (d !== dropdown) {
+            d.classList.remove('dropdown-open');
+          }
+        });
+        
+        // Toggle current dropdown
+        dropdown.classList.toggle('dropdown-open', !isOpen);
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown').forEach(d => {
+          d.classList.remove('dropdown-open');
+        });
+      }
+    });
+
+    // Close dropdowns when pressing Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.dropdown').forEach(d => {
+          d.classList.remove('dropdown-open');
+        });
+      }
+    });
+  }
+
+  // Initialize on DOM content loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeNavDropdowns);
+  } else {
+    initializeNavDropdowns();
+  }
+
+  // Reinitialize on Astro page navigation
+  document.addEventListener('astro:page-load', initializeNavDropdowns);
+</script>
