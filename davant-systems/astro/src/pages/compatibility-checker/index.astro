@@ -25,15 +25,45 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
             </span>
           </h1>
           <p class="text-xl text-cyan-100/80 max-w-3xl mx-auto mb-8">
-            Let's check if your system is ready for Davant Studio's AI-powered creative tools.
-            We'll automatically detect what we can and ask for the rest.
+            Check if your system is ready for Davant Studio's AI-powered creative tools.
+            Test your current device or enter specs for any system you're considering.
           </p>
         </div>
 
         <!-- Main Content Area -->
         <div class="max-w-4xl mx-auto">
+          <!-- Initial Choice Phase -->
+          <div id="choice-phase" class="mb-12">
+            <!-- Big GO Button Container -->
+            <div class="text-center mb-12">
+              <div class="relative inline-block">
+                <!-- Glow effect -->
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-2xl opacity-50 animate-pulse"></div>
+                
+                <!-- Main GO button -->
+                <button id="auto-detect-button" 
+                  class="relative w-48 h-48 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold text-3xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 group">
+                  <span class="block transition-all duration-300 group-hover:scale-110">GO</span>
+                  <span class="block text-sm font-normal mt-1 opacity-80">Start Scan</span>
+                </button>
+              </div>
+              
+              <p class="text-lg text-cyan-100/60 mt-8">
+                Click to analyze your current system
+              </p>
+            </div>
+
+            <!-- Manual input option - subtle button -->
+            <div class="text-center">
+              <button id="manual-input-button" 
+                class="px-6 py-2.5 text-sm text-purple-300/80 border border-purple-800/30 rounded-full hover:border-purple-700/50 hover:bg-purple-900/20 hover:text-purple-200 transition-all duration-200">
+                Check a different system manually
+              </button>
+            </div>
+          </div>
+
           <!-- Detection Phase -->
-          <div id="detection-phase" class="mb-12">
+          <div id="detection-phase" class="mb-12 hidden">
             <div class="relative border rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border-purple-800/30 p-8">
               <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                 <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,39 +73,93 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
               </h2>
               
               <!-- Progress indicator -->
-              <div class="space-y-4 mb-8">
-                <div class="flex items-center justify-between">
+              <div class="mb-8">
+                <div class="flex items-center justify-between mb-2">
                   <span class="text-sm text-cyan-100/70" id="detection-status">Analyzing hardware...</span>
-                  <div class="w-32 h-2 bg-purple-900/30 rounded-full overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"></div>
-                  </div>
+                  <span class="text-xs text-purple-300">Scanning...</span>
+                </div>
+                <div class="relative h-3 bg-purple-900/30 rounded-full overflow-hidden">
+                  <div id="progress-bar" class="absolute inset-y-0 left-0 w-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500"></div>
+                  <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 animate-pulse"></div>
                 </div>
               </div>
 
               <!-- Detected Specs -->
               <div id="detected-specs" class="space-y-4">
-                <div class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20">
+                <div id="platform-row" class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20 opacity-30 transition-opacity duration-300">
                   <div class="flex items-center justify-between">
-                    <span class="text-sm font-medium text-purple-300">Platform</span>
-                    <span id="detected-platform" class="text-sm text-cyan-100">Detecting...</span>
+                    <span class="text-sm font-medium text-purple-300 flex items-center gap-2">
+                      <span id="platform-check" class="hidden">
+                        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </span>
+                      <span id="platform-spinner" class="animate-spin">
+                        <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24">
+                          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                      </span>
+                      Platform
+                    </span>
+                    <span id="detected-platform" class="text-sm text-cyan-100/50">Waiting...</span>
                   </div>
                 </div>
-                <div class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20">
+                <div id="gpu-row" class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20 opacity-30 transition-opacity duration-300">
                   <div class="flex items-center justify-between">
-                    <span class="text-sm font-medium text-purple-300">GPU Info</span>
-                    <span id="detected-gpu" class="text-sm text-cyan-100">Detecting...</span>
+                    <span class="text-sm font-medium text-purple-300 flex items-center gap-2">
+                      <span id="gpu-check" class="hidden">
+                        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </span>
+                      <span id="gpu-spinner" class="hidden animate-spin">
+                        <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24">
+                          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                      </span>
+                      GPU Info
+                    </span>
+                    <span id="detected-gpu" class="text-sm text-cyan-100/50">Waiting...</span>
                   </div>
                 </div>
-                <div class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20">
+                <div id="cpu-row" class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20 opacity-30 transition-opacity duration-300">
                   <div class="flex items-center justify-between">
-                    <span class="text-sm font-medium text-purple-300">CPU Cores</span>
-                    <span id="detected-cpu" class="text-sm text-cyan-100">Detecting...</span>
+                    <span class="text-sm font-medium text-purple-300 flex items-center gap-2">
+                      <span id="cpu-check" class="hidden">
+                        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </span>
+                      <span id="cpu-spinner" class="hidden animate-spin">
+                        <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24">
+                          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                      </span>
+                      CPU Cores
+                    </span>
+                    <span id="detected-cpu" class="text-sm text-cyan-100/50">Waiting...</span>
                   </div>
                 </div>
-                <div class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20">
+                <div id="display-row" class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20 opacity-30 transition-opacity duration-300">
                   <div class="flex items-center justify-between">
-                    <span class="text-sm font-medium text-purple-300">Display</span>
-                    <span id="detected-display" class="text-sm text-cyan-100">Detecting...</span>
+                    <span class="text-sm font-medium text-purple-300 flex items-center gap-2">
+                      <span id="display-check" class="hidden">
+                        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </span>
+                      <span id="display-spinner" class="hidden animate-spin">
+                        <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24">
+                          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                      </span>
+                      Display
+                    </span>
+                    <span id="detected-display" class="text-sm text-cyan-100/50">Waiting...</span>
                   </div>
                 </div>
               </div>
@@ -89,84 +173,118 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                 <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                 </svg>
-                Complete Your System Information
+                Enter System Information
               </h2>
-              <p class="text-cyan-100/70 mb-6">
-                We couldn't detect everything automatically. Please help us by providing the following details:
+              <p class="text-cyan-100/70 mb-4">
+                Please provide your system specifications to check compatibility with Davant Studio.
               </p>
+              
+              <!-- Auto-scan option -->
+              <div class="mb-6 text-center">
+                <button type="button" id="switch-to-auto" 
+                  class="text-sm text-purple-300/80 hover:text-purple-300 underline underline-offset-4 transition-colors duration-200">
+                  Try auto-detection instead
+                </button>
+              </div>
 
               <form id="specs-form" class="space-y-6">
-                <!-- GPU Model -->
-                <div>
-                  <label for="gpu-model" class="block text-sm font-medium text-purple-300 mb-2">
-                    Graphics Card Model
-                  </label>
-                  <select id="gpu-model" 
-                    class="w-full px-4 py-3 bg-purple-900/20 border border-purple-800/30 rounded-lg text-white focus:border-purple-600/50 focus:ring-2 focus:ring-purple-600/20">
-                    <option value="">Select your GPU...</option>
-                    <optgroup label="NVIDIA RTX 40 Series">
-                      <option value="rtx-4090">RTX 4090 (24GB)</option>
-                      <option value="rtx-4080">RTX 4080 (16GB)</option>
-                      <option value="rtx-4070ti">RTX 4070 Ti (12GB)</option>
-                      <option value="rtx-4070">RTX 4070 (12GB)</option>
-                      <option value="rtx-4060ti">RTX 4060 Ti (8GB/16GB)</option>
-                      <option value="rtx-4060">RTX 4060 (8GB)</option>
-                    </optgroup>
-                    <optgroup label="NVIDIA RTX 30 Series">
-                      <option value="rtx-3090">RTX 3090 (24GB)</option>
-                      <option value="rtx-3080">RTX 3080 (10GB/12GB)</option>
-                      <option value="rtx-3070">RTX 3070 (8GB)</option>
-                      <option value="rtx-3060">RTX 3060 (12GB)</option>
-                    </optgroup>
-                    <optgroup label="Apple Silicon">
-                      <option value="m3-max">M3 Max</option>
-                      <option value="m3-pro">M3 Pro</option>
-                      <option value="m3">M3</option>
-                      <option value="m2-max">M2 Max</option>
-                      <option value="m2-pro">M2 Pro</option>
-                      <option value="m2">M2</option>
-                      <option value="m1-max">M1 Max</option>
-                      <option value="m1-pro">M1 Pro</option>
-                      <option value="m1">M1</option>
-                    </optgroup>
-                    <option value="other">Other/Not Listed</option>
-                  </select>
+                <!-- Two column grid for compact layout -->
+                <div class="grid md:grid-cols-2 gap-4">
+                  <!-- Operating System -->
+                  <div>
+                    <label for="os-select" class="block text-sm font-medium text-purple-300 mb-2">
+                      Operating System
+                    </label>
+                    <select id="os-select" 
+                      class="w-full px-3 py-2.5 pr-10 bg-purple-900/20 border border-purple-800/30 rounded-lg text-white text-sm focus:border-purple-600/50 focus:ring-2 focus:ring-purple-600/20">
+                      <option value="">Select OS...</option>
+                      <option value="windows-11">Windows 11</option>
+                      <option value="windows-10">Windows 10</option>
+                      <option value="macos-sonoma">macOS Sonoma</option>
+                      <option value="macos-ventura">macOS Ventura</option>
+                      <option value="macos-monterey">macOS Monterey</option>
+                      <option value="linux">Linux</option>
+                    </select>
+                  </div>
+
+                  <!-- CPU Model -->
+                  <div>
+                    <label for="cpu-model" class="block text-sm font-medium text-purple-300 mb-2">
+                      Processor (CPU)
+                    </label>
+                    <select id="cpu-model" 
+                      class="w-full px-3 py-2.5 pr-10 bg-purple-900/20 border border-purple-800/30 rounded-lg text-white text-sm focus:border-purple-600/50 focus:ring-2 focus:ring-purple-600/20">
+                      <option value="">Select OS first...</option>
+                    </select>
+                  </div>
                 </div>
 
-                <!-- System RAM -->
-                <div>
-                  <label for="system-ram" class="block text-sm font-medium text-purple-300 mb-2">
-                    System Memory (RAM)
-                  </label>
-                  <select id="system-ram" 
-                    class="w-full px-4 py-3 bg-purple-900/20 border border-purple-800/30 rounded-lg text-white focus:border-purple-600/50 focus:ring-2 focus:ring-purple-600/20">
-                    <option value="">Select RAM amount...</option>
-                    <option value="8">8 GB</option>
-                    <option value="16">16 GB</option>
-                    <option value="24">24 GB</option>
-                    <option value="32">32 GB</option>
-                    <option value="48">48 GB</option>
-                    <option value="64">64 GB</option>
-                    <option value="128">128 GB</option>
-                  </select>
+                <!-- GPU Brand and Model in two columns -->
+                <div class="grid md:grid-cols-2 gap-4">
+                  <!-- GPU Brand -->
+                  <div>
+                    <label for="gpu-brand" class="block text-sm font-medium text-purple-300 mb-2">
+                      Graphics Card Brand
+                    </label>
+                    <select id="gpu-brand" 
+                      class="w-full px-3 py-2.5 pr-10 bg-purple-900/20 border border-purple-800/30 rounded-lg text-white text-sm focus:border-purple-600/50 focus:ring-2 focus:ring-purple-600/20">
+                      <option value="">Select brand...</option>
+                      <option value="nvidia">NVIDIA</option>
+                      <option value="amd">AMD Radeon</option>
+                      <option value="intel">Intel</option>
+                      <option value="apple">Apple (Integrated)</option>
+                    </select>
+                  </div>
+
+                  <!-- GPU Model -->
+                  <div>
+                    <label for="gpu-model" class="block text-sm font-medium text-purple-300 mb-2">
+                      Graphics Card Model
+                    </label>
+                    <select id="gpu-model" 
+                      class="w-full px-3 py-2.5 pr-10 bg-purple-900/20 border border-purple-800/30 rounded-lg text-white text-sm focus:border-purple-600/50 focus:ring-2 focus:ring-purple-600/20" disabled>
+                      <option value="">Select brand first...</option>
+                    </select>
+                  </div>
                 </div>
 
-                <!-- Available Storage -->
-                <div>
-                  <label for="storage" class="block text-sm font-medium text-purple-300 mb-2">
-                    Available Storage Space
-                  </label>
-                  <div class="relative">
-                    <input type="number" id="storage" min="0" step="10"
-                      class="w-full px-4 py-3 bg-purple-900/20 border border-purple-800/30 rounded-lg text-white focus:border-purple-600/50 focus:ring-2 focus:ring-purple-600/20"
-                      placeholder="Enter available GB">
-                    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-purple-300 text-sm">GB</span>
+                <!-- RAM and Storage in two columns -->
+                <div class="grid md:grid-cols-2 gap-4">
+                  <!-- System RAM -->
+                  <div>
+                    <label for="system-ram" class="block text-sm font-medium text-purple-300 mb-2">
+                      Memory (RAM)
+                    </label>
+                    <select id="system-ram" 
+                      class="w-full px-3 py-2.5 pr-10 bg-purple-900/20 border border-purple-800/30 rounded-lg text-white text-sm focus:border-purple-600/50 focus:ring-2 focus:ring-purple-600/20">
+                      <option value="">Select RAM...</option>
+                      <option value="8">8 GB</option>
+                      <option value="16">16 GB</option>
+                      <option value="24">24 GB</option>
+                      <option value="32">32 GB</option>
+                      <option value="48">48 GB</option>
+                      <option value="64">64 GB</option>
+                      <option value="128">128 GB</option>
+                    </select>
+                  </div>
+
+                  <!-- Available Storage -->
+                  <div>
+                    <label for="storage" class="block text-sm font-medium text-purple-300 mb-2">
+                      Available Storage
+                    </label>
+                    <div class="relative">
+                      <input type="number" id="storage" min="0" step="1"
+                        class="w-full px-3 py-2.5 bg-purple-900/20 border border-purple-800/30 rounded-lg text-white text-sm focus:border-purple-600/50 focus:ring-2 focus:ring-purple-600/20 pr-12"
+                        placeholder="Enter GB">
+                      <span class="absolute right-3 top-1/2 -translate-y-1/2 text-purple-300 text-xs pointer-events-none">GB</span>
+                    </div>
                   </div>
                 </div>
 
                 <!-- Submit Button -->
                 <button type="submit" 
-                  class="w-full px-6 py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+                  class="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 mt-2">
                   Check Compatibility
                 </button>
               </form>
@@ -175,9 +293,24 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
 
           <!-- Results Phase -->
           <div id="results-phase" class="hidden">
+            <!-- Auto-detection notice -->
+            <div id="auto-detect-notice" class="mb-8 p-4 bg-green-500/10 border border-green-500/30 rounded-lg hidden">
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-sm text-green-300">
+                  <span class="font-medium">Auto-detection successful!</span> 
+                  <span id="detected-info" class="text-cyan-100/70"></span>
+                </p>
+              </div>
+            </div>
+            
             <!-- Compatibility Score -->
             <div class="text-center mb-12">
               <div class="relative inline-block">
+                <!-- Glow effect for score -->
+                <div class="absolute inset-0 w-48 h-48 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-xl opacity-30"></div>
                 <div class="w-48 h-48 relative">
                   <!-- Background circle -->
                   <svg class="w-full h-full transform -rotate-90">
@@ -204,8 +337,8 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                   </svg>
                   <!-- Score text -->
                   <div class="absolute inset-0 flex flex-col items-center justify-center">
-                    <span id="score-value" class="text-5xl font-bold text-white">0</span>
-                    <span class="text-sm text-purple-300">Compatibility</span>
+                    <span id="score-value" class="text-6xl font-bold text-white">0</span>
+                    <span class="text-sm text-purple-300 uppercase tracking-wider">Score</span>
                   </div>
                 </div>
               </div>
@@ -297,7 +430,10 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
             <!-- Action Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 mt-8">
               <button id="recheck-button" 
-                class="flex-1 px-6 py-3 border border-purple-800/50 text-purple-300 rounded-lg hover:bg-purple-800/20 transition-all duration-300">
+                class="flex-1 px-6 py-3 border border-purple-800/50 text-purple-300 rounded-lg hover:bg-purple-800/20 transition-all duration-300 flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
                 Check Another System
               </button>
               <a href="/davant-studio/#signup" 
@@ -315,6 +451,154 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
 
 <script is:inline>
   // GPU Database
+  // CPU options by OS
+  const CPU_OPTIONS_BY_OS = {
+    windows: [
+      { group: 'Intel Core (13th Gen)', options: [
+        { value: 'i9-13th', text: 'Core i9-13900K' },
+        { value: 'i7-13th', text: 'Core i7-13700K' },
+        { value: 'i5-13th', text: 'Core i5-13600K' }
+      ]},
+      { group: 'Intel Core (12th Gen)', options: [
+        { value: 'i9-12th', text: 'Core i9-12900K' },
+        { value: 'i7-12th', text: 'Core i7-12700K' },
+        { value: 'i5-12th', text: 'Core i5-12600K' }
+      ]},
+      { group: 'AMD Ryzen 7000', options: [
+        { value: 'ryzen-9-7000', text: 'Ryzen 9 7950X' },
+        { value: 'ryzen-7-7000', text: 'Ryzen 7 7700X' },
+        { value: 'ryzen-5-7000', text: 'Ryzen 5 7600X' }
+      ]},
+      { group: 'AMD Ryzen 5000', options: [
+        { value: 'ryzen-9-5000', text: 'Ryzen 9 5950X' },
+        { value: 'ryzen-7-5000', text: 'Ryzen 7 5800X' },
+        { value: 'ryzen-5-5000', text: 'Ryzen 5 5600X' }
+      ]}
+    ],
+    mac: [
+      { group: 'Apple Silicon', options: [
+        { value: 'm3-max', text: 'M3 Max' },
+        { value: 'm3-pro', text: 'M3 Pro' },
+        { value: 'm3', text: 'M3' },
+        { value: 'm2-max', text: 'M2 Max' },
+        { value: 'm2-pro', text: 'M2 Pro' },
+        { value: 'm2', text: 'M2' },
+        { value: 'm1-max', text: 'M1 Max' },
+        { value: 'm1-pro', text: 'M1 Pro' },
+        { value: 'm1', text: 'M1' }
+      ]},
+      { group: 'Intel (Older Macs)', options: [
+        { value: 'i9-intel-mac', text: 'Core i9 (Intel Mac)' },
+        { value: 'i7-intel-mac', text: 'Core i7 (Intel Mac)' },
+        { value: 'i5-intel-mac', text: 'Core i5 (Intel Mac)' }
+      ]}
+    ],
+    linux: [
+      { group: 'Intel Core', options: [
+        { value: 'i9-13th', text: 'Core i9-13900K' },
+        { value: 'i7-13th', text: 'Core i7-13700K' },
+        { value: 'i5-13th', text: 'Core i5-13600K' },
+        { value: 'i3', text: 'Core i3' }
+      ]},
+      { group: 'AMD Ryzen', options: [
+        { value: 'ryzen-9-7000', text: 'Ryzen 9 7950X' },
+        { value: 'ryzen-7-7000', text: 'Ryzen 7 7700X' },
+        { value: 'ryzen-5-7000', text: 'Ryzen 5 7600X' }
+      ]}
+    ]
+  };
+
+  // CPU to cores mapping
+  const CPU_CORES_MAP = {
+    // Apple Silicon
+    'm3-max': 16,
+    'm3-pro': 12,
+    'm3': 8,
+    'm2-max': 12,
+    'm2-pro': 12,
+    'm2': 8,
+    'm1-max': 10,
+    'm1-pro': 10,
+    'm1': 8,
+    // Intel
+    'i9-13th': 24,
+    'i9-12th': 16,
+    'i7-13th': 16,
+    'i7-12th': 12,
+    'i5-13th': 14,
+    'i5-12th': 10,
+    'i3': 4,
+    // AMD
+    'ryzen-9-7000': 16,
+    'ryzen-9-5000': 16,
+    'ryzen-7-7000': 8,
+    'ryzen-7-5000': 8,
+    'ryzen-5-7000': 6,
+    'ryzen-5-5000': 6,
+    // Intel Mac
+    'i9-intel-mac': 8,
+    'i7-intel-mac': 6,
+    'i5-intel-mac': 4,
+    'other': 4
+  };
+
+  // GPU Models organized by brand
+  const GPU_MODELS_BY_BRAND = {
+    nvidia: {
+      'RTX 40 Series': [
+        { value: 'rtx-4090', text: 'RTX 4090 (24GB)' },
+        { value: 'rtx-4080', text: 'RTX 4080 (16GB)' },
+        { value: 'rtx-4070ti', text: 'RTX 4070 Ti (12GB)' },
+        { value: 'rtx-4070', text: 'RTX 4070 (12GB)' },
+        { value: 'rtx-4060ti', text: 'RTX 4060 Ti (8/16GB)' },
+        { value: 'rtx-4060', text: 'RTX 4060 (8GB)' }
+      ],
+      'RTX 30 Series': [
+        { value: 'rtx-3090', text: 'RTX 3090 (24GB)' },
+        { value: 'rtx-3080', text: 'RTX 3080 (10/12GB)' },
+        { value: 'rtx-3070', text: 'RTX 3070 (8GB)' },
+        { value: 'rtx-3060', text: 'RTX 3060 (12GB)' }
+      ]
+    },
+    amd: {
+      'RX 7000 Series': [
+        { value: 'rx-7900xtx', text: 'RX 7900 XTX (24GB)' },
+        { value: 'rx-7900xt', text: 'RX 7900 XT (20GB)' },
+        { value: 'rx-7800xt', text: 'RX 7800 XT (16GB)' },
+        { value: 'rx-7700xt', text: 'RX 7700 XT (12GB)' }
+      ],
+      'RX 6000 Series': [
+        { value: 'rx-6900xt', text: 'RX 6900 XT (16GB)' },
+        { value: 'rx-6800xt', text: 'RX 6800 XT (16GB)' },
+        { value: 'rx-6700xt', text: 'RX 6700 XT (12GB)' }
+      ]
+    },
+    intel: {
+      'Arc Series': [
+        { value: 'arc-a770', text: 'Arc A770 (16GB)' },
+        { value: 'arc-a750', text: 'Arc A750 (8GB)' },
+        { value: 'arc-a380', text: 'Arc A380 (6GB)' }
+      ],
+      'Integrated': [
+        { value: 'iris-xe', text: 'Iris Xe Graphics' },
+        { value: 'uhd', text: 'UHD Graphics' }
+      ]
+    },
+    apple: {
+      'Apple Silicon': [
+        { value: 'm3-max', text: 'M3 Max GPU' },
+        { value: 'm3-pro', text: 'M3 Pro GPU' },
+        { value: 'm3', text: 'M3 GPU' },
+        { value: 'm2-max', text: 'M2 Max GPU' },
+        { value: 'm2-pro', text: 'M2 Pro GPU' },
+        { value: 'm2', text: 'M2 GPU' },
+        { value: 'm1-max', text: 'M1 Max GPU' },
+        { value: 'm1-pro', text: 'M1 Pro GPU' },
+        { value: 'm1', text: 'M1 GPU' }
+      ]
+    }
+  };
+
   const GPU_DATABASE = {
     'rtx-4090': { model: 'NVIDIA RTX 4090', vram: 24, tier: 1, minScore: 95, maxScore: 100 },
     'rtx-4080': { model: 'NVIDIA RTX 4080', vram: 16, tier: 1, minScore: 90, maxScore: 95 },
@@ -335,6 +619,20 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
     'm1-max': { model: 'Apple M1 Max', vram: 32, tier: 2, minScore: 75, maxScore: 85 },
     'm1-pro': { model: 'Apple M1 Pro', vram: 16, tier: 2, minScore: 65, maxScore: 75 },
     'm1': { model: 'Apple M1', vram: 8, tier: 3, minScore: 50, maxScore: 60 },
+    // AMD GPUs
+    'rx-7900xtx': { model: 'AMD RX 7900 XTX', vram: 24, tier: 1, minScore: 90, maxScore: 95 },
+    'rx-7900xt': { model: 'AMD RX 7900 XT', vram: 20, tier: 1, minScore: 85, maxScore: 90 },
+    'rx-7800xt': { model: 'AMD RX 7800 XT', vram: 16, tier: 2, minScore: 75, maxScore: 80 },
+    'rx-7700xt': { model: 'AMD RX 7700 XT', vram: 12, tier: 2, minScore: 70, maxScore: 75 },
+    'rx-6900xt': { model: 'AMD RX 6900 XT', vram: 16, tier: 2, minScore: 75, maxScore: 80 },
+    'rx-6800xt': { model: 'AMD RX 6800 XT', vram: 16, tier: 2, minScore: 70, maxScore: 75 },
+    'rx-6700xt': { model: 'AMD RX 6700 XT', vram: 12, tier: 2, minScore: 65, maxScore: 70 },
+    // Intel GPUs
+    'arc-a770': { model: 'Intel Arc A770', vram: 16, tier: 3, minScore: 55, maxScore: 65 },
+    'arc-a750': { model: 'Intel Arc A750', vram: 8, tier: 3, minScore: 50, maxScore: 60 },
+    'arc-a380': { model: 'Intel Arc A380', vram: 6, tier: 4, minScore: 40, maxScore: 50 },
+    'iris-xe': { model: 'Intel Iris Xe', vram: 0, tier: 4, minScore: 20, maxScore: 30 },
+    'uhd': { model: 'Intel UHD', vram: 0, tier: 4, minScore: 10, maxScore: 20 },
     'other': { model: 'Unknown GPU', vram: 8, tier: 4, minScore: 0, maxScore: 50 }
   };
 
@@ -399,7 +697,56 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
       console.error('GPU detection error:', e);
     }
 
+    // Enhanced Apple Silicon detection
+    if (renderer === 'Apple GPU' || renderer.toLowerCase().includes('apple gpu')) {
+      const appleModel = detectAppleSiliconModel(gl);
+      if (appleModel) {
+        renderer = `Apple ${appleModel}`;
+      }
+    }
+
     return { renderer, version };
+  }
+
+  function detectAppleSiliconModel(gl) {
+    const platform = navigator.platform;
+    const cores = navigator.hardwareConcurrency || 0;
+    
+    if (!platform.includes('Mac')) {
+      return null;
+    }
+
+    // Try Chrome's detailed renderer string first
+    if (gl) {
+      try {
+        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+        if (debugInfo) {
+          const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '';
+          const appleMatch = renderer.match(/Apple\s*(M\d+(?:\s*(?:Pro|Max|Ultra))?)/i);
+          if (appleMatch) {
+            return appleMatch[1];
+          }
+        }
+      } catch (e) {}
+    }
+
+    // Fallback based on core count
+    const year = new Date().getFullYear();
+    const isRecent = year >= 2023;
+
+    if (cores >= 20) {
+      return isRecent ? 'M3 Max' : 'M2 Ultra';
+    } else if (cores >= 16) {
+      return isRecent ? 'M3 Pro' : 'M2 Max';
+    } else if (cores >= 12) {
+      return 'M2 Pro';
+    } else if (cores >= 10) {
+      return 'M2';
+    } else if (cores >= 8) {
+      return 'M2';
+    }
+
+    return 'Apple Silicon';
   }
 
   function detectScreen() {
@@ -422,8 +769,28 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
       }
     }
 
-    // Check for integrated graphics
+    // Check detected GPU renderer
     const renderer = specs.detected.gpuRenderer.toLowerCase();
+    
+    // Try to match against known Apple Silicon models
+    if (renderer.includes('apple')) {
+      // Extract model from renderer string like "Apple M2"
+      const modelMatch = renderer.match(/apple\s*(m\d+(?:\s*(?:pro|max|ultra))?)/i);
+      if (modelMatch) {
+        const modelKey = modelMatch[1].toLowerCase().replace(/\s+/g, '-');
+        const gpuInfo = GPU_DATABASE[modelKey];
+        if (gpuInfo) {
+          return (gpuInfo.minScore + gpuInfo.maxScore) / 2;
+        }
+      }
+      
+      // Generic Apple Silicon score
+      if (renderer.includes('apple silicon')) {
+        return 60; // Base M1 level performance
+      }
+    }
+
+    // Check for integrated graphics
     if (renderer.includes('intel') && !renderer.includes('arc')) {
       return 10;
     }
@@ -628,84 +995,415 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
     }
   }
 
-  // Main execution
-  document.addEventListener('DOMContentLoaded', async () => {
-    // Start detection
-    updateDetectionStatus('Initializing hardware detection...');
+  // Function to update progress bar
+  function updateProgressBar(percent) {
+    const progressBar = document.getElementById('progress-bar');
+    progressBar.style.width = percent + '%';
+  }
+
+  // Function to show results
+  function showResults() {
+    // Calculate compatibility
+    const result = calculateCompatibility(systemSpecs);
     
+    // Show results
+    document.getElementById('results-phase').classList.remove('hidden');
+    
+    // Animate score
+    animateScore(result.score);
+    updateTierDisplay(result.tier);
+    
+    // Update components
+    updateComponentStatus('gpu', result.scores.gpu, systemSpecs);
+    updateComponentStatus('ram', result.scores.ram, systemSpecs);
+    updateComponentStatus('cpu', result.scores.cpu, systemSpecs);
+    updateComponentStatus('storage', result.scores.storage, systemSpecs);
+    
+    // Show recommendations
+    if (result.recommendations.length > 0) {
+      document.getElementById('recommendations').classList.remove('hidden');
+      const list = document.getElementById('recommendation-list');
+      list.innerHTML = result.recommendations
+        .map(rec => `<li class="flex items-start">
+          <svg class="w-4 h-4 text-amber-400 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+          <span>${rec}</span>
+        </li>`)
+        .join('');
+    }
+  }
+
+  // Helper function to show component detection
+  function showComponentDetection(componentId, value) {
+    const row = document.getElementById(`${componentId}-row`);
+    const spinner = document.getElementById(`${componentId}-spinner`);
+    const check = document.getElementById(`${componentId}-check`);
+    const valueSpan = document.getElementById(`detected-${componentId}`);
+    
+    // Activate row
+    row.classList.remove('opacity-30');
+    row.classList.add('opacity-100');
+    
+    // Show spinner if not already shown
+    if (spinner && spinner.classList.contains('hidden')) {
+      spinner.classList.remove('hidden');
+    }
+    
+    // Update value
+    valueSpan.textContent = 'Detecting...';
+    valueSpan.classList.remove('text-cyan-100/50');
+    valueSpan.classList.add('text-cyan-100/70');
+    
+    // After a short delay, show the result
     setTimeout(() => {
-      // Detect hardware
+      valueSpan.textContent = value;
+      valueSpan.classList.remove('text-cyan-100/70');
+      valueSpan.classList.add('text-cyan-100');
+      
+      // Hide spinner and show check
+      if (spinner) spinner.classList.add('hidden');
+      if (check) check.classList.remove('hidden');
+    }, 400);
+  }
+
+  // Function to start auto-detection
+  function startAutoDetection() {
+    // Hide choice phase and show detection phase
+    document.getElementById('choice-phase').classList.add('hidden');
+    document.getElementById('detection-phase').classList.remove('hidden');
+    
+    // Reset all rows to initial state
+    ['platform', 'gpu', 'cpu', 'display'].forEach(comp => {
+      const row = document.getElementById(`${comp}-row`);
+      const check = document.getElementById(`${comp}-check`);
+      const spinner = document.getElementById(`${comp}-spinner`);
+      const value = document.getElementById(`detected-${comp}`);
+      
+      row.classList.add('opacity-30');
+      row.classList.remove('opacity-100');
+      check.classList.add('hidden');
+      if (comp !== 'platform') spinner.classList.add('hidden');
+      value.textContent = 'Waiting...';
+      value.classList.add('text-cyan-100/50');
+      value.classList.remove('text-cyan-100');
+    });
+    
+    // Start detection with progress animation
+    updateDetectionStatus('Initializing hardware detection...');
+    updateProgressBar(10);
+    
+    // Detect platform first
+    setTimeout(() => {
+      updateProgressBar(25);
+      updateDetectionStatus('Detecting operating system...');
       systemSpecs.detected.platform = detectPlatform();
-      systemSpecs.detected.cpuCores = detectCPU();
-      systemSpecs.detected.screenResolution = detectScreen();
+      const platformName = systemSpecs.detected.platform.charAt(0).toUpperCase() + systemSpecs.detected.platform.slice(1);
+      showComponentDetection('platform', platformName);
+    }, 500);
+    
+    // Then GPU
+    setTimeout(() => {
+      updateProgressBar(50);
+      updateDetectionStatus('Analyzing graphics processor...');
+      document.getElementById('gpu-spinner').classList.remove('hidden');
       
       const gpuInfo = detectGPU();
       systemSpecs.detected.gpuRenderer = gpuInfo.renderer;
       systemSpecs.detected.webglVersion = gpuInfo.version;
+      showComponentDetection('gpu', systemSpecs.detected.gpuRenderer || 'Unknown');
+    }, 1200);
+    
+    // Then CPU
+    setTimeout(() => {
+      updateProgressBar(70);
+      updateDetectionStatus('Checking processor cores...');
+      document.getElementById('cpu-spinner').classList.remove('hidden');
       
-      // Update UI
+      systemSpecs.detected.cpuCores = detectCPU();
+      showComponentDetection('cpu', `${systemSpecs.detected.cpuCores} cores`);
+    }, 2000);
+    
+    // Finally display
+    setTimeout(() => {
+      updateProgressBar(90);
+      updateDetectionStatus('Reading display information...');
+      document.getElementById('display-spinner').classList.remove('hidden');
+      
+      systemSpecs.detected.screenResolution = detectScreen();
+      showComponentDetection('display', 
+        `${systemSpecs.detected.screenResolution.width} × ${systemSpecs.detected.screenResolution.height}`);
+    }, 2800);
+    
+    // Complete detection
+    setTimeout(() => {
+      updateProgressBar(100);
       updateDetectionStatus('Detection complete!');
       
-      document.getElementById('detected-platform').textContent = 
-        systemSpecs.detected.platform.charAt(0).toUpperCase() + systemSpecs.detected.platform.slice(1);
-      document.getElementById('detected-gpu').textContent = 
-        systemSpecs.detected.gpuRenderer || 'Unknown';
-      document.getElementById('detected-cpu').textContent = 
-        `${systemSpecs.detected.cpuCores} cores`;
-      document.getElementById('detected-display').textContent = 
-        `${systemSpecs.detected.screenResolution.width} × ${systemSpecs.detected.screenResolution.height}`;
-      
-      // Show input phase
+      // Small delay before processing results
       setTimeout(() => {
-        document.getElementById('detection-phase').classList.add('hidden');
-        document.getElementById('input-phase').classList.remove('hidden');
-      }, 1500);
-    }, 1000);
+      
+      // Check if we detected enough information to skip manual input
+      const hasGPUInfo = systemSpecs.detected.gpuRenderer && 
+                        systemSpecs.detected.gpuRenderer !== 'Unknown' &&
+                        systemSpecs.detected.gpuRenderer !== 'Unknown GPU';
+      
+      const isAppleSilicon = systemSpecs.detected.gpuRenderer.toLowerCase().includes('apple');
+      
+      if (hasGPUInfo && isAppleSilicon) {
+        // For Apple Silicon, we can estimate RAM based on the model
+        const renderer = systemSpecs.detected.gpuRenderer.toLowerCase();
+        let estimatedRAM = 16; // Default
+        
+        if (renderer.includes('max') || renderer.includes('ultra')) {
+          estimatedRAM = 32; // M1/M2/M3 Max typically have 32GB+
+        } else if (renderer.includes('pro')) {
+          estimatedRAM = 16; // M1/M2/M3 Pro typically have 16GB+
+        } else {
+          estimatedRAM = 8; // Base models typically have 8GB+
+        }
+        
+        // Set defaults for Apple Silicon
+        systemSpecs.userProvided.systemRAM = estimatedRAM;
+        systemSpecs.userProvided.storageAvailable = 200; // Reasonable default
+        
+        // Map detected GPU to our database
+        const modelMatch = renderer.match(/apple\s*(m\d+(?:\s*(?:pro|max|ultra))?)/i);
+        if (modelMatch) {
+          const modelKey = modelMatch[1].toLowerCase().replace(/\s+/g, '-');
+          if (GPU_DATABASE[modelKey]) {
+            systemSpecs.userProvided.gpuModel = modelKey;
+          }
+        }
+        
+        // Skip to results
+        setTimeout(() => {
+          document.getElementById('detection-phase').classList.add('hidden');
+          
+          // Show auto-detection notice
+          const notice = document.getElementById('auto-detect-notice');
+          const info = document.getElementById('detected-info');
+          notice.classList.remove('hidden');
+          info.textContent = `We detected your ${systemSpecs.detected.gpuRenderer} with ${systemSpecs.userProvided.systemRAM}GB RAM (estimated).`;
+          
+          showResults();
+        }, 1500);
+      } else {
+        // Show input phase for manual entry
+        setTimeout(() => {
+          document.getElementById('detection-phase').classList.add('hidden');
+          document.getElementById('input-phase').classList.remove('hidden');
+        }, 1500);
+      }
+      }, 500);
+    }, 3600);
+  }
+  
+  // Main execution
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Handle auto-detect button
+    document.getElementById('auto-detect-button').addEventListener('click', () => {
+      startAutoDetection();
+    });
+    
+    // Handle manual input button
+    document.getElementById('manual-input-button').addEventListener('click', () => {
+      // Hide choice phase and show input phase directly
+      document.getElementById('choice-phase').classList.add('hidden');
+      document.getElementById('input-phase').classList.remove('hidden');
+    });
+    
+    // Handle OS selection and CPU options
+    const osSelect = document.getElementById('os-select');
+    const cpuModelSelect = document.getElementById('cpu-model');
+    const gpuBrandSelect = document.getElementById('gpu-brand');
+    const gpuModelSelect = document.getElementById('gpu-model');
+    
+    if (osSelect && cpuModelSelect) {
+      osSelect.addEventListener('change', (e) => {
+        const osValue = e.target.value;
+        
+        // Clear CPU options
+        cpuModelSelect.innerHTML = '<option value="">Select CPU...</option>';
+        
+        if (!osValue) {
+          return;
+        }
+        
+        // Determine OS type
+        let osType = 'windows';
+        if (osValue.includes('macos')) {
+          osType = 'mac';
+        } else if (osValue === 'linux') {
+          osType = 'linux';
+        }
+        
+        // Populate CPU options based on OS
+        const cpuOptions = CPU_OPTIONS_BY_OS[osType];
+        if (cpuOptions) {
+          cpuOptions.forEach(group => {
+            const optgroup = document.createElement('optgroup');
+            optgroup.label = group.group;
+            
+            group.options.forEach(option => {
+              const opt = document.createElement('option');
+              opt.value = option.value;
+              opt.textContent = option.text;
+              optgroup.appendChild(opt);
+            });
+            
+            cpuModelSelect.appendChild(optgroup);
+          });
+        }
+        
+        // Add "Other" option
+        const otherOption = document.createElement('option');
+        otherOption.value = 'other';
+        otherOption.textContent = 'Other/Older CPU';
+        cpuModelSelect.appendChild(otherOption);
+        
+        // Handle macOS GPU auto-selection
+        if (osType === 'mac') {
+          // Check if an Apple Silicon CPU will be selected
+          cpuModelSelect.addEventListener('change', function handleCPUChange(e) {
+            const cpuValue = e.target.value;
+            if (cpuValue && cpuValue.startsWith('m')) {
+              // It's Apple Silicon - auto-select Apple GPU
+              gpuBrandSelect.value = 'apple';
+              gpuBrandSelect.dispatchEvent(new Event('change'));
+              
+              // After GPU models load, select the matching GPU
+              setTimeout(() => {
+                if (gpuModelSelect) {
+                  gpuModelSelect.value = cpuValue; // CPU and GPU values match for Apple Silicon
+                }
+              }, 100);
+            }
+            
+            // Remove this listener after first use
+            cpuModelSelect.removeEventListener('change', handleCPUChange);
+          });
+        }
+      });
+    }
+    
+    // Handle GPU brand selection
+    if (gpuBrandSelect && gpuModelSelect) {
+      gpuBrandSelect.addEventListener('change', (e) => {
+        const brand = e.target.value;
+        
+        // Clear current options
+        gpuModelSelect.innerHTML = '';
+        
+        if (!brand) {
+          gpuModelSelect.innerHTML = '<option value="">Select brand first...</option>';
+          gpuModelSelect.disabled = true;
+          return;
+        }
+        
+        // Enable the model select
+        gpuModelSelect.disabled = false;
+        
+        // Add default option
+        gpuModelSelect.innerHTML = '<option value="">Select model...</option>';
+        
+        // Add models for selected brand
+        const brandModels = GPU_MODELS_BY_BRAND[brand];
+        if (brandModels) {
+          Object.entries(brandModels).forEach(([series, models]) => {
+            const optgroup = document.createElement('optgroup');
+            optgroup.label = series;
+            
+            models.forEach(model => {
+              const option = document.createElement('option');
+              option.value = model.value;
+              option.textContent = model.text;
+              optgroup.appendChild(option);
+            });
+            
+            gpuModelSelect.appendChild(optgroup);
+          });
+        }
+        
+        // Add "Other" option
+        const otherOption = document.createElement('option');
+        otherOption.value = 'other';
+        otherOption.textContent = 'Other/Not Listed';
+        gpuModelSelect.appendChild(otherOption);
+      });
+    }
+    
+    // Handle switch to auto-detection
+    const switchToAutoBtn = document.getElementById('switch-to-auto');
+    if (switchToAutoBtn) {
+      switchToAutoBtn.addEventListener('click', () => {
+        // Hide input phase and go back to choice or start auto-detection
+        document.getElementById('input-phase').classList.add('hidden');
+        startAutoDetection();
+      });
+    }
     
     // Handle form submission
     document.getElementById('specs-form').addEventListener('submit', (e) => {
       e.preventDefault();
       
       // Get form values
+      const osSelect = document.getElementById('os-select').value;
+      if (osSelect) {
+        // Map OS selection to platform
+        if (osSelect.includes('windows')) {
+          systemSpecs.detected.platform = 'windows';
+        } else if (osSelect.includes('macos')) {
+          systemSpecs.detected.platform = 'mac';
+        } else if (osSelect.includes('linux')) {
+          systemSpecs.detected.platform = 'linux';
+        }
+      }
+      
+      const cpuModel = document.getElementById('cpu-model').value;
+      if (cpuModel && CPU_CORES_MAP[cpuModel]) {
+        systemSpecs.detected.cpuCores = CPU_CORES_MAP[cpuModel];
+      }
+      
       systemSpecs.userProvided.gpuModel = document.getElementById('gpu-model').value || undefined;
       systemSpecs.userProvided.systemRAM = parseInt(document.getElementById('system-ram').value) || 0;
       systemSpecs.userProvided.storageAvailable = parseInt(document.getElementById('storage').value) || 0;
       
-      // Calculate compatibility
-      const result = calculateCompatibility(systemSpecs);
-      
-      // Show results
+      // Hide input phase and show results
       document.getElementById('input-phase').classList.add('hidden');
-      document.getElementById('results-phase').classList.remove('hidden');
-      
-      // Animate score
-      animateScore(result.score);
-      updateTierDisplay(result.tier);
-      
-      // Update components
-      updateComponentStatus('gpu', result.scores.gpu, systemSpecs);
-      updateComponentStatus('ram', result.scores.ram, systemSpecs);
-      updateComponentStatus('cpu', result.scores.cpu, systemSpecs);
-      updateComponentStatus('storage', result.scores.storage, systemSpecs);
-      
-      // Show recommendations
-      if (result.recommendations.length > 0) {
-        document.getElementById('recommendations').classList.remove('hidden');
-        const list = document.getElementById('recommendation-list');
-        list.innerHTML = result.recommendations
-          .map(rec => `<li class="flex items-start">
-            <svg class="w-4 h-4 text-amber-400 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-            <span>${rec}</span>
-          </li>`)
-          .join('');
-      }
+      showResults();
     });
     
     // Handle recheck
     document.getElementById('recheck-button').addEventListener('click', () => {
-      location.reload();
+      // Reset everything and go back to choice screen
+      document.getElementById('results-phase').classList.add('hidden');
+      document.getElementById('detection-phase').classList.add('hidden');
+      document.getElementById('input-phase').classList.add('hidden');
+      document.getElementById('choice-phase').classList.remove('hidden');
+      document.getElementById('auto-detect-notice').classList.add('hidden');
+      
+      // Reset system specs
+      systemSpecs = {
+        detected: {
+          platform: 'unknown',
+          gpuRenderer: '',
+          webglVersion: 0,
+          cpuCores: 0,
+          screenResolution: { width: 0, height: 0 }
+        },
+        userProvided: {}
+      };
+      
+      // Reset form
+      document.getElementById('specs-form').reset();
+      
+      // Reset GPU model dropdown
+      const gpuModelSelect = document.getElementById('gpu-model');
+      if (gpuModelSelect) {
+        gpuModelSelect.innerHTML = '<option value="">Select brand first...</option>';
+        gpuModelSelect.disabled = true;
+      }
     });
   });
 </script>
