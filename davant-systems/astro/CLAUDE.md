@@ -92,6 +92,7 @@ Five core animations: pulse, float, shine, bounce, and sparkle. Used strategical
 - `/photobooth` - Magic Mirror product with neon text effects
 - `/training` - Workshops and training programs
 - `/articles` - Content collection system
+- `/compatibility-checker` - Hardware compatibility checker for Davant Studio
 
 ## Project Structure
 
@@ -127,6 +128,9 @@ davant-systems/
 
 ## Recent Changes
 
+- Implemented hardware compatibility checker with WebGL detection and scoring system
+- Redesigned Davant Studio requirements section with professional card layout
+- Added system compatibility CTA linking to new checker tool
 - Transformed ambassadors page from placeholder to full program showcase
 - Implemented custom animated SVG icon system
 - Added Zoho form integration with tabbed interface
