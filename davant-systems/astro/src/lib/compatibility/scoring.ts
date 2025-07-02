@@ -2,10 +2,9 @@ import type { SystemSpecs, CompatibilityResult, CompatibilityTier } from './type
 import { GPU_DATABASE, REQUIREMENTS, findGPUByRenderer } from './gpu-database';
 
 const COMPONENT_WEIGHTS = {
-  gpu: 0.4,    // 40% - Most critical for AI generation
-  ram: 0.25,   // 25% - Important for model loading
+  gpu: 0.5,    // 50% - Most critical for AI generation
+  ram: 0.3,    // 30% - Important for model loading
   cpu: 0.2,    // 20% - Processing and general performance
-  storage: 0.15 // 15% - Space for models and output
 };
 
 export function calculateCompatibility(specs: SystemSpecs): CompatibilityResult {
@@ -13,15 +12,13 @@ export function calculateCompatibility(specs: SystemSpecs): CompatibilityResult 
     gpu: calculateGPUScore(specs),
     ram: calculateRAMScore(specs),
     cpu: calculateCPUScore(specs),
-    storage: calculateStorageScore(specs),
   };
 
   // Calculate weighted overall score
   const overallScore = Math.round(
     scores.gpu * COMPONENT_WEIGHTS.gpu +
     scores.ram * COMPONENT_WEIGHTS.ram +
-    scores.cpu * COMPONENT_WEIGHTS.cpu +
-    scores.storage * COMPONENT_WEIGHTS.storage
+    scores.cpu * COMPONENT_WEIGHTS.cpu
   );
 
   // Determine tier based on overall score and individual components
@@ -36,7 +33,7 @@ export function calculateCompatibility(specs: SystemSpecs): CompatibilityResult 
     tier,
     bottlenecks,
     recommendations,
-    componentScores: scores,
+    componentScores: scores as any, // Type assertion needed since we removed storage
   };
 }
 
@@ -93,24 +90,10 @@ function calculateCPUScore(specs: SystemSpecs): number {
   return Math.max(0, (cores / minimum) * 50);
 }
 
-function calculateStorageScore(specs: SystemSpecs): number {
-  const storage = specs.userProvided.storageAvailable || 0;
-  
-  if (storage === 0) return 0; // No storage info provided
-  
-  const { minimum, recommended, optimal } = REQUIREMENTS.storage;
-  
-  if (storage >= optimal) return 100;
-  if (storage >= recommended) return 80 + ((storage - recommended) / (optimal - recommended)) * 20;
-  if (storage >= minimum) return 50 + ((storage - minimum) / (recommended - minimum)) * 30;
-  
-  // Below minimum
-  return Math.max(0, (storage / minimum) * 50);
-}
 
 function determineTier(
   overallScore: number, 
-  scores: { gpu: number; ram: number; cpu: number; storage: number }
+  scores: { gpu: number; ram: number; cpu: number }
 ): CompatibilityTier {
   // If any critical component is too low, downgrade tier
   const minScore = Math.min(scores.gpu, scores.ram);
@@ -131,7 +114,7 @@ function determineTier(
 }
 
 function identifyBottlenecks(
-  scores: { gpu: number; ram: number; cpu: number; storage: number },
+  scores: { gpu: number; ram: number; cpu: number },
   specs: SystemSpecs
 ): string[] {
   const bottlenecks: string[] = [];
@@ -152,10 +135,6 @@ function identifyBottlenecks(
     bottlenecks.push('CPU may struggle with preprocessing tasks');
   }
   
-  if (scores.storage < 50) {
-    bottlenecks.push('Limited storage space for models and generated content');
-  }
-  
   // Check for specific issues
   if (specs.detected.webglVersion < 2) {
     bottlenecks.push('WebGL 2.0 not supported - may affect preview performance');
@@ -165,7 +144,7 @@ function identifyBottlenecks(
 }
 
 function generateRecommendations(
-  scores: { gpu: number; ram: number; cpu: number; storage: number },
+  scores: { gpu: number; ram: number; cpu: number },
   specs: SystemSpecs,
   bottlenecks: string[]
 ): string[] {
@@ -187,10 +166,8 @@ function generateRecommendations(
     recommendations.push(`Consider upgrading to ${REQUIREMENTS.ram.recommended}GB RAM for better multitasking`);
   }
   
-  // Storage recommendations
-  if (scores.storage < 70 && specs.userProvided.storageAvailable) {
-    recommendations.push(`Free up space or upgrade storage - ${REQUIREMENTS.storage.recommended}GB recommended`);
-  }
+  // Storage recommendation (always show)
+  recommendations.push('Note: We recommend at least 40GB of free storage for Stable Diffusion models');
   
   // Platform-specific recommendations
   if (specs.detected.platform === 'mac' && scores.gpu < 70) {
