@@ -12,21 +12,20 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
     <section class="relative overflow-hidden">
       <!-- Background effect -->
       <div class="absolute inset-0 -z-10">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-0 rounded-full left-1/4 w-96 h-96 bg-purple-600/10 blur-3xl"></div>
+        <div class="absolute bottom-0 rounded-full right-1/4 w-96 h-96 bg-pink-600/10 blur-3xl"></div>
       </div>
 
-      <div class="container max-w-6xl mx-auto px-6 py-20">
+      <div class="container max-w-6xl px-6 py-20 mx-auto">
         <!-- Header -->
-        <div class="text-center mb-16">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        <div class="mb-10 text-center">
+          <h1 class="mb-4 text-3xl font-bold md:text-4xl">
             <span class="text-transparent bg-gradient-to-r from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">
               System Compatibility Checker
             </span>
           </h1>
-          <p class="text-xl text-cyan-100/80 max-w-3xl mx-auto mb-8">
-            Check if your system is ready for Davant Studio's AI-powered creative tools.
-            Test your current device or enter specs for any system you're considering.
+          <p id="intro-description" class="max-w-2xl mx-auto mb-6 text-lg text-cyan-100/80">
+            Check if your computer can run Davant Studio's AI tools.
           </p>
         </div>
 
@@ -35,20 +34,20 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
           <!-- Initial Choice Phase -->
           <div id="choice-phase" class="mb-12">
             <!-- Big GO Button Container -->
-            <div class="text-center mb-12">
+            <div class="mb-12 text-center">
               <div class="relative inline-block">
                 <!-- Glow effect -->
-                <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-2xl opacity-50 animate-pulse"></div>
+                <div class="absolute inset-0 rounded-full opacity-50 bg-gradient-to-r from-purple-500 to-pink-500 blur-2xl animate-pulse"></div>
                 
                 <!-- Main GO button -->
                 <button id="auto-detect-button" 
-                  class="relative w-48 h-48 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold text-3xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 group">
+                  class="relative w-48 h-48 text-3xl font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 group">
                   <span class="block transition-all duration-300 group-hover:scale-110">GO</span>
-                  <span class="block text-sm font-normal mt-1 opacity-80">Start Scan</span>
+                  <span class="block mt-1 text-sm font-normal opacity-80">Start Scan</span>
                 </button>
               </div>
               
-              <p class="text-lg text-cyan-100/60 mt-8">
+              <p class="mt-8 text-lg text-cyan-100/60">
                 Click to analyze your current system
               </p>
             </div>
@@ -63,14 +62,29 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
           </div>
 
           <!-- Detection Phase -->
-          <div id="detection-phase" class="mb-12 hidden">
-            <div class="relative border rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border-purple-800/30 p-8">
-              <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-                Detecting Your System
-              </h2>
+          <div id="detection-phase" class="hidden mb-12">
+            <div class="relative p-8 border rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border-purple-800/30">
+              <!-- Header with Legend -->
+              <div class="flex items-start justify-between mb-6">
+                <h2 class="flex items-center gap-3 text-2xl font-bold text-white">
+                  <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  Detecting Your System
+                </h2>
+                
+                <!-- Detection Legend - Top Right -->
+                <div class="p-3 border rounded-lg bg-purple-900/20 border-purple-800/20">
+                  <div class="flex items-center gap-4 text-xs">
+                    <span class="text-purple-300 font-medium">Confidence:</span>
+                    <div class="flex gap-3 text-cyan-100/70">
+                      <span><span class="text-green-400">✓</span> High</span>
+                      <span><span class="text-yellow-400">~</span> Medium</span>
+                      <span>○ Low</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
               
               <!-- Progress indicator -->
               <div class="mb-6">
@@ -78,27 +92,17 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                   <span class="text-sm text-cyan-100/70" id="detection-status">Analyzing hardware...</span>
                   <span class="text-xs text-purple-300">Scanning...</span>
                 </div>
-                <div class="relative h-3 bg-purple-900/30 rounded-full overflow-hidden">
-                  <div id="progress-bar" class="absolute inset-y-0 left-0 w-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500"></div>
+                <div class="relative h-3 overflow-hidden rounded-full bg-purple-900/30">
+                  <div id="progress-bar" class="absolute inset-y-0 left-0 w-0 transition-all duration-500 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
                   <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 animate-pulse"></div>
-                </div>
-              </div>
-
-              <!-- Detection Legend -->
-              <div class="mb-6 p-3 bg-purple-900/20 rounded-lg border border-purple-800/20">
-                <div class="text-xs text-purple-300 font-medium mb-2">Detection Confidence:</div>
-                <div class="flex gap-4 text-xs">
-                  <span class="text-cyan-100/70"><span class="text-green-400">✓</span> High confidence</span>
-                  <span class="text-cyan-100/70"><span class="text-yellow-400">~</span> Medium confidence</span>
-                  <span class="text-cyan-100/70">No symbol = Low confidence</span>
                 </div>
               </div>
 
               <!-- Detected Specs -->
               <div id="detected-specs" class="space-y-4">
-                <div id="platform-row" class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20 opacity-30 transition-opacity duration-300">
+                <div id="platform-row" class="p-4 transition-opacity duration-300 border rounded-lg bg-purple-900/10 border-purple-800/20 opacity-30">
                   <div class="flex items-center justify-between">
-                    <span class="text-sm font-medium text-purple-300 flex items-center gap-2">
+                    <span class="flex items-center gap-2 text-sm font-medium text-purple-300">
                       <span id="platform-check" class="hidden">
                         <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -115,9 +119,9 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                     <span id="detected-platform" class="text-sm text-cyan-100/50">Waiting...</span>
                   </div>
                 </div>
-                <div id="gpu-row" class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20 opacity-30 transition-opacity duration-300">
+                <div id="gpu-row" class="p-4 transition-opacity duration-300 border rounded-lg bg-purple-900/10 border-purple-800/20 opacity-30">
                   <div class="flex items-center justify-between">
-                    <span class="text-sm font-medium text-purple-300 flex items-center gap-2">
+                    <span class="flex items-center gap-2 text-sm font-medium text-purple-300">
                       <span id="gpu-check" class="hidden">
                         <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -134,9 +138,9 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                     <span id="detected-gpu" class="text-sm text-cyan-100/50">Waiting...</span>
                   </div>
                 </div>
-                <div id="cpu-row" class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20 opacity-30 transition-opacity duration-300">
+                <div id="cpu-row" class="p-4 transition-opacity duration-300 border rounded-lg bg-purple-900/10 border-purple-800/20 opacity-30">
                   <div class="flex items-center justify-between">
-                    <span class="text-sm font-medium text-purple-300 flex items-center gap-2">
+                    <span class="flex items-center gap-2 text-sm font-medium text-purple-300">
                       <span id="cpu-check" class="hidden">
                         <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -153,9 +157,9 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                     <span id="detected-cpu" class="text-sm text-cyan-100/50">Waiting...</span>
                   </div>
                 </div>
-                <div id="display-row" class="p-4 bg-purple-900/10 rounded-lg border border-purple-800/20 opacity-30 transition-opacity duration-300">
+                <div id="display-row" class="p-4 transition-opacity duration-300 border rounded-lg bg-purple-900/10 border-purple-800/20 opacity-30">
                   <div class="flex items-center justify-between">
-                    <span class="text-sm font-medium text-purple-300 flex items-center gap-2">
+                    <span class="flex items-center gap-2 text-sm font-medium text-purple-300">
                       <span id="display-check" class="hidden">
                         <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -177,32 +181,32 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
           </div>
 
           <!-- User Input Phase -->
-          <div id="input-phase" class="mb-12 hidden">
-            <div class="relative border rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border-purple-800/30 p-8">
-              <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <div id="input-phase" class="hidden mb-12">
+            <div class="relative p-8 border rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border-purple-800/30">
+              <h2 class="flex items-center gap-3 mb-6 text-2xl font-bold text-white">
                 <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                 </svg>
                 Enter System Information
               </h2>
-              <p class="text-cyan-100/70 mb-4">
+              <p class="mb-4 text-cyan-100/70">
                 Please provide your system specifications to check compatibility with Davant Studio.
               </p>
               
               <!-- Auto-scan option -->
               <div class="mb-6 text-center">
                 <button type="button" id="switch-to-auto" 
-                  class="text-sm text-purple-300/80 hover:text-purple-300 underline underline-offset-4 transition-colors duration-200">
+                  class="text-sm underline transition-colors duration-200 text-purple-300/80 hover:text-purple-300 underline-offset-4">
                   Try auto-detection instead
                 </button>
               </div>
 
               <form id="specs-form" class="space-y-6">
                 <!-- Two column grid for compact layout -->
-                <div class="grid md:grid-cols-2 gap-4">
+                <div class="grid gap-4 md:grid-cols-2">
                   <!-- Operating System -->
                   <div>
-                    <label for="os-select" class="block text-sm font-medium text-purple-300 mb-2">
+                    <label for="os-select" class="block mb-2 text-sm font-medium text-purple-300">
                       Operating System
                     </label>
                     <select id="os-select" 
@@ -219,7 +223,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
 
                   <!-- CPU Model -->
                   <div>
-                    <label for="cpu-model" class="block text-sm font-medium text-purple-300 mb-2">
+                    <label for="cpu-model" class="block mb-2 text-sm font-medium text-purple-300">
                       Processor (CPU)
                     </label>
                     <select id="cpu-model" 
@@ -230,10 +234,10 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                 </div>
 
                 <!-- GPU Brand and Model in two columns -->
-                <div class="grid md:grid-cols-2 gap-4">
+                <div class="grid gap-4 md:grid-cols-2">
                   <!-- GPU Brand -->
                   <div>
-                    <label for="gpu-brand" class="block text-sm font-medium text-purple-300 mb-2">
+                    <label for="gpu-brand" class="block mb-2 text-sm font-medium text-purple-300">
                       Graphics Card Brand
                     </label>
                     <select id="gpu-brand" 
@@ -248,7 +252,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
 
                   <!-- GPU Model -->
                   <div>
-                    <label for="gpu-model" class="block text-sm font-medium text-purple-300 mb-2">
+                    <label for="gpu-model" class="block mb-2 text-sm font-medium text-purple-300">
                       Graphics Card Model
                     </label>
                     <select id="gpu-model" 
@@ -260,7 +264,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
 
                 <!-- System RAM -->
                 <div>
-                  <label for="system-ram" class="block text-sm font-medium text-purple-300 mb-2">
+                  <label for="system-ram" class="block mb-2 text-sm font-medium text-purple-300">
                     Memory (RAM)
                   </label>
                   <select id="system-ram" 
@@ -278,7 +282,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
 
                 <!-- Submit Button -->
                 <button type="submit" 
-                  class="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 mt-2">
+                  class="w-full px-6 py-3 mt-2 font-semibold text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:shadow-lg hover:shadow-purple-500/20">
                   Check Compatibility
                 </button>
               </form>
@@ -288,40 +292,30 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
 
           <!-- Results Phase -->
           <div id="results-phase" class="hidden">
-            <!-- Auto-detection notice -->
-            <div id="auto-detect-notice" class="mb-8 p-4 bg-green-500/10 border border-green-500/30 rounded-lg hidden">
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <p class="text-sm text-green-300">
-                  <span class="font-medium">Auto-detection successful!</span> 
-                  <span id="detected-info" class="text-cyan-100/70"></span>
-                </p>
-              </div>
-            </div>
-            
-            <!-- Compatibility Score -->
-            <div class="text-center mb-12">
-              <div class="relative inline-block">
-                <!-- Glow effect for score -->
-                <div class="absolute inset-0 w-48 h-48 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-xl opacity-30"></div>
-                <div class="w-48 h-48 relative">
+            <!-- Compatibility Results -->
+            <div class="flex flex-col items-center justify-center gap-8 mb-10 lg:flex-row">
+              <!-- Score Circle -->
+              <div class="relative flex-shrink-0">
+                <!-- Glow effect -->
+                <div class="absolute inset-0 w-40 h-40 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 blur-xl opacity-30"></div>
+                
+                <!-- Score Circle -->
+                <div class="relative w-40 h-40">
                   <!-- Background circle -->
                   <svg class="w-full h-full transform -rotate-90">
-                    <circle cx="96" cy="96" r="88" 
+                    <circle cx="80" cy="80" r="72" 
                       stroke="currentColor" 
-                      stroke-width="12" 
+                      stroke-width="10" 
                       fill="none" 
                       class="text-purple-900/30"></circle>
                     <!-- Progress circle -->
                     <circle id="score-circle" 
-                      cx="96" cy="96" r="88" 
+                      cx="80" cy="80" r="72" 
                       stroke="url(#gradient)" 
-                      stroke-width="12" 
+                      stroke-width="10" 
                       fill="none"
-                      stroke-dasharray="553"
-                      stroke-dashoffset="553"
+                      stroke-dasharray="452"
+                      stroke-dashoffset="452"
                       class="transition-all duration-1000"></circle>
                     <defs>
                       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -330,19 +324,39 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
                       </linearGradient>
                     </defs>
                   </svg>
-                  <!-- Score text -->
+                  
+                  <!-- Score in center -->
                   <div class="absolute inset-0 flex flex-col items-center justify-center">
-                    <span id="score-value" class="text-6xl font-bold text-white">0</span>
-                    <span class="text-sm text-purple-300 uppercase tracking-wider">Score</span>
+                    <span id="score-value" class="mb-1 text-4xl font-bold text-white">0</span>
+                    <span class="text-xs tracking-wider text-purple-300 uppercase">Score</span>
                   </div>
                 </div>
               </div>
-              <h2 id="compatibility-tier" class="text-3xl font-bold mt-6 text-white">Checking...</h2>
-              <p id="compatibility-message" class="text-lg text-cyan-100/70 mt-2"></p>
+              
+              <!-- Status & Message -->
+              <div class="flex-1 max-w-lg text-center lg:text-left">
+                <!-- Status Icon & Answer -->
+                <div class="flex items-center justify-center gap-3 mb-3 lg:justify-start">
+                  <svg id="success-icon" class="flex-shrink-0 hidden w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <svg id="warning-icon" class="flex-shrink-0 hidden w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-1.732-.833-2.5 0L4.268 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                  </svg>
+                  <svg id="error-icon" class="flex-shrink-0 hidden w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  
+                  <h2 id="compatibility-answer" class="text-lg font-bold text-white md:text-xl">Checking your system...</h2>
+                </div>
+                
+                <!-- Explanation -->
+                <p id="compatibility-explanation" class="text-base leading-relaxed text-cyan-100/80"></p>
+              </div>
             </div>
 
             <!-- Operating System Info -->
-            <div class="mb-8 p-4 bg-purple-900/20 border border-purple-800/30 rounded-lg">
+            <div class="p-4 mb-8 border rounded-lg bg-purple-900/20 border-purple-800/30">
               <div class="flex items-center gap-3">
                 <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -355,51 +369,51 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
             </div>
 
             <!-- Component Breakdown -->
-            <div class="grid gap-6 md:grid-cols-3 mb-12">
+            <div class="grid gap-6 mb-12 md:grid-cols-3">
               <!-- GPU Status -->
-              <div class="p-6 bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-800/30 rounded-xl">
+              <div class="p-6 border bg-gradient-to-br from-purple-900/20 to-transparent border-purple-800/30 rounded-xl">
                 <div class="flex items-start justify-between mb-4">
                   <div class="flex items-center gap-3">
-                    <div class="p-2 bg-purple-500/20 rounded-lg">
+                    <div class="p-2 rounded-lg bg-purple-500/20">
                       <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
                       </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-white">Graphics Card</h3>
                   </div>
-                  <span id="gpu-status" class="text-xs px-2 py-1 rounded"></span>
+                  <span id="gpu-status" class="px-2 py-1 text-xs rounded"></span>
                 </div>
                 <p id="gpu-details" class="text-sm text-cyan-100/70"></p>
               </div>
 
               <!-- RAM Status -->
-              <div class="p-6 bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-800/30 rounded-xl">
+              <div class="p-6 border bg-gradient-to-br from-purple-900/20 to-transparent border-purple-800/30 rounded-xl">
                 <div class="flex items-start justify-between mb-4">
                   <div class="flex items-center gap-3">
-                    <div class="p-2 bg-purple-500/20 rounded-lg">
+                    <div class="p-2 rounded-lg bg-purple-500/20">
                       <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                       </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-white">Memory (RAM)</h3>
                   </div>
-                  <span id="ram-status" class="text-xs px-2 py-1 rounded"></span>
+                  <span id="ram-status" class="px-2 py-1 text-xs rounded"></span>
                 </div>
                 <p id="ram-details" class="text-sm text-cyan-100/70"></p>
               </div>
 
               <!-- CPU Status -->
-              <div class="p-6 bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-800/30 rounded-xl">
+              <div class="p-6 border bg-gradient-to-br from-purple-900/20 to-transparent border-purple-800/30 rounded-xl">
                 <div class="flex items-start justify-between mb-4">
                   <div class="flex items-center gap-3">
-                    <div class="p-2 bg-purple-500/20 rounded-lg">
+                    <div class="p-2 rounded-lg bg-purple-500/20">
                       <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
                       </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-white">Processor</h3>
                   </div>
-                  <span id="cpu-status" class="text-xs px-2 py-1 rounded"></span>
+                  <span id="cpu-status" class="px-2 py-1 text-xs rounded"></span>
                 </div>
                 <p id="cpu-details" class="text-sm text-cyan-100/70"></p>
               </div>
@@ -407,8 +421,8 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
 
             <!-- Recommendations -->
             <div id="recommendations" class="hidden">
-              <div class="p-6 bg-gradient-to-br from-amber-900/20 to-transparent border border-amber-800/30 rounded-xl">
-                <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+              <div class="p-6 border bg-gradient-to-br from-amber-900/20 to-transparent border-amber-800/30 rounded-xl">
+                <h3 class="flex items-center gap-2 mb-4 text-xl font-semibold text-white">
                   <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
@@ -420,16 +434,16 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
             </div>
 
             <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 mt-8">
+            <div class="flex flex-col gap-4 mt-8 sm:flex-row">
               <button id="recheck-button" 
-                class="flex-1 px-6 py-3 border border-purple-800/50 text-purple-300 rounded-lg hover:bg-purple-800/20 transition-all duration-300 flex items-center justify-center gap-2">
+                class="flex items-center justify-center flex-1 gap-2 px-6 py-3 text-purple-300 transition-all duration-300 border rounded-lg border-purple-800/50 hover:bg-purple-800/20">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
                 Check Another System
               </button>
               <a href="/davant-studio/#signup" 
-                class="flex-1 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg text-center transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+                class="flex-1 px-6 py-3 font-semibold text-center text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:shadow-lg hover:shadow-purple-500/20">
                 Get Davant Studio
               </a>
             </div>
@@ -1296,7 +1310,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
   function animateScore(targetScore) {
     const scoreElement = document.getElementById('score-value');
     const circle = document.getElementById('score-circle');
-    const circumference = 2 * Math.PI * 88;
+    const circumference = 2 * Math.PI * 72; // Updated for new radius
     
     let currentScore = 0;
     const increment = targetScore / 50;
@@ -1315,36 +1329,57 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
   }
 
   function updateTierDisplay(tier) {
-    const tierElement = document.getElementById('compatibility-tier');
-    const messageElement = document.getElementById('compatibility-message');
+    const answerElement = document.getElementById('compatibility-answer');
+    const explanationElement = document.getElementById('compatibility-explanation');
+    const successIcon = document.getElementById('success-icon');
+    const warningIcon = document.getElementById('warning-icon');
+    const errorIcon = document.getElementById('error-icon');
+    
+    // Hide all icons
+    successIcon.classList.add('hidden');
+    warningIcon.classList.add('hidden');
+    errorIcon.classList.add('hidden');
     
     const tierMessages = {
       optimal: {
-        title: 'Optimal Performance',
-        message: 'Your system will deliver exceptional AI generation performance!',
-        class: 'text-emerald-400'
+        answer: 'Your computer will run Davant Studio excellently',
+        explanation: 'You\'ll enjoy fast AI generation with all features available.',
+        icon: 'success',
+        answerClass: 'text-emerald-400'
       },
       recommended: {
-        title: 'Recommended Specs',
-        message: 'Your system meets recommended requirements for smooth operation.',
-        class: 'text-cyan-400'
+        answer: 'Your computer can run Davant Studio well',
+        explanation: 'You\'ll have smooth performance with most features working great.',
+        icon: 'success',
+        answerClass: 'text-emerald-400'
       },
       minimum: {
-        title: 'Minimum Requirements',
-        message: 'Your system meets minimum requirements. Some features may be limited.',
-        class: 'text-amber-400'
+        answer: 'Your computer can run Davant Studio',
+        explanation: 'It will work, but some features may be slower or limited.',
+        icon: 'warning',
+        answerClass: 'text-amber-400'
       },
       incompatible: {
-        title: 'Below Minimum',
-        message: 'Your system needs upgrades to run Davant Studio effectively.',
-        class: 'text-red-400'
+        answer: 'Your computer needs upgrades for Davant Studio',
+        explanation: 'We recommend upgrading your hardware before purchasing.',
+        icon: 'error',
+        answerClass: 'text-red-400'
       }
     };
     
     const config = tierMessages[tier];
-    tierElement.textContent = config.title;
-    tierElement.className = `text-3xl font-bold mt-6 ${config.class}`;
-    messageElement.textContent = config.message;
+    answerElement.textContent = config.answer;
+    answerElement.className = `text-xl md:text-2xl font-bold mb-3 ${config.answerClass}`;
+    explanationElement.textContent = config.explanation;
+    
+    // Show appropriate icon
+    if (config.icon === 'success') {
+      successIcon.classList.remove('hidden');
+    } else if (config.icon === 'warning') {
+      warningIcon.classList.remove('hidden');
+    } else if (config.icon === 'error') {
+      errorIcon.classList.remove('hidden');
+    }
   }
 
   function updateComponentStatus(component, score, specs) {
@@ -1408,8 +1443,10 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
       osDisplay.textContent = systemSpecs.detected.osVersion || 'Unknown OS';
     }
     
-    // Animate score
+    // Animate the score circle and update score
     animateScore(result.score);
+    
+    // Update tier display with new user-friendly messages
     updateTierDisplay(result.tier);
     
     // Update components
@@ -1467,8 +1504,9 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
 
   // Function to start auto-detection
   function startAutoDetection() {
-    // Hide choice phase and show detection phase
+    // Hide choice phase and intro description, show detection phase
     document.getElementById('choice-phase').classList.add('hidden');
+    document.getElementById('intro-description').classList.add('hidden');
     document.getElementById('detection-phase').classList.remove('hidden');
     
     // Reset all rows to initial state
@@ -1603,13 +1641,6 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
         // Skip to results
         setTimeout(() => {
           document.getElementById('detection-phase').classList.add('hidden');
-          
-          // Show auto-detection notice
-          const notice = document.getElementById('auto-detect-notice');
-          const info = document.getElementById('detected-info');
-          notice.classList.remove('hidden');
-          info.textContent = `We detected your ${systemSpecs.detected.gpuRenderer} with ${systemSpecs.userProvided.systemRAM}GB RAM (estimated).`;
-          
           showResults();
         }, 1500);
       } else {
@@ -1632,8 +1663,9 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
     
     // Handle manual input button
     document.getElementById('manual-input-button').addEventListener('click', () => {
-      // Hide choice phase and show input phase directly
+      // Hide choice phase and intro description, show input phase directly
       document.getElementById('choice-phase').classList.add('hidden');
+      document.getElementById('intro-description').classList.add('hidden');
       document.getElementById('input-phase').classList.remove('hidden');
     });
     
@@ -1761,7 +1793,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
     const switchToAutoBtn = document.getElementById('switch-to-auto');
     if (switchToAutoBtn) {
       switchToAutoBtn.addEventListener('click', () => {
-        // Hide input phase and go back to choice or start auto-detection
+        // Hide input phase and start auto-detection
         document.getElementById('input-phase').classList.add('hidden');
         startAutoDetection();
       });
@@ -1817,7 +1849,7 @@ const pageTitle = "System Compatibility Checker | Davant Studio";
       document.getElementById('detection-phase').classList.add('hidden');
       document.getElementById('input-phase').classList.add('hidden');
       document.getElementById('choice-phase').classList.remove('hidden');
-      document.getElementById('auto-detect-notice').classList.add('hidden');
+      document.getElementById('intro-description').classList.remove('hidden');
       
       // Reset system specs
       systemSpecs = {
