@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { HardwareDetector } from './HardwareDetector';
 
 interface SystemSpecs {
   detected: {
@@ -9,6 +10,7 @@ interface SystemSpecs {
     cpuCores: number;
     cpuModel: string;
     screenResolution: { width: number; height: number };
+    deviceMemory?: number;
   };
   userProvided: {
     gpuModel?: string;
@@ -44,7 +46,8 @@ const initialSystemSpecs: SystemSpecs = {
     webglVersion: 0,
     cpuCores: 0,
     cpuModel: '',
-    screenResolution: { width: 0, height: 0 }
+    screenResolution: { width: 0, height: 0 },
+    deviceMemory: undefined
   },
   userProvided: {}
 };
@@ -314,6 +317,21 @@ export default function CompatibilityChecker() {
   const [progressPercent, setProgressPercent] = useState(0);
   const [result, setResult] = useState<CompatibilityResult | null>(null);
   
+  // Debug phase changes
+  useEffect(() => {
+    console.log('Phase changed to:', phase);
+  }, [phase]);
+  
+  // Ensure we start at choice phase
+  useEffect(() => {
+    console.log('Component mounted, initial phase:', phase);
+    // Force reset to choice if somehow we're not there
+    if (phase !== 'choice' && !result) {
+      console.warn('Unexpected initial phase, resetting to choice');
+      setPhase('choice');
+    }
+  }, []);
+  
   const [formData, setFormData] = useState({
     os: '',
     cpuModel: '',
@@ -371,32 +389,80 @@ export default function CompatibilityChecker() {
   }, []);
 
   const detectSpecs = useCallback(async () => {
-    const newSpecs = { ...systemSpecs };
-    
-    const platform = navigator.platform.toLowerCase();
-    if (platform.includes('win')) {
-      newSpecs.detected.platform = 'Windows';
-    } else if (platform.includes('mac')) {
-      newSpecs.detected.platform = 'macOS';
-    } else if (platform.includes('linux')) {
-      newSpecs.detected.platform = 'Linux';
-    }
-    
-    newSpecs.detected.osVersion = navigator.userAgent;
-    newSpecs.detected.cpuCores = navigator.hardwareConcurrency || 0;
-    newSpecs.detected.screenResolution = {
-      width: window.screen.width,
-      height: window.screen.height
+    // Create a fresh specs object instead of spreading existing state
+    const newSpecs: SystemSpecs = {
+      detected: {
+        platform: 'unknown',
+        osVersion: '',
+        gpuRenderer: '',
+        webglVersion: 0,
+        cpuCores: 0,
+        cpuModel: '',
+        screenResolution: { width: 0, height: 0 },
+        deviceMemory: undefined
+      },
+      userProvided: {}
     };
     
-    if (canvasRef.current) {
-      newSpecs.detected.webglVersion = detectWebGL();
-      newSpecs.detected.gpuRenderer = detectGPU();
+    // Use HardwareDetector for comprehensive detection
+    const detector = new HardwareDetector();
+    try {
+      const detectedSpecs = await detector.detectSpecs();
+      
+      // Map detected platform
+      if (detectedSpecs.platform === 'windows') {
+        newSpecs.detected.platform = 'Windows';
+      } else if (detectedSpecs.platform === 'mac') {
+        newSpecs.detected.platform = 'macOS';
+      } else if (detectedSpecs.platform === 'linux') {
+        newSpecs.detected.platform = 'Linux';
+      } else {
+        newSpecs.detected.platform = 'Unknown';
+      }
+      
+      // Store user agent for later parsing in getOSDisplayName
+      newSpecs.detected.osVersion = detectedSpecs.userAgent;
+      newSpecs.detected.cpuCores = detectedSpecs.cpuCores;
+      newSpecs.detected.screenResolution = detectedSpecs.screenResolution;
+      newSpecs.detected.webglVersion = detectedSpecs.webglVersion;
+      newSpecs.detected.gpuRenderer = detectedSpecs.gpuRenderer;
+      newSpecs.detected.deviceMemory = detectedSpecs.deviceMemory;
+      
+      // Parse GPU info for better model detection
+      const gpuInfo = detector.parseGPUString(detectedSpecs.gpuRenderer);
+      if (gpuInfo.model && gpuInfo.model !== 'Unknown GPU') {
+        newSpecs.detected.cpuModel = gpuInfo.isAppleSilicon ? `Apple ${gpuInfo.model}` : 'Unknown CPU';
+      }
+      
+      detector.cleanup();
+    } catch (error) {
+      console.error('Hardware detection failed:', error);
+      // Fallback to basic detection
+      const platform = navigator.platform.toLowerCase();
+      if (platform.includes('win')) {
+        newSpecs.detected.platform = 'Windows';
+      } else if (platform.includes('mac')) {
+        newSpecs.detected.platform = 'macOS';
+      } else if (platform.includes('linux')) {
+        newSpecs.detected.platform = 'Linux';
+      }
+      
+      newSpecs.detected.osVersion = navigator.userAgent;
+      newSpecs.detected.cpuCores = navigator.hardwareConcurrency || 0;
+      newSpecs.detected.screenResolution = {
+        width: window.screen.width,
+        height: window.screen.height
+      };
+      
+      if (canvasRef.current) {
+        newSpecs.detected.webglVersion = detectWebGL();
+        newSpecs.detected.gpuRenderer = detectGPU();
+      }
     }
     
     setSystemSpecs(newSpecs);
     return newSpecs;
-  }, [systemSpecs, detectWebGL, detectGPU]);
+  }, [detectWebGL, detectGPU]);
 
   const calculateCompatibility = useCallback((specs: SystemSpecs): CompatibilityResult => {
     const gpuScore = calculateGPUScore(specs);
@@ -438,7 +504,8 @@ export default function CompatibilityChecker() {
   };
 
   const calculateRAMScore = (specs: SystemSpecs): number => {
-    const ram = specs.userProvided.systemRAM || 0;
+    // Use detected memory first, then fall back to user-provided
+    const ram = specs.detected.deviceMemory || specs.userProvided.systemRAM || 0;
     
     if (ram >= 64) return 100;
     if (ram >= 32) return 85;
@@ -458,7 +525,7 @@ export default function CompatibilityChecker() {
       recommendations.push('Consider upgrading to an RTX 4070 or M2 Pro for optimal performance');
     }
     
-    const currentRAM = specs.userProvided.systemRAM || 0;
+    const currentRAM = specs.detected.deviceMemory || specs.userProvided.systemRAM || 0;
     if (currentRAM > 0 && currentRAM < REQUIREMENTS.ram.minimum) {
       recommendations.push(`Upgrade RAM from ${currentRAM}GB to at least ${REQUIREMENTS.ram.minimum}GB`);
     } else if (currentRAM < REQUIREMENTS.ram.recommended) {
@@ -475,24 +542,147 @@ export default function CompatibilityChecker() {
     return recommendations;
   };
 
+  const getOSDisplayName = (specs: SystemSpecs): string => {
+    const userAgent = specs.detected.osVersion || navigator.userAgent;
+    const platform = specs.detected.platform;
+    
+    if (platform === 'macOS') {
+      // Try to extract macOS version from user agent
+      // Modern macOS reports version differently
+      const macOSMatch = userAgent.match(/Mac OS X (\d+)[_.](\d+)(?:[_.](\d+))?/);
+      if (macOSMatch) {
+        const major = parseInt(macOSMatch[1]);
+        const minor = parseInt(macOSMatch[2]);
+        
+        // Map version numbers to macOS names
+        if (major === 10) {
+          if (minor === 15) return 'macOS Catalina 10.15';
+          if (minor === 14) return 'macOS Mojave 10.14';
+          if (minor === 13) return 'macOS High Sierra 10.13';
+          if (minor === 12) return 'macOS Sierra 10.12';
+        } else if (major >= 11) {
+          // macOS 11+ uses major version numbering
+          if (major === 11) return 'macOS Big Sur 11';
+          if (major === 12) return 'macOS Monterey 12';
+          if (major === 13) return 'macOS Ventura 13';
+          if (major === 14) return 'macOS Sonoma 14';
+          if (major === 15) return 'macOS Sequoia 15';
+          // Future versions
+          return `macOS ${major}`;
+        }
+      }
+      
+      // Try to parse version from Chrome/Safari format
+      const versionMatch = userAgent.match(/Version\/(\d+)\.(\d+)/);
+      if (versionMatch) {
+        const safariMajor = parseInt(versionMatch[1]);
+        // Safari version mapping to macOS (approximate)
+        if (safariMajor >= 17) return 'macOS Sonoma or newer';
+        if (safariMajor >= 16) return 'macOS Ventura or newer';
+        if (safariMajor >= 15) return 'macOS Monterey or newer';
+      }
+      
+      // For M-series Macs, make educated guess based on chip
+      if (specs.detected.cpuModel) {
+        if (specs.detected.cpuModel.includes('M3')) return 'macOS Sonoma or newer';
+        if (specs.detected.cpuModel.includes('M2')) return 'macOS Monterey or newer';
+        if (specs.detected.cpuModel.includes('M1')) return 'macOS Big Sur or newer';
+      }
+      
+      return 'macOS';
+    } else if (platform === 'Windows') {
+      if (userAgent.includes('Windows NT 10.0')) {
+        // Try to distinguish Windows 10 vs 11
+        // Windows 11 has higher build numbers
+        const buildMatch = userAgent.match(/Windows NT 10\.0;[^)]*Build (\d+)/);
+        if (buildMatch) {
+          const build = parseInt(buildMatch[1]);
+          if (build >= 22000) return 'Windows 11';
+        }
+        return 'Windows 10';
+      } else if (userAgent.includes('Windows NT 6.3')) {
+        return 'Windows 8.1';
+      } else if (userAgent.includes('Windows NT 6.2')) {
+        return 'Windows 8';
+      }
+      return 'Windows';
+    } else if (platform === 'Linux') {
+      // Try to identify Linux distribution
+      if (userAgent.includes('Ubuntu')) return 'Ubuntu Linux';
+      if (userAgent.includes('Fedora')) return 'Fedora Linux';
+      if (userAgent.includes('Debian')) return 'Debian Linux';
+      return 'Linux';
+    }
+    
+    return 'Unknown OS';
+  };
+
+  const getGPUDisplayName = (specs: SystemSpecs): string => {
+    // If user provided a GPU model, find its display name
+    if (specs.userProvided.gpuModel && gpuModels) {
+      const selectedGPU = Object.values(gpuModels)
+        .flat()
+        .find(model => model.value === specs.userProvided.gpuModel);
+      if (selectedGPU) {
+        return selectedGPU.text;
+      }
+    }
+    
+    // Otherwise use detected GPU renderer
+    return specs.detected.gpuRenderer || 'Unknown GPU';
+  };
+
+  const getRAMDisplayName = (specs: SystemSpecs): string => {
+    const ram = specs.detected.deviceMemory || specs.userProvided.systemRAM;
+    if (ram) {
+      return `${ram}GB`;
+    }
+    return 'Unknown';
+  };
+
+  const isMemoryDetectionLikelyIncorrect = (specs: SystemSpecs): boolean => {
+    // Check if we have an M2 Pro with 8GB (which is uncommon)
+    const hasM2Pro = specs.detected.cpuModel?.includes('M2 Pro');
+    const has8GB = specs.detected.deviceMemory === 8;
+    const has10Cores = specs.detected.cpuCores === 10;
+    
+    return hasM2Pro && has8GB && has10Cores;
+  };
+
+  const getCPUDisplayName = (specs: SystemSpecs): string => {
+    // If we have a proper CPU model name, use it
+    if (specs.detected.cpuModel && specs.detected.cpuModel !== 'Unknown CPU') {
+      return specs.detected.cpuModel;
+    }
+    
+    // If we only have core count, display that
+    if (specs.detected.cpuCores > 0) {
+      return `${specs.detected.cpuCores} cores detected`;
+    }
+    
+    return 'Unknown CPU';
+  };
+
   const startAutoDetection = async () => {
     setPhase('detection');
     setDetectionMessages([]);
     setProgressPercent(0);
     
     const messages: DetectionMessage[] = [
-      { text: 'Platform', type: 'platform' },
+      { text: 'OS', type: 'platform' },
       { text: 'Graphics Card', type: 'gpu' },
       { text: 'Processor', type: 'cpu' },
-      { text: 'Storage', type: 'storage' },
-      { text: 'Screen Resolution', type: 'screen' },
-      { text: 'WebGL Support', type: 'webgl' }
+      { text: 'System Memory', type: 'memory' },
+      { text: 'Screen Resolution', type: 'screen' }
     ];
     
     // Start with all messages in waiting state
     setDetectionMessages(messages);
     
-    // Simulate detection progress
+    // First, actually detect the specs
+    const specs = await detectSpecs();
+    
+    // Now simulate detection progress with real values
     for (let i = 0; i < messages.length; i++) {
       await new Promise(resolve => setTimeout(resolve, 600));
       
@@ -505,8 +695,7 @@ export default function CompatibilityChecker() {
         'Detecting graphics processor...',
         'Checking CPU capabilities...',
         'Analyzing system memory...',
-        'Verifying display configuration...',
-        'Calculating compatibility score...'
+        'Verifying display configuration...'
       ];
       setDetectionStatus(statusMessages[i]);
       
@@ -518,14 +707,27 @@ export default function CompatibilityChecker() {
         updated[i] = {
           ...updated[i],
           confidence,
-          value: getDetectedValue(messages[i].type, confidence)
+          value: getDetectedValue(messages[i].type, confidence, specs)
         };
         
         return updated;
       });
     }
     
-    const specs = await detectSpecs();
+    // Log detected memory for debugging
+    console.log('Detected specs:', {
+      platform: specs.detected.platform,
+      gpu: specs.detected.gpuRenderer,
+      cpu: specs.detected.cpuCores,
+      memory: specs.detected.deviceMemory,
+      cpuModel: specs.detected.cpuModel
+    });
+    
+    console.log('Auto-detection complete, detected specs:', {
+      gpu: specs.detected.gpuRenderer,
+      cores: specs.detected.cpuCores,
+      memory: specs.detected.deviceMemory
+    });
     
     if (specs.detected.gpuRenderer && specs.detected.cpuCores > 0) {
       const compatResult = calculateCompatibility(specs);
@@ -538,17 +740,47 @@ export default function CompatibilityChecker() {
     }
   };
 
-  const getDetectedValue = (type: string, confidence: string): string => {
-    const mockValues: Record<string, Record<string, string>> = {
-      platform: { high: 'Windows 11', medium: 'Windows', low: 'Unknown' },
-      gpu: { high: 'NVIDIA RTX 3060', medium: 'NVIDIA GPU', low: 'Unknown GPU' },
-      cpu: { high: '8 cores @ 3.4GHz', medium: '8 cores', low: 'Unknown' },
-      storage: { high: '512GB SSD', medium: 'SSD', low: 'Unknown' },
-      screen: { high: '2560x1440', medium: 'High Resolution', low: 'Unknown' },
-      webgl: { high: 'WebGL 2.0', medium: 'WebGL', low: 'Unknown' }
-    };
+  const getDetectedValue = (type: string, confidence: string, specs?: SystemSpecs): string => {
+    // Use provided specs or fall back to component state
+    const specsToUse = specs || systemSpecs;
     
-    return mockValues[type]?.[confidence] || 'Unknown';
+    switch (type) {
+      case 'platform':
+        return specsToUse.detected.platform || 'Unknown';
+      case 'gpu':
+        if (specsToUse.detected.gpuRenderer) {
+          return specsToUse.detected.gpuRenderer;
+        }
+        return confidence === 'high' ? 'GPU Detected' : 'Unknown GPU';
+      case 'cpu':
+        if (specsToUse.detected.cpuModel && specsToUse.detected.cpuModel !== 'Unknown CPU') {
+          return specsToUse.detected.cpuModel;
+        }
+        const cores = specsToUse.detected.cpuCores;
+        if (cores > 0) {
+          return `${cores} cores detected`;
+        }
+        return 'Unknown';
+      case 'memory':
+        if (specsToUse.detected.deviceMemory) {
+          return `${specsToUse.detected.deviceMemory}GB RAM`;
+        }
+        return 'Unable to detect RAM';
+      case 'screen':
+        const res = specsToUse.detected.screenResolution;
+        if (res && res.width > 0) {
+          return `${res.width}x${res.height}`;
+        }
+        return 'Unknown';
+      case 'webgl':
+        const version = specsToUse.detected.webglVersion;
+        if (version > 0) {
+          return `WebGL ${version}.0`;
+        }
+        return 'WebGL not supported';
+      default:
+        return 'Unknown';
+    }
   };
 
   const handleOSChange = (value: string) => {
@@ -718,7 +950,7 @@ export default function CompatibilityChecker() {
       
       {/* Choice Phase - Big GO Button */}
       {phase === 'choice' && (
-        <div className="mb-12">
+        <div className="mb-12 animate-fadeIn">
           {/* Big GO Button Container */}
           <div className="mb-12 text-center">
             <div className="relative inline-block">
@@ -728,7 +960,8 @@ export default function CompatibilityChecker() {
               {/* Main GO button */}
               <button
                 onClick={startAutoDetection}
-                className="relative w-48 h-48 text-3xl font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 group"
+                className="relative z-10 w-48 h-48 text-3xl font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 group"
+                type="button"
               >
                 <span className="block transition-all duration-300 group-hover:scale-110">GO</span>
                 <span className="block mt-1 text-sm font-normal opacity-80">Start Scan</span>
@@ -1059,15 +1292,25 @@ export default function CompatibilityChecker() {
             <h4 className="mb-4 text-sm font-medium text-cyan-100/60 uppercase tracking-wider">OPERATING SYSTEM</h4>
             <div className="flex items-center gap-4 p-4 border rounded-lg bg-purple-900/10 border-purple-800/20">
               <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-purple-900/30">
-                <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5M13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
-                </svg>
+                {systemSpecs.detected.platform === 'macOS' ? (
+                  <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5M13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                  </svg>
+                ) : systemSpecs.detected.platform === 'Windows' ? (
+                  <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+                  </svg>
+                ) : (
+                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                )}
               </div>
               <div className="flex-1">
-                <p className="text-lg font-medium text-white">mac</p>
+                <p className="text-lg font-medium text-white">{systemSpecs.detected.platform || 'Unknown'}</p>
               </div>
               <div className="text-right">
-                <p className="text-cyan-100/60">Catalina 10.15.7</p>
+                <p className="text-cyan-100/60">{getOSDisplayName(systemSpecs)}</p>
               </div>
             </div>
           </div>
@@ -1087,7 +1330,7 @@ export default function CompatibilityChecker() {
                     </svg>
                     <h4 className="font-medium text-white">GPU</h4>
                   </div>
-                  <p className="text-sm text-cyan-100/80 mb-3">{systemSpecs.detected.gpuRenderer || 'Apple M2 Pro'}</p>
+                  <p className="text-sm text-cyan-100/80 mb-3">{getGPUDisplayName(systemSpecs)}</p>
                   <p className="text-sm text-cyan-100/60 mb-2">Score: {result.scores.gpu}/100</p>
                   <div className="w-full h-2 overflow-hidden rounded-full bg-purple-900/30">
                     <div 
@@ -1110,7 +1353,14 @@ export default function CompatibilityChecker() {
                     </svg>
                     <h4 className="font-medium text-white">RAM</h4>
                   </div>
-                  <p className="text-sm text-cyan-100/80 mb-3">{systemSpecs.userProvided.systemRAM}GB</p>
+                  <div className="mb-3">
+                    <p className="text-sm text-cyan-100/80">{getRAMDisplayName(systemSpecs)}</p>
+                    {isMemoryDetectionLikelyIncorrect(systemSpecs) && (
+                      <p className="text-xs text-yellow-400/80 mt-1">
+                        Note: M2 Pro typically has 16GB. Browser privacy settings may affect detection.
+                      </p>
+                    )}
+                  </div>
                   <p className="text-sm text-cyan-100/60 mb-2">Score: {result.scores.ram}/100</p>
                   <div className="w-full h-2 overflow-hidden rounded-full bg-purple-900/30">
                     <div 
@@ -1133,7 +1383,7 @@ export default function CompatibilityChecker() {
                     </svg>
                     <h4 className="font-medium text-white">CPU</h4>
                   </div>
-                  <p className="text-sm text-cyan-100/80 mb-3">{systemSpecs.detected.cpuModel || `Apple M2 (${systemSpecs.detected.cpuCores} cores)`}</p>
+                  <p className="text-sm text-cyan-100/80 mb-3">{getCPUDisplayName(systemSpecs)}</p>
                   <p className="text-sm text-cyan-100/60 mb-2">Score: {result.scores.cpu}/100</p>
                   <div className="w-full h-2 overflow-hidden rounded-full bg-purple-900/30">
                     <div 

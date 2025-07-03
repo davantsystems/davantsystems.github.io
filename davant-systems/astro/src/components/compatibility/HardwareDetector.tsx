@@ -90,6 +90,8 @@ export class HardwareDetector {
         }
       }
       
+      console.log('GPU Detection - Raw renderer:', renderer, 'WebGL version:', version);
+      
       return { renderer, version, extensions };
     } catch (e) {
       console.error('GPU detection error:', e);
@@ -111,11 +113,108 @@ export class HardwareDetector {
   }
 
   private detectMemory(): number | undefined {
-    // This is only available in some browsers and requires specific permissions
+    // Try the deviceMemory API first (limited browser support)
     const nav = navigator as any;
+    
+    // Check if Device Memory API is available
+    console.log('Device Memory API available:', 'deviceMemory' in nav);
+    
     if (nav.deviceMemory) {
-      return nav.deviceMemory; // Returns in GB
+      console.log('Device Memory API returned:', nav.deviceMemory, 'GB');
+      
+      // The Device Memory API often returns privacy-preserving rounded values
+      // For Apple Silicon, validate against known configurations
+      const platform = this.detectPlatform();
+      const cores = navigator.hardwareConcurrency || 0;
+      
+      if (platform === 'mac' && cores >= 8) {
+        const appleModel = this.detectAppleSiliconModel();
+        console.log('Validating Device Memory API result against known Apple Silicon configs');
+        console.log('Detected model:', appleModel, 'Cores:', cores, 'API says:', nav.deviceMemory, 'GB');
+        
+        // M2 Pro with 10 cores typically has 16GB or 32GB, rarely 8GB
+        if (appleModel?.includes('M2 Pro') && cores === 10 && nav.deviceMemory === 8) {
+          console.log('Device Memory API likely incorrect for M2 Pro - using fallback detection');
+          // Fall through to use our heuristic-based detection
+        } else {
+          return nav.deviceMemory; // Trust the API for other cases
+        }
+      } else {
+        return nav.deviceMemory; // Trust the API for non-Apple Silicon
+      }
     }
+    
+    console.log('Device Memory API not supported, using fallback detection');
+
+    // Enhanced fallback detection for M2 MacBooks and other systems
+    const platform = this.detectPlatform();
+    const cores = navigator.hardwareConcurrency || 0;
+    const userAgent = navigator.userAgent.toLowerCase();
+
+    // Apple Silicon memory estimation based on model and core count
+    if (platform === 'mac') {
+      // Try to extract specific Apple Silicon model from GPU renderer
+      const appleModel = this.detectAppleSiliconModel();
+      console.log('Memory detection - Platform:', platform, 'Model:', appleModel, 'Cores:', cores);
+      
+      // M3 series memory configurations
+      if (appleModel?.includes('M3')) {
+        if (appleModel.includes('Max')) {
+          return cores >= 16 ? 64 : 36; // M3 Max: 36GB or 64GB
+        } else if (appleModel.includes('Pro')) {
+          return cores >= 12 ? 36 : 18; // M3 Pro: 18GB or 36GB
+        } else {
+          return cores >= 8 ? 24 : 8; // M3: 8GB or 24GB
+        }
+      }
+      
+      // M2 series memory configurations
+      if (appleModel?.includes('M2')) {
+        if (appleModel.includes('Max')) {
+          return cores >= 12 ? 64 : 32; // M2 Max: 32GB or 64GB
+        } else if (appleModel.includes('Pro')) {
+          // M2 Pro comes in 16GB or 32GB configurations
+          // M2 Pro has 10-12 CPU cores (6-8 performance + 4 efficiency)
+          // Most common configuration is 16GB
+          return 16; // Default to 16GB for M2 Pro
+        } else {
+          // Base M2 - common configurations are 8GB, 16GB, or 24GB
+          // With 8 cores, could be 8GB or 16GB
+          // Default to 8GB for base M2 as it's most common
+          return 8; // Most common base M2 configuration
+        }
+      }
+      
+      // M1 series memory configurations
+      if (appleModel?.includes('M1')) {
+        if (appleModel.includes('Max')) {
+          return cores >= 10 ? 64 : 32; // M1 Max: 32GB or 64GB
+        } else if (appleModel.includes('Pro')) {
+          return cores >= 8 ? 32 : 16; // M1 Pro: 16GB or 32GB
+        } else {
+          return cores >= 8 ? 16 : 8; // M1: 8GB or 16GB
+        }
+      }
+      
+      // If we detected Apple Silicon but couldn't determine specific model
+      if (appleModel === 'Apple Silicon' && cores >= 8) {
+        // Most Apple Silicon Macs with 8+ cores have at least 16GB
+        return 16;
+      }
+      
+      // Intel Mac fallback - assume at least 8GB, likely 16GB+ for recent models
+      return cores >= 8 ? 16 : 8;
+    }
+
+    // Windows/Linux estimation based on core count (rough heuristics)
+    if (platform === 'windows' || platform === 'linux') {
+      if (cores >= 16) return 32; // High-end systems usually have 32GB+
+      if (cores >= 12) return 16; // Mid-high systems usually have 16GB+
+      if (cores >= 8) return 16;  // Modern systems usually have 16GB
+      if (cores >= 4) return 8;   // Entry systems usually have 8GB
+      return 4; // Very low-end fallback
+    }
+
     return undefined;
   }
 
@@ -150,7 +249,9 @@ export class HardwareDetector {
     // Fallback heuristics based on core count and other factors
     // M3 series launched in late 2023
     const year = new Date().getFullYear();
-    const isRecent = year >= 2023;
+    const isRecent = year >= 2024;
+
+    console.log('detectAppleSiliconModel fallback - cores:', cores, 'year:', year);
 
     // Use core count as a hint
     if (cores >= 20) {
@@ -167,12 +268,25 @@ export class HardwareDetector {
       // M2 Pro has 10-12 cores
       // M3 base has 8 cores
       return 'M2 Pro';
-    } else if (cores >= 10) {
-      // M2 has 8 cores, M1 Pro has 8-10 cores
-      return 'M2';
-    } else if (cores >= 8) {
+    } else if (cores === 10) {
+      // 10 cores is specific to M1 Pro and M2 Pro
+      // M2 Pro launched in early 2023
+      if (this.gl) {
+        try {
+          const debugInfo = this.gl.getExtension('WEBGL_debug_renderer_info');
+          if (debugInfo) {
+            const renderer = this.gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '';
+            console.log('GPU renderer for 10-core model detection:', renderer);
+          }
+        } catch (e) {
+          // Ignore
+        }
+      }
+      // With 10 cores, it's definitely a Pro model
+      return isRecent ? 'M2 Pro' : 'M1 Pro';
+    } else if (cores === 8) {
       // Base M1/M2/M3 have 8 cores
-      // Without more info, assume M2 as middle ground
+      // Without more info, assume M2 as it's most common now
       return 'M2';
     }
 
