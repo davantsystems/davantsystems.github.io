@@ -14,7 +14,7 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
   <div class="hidden navbar-center md:flex">
     <ul class="px-1 tracking-tight menu menu-horizontal text-cyan-100 drop-shadow-sm">
       <li>
-        <Link href="/davant-studio/" class="hover:bg-base-100/70 transition-all nav-item">Davant Studio</Link>
+        <Link href="/davant-studio/" class="hover:bg-base-100/70 transition-all nav-item no-underline">Davant Studio</Link>
       </li>
       <li class="dropdown">
         <div tabindex="0" role="button" class="hover:bg-base-100/70 transition-all dropdown-trigger" data-dropdown-trigger>Magic Mirror</div>
@@ -40,7 +40,7 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
     </div>
     <ul tabindex="0" class="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[1] p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52">
-      <li><Link href="/davant-studio/" class="hover:bg-primary/20 transition-all">Davant Studio</Link></li>
+      <li><Link href="/davant-studio/" class="hover:bg-primary/20 transition-all no-underline">Davant Studio</Link></li>
       <li>
         <details>
           <summary>Magic Mirror</summary>
@@ -69,25 +69,46 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
   .nav-item,
   .dropdown-trigger {
     position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+  }
+  
+  /* Ensure nav-item overrides Link component defaults */
+  .nav-item.nav-item {
+    display: inline-block;
+    position: relative;
+  }
+  
+  /* Enhanced hover states for all nav items */
+  .nav-item:hover,
+  .dropdown-trigger:hover {
+    background-color: rgb(15 23 42 / 0.7);
+    color: rgb(164 215 238);
+    transform: translateY(-1px);
   }
   
   /* Active/open state for dropdown triggers */
   .dropdown.dropdown-open .dropdown-trigger {
-    background-color: rgb(15 23 42 / 0.7);
+    background-color: rgb(15 23 42 / 0.8);
     color: rgb(251 191 36);
+    transform: translateY(-1px);
   }
   
-  /* Add subtle underline effect on hover for all nav items */
+  /* Add gradient underline effect on hover for all nav items */
   .nav-item::after,
   .dropdown-trigger::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: 0.25rem;
     left: 50%;
     width: 0;
     height: 2px;
     background: linear-gradient(to right, rgb(236 72 153), rgb(139 92 246));
     transition: width 0.3s ease, left 0.3s ease;
+    border-radius: 1px;
+    z-index: 10;
   }
   
   .nav-item:hover::after,
@@ -96,15 +117,31 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
     left: 10%;
   }
   
-  /* Active state - full width underline */
+  /* Active state - full width underline with enhanced glow */
   .dropdown.dropdown-open .dropdown-trigger::after {
     width: 100%;
     left: 0;
+    background: linear-gradient(to right, rgb(251 191 36), rgb(255 215 0));
+    box-shadow: 0 0 8px rgb(251 191 36 / 0.6);
   }
   
-  /* Optional: Add a subtle glow effect on active state */
+  /* Enhanced glow effect on active state */
   .dropdown.dropdown-open .dropdown-trigger {
-    text-shadow: 0 0 10px rgb(251 191 36 / 0.5);
+    text-shadow: 0 0 12px rgb(251 191 36 / 0.8);
+    box-shadow: 0 4px 12px rgb(251 191 36 / 0.3);
+  }
+  
+  /* Ensure Link component styling doesn't interfere */
+  .nav-item.nav-item {
+    text-decoration: none !important;
+  }
+  
+  /* Enhanced mobile menu styling */
+  @media (max-width: 768px) {
+    .dropdown-content .nav-item:hover {
+      background-color: rgb(236 72 153 / 0.2);
+      color: rgb(164 215 238);
+    }
   }
 </style>
 
