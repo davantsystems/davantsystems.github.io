@@ -130,7 +130,8 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
   }
   
   /* Active state - full width underline matching hover colors */
-  .dropdown.dropdown-open .dropdown-trigger::after {
+  .dropdown.dropdown-open .dropdown-trigger::after,
+  .dropdown.dropdown-open .dropdown-trigger[class]::after {
     width: 80%;
     left: 10%;
     background: linear-gradient(to right, rgb(236 72 153), rgb(139 92 246));
