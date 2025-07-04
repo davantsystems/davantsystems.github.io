@@ -15,20 +15,20 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
     <ul class="px-1 tracking-tight menu menu-horizontal text-cyan-100 drop-shadow-sm">
       <li class="dropdown">
         <div tabindex="0" role="button" class="hover:bg-base-100/70 transition-all dropdown-trigger" data-dropdown-trigger>Davant Studio</div>
-        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52">
+        <ul tabindex="0" class="dropdown-content z-[10] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52 mt-1">
           <li><Link href="/davant-studio/" class="hover:bg-primary/20 text-cyan-100 transition-all">Software Overview</Link></li>
           <li><Link href="/download/" class="hover:bg-primary/20 text-cyan-100 transition-all">Download</Link></li>
         </ul>
       </li>
       <li class="dropdown">
         <div tabindex="0" role="button" class="hover:bg-base-100/70 transition-all dropdown-trigger" data-dropdown-trigger>Magic Mirror</div>
-        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52">
+        <ul tabindex="0" class="dropdown-content z-[10] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52 mt-1">
           <li><Link href="/photobooth/" class="hover:bg-primary/20 text-cyan-100 transition-all">AI Photo Booth</Link></li>
         </ul>
       </li>
       <li class="dropdown">
         <div tabindex="0" role="button" class="hover:bg-base-100/70 transition-all dropdown-trigger" data-dropdown-trigger>Learn & Create</div>
-        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52">
+        <ul tabindex="0" class="dropdown-content z-[10] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52 mt-1">
           <li><Link href="/training/" class="hover:bg-primary/20 text-cyan-100 transition-all">Training & Workshops</Link></li>
           <li><Link href="/articles/" class="hover:bg-primary/20 text-cyan-100 transition-all">Articles</Link></li>
           <li><Link href="/ambassadors/" class="hover:bg-primary/20 text-cyan-100 transition-all">Creative Ambassadors Program</Link></li>
@@ -43,7 +43,7 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
     <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
     </div>
-    <ul tabindex="0" class="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[1] p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52">
+    <ul tabindex="0" class="menu menu-sm dropdown-content text-cyan-100 mt-3 z-[10] p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52">
       <li>
         <details>
           <summary>Davant Studio</summary>
@@ -120,7 +120,7 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
     background: linear-gradient(to right, rgb(236 72 153), rgb(139 92 246));
     transition: width 0.3s ease, left 0.3s ease;
     border-radius: 1px;
-    z-index: 10;
+    z-index: 1;
   }
   
   .nav-item:hover::after,
@@ -131,10 +131,12 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
   
   /* Active state - full width underline matching hover colors */
   .dropdown.dropdown-open .dropdown-trigger::after {
-    width: 100%;
-    left: 0;
+    width: 80%;
+    left: 10%;
     background: linear-gradient(to right, rgb(236 72 153), rgb(139 92 246));
     box-shadow: 0 0 8px rgb(164 215 238 / 0.6);
+    opacity: 1;
+    visibility: visible;
   }
   
   /* Enhanced glow effect on active state - matching hover cyan */
