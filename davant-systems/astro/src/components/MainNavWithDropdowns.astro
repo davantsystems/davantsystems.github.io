@@ -161,18 +161,26 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
 
 <script>
   function initializeNavDropdowns() {
+    console.log('Initializing nav dropdowns...');
     const navComponent = document.querySelector('[data-nav-component]');
-    if (!navComponent) return;
+    if (!navComponent) {
+      console.log('No nav component found');
+      return;
+    }
+    console.log('Nav component found:', navComponent);
 
     const dropdownTriggers = navComponent.querySelectorAll('[data-dropdown-trigger]');
+    console.log('Found dropdown triggers:', dropdownTriggers.length, dropdownTriggers);
     
-    dropdownTriggers.forEach(trigger => {
+    dropdownTriggers.forEach((trigger, index) => {
+      console.log(`Setting up trigger ${index}:`, trigger);
       const dropdown = trigger.parentElement;
       const content = dropdown?.querySelector('.dropdown-content');
       
       if (!dropdown || !content) return;
 
       trigger.addEventListener('click', (e) => {
+        console.log('Dropdown trigger clicked:', trigger);
         e.preventDefault();
         e.stopPropagation();
         
@@ -193,8 +201,10 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
         dropdown.classList.toggle('dropdown-open', !isOpen);
         if (!isOpen) {
           trigger.setAttribute('data-dropdown-open', '');
+          console.log('Opening dropdown, added attribute to:', trigger);
         } else {
           trigger.removeAttribute('data-dropdown-open');
+          console.log('Closing dropdown, removed attribute from:', trigger);
         }
       });
     });
