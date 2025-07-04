@@ -101,10 +101,10 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
     transform: translateY(-1px);
   }
   
-  /* Active/open state for dropdown triggers */
+  /* Active/open state for dropdown triggers - matches hover state */
   .dropdown.dropdown-open .dropdown-trigger {
-    background-color: rgb(15 23 42 / 0.8);
-    color: rgb(251 191 36);
+    background-color: rgb(15 23 42 / 0.7);
+    color: rgb(164 215 238);
     transform: translateY(-1px);
   }
   
@@ -129,18 +129,18 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
     left: 10%;
   }
   
-  /* Active state - full width underline with enhanced glow */
+  /* Active state - full width underline matching hover colors */
   .dropdown.dropdown-open .dropdown-trigger::after {
     width: 100%;
     left: 0;
-    background: linear-gradient(to right, rgb(251 191 36), rgb(255 215 0));
-    box-shadow: 0 0 8px rgb(251 191 36 / 0.6);
+    background: linear-gradient(to right, rgb(236 72 153), rgb(139 92 246));
+    box-shadow: 0 0 8px rgb(164 215 238 / 0.6);
   }
   
-  /* Enhanced glow effect on active state */
+  /* Enhanced glow effect on active state - matching hover cyan */
   .dropdown.dropdown-open .dropdown-trigger {
-    text-shadow: 0 0 12px rgb(251 191 36 / 0.8);
-    box-shadow: 0 4px 12px rgb(251 191 36 / 0.3);
+    text-shadow: 0 0 12px rgb(164 215 238 / 0.8);
+    box-shadow: 0 4px 12px rgb(164 215 238 / 0.3);
   }
   
   /* Ensure Link component styling doesn't interfere */
