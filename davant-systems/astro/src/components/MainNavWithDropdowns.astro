@@ -13,26 +13,32 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
   </div>
   <div class="hidden navbar-center md:flex">
     <ul class="px-1 tracking-tight menu menu-horizontal text-cyan-100 drop-shadow-sm">
-      <li class="dropdown">
-        <div tabindex="0" role="button" class="hover:bg-base-100/70 transition-all dropdown-trigger" data-dropdown-trigger>Davant Studio</div>
-        <ul tabindex="0" class="dropdown-content z-[10] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52 mt-1">
-          <li><Link href="/davant-studio/" class="hover:bg-primary/20 text-cyan-100 transition-all">Software Overview</Link></li>
-          <li><Link href="/download/" class="hover:bg-primary/20 text-cyan-100 transition-all">Download</Link></li>
-        </ul>
+      <li>
+        <div class="dropdown" data-dropdown="davant-studio">
+          <label tabindex="0" class="hover:bg-base-100/70 transition-all dropdown-trigger cursor-pointer">Davant Studio</label>
+          <ul tabindex="0" class="dropdown-content z-[10] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52 mt-3">
+            <li><Link href="/davant-studio/" class="hover:bg-primary/20 text-cyan-100 transition-all">Software Overview</Link></li>
+            <li><Link href="/download/" class="hover:bg-primary/20 text-cyan-100 transition-all">Download</Link></li>
+          </ul>
+        </div>
       </li>
-      <li class="dropdown">
-        <div tabindex="0" role="button" class="hover:bg-base-100/70 transition-all dropdown-trigger" data-dropdown-trigger>Magic Mirror</div>
-        <ul tabindex="0" class="dropdown-content z-[10] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52 mt-1">
-          <li><Link href="/photobooth/" class="hover:bg-primary/20 text-cyan-100 transition-all">AI Photo Booth</Link></li>
-        </ul>
+      <li>
+        <div class="dropdown" data-dropdown="magic-mirror">
+          <label tabindex="0" class="hover:bg-base-100/70 transition-all dropdown-trigger cursor-pointer">Magic Mirror</label>
+          <ul tabindex="0" class="dropdown-content z-[10] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52 mt-3">
+            <li><Link href="/photobooth/" class="hover:bg-primary/20 text-cyan-100 transition-all">AI Photo Booth</Link></li>
+          </ul>
+        </div>
       </li>
-      <li class="dropdown">
-        <div tabindex="0" role="button" class="hover:bg-base-100/70 transition-all dropdown-trigger" data-dropdown-trigger>Learn & Create</div>
-        <ul tabindex="0" class="dropdown-content z-[10] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52 mt-1">
-          <li><Link href="/training/" class="hover:bg-primary/20 text-cyan-100 transition-all">Training & Workshops</Link></li>
-          <li><Link href="/articles/" class="hover:bg-primary/20 text-cyan-100 transition-all">Articles</Link></li>
-          <li><Link href="/ambassadors/" class="hover:bg-primary/20 text-cyan-100 transition-all">Creative Ambassadors Program</Link></li>
-        </ul>
+      <li>
+        <div class="dropdown" data-dropdown="learn-create">
+          <label tabindex="0" class="hover:bg-base-100/70 transition-all dropdown-trigger cursor-pointer">Learn & Create</label>
+          <ul tabindex="0" class="dropdown-content z-[10] menu p-2 shadow border-2 border-indigo-950 bg-base-100/95 backdrop-blur-sm rounded-md w-52 mt-3">
+            <li><Link href="/training/" class="hover:bg-primary/20 text-cyan-100 transition-all">Training & Workshops</Link></li>
+            <li><Link href="/articles/" class="hover:bg-primary/20 text-cyan-100 transition-all">Articles</Link></li>
+            <li><Link href="/ambassadors/" class="hover:bg-primary/20 text-cyan-100 transition-all">Creative Ambassadors Program</Link></li>
+          </ul>
+        </div>
       </li>
     </ul>
   </div>
@@ -87,6 +93,21 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
     transition: all 0.3s ease;
   }
   
+  /* Style the dropdown labels */
+  label.dropdown-trigger {
+    display: inline-block;
+  }
+  
+  /* Firefox-specific fixes for dropdown hover */
+  @-moz-document url-prefix() {
+    .dropdown-hover:hover .dropdown-content,
+    .dropdown-hover:focus-within .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      display: block;
+    }
+  }
+  
   /* Ensure nav-item overrides Link component defaults */
   .nav-item.nav-item {
     display: inline-block;
@@ -96,13 +117,6 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
   /* Enhanced hover states for all nav items */
   .nav-item:hover,
   .dropdown-trigger:hover {
-    background-color: rgb(15 23 42 / 0.7);
-    color: rgb(164 215 238);
-    transform: translateY(-1px);
-  }
-  
-  /* Active/open state for dropdown triggers - matches hover state */
-  .dropdown-trigger[data-dropdown-open] {
     background-color: rgb(15 23 42 / 0.7);
     color: rgb(164 215 238);
     transform: translateY(-1px);
@@ -129,22 +143,6 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
     left: 10%;
   }
   
-  /* Active state - full width underline matching hover colors */
-  .dropdown-trigger[data-dropdown-open]::after {
-    width: 80%;
-    left: 10%;
-    background: linear-gradient(to right, rgb(236 72 153), rgb(139 92 246));
-    box-shadow: 0 0 8px rgb(164 215 238 / 0.6);
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  /* Enhanced glow effect on active state - matching hover cyan */
-  .dropdown-trigger[data-dropdown-open] {
-    text-shadow: 0 0 12px rgb(164 215 238 / 0.8);
-    box-shadow: 0 4px 12px rgb(164 215 238 / 0.3);
-  }
-  
   /* Ensure Link component styling doesn't interfere */
   .nav-item.nav-item {
     text-decoration: none !important;
@@ -160,90 +158,99 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
 </style>
 
 <script>
-  function initializeNavDropdowns() {
-    console.log('Initializing nav dropdowns...');
-    const navComponent = document.querySelector('[data-nav-component]');
-    if (!navComponent) {
-      console.log('No nav component found');
-      return;
-    }
-    console.log('Nav component found:', navComponent);
-
-    const dropdownTriggers = navComponent.querySelectorAll('[data-dropdown-trigger]');
-    console.log('Found dropdown triggers:', dropdownTriggers.length, dropdownTriggers);
+  // Cross-browser dropdown handling with Firefox fixes
+  function initDropdowns() {
+    const dropdowns = document.querySelectorAll('[data-dropdown]');
+    let openDropdown = null;
+    let hoverTimeout = null;
     
-    dropdownTriggers.forEach((trigger, index) => {
-      console.log(`Setting up trigger ${index}:`, trigger);
-      const dropdown = trigger.parentElement;
-      const content = dropdown?.querySelector('.dropdown-content');
+    // Detect Firefox
+    const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    
+    dropdowns.forEach(dropdown => {
+      const trigger = dropdown.querySelector('.dropdown-trigger');
       
-      if (!dropdown || !content) return;
-
-      trigger.addEventListener('click', (e) => {
-        console.log('Dropdown trigger clicked:', trigger);
-        e.preventDefault();
-        e.stopPropagation();
+      // For Firefox, use click-based interaction
+      if (isFirefox) {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          if (openDropdown && openDropdown !== dropdown) {
+            openDropdown.classList.remove('dropdown-open');
+          }
+          
+          dropdown.classList.toggle('dropdown-open');
+          openDropdown = dropdown.classList.contains('dropdown-open') ? dropdown : null;
+        });
+      } else {
+        // For other browsers, use hover
+        dropdown.addEventListener('mouseenter', () => {
+          clearTimeout(hoverTimeout);
+          
+          // Close other dropdowns
+          if (openDropdown && openDropdown !== dropdown) {
+            openDropdown.classList.remove('dropdown-open');
+          }
+          
+          dropdown.classList.add('dropdown-open');
+          openDropdown = dropdown;
+        });
         
-        const isOpen = dropdown.classList.contains('dropdown-open');
-        
-        // Close all other dropdowns and remove data attribute from triggers
-        document.querySelectorAll('.dropdown').forEach(d => {
-          if (d !== dropdown) {
-            d.classList.remove('dropdown-open');
-            const otherTrigger = d.querySelector('[data-dropdown-trigger]');
-            if (otherTrigger) {
-              otherTrigger.removeAttribute('data-dropdown-open');
+        dropdown.addEventListener('mouseleave', () => {
+          hoverTimeout = setTimeout(() => {
+            dropdown.classList.remove('dropdown-open');
+            if (openDropdown === dropdown) {
+              openDropdown = null;
+            }
+          }, 150);
+        });
+      }
+      
+      // Keyboard navigation for all browsers
+      trigger.addEventListener('focus', () => {
+        if (openDropdown && openDropdown !== dropdown) {
+          openDropdown.classList.remove('dropdown-open');
+        }
+        dropdown.classList.add('dropdown-open');
+        openDropdown = dropdown;
+      });
+      
+      trigger.addEventListener('blur', (e) => {
+        setTimeout(() => {
+          if (!dropdown.contains(document.activeElement)) {
+            dropdown.classList.remove('dropdown-open');
+            if (openDropdown === dropdown) {
+              openDropdown = null;
             }
           }
-        });
-        
-        // Toggle current dropdown and data attribute
-        dropdown.classList.toggle('dropdown-open', !isOpen);
-        if (!isOpen) {
-          trigger.setAttribute('data-dropdown-open', '');
-          console.log('Opening dropdown, added attribute to:', trigger);
-        } else {
-          trigger.removeAttribute('data-dropdown-open');
-          console.log('Closing dropdown, removed attribute from:', trigger);
-        }
+        }, 200);
       });
     });
-
+    
     // Close dropdowns when clicking outside
     document.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest('.dropdown')) {
-        document.querySelectorAll('.dropdown').forEach(d => {
-          d.classList.remove('dropdown-open');
-          const trigger = d.querySelector('[data-dropdown-trigger]');
-          if (trigger) {
-            trigger.removeAttribute('data-dropdown-open');
-          }
-        });
+      if (openDropdown && !openDropdown.contains(e.target)) {
+        openDropdown.classList.remove('dropdown-open');
+        openDropdown = null;
       }
     });
-
-    // Close dropdowns when pressing Escape
+    
+    // Close dropdowns on escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.dropdown').forEach(d => {
-          d.classList.remove('dropdown-open');
-          const trigger = d.querySelector('[data-dropdown-trigger]');
-          if (trigger) {
-            trigger.removeAttribute('data-dropdown-open');
-          }
-        });
+      if (e.key === 'Escape' && openDropdown) {
+        openDropdown.classList.remove('dropdown-open');
+        openDropdown = null;
       }
     });
   }
-
-  // Initialize on DOM content loaded
+  
+  // Initialize on load and after navigation
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeNavDropdowns);
+    document.addEventListener('DOMContentLoaded', initDropdowns);
   } else {
-    initializeNavDropdowns();
+    initDropdowns();
   }
-
-  // Reinitialize on Astro page navigation
-  document.addEventListener('astro:page-load', initializeNavDropdowns);
+  
+  document.addEventListener('astro:page-load', initDropdowns);
 </script>

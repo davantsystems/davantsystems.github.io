@@ -38,4 +38,7 @@ export default {
 		typography,
 		daisyui
 	],
+	daisyui: {
+		themes: ["synthwave"],
+	},
 }
