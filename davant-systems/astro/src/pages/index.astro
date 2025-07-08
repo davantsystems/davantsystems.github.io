@@ -26,8 +26,8 @@ import People from "../components/People.astro";
       <People />
     </main>
     <Footer />
-    <div class="absolute top-0 left-0 z-50 w-full h-full vhs-effect"></div>
-    <div class="absolute top-0 left-0 z-50 w-full h-full vhs-effect-vert"></div>
+    <div class="absolute top-0 left-0 z-50 w-full h-full opacity-10 vhs-effect mix-blend-darken"></div>
+    <div class="absolute top-0 left-0 z-50 w-full h-full vhs-effect-vert opacity-20 mix-blend-color-dodge"></div>
   </div>
 </Layout>
 
@@ -383,25 +383,17 @@ import People from "../components/People.astro";
   }
 
   .vhs-effect {
-    position: absolute;
-    /* z-index: -1; */
-    top: 0;
-    left: 0;
     background: linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 1) 29.5%,
+        rgba(255, 255, 255, 0) 10%,
         #000000 50%,
-        rgba(255, 255, 255, 1) 70.5%
+        rgba(255, 255, 255, 0) 90%
       )
       0% center repeat-y;
-    background-size: 100% clamp(20px, 2vw, 200px);
-    opacity: 0.04;
+    background-size: 100% clamp(20px, 5vw, 200px);
     pointer-events: none;
     animation: vhs-lines 5s infinite linear;
-    /* mix-blend-mode: overlay; */
-    mix-blend-mode: soft-light;
     filter: blur(0.4rem);
-    width: 100%;
   }
 
   @keyframes vhs-lines {
@@ -415,9 +407,6 @@ import People from "../components/People.astro";
   }
 
   .vhs-effect-vert {
-    position: absolute;
-    top: 0;
-    left: 0;
     background: linear-gradient(
         to right,
         rgba(255, 0, 0, 1) 0%,
@@ -431,14 +420,9 @@ import People from "../components/People.astro";
       )
       center repeat-x;
     background-size: clamp(4px, 1vw, 50px) 100%;
-    opacity: 0.1;
-    animation: vhs-lines-vert 0.1s infinite linear;
+    animation: vhs-lines-vert 0.5s infinite linear;
     pointer-events: none;
-    /* mix-blend-mode: overlay; */
-    mix-blend-mode: hue;
-    /* mix-blend-mode: color; */
-    filter: blur(0.2rem);
-    width: 100%;
+    filter: blur(0.25rem);
   }
 
   @keyframes vhs-lines-vert {
