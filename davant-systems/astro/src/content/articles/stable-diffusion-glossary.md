@@ -1,7 +1,8 @@
 ---
 title: "Stable Diffusion Glossary"
-description: "A comprehensive guide to AI image generation terms and concepts for creative professionals."
+description: "A comprehensive guide to understanding the key terms and concepts in AI image generation using Stable Diffusion."
 pubDate: 2024-07-30
+updatedDate: 2025-07-08
 author: "Davant Systems"
 tags: ["AI", "Stable Diffusion", "Tutorial", "Glossary"]
 featured: false
@@ -9,10 +10,6 @@ featuredImage: "../../assets/images/hero1.png"
 featuredImageAlt: "AI-generated artistic background representing Stable Diffusion concepts"
 draft: false
 ---
-
-# Stable Diffusion Glossary
-
-A comprehensive guide to understanding the key terms and concepts in AI image generation using Stable Diffusion.
 
 ## Text-to-Image
 

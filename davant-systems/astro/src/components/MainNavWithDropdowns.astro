@@ -5,13 +5,13 @@ import NavbarLogo from './NavbarLogo.astro';
 const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K3697yE144";
 ---
 
-<div class="fixed top-0 z-50 navbar bg-gradient-to-b from-black to-transparent" data-nav-component>
-  <div class="navbar-start">
-    <Link class="btn btn-ghost p-2" href="/">
+<div class="fixed top-0 z-50 border-purple-700/30 navbar bg-gradient-to-b from-black via-black/80 to-base-300/100 border-b-1" data-nav-component>
+  <div class="justify-start navbar-start">
+    <Link class="px-0 py-0 btn btn-ghost" href="/">
       <NavbarLogo />
     </Link>
   </div>
-  <div class="hidden navbar-center md:flex gap-2">
+  <div class="hidden gap-2 navbar-center md:flex">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost">Davant Studio</div>
       <ul tabindex="0" class="dropdown-content menu bg-base-100/95 backdrop-blur-sm rounded-md z-[1] w-52 p-2 shadow-lg border border-purple-500/30">
@@ -46,8 +46,8 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
         <details>
           <summary>Davant Studio</summary>
           <ul>
-            <li><Link href="/davant-studio/" class="hover:bg-primary/20 transition-all">Software Overview</Link></li>
-            <li><Link href="/download/" class="hover:bg-primary/20 transition-all">Download</Link></li>
+            <li><Link href="/davant-studio/" class="transition-all hover:bg-primary/20">Software Overview</Link></li>
+            <li><Link href="/download/" class="transition-all hover:bg-primary/20">Download</Link></li>
           </ul>
         </details>
       </li>
@@ -55,7 +55,7 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
         <details>
           <summary>Magic Mirror</summary>
           <ul>
-            <li><Link href="/photobooth/" class="hover:bg-primary/20 transition-all">AI Photo Booth</Link></li>
+            <li><Link href="/photobooth/" class="transition-all hover:bg-primary/20">AI Photo Booth</Link></li>
           </ul>
         </details>
       </li>
@@ -63,9 +63,9 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
         <details>
           <summary>Learn & Create</summary>
           <ul>
-            <li><Link href="/training/" class="hover:bg-primary/20 transition-all">Training & Workshops</Link></li>
-            <li><Link href="/articles/" class="hover:bg-primary/20 transition-all">Articles</Link></li>
-            <li><Link href="/ambassadors/" class="hover:bg-primary/20 transition-all">Creative Ambassadors Program</Link></li>
+            <li><Link href="/training/" class="transition-all hover:bg-primary/20">Training & Workshops</Link></li>
+            <li><Link href="/articles/" class="transition-all hover:bg-primary/20">Articles</Link></li>
+            <li><Link href="/ambassadors/" class="transition-all hover:bg-primary/20">Creative Ambassadors Program</Link></li>
           </ul>
         </details>
       </li>

@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import MainNavWithDropdowns from "../../components/MainNavWithDropdowns.astro";
+import NewsletterCTA from "../../components/NewsletterCTA.astro";
 import Footer from "../../components/Footer.astro";
 
 export async function getStaticPaths() {
@@ -23,9 +24,9 @@ const pageDescription = article.data.description;
 
 <Layout title={pageTitle} description={pageDescription}>
   <MainNavWithDropdowns />
-  <main class="relative pt-24 pb-32 min-h-screen bg-base-100">
+  <main class="relative min-h-screen pb-32 bg-base-100">
     <!-- Article Header -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-base-300 via-base-200 to-base-100">
+    <section class="relative pt-24 overflow-hidden border-b-1 bg-gradient-to-br from-pink-950/50 via-base-200 to-purple-950/50 border-purple-950">
       <div class="container px-8 py-16 mx-auto">
         <div class="max-w-4xl mx-auto">
           <!-- Breadcrumb -->
@@ -49,7 +50,6 @@ const pageDescription = article.data.description;
                 day: 'numeric'
               })}
             </time>
-            <span class="text-sm text-base-content/60">by {article.data.author}</span>
           </div>
 
           <!-- Article Title -->
@@ -82,34 +82,19 @@ const pageDescription = article.data.description;
     </article>
 
     <!-- Article Navigation -->
-    <section class="container px-8 py-8 mx-auto border-t border-base-300">
+    <section class="container px-8 pt-8 pb-4 mx-auto">
       <div class="max-w-4xl mx-auto">
         <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <a href="/articles" class="btn btn-outline btn-primary">
             ← Back to Articles
           </a>
-          
-          <!-- Newsletter CTA -->
-          <div class="text-center">
-            <p class="mb-2 text-sm text-base-content/80">Enjoyed this article?</p>
-            <a href="/#newsletter" class="btn btn-primary btn-sm">
-              Subscribe for More
-            </a>
-          </div>
-          
-          <!-- Share buttons could go here -->
-          <div class="text-center">
-            <p class="text-sm text-base-content/60">Share this article</p>
-            <div class="flex gap-2 mt-1">
-              <button class="btn btn-ghost btn-xs" onclick="navigator.share ? navigator.share({title: '{article.data.title}', url: window.location.href}) : navigator.clipboard.writeText(window.location.href)">
-                Share
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
   </main>
+      <section class="border-t-1 border-purple-950">
+      <NewsletterCTA />
+    </section>
   <Footer />
 </Layout>
 

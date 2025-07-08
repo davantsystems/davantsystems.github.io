@@ -1,5 +1,5 @@
 .markdown {
-  @apply mx-auto max-w-4xl text-lg leading-relaxed;
+  @apply max-w-4xl mx-auto text-lg leading-relaxed;
 }
 
 .markdown p {
@@ -7,11 +7,14 @@
 }
 
 .markdown h1 {
-  @apply mb-8 text-4xl font-bold;
+  @apply mb-4 text-4xl font-bold;
 }
 
 .markdown h2 {
-  @apply mb-6 text-3xl font-semibold;
+  @apply mb-4 text-3xl font-semibold mt-18;
+}
+.markdown h2:first-child {
+  @apply mt-0
 }
 
 .markdown h3 {
@@ -51,5 +54,9 @@
 }
 
 .markdown code {
-  @apply px-1 font-mono text-green-200 bg-black border border-green-200/20 rounded;
+  @apply px-1 font-mono text-green-200 bg-black border rounded border-green-200/20;
+}
+
+.markdown hr {
+  @apply py-4
 }
