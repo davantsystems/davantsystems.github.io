@@ -400,6 +400,55 @@ font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont,
 }
 ```
 
+### VHS Effect
+A creative retro visual effect used on the home page that simulates analog video interference.
+
+```css
+/* Horizontal scan lines */
+.vhs-effect {
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 10%,
+      #000000 50%,
+      rgba(255, 255, 255, 0) 90%
+    )
+    0% center repeat-y;
+  background-size: 100% clamp(20px, 5vw, 200px);
+  pointer-events: none;
+  animation: vhs-lines 5s infinite linear;
+  filter: blur(0.4rem);
+  opacity: 0.1;
+  mix-blend-mode: darken;
+}
+
+/* Vertical chromatic aberration */
+.vhs-effect-vert {
+  background: linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1) 0%,
+      rgba(0, 255, 0, 1) 20%,
+      rgba(0, 0, 255, 1) 50%,
+      rgba(255, 255, 0, 1) 60%,
+      rgba(255, 0, 255, 1) 80%,
+      rgba(0, 255, 255, 1) 100%
+    )
+    center repeat-x;
+  background-size: clamp(4px, 1vw, 50px) 100%;
+  animation: vhs-lines-vert 0.5s infinite linear;
+  pointer-events: none;
+  filter: blur(0.25rem);
+  opacity: 0.2;
+  mix-blend-mode: color-dodge;
+}
+```
+
+**Implementation Notes**:
+- Uses dual-layer approach: horizontal scan lines + vertical color aberration
+- Different blend modes create complex visual interaction
+- Carefully tuned opacity to maintain readability
+- Responsive sizing with clamp() for consistent effect across viewports
+- Animations create subtle movement without distraction
+
 ## Icon System
 
 ### Icon Sources
@@ -479,6 +528,39 @@ font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont,
 2. Icon-driven visual interest
 3. Benefit-focused copy
 4. Interactive elements
+
+## Component Patterns
+
+### Reusable CTAs
+
+#### SupportCTA Component
+A standardized component for support call-to-action sections used across multiple pages.
+
+**Interface**:
+```astro
+interface Props {
+  className?: string;
+}
+```
+
+**Usage**:
+```astro
+<SupportCTA />
+<!-- or with custom styling -->
+<SupportCTA className="mt-20" />
+```
+
+**Pattern Benefits**:
+- Consistent messaging across all pages
+- Single source of truth for support contact information
+- Easy to update support email or messaging globally
+- Maintains brand gradient styling
+
+**Implementation Notes**:
+- Uses standard container constraints
+- Centers content with generous padding (py-32)
+- Applies gradient text effect to email link
+- Follows established typography hierarchy
 
 ## Implementation Guidelines
 

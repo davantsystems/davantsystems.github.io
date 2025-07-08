@@ -16,12 +16,17 @@ This is the marketing website for Davant Systems (www.davantsystems.com), built 
 This project uses a special setup for the development server that allows both Claude and the user to monitor the output:
 
 - `npm run dev` - Starts the development server on port 3100 with output logging to `../logs/dev-server.log`
-- `npm run dev:logs` - Tails the dev server log file in real-time
+- `npm run log` - Tails the dev server log file in real-time
+- `npm run log:last` - Shows last N lines of the dev server log (use `LINES=50 npm run log:last` to customize)
+- `npm run log:clear` - Clears the dev server log file
+- `npm run kill` - Kills the dev server process on port 3100
+- `npm run restart` - Kills and restarts the dev server
+- `npm run status` - Shows whether the dev server is running
 
 ### Usage
 
 1. Run `npm run dev` to start the server (logs will be written to `../logs/dev-server.log`)
-2. In a separate terminal, run `npm run dev:logs` to monitor the server output
+2. In a separate terminal, run `npm run log` to monitor the server output
 3. The dev server will be available at http://localhost:3100/
 
 **Port Assignment**: This project is assigned port 3100 (Claude-managed frontend range: 3100-3999)
@@ -30,10 +35,17 @@ This setup ensures that Claude can see and react to compilation errors and serve
 
 ## Commands
 
-### Build & Development
-- `npm install` - Install dependencies
+### Development Server Management
 - `npm run dev` - Start dev server on port 3100 with logging
-- `npm run dev:logs` - Tail the dev server log file
+- `npm run log` - Tail the dev server log file in real-time
+- `npm run log:last` - Show last N lines of log (e.g., `LINES=50 npm run log:last`)
+- `npm run log:clear` - Clear the dev server log file
+- `npm run kill` - Kill the dev server on port 3100
+- `npm run restart` - Kill and restart the dev server
+- `npm run status` - Check if dev server is running
+
+### Build & Production
+- `npm install` - Install dependencies
 - `npm run build` - Build production site to `./dist/`
 - `npm run preview` - Preview the production build locally
 - `npm run astro [command]` - Run Astro CLI commands
@@ -128,6 +140,11 @@ davant-systems/
 
 ## Recent Changes
 
+- Enhanced developer tooling with new npm scripts for dev server management and logging
+- Created SupportCTA component for reusable support call-to-action sections
+- Refactored navigation to use pure DaisyUI dropdown components (removed custom implementation)
+- Polished VHS effect on home page with refined opacity and blend modes
+- Improved markdown typography with better spacing for articles
 - Implemented hardware compatibility checker with WebGL detection and scoring system
 - Redesigned Davant Studio requirements section with professional card layout
 - Added system compatibility CTA linking to new checker tool
