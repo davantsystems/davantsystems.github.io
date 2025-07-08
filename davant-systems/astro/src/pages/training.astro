@@ -4,72 +4,126 @@ import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 import hero2 from "../assets/images/hero2.png";
+import NewsletterCTA from "../components/NewsletterCTA.astro";
 
 const pageTitle = "Training & Workshops | Davant Systems";
-const pageDescription = "Professional AI training workshops and custom corporate training programs for teams and organizations.";
+const pageDescription =
+  "Professional AI training workshops and custom corporate training programs for teams and organizations.";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <MainNavWithDropdowns />
   <main class="relative">
-    <section class="border-b-2 hero__wrapper border-slate-400/5">
-      <div class="relative flex flex-col items-center justify-center min-h-screen overflow-hidden sm:flex-row">
+    <section class="relative block border-b-2 hero__wrapper border-slate-400/5">
+      <div
+        class="flex flex-col items-center justify-center overflow-hidden py-14 md:py-32 sm:flex-row"
+      >
         <!-- <span class="absolute top-0 left-0 z-40 block w-screen h-screen opacity-100 hero-gradient-1"></span> -->
-        <div class="relative z-20 flex flex-col items-center pt-24 pb-20 text-center text-neutral-content">
+        <div
+          class="relative z-20 flex flex-col items-center pt-24 pb-20 text-center text-neutral-content"
+        >
           <div class="w-full max-w-6xl px-6">
             <!-- Header -->
-            <h1 class="mb-12 font-light text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text text-center">
-              <span class="text-4xl font-black sm:text-5xl md:text-6xl">Training </span><span class="text-4xl leading-tight font-extralight sm:text-5xl md:text-6xl">& Workshops</span>
+            <h1
+              class="mb-12 font-light text-center text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text"
+            >
+              <span class="text-4xl font-black sm:text-5xl md:text-6xl"
+                >Training
+              </span><span
+                class="text-4xl leading-tight font-extralight sm:text-5xl md:text-6xl"
+                >& Workshops</span
+              >
             </h1>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+
+            <div class="grid items-stretch grid-cols-1 gap-12 md:grid-cols-2">
               <!-- Left Column: Custom Training -->
               <div class="space-y-8">
-
-                <div class="flex flex-col justify-between px-8 py-10 rounded-xl shadow-2xl bg-base-300/95 backdrop-blur-sm border border-base-content/5 h-full">
-                  <h2 class="mb-6 text-3xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-left">Custom Training</h2>
-                    <div class="mb-8">
-                      <ul class="grid grid-cols-1 gap-4 list-none">
-                        <li class="flex items-center space-x-3 p-3 rounded-lg bg-base-200/50 border border-base-content/5 transition-all duration-200 hover:bg-base-200/80 hover:border-base-content/10">
-                          <span class="w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex-shrink-0"></span>
-                          <span class="font-medium">Group Workshops</span>
-                        </li>
-                        <li class="flex items-center space-x-3 p-3 rounded-lg bg-base-200/50 border border-base-content/5 transition-all duration-200 hover:bg-base-200/80 hover:border-base-content/10">
-                          <span class="w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex-shrink-0"></span>
-                          <span class="font-medium">Private In-Office Training</span>
-                        </li>
-                        <li class="flex items-center space-x-3 p-3 rounded-lg bg-base-200/50 border border-base-content/5 transition-all duration-200 hover:bg-base-200/80 hover:border-base-content/10">
-                          <span class="w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex-shrink-0"></span>
-                          <span class="font-medium">AI Workflow Design</span>
-                        </li>
-                        <li class="flex items-center space-x-3 p-3 rounded-lg bg-base-200/50 border border-base-content/5 transition-all duration-200 hover:bg-base-200/80 hover:border-base-content/10">
-                          <span class="w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex-shrink-0"></span>
-                          <span class="font-medium">Custom AI Asset Pipelines</span>
-                        </li>
-                      </ul>
-                    </div>
+                <div
+                  class="flex flex-col justify-between h-full px-8 py-10 border shadow-2xl rounded-xl bg-base-300/95 backdrop-blur-sm border-base-content/5"
+                >
+                  <h2
+                    class="mb-6 text-3xl font-bold text-left text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text"
+                  >
+                    Custom Training
+                  </h2>
+                  <div class="mb-8">
+                    <ul class="grid grid-cols-1 gap-4 list-none">
+                      <li
+                        class="flex items-center p-3 space-x-3 transition-all duration-200 border rounded-lg bg-base-200/50 border-base-content/5 hover:bg-base-200/80 hover:border-base-content/10"
+                      >
+                        <span
+                          class="flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-500"
+                        ></span>
+                        <span class="font-medium">Group Workshops</span>
+                      </li>
+                      <li
+                        class="flex items-center p-3 space-x-3 transition-all duration-200 border rounded-lg bg-base-200/50 border-base-content/5 hover:bg-base-200/80 hover:border-base-content/10"
+                      >
+                        <span
+                          class="flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-500"
+                        ></span>
+                        <span class="font-medium"
+                          >Private In-Office Training</span
+                        >
+                      </li>
+                      <li
+                        class="flex items-center p-3 space-x-3 transition-all duration-200 border rounded-lg bg-base-200/50 border-base-content/5 hover:bg-base-200/80 hover:border-base-content/10"
+                      >
+                        <span
+                          class="flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-500"
+                        ></span>
+                        <span class="font-medium">AI Workflow Design</span>
+                      </li>
+                      <li
+                        class="flex items-center p-3 space-x-3 transition-all duration-200 border rounded-lg bg-base-200/50 border-base-content/5 hover:bg-base-200/80 hover:border-base-content/10"
+                      >
+                        <span
+                          class="flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-500"
+                        ></span>
+                        <span class="font-medium"
+                          >Custom AI Asset Pipelines</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
                   <div class="text-center">
-                    <p class="mb-6 text-base-content/80">Ready to level up your team's AI capabilities?</p>
+                    <p class="mb-6 text-base-content/80">
+                      Ready to level up your team's AI capabilities?
+                    </p>
                     <div class="space-y-4">
-                      <a href="mailto:contact@davantsystems.com" class="inline-flex items-center px-6 py-3 text-sm font-semibold transition-all duration-200 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-base-300" target="_blank">
+                      <a
+                        href="mailto:contact@davantsystems.com"
+                        class="inline-flex items-center px-6 py-3 text-sm font-semibold text-white transition-all duration-200 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-base-300"
+                        target="_blank"
+                      >
                         Contact Us
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        <svg
+                          class="w-4 h-4 ml-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          ></path>
                         </svg>
                       </a>
                       <p class="text-sm text-base-content/60">
-                        Email us directly at 
+                        Email us directly at
                         <span class="relative inline-block">
-                          <button 
-                            class="font-medium text-secondary hover:text-primary transition-colors cursor-pointer underline decoration-dotted underline-offset-2"
+                          <button
+                            class="font-medium underline transition-colors cursor-pointer text-secondary hover:text-primary decoration-dotted underline-offset-2"
                             onclick="copyEmail()"
                             id="email-button"
                           >
                             contact@davantsystems.com
                           </button>
-                          <span 
-                            id="copy-tooltip" 
-                            class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-success text-success-content text-xs px-3 py-2 rounded-md opacity-0 invisible transition-all duration-200 pointer-events-none whitespace-nowrap shadow-lg border border-success"
+                          <span
+                            id="copy-tooltip"
+                            class="absolute invisible px-3 py-2 text-xs transition-all duration-200 transform -translate-x-1/2 border rounded-md shadow-lg opacity-0 pointer-events-none -top-8 left-1/2 bg-success text-success-content whitespace-nowrap border-success"
                           >
                             Copied!
                           </span>
@@ -79,19 +133,20 @@ const pageDescription = "Professional AI training workshops and custom corporate
                   </div>
                 </div>
               </div>
-              
+
               <!-- Right Column: Events Calendar -->
               <div class="space-y-8">
                 <div class="w-full">
-                  <div class="overflow-hidden rounded-lg border border-base-content/10 shadow-lg">
+                  <div
+                    class="overflow-hidden border rounded-lg shadow-lg border-base-content/10"
+                  >
                     <iframe
                       src="https://lu.ma/embed/calendar/cal-1Q7AVkEK2CIEJHR/events?lt=dark"
                       width="100%"
                       height="600"
-                      class="border-0 block"
+                      class="block border-0"
                       aria-label="Upcoming training workshops calendar"
-                      tabindex="0"
-                    ></iframe>
+                      tabindex="0"></iframe>
                   </div>
                 </div>
               </div>
@@ -99,21 +154,32 @@ const pageDescription = "Professional AI training workshops and custom corporate
           </div>
         </div>
 
-        <div class="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 background-image left-1/2 z-1">
+        <div
+          class="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 background-image left-1/2 z-1"
+        >
           <Image
             src={hero2}
             alt="Screenshot of Davant Studio software"
-            class="relative block h-full hero__background-image object-cover w-full"
+            class="relative block object-cover object-bottom w-full h-full hero__background-image"
             loading="eager"
             width={1920}
             height={1080}
           />
-          <div class="absolute bottom-0 left-0 z-10 w-full opacity-100 gradient-fade pb-28 bg-gradient-to-b from-transparent to-base-300"></div>
+          <div
+            class="absolute bottom-0 left-0 z-10 w-full opacity-100 gradient-fade pb-28 bg-gradient-to-b from-transparent to-base-300"
+          >
+          </div>
         </div>
+      </div>
+      <div
+        class="absolute bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"
+      >
       </div>
     </section>
 
-    <div class="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
+    <section>
+      <NewsletterCTA />
+    </section>
   </main>
   <Footer />
 </Layout>
@@ -143,51 +209,53 @@ const pageDescription = "Professional AI training workshops and custom corporate
     height: 100%;
     background-image: radial-gradient(rgb(19, 136, 124) 0%, transparent 80%);
   }
-
 </style>
 
 <script is:inline>
   function copyEmail() {
-    const email = 'contact@davantsystems.com';
-    const tooltip = document.getElementById('copy-tooltip');
-    
+    const email = "contact@davantsystems.com";
+    const tooltip = document.getElementById("copy-tooltip");
+
     // Copy to clipboard
-    navigator.clipboard.writeText(email).then(() => {
-      showTooltip();
-    }).catch((error) => {
-      // Fallback for older browsers
-      fallbackCopyTextToClipboard(email);
-    });
+    navigator.clipboard
+      .writeText(email)
+      .then(() => {
+        showTooltip();
+      })
+      .catch((error) => {
+        // Fallback for older browsers
+        fallbackCopyTextToClipboard(email);
+      });
   }
 
   function showTooltip() {
-    const tooltip = document.getElementById('copy-tooltip');
-    tooltip.style.opacity = '1';
-    tooltip.style.visibility = 'visible';
-    
+    const tooltip = document.getElementById("copy-tooltip");
+    tooltip.style.opacity = "1";
+    tooltip.style.visibility = "visible";
+
     setTimeout(() => {
-      tooltip.style.opacity = '0';
+      tooltip.style.opacity = "0";
       setTimeout(() => {
-        tooltip.style.visibility = 'hidden';
+        tooltip.style.visibility = "hidden";
       }, 200);
     }, 2000);
   }
 
   function fallbackCopyTextToClipboard(text) {
-    const textArea = document.createElement('textarea');
+    const textArea = document.createElement("textarea");
     textArea.value = text;
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-999999px';
-    textArea.style.top = '-999999px';
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    textArea.style.top = "-999999px";
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
 
     try {
-      document.execCommand('copy');
+      document.execCommand("copy");
       showTooltip();
     } catch (err) {
-      console.error('Fallback: Could not copy text');
+      console.error("Fallback: Could not copy text");
     }
 
     document.body.removeChild(textArea);
