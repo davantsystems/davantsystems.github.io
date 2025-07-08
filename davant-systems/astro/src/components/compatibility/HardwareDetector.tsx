@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import type { DetectedSpecs } from '../../lib/compatibility/types';
 
 export class HardwareDetector {
@@ -351,8 +352,6 @@ export class HardwareDetector {
 }
 
 // React component wrapper
-import React, { useEffect, useState } from 'react';
-
 interface HardwareDetectorProps {
   onDetectionComplete: (specs: DetectedSpecs) => void;
   onDetectionProgress: (message: string) => void;
