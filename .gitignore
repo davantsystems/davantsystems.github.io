@@ -12,6 +12,7 @@ src/gatsby-types.d.ts
 .serena/
 
 # Development logs
+logs/
 davant-systems/logs/
 
 **/.DS_Store

@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev --port 3100 > ../logs/dev-server.log 2>&1 &",
-    "dev:logs": "tail -f ../logs/dev-server.log",
+    "log": "tail -f ../logs/astro-dev.log",
+    "log:last": "tail -n ${LINES:-20} ../logs/dev-server.log",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
