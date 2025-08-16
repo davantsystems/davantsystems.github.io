@@ -18,16 +18,21 @@ import People from "../components/People.astro";
       <HeroTwoCards />
 
       <section class="relative px-6 pt-12 pb-12 bg-base snap-start">
-        <div class="absolute top-0 left-0 z-10 w-full pb-12 mb-0 bg-gradient-to-t from-transparent to-black/20">
-        </div>
+        <div class="absolute top-0 left-0 z-10 w-full pb-12 mb-0 bg-gradient-to-t from-transparent to-black/20"></div>
         <NewsletterCTA />
       </section>
 
       <People />
     </main>
     <Footer />
-    <div class="absolute top-0 left-0 z-50 w-full h-full opacity-10 vhs-effect mix-blend-darken"></div>
-    <div class="absolute top-0 left-0 z-50 w-full h-full vhs-effect-vert opacity-20 mix-blend-color-dodge"></div>
+    <div
+      class="absolute top-0 left-0 z-50 w-full h-full opacity-10 vhs-effect mix-blend-darken"
+    >
+    </div>
+    <div
+      class="absolute top-0 left-0 z-50 w-full h-full vhs-effect-vert opacity-20 mix-blend-color-dodge"
+    >
+    </div>
   </div>
 </Layout>
 
@@ -526,7 +531,6 @@ import People from "../components/People.astro";
       transform: rotate(360deg) scaleY(2) scaleX(1.2);
     }
   }
-
 
   .neon-first {
     display: inline-block;
