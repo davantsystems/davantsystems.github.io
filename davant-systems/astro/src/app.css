@@ -333,52 +333,79 @@ html, body {
     }
 }
 
-/* .vhs-effect {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 29.5%, #000000 50%, rgba(0, 0, 0, 1) 70.5%) 0% center repeat-y;
-    background-size: 100% clamp(20px, 2vw, 200px);
-    opacity: 0.03;
+/* VHS Effect - Horizontal Lines */
+.vhs-effect {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 10%,
+        #000000 50%,
+        rgba(255, 255, 255, 0) 90%
+    ) 0% center repeat-y;
+    background-size: 100% clamp(20px, 5vw, 200px);
     pointer-events: none;
     animation: vhs-lines 5s infinite linear;
-    mix-blend-mode: overlay;
-    width: 100%;
-} */
+    filter: blur(0.4rem);
+}
 
-/* @keyframes vhs-lines {
+@keyframes vhs-lines {
     0% {
         background-position: 0px 0px;
     }
-
     100% {
         background-position: 0px 80px;
     }
 }
 
+/* VHS Effect - Vertical RGB Lines */
 .vhs-effect-vert {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    background: linear-gradient(to right, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 20%, rgba(0, 255, 0, 1) 20%, rgba(0, 255, 0, 1) 40%, rgba(0, 0, 255, 1) 40%, rgba(0, 0, 255, 1) 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%) center repeat-x;
-    background-size: clamp(4px, 2vw, 100px) 100%;
-    opacity: 0.02;
-    animation: vhs-lines-vert .1s infinite linear;
+    background: linear-gradient(
+        to right,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 0, 0, 1) 20%,
+        rgba(0, 255, 0, 1) 20%,
+        rgba(0, 255, 0, 1) 40%,
+        rgba(0, 0, 255, 1) 40%,
+        rgba(0, 0, 255, 1) 60%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0) 100%
+    ) center repeat-x;
+    background-size: clamp(4px, 1vw, 50px) 100%;
+    animation: vhs-lines-vert 0.5s infinite linear;
     pointer-events: none;
-    mix-blend-mode: overlay;
-    width: 100%;
+    filter: blur(0.25rem);
 }
 
 @keyframes vhs-lines-vert {
     0% {
         background-position: 0px 0px;
     }
-
     100% {
         background-position: 120px 0px;
     }
-} */
+}
+
+/* Hero Supertitle */
+.hero__supertitle {
+    height: 90vh;
+}
+
+/* Embed Video Container (16:9 aspect ratio) */
+.embed-video-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+.embed-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
 
 
 .hero__supertitle p.shadow-only {

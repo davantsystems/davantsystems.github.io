@@ -4,8 +4,12 @@ node_modules/
 .cache/
 public
 src/gatsby-types.d.ts
+# Environment files (all directories)
 .env
 .env.*
+**/.env
+**/.env.*
+davant-systems/.env*
 
 # Claude Code and Serena directories
 .claudedocs/
