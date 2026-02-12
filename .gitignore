@@ -12,6 +12,7 @@ src/gatsby-types.d.ts
 davant-systems/.env*
 
 # Claude Code and Serena directories
+.claude/
 .claudedocs/
 .serena/
 
