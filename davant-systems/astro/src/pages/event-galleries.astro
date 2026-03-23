@@ -20,7 +20,7 @@ const events: EventCardProps[] = [
   {
     title: "Ninja Penguin",
     date: "May 17, 2025",
-    description: "Magic Mirror photos from the Ninja Penguin event",
+    description: "",
     galleryUrl: "https://photos.davantsystems.com/share/xFOvyflkMoaGDk9f68S4JIQiovrGiAddoJsvUfZ1oZm2hrRSmvj-d4L0pZAcf5EfStE",
     imageSrc: ninjaPenguinImage,
     imageAlt: "Ninja Penguin Event"
@@ -28,7 +28,7 @@ const events: EventCardProps[] = [
   {
     title: "AI on the Lot",
     date: "May 28-29, 2025",
-    description: "Magic Mirror photos from AI on the Lot",
+    description: "",
     galleryUrl: "https://photos.davantsystems.com/share/k1FlFml8nSbi8fUhiHieoTaFE70vXzNkmxzU-UiN6_p_96qKn7THPrOcuQUBh1FwKvs",
     imageSrc: aiOnTheLotImage,
     imageAlt: "AI on the Lot Event"
@@ -36,7 +36,7 @@ const events: EventCardProps[] = [
   {
     title: "Prompted by Promise Studios",
     date: "May 6, 2025",
-    description: "Magic Mirror photos from the Prompted event by Promise Studios",
+    description: "",
     galleryUrl: "https://photos.davantsystems.com/share/PbYcHY_3xUX_h03DRxjK8hm6YDVUwyLfkS3eH1q3mYqta9WvIlM54dsBk004yNy9nGQ",
     imageSrc: promptedImage,
     imageAlt: "Prompted Event by Promise Studios"
@@ -48,45 +48,45 @@ const events: EventCardProps[] = [
 	<MainNav />
 	<main class="z-20 pt-12">
 		<section class="relative py-20 bg-base-300">
-			<div class="container mx-auto px-4">
-				<div class="text-center mb-12">
-					<h1 class="text-5xl font-bold mb-4 bg-gradient-to-br from-cyan-500 via-secondary to-purple-500 bg-clip-text text-transparent">
+			<div class="container px-4 mx-auto">
+				<div class="mb-12 text-center">
+					<h1 class="mb-4 text-5xl font-bold text-transparent bg-gradient-to-bl from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">
 						Event Photo Galleries
 					</h1>
-					<p class="text-xl text-base-content/70 max-w-2xl mx-auto">
+					<p class="max-w-2xl mx-auto text-xl text-base-content/70">
 						Browse photos from our recent Magic Mirror events. Click on any event to view the full gallery.
 					</p>
 				</div>
 
-				<div class="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
+				<div class="grid max-w-5xl grid-cols-1 gap-6 mx-auto md:grid-cols-2">
 					{events.map((event) => (
-						<div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] overflow-hidden md:card-side">
-							<figure class="relative h-64 md:h-auto md:w-1/2 overflow-hidden bg-base-200">
+						<div class="flex flex-col w-full overflow-hidden shadow-xl lg:flex-row card bg-base-100">
+							<figure class="relative h-64 overflow-hidden lg:h-auto lg:w-1/2 bg-base-200">
 								<Image
 									src={event.imageSrc}
 									alt={event.imageAlt}
-									class="w-full h-full object-cover"
+									class="object-cover object-[_center_10%] md:object-center w-full h-full"
 									loading="lazy"
 									decoding="async"
 								/>
 							</figure>
-							<div class="card-body md:w-1/2">
-								<h2 class="card-title text-2xl mb-2 text-secondary">
+							<div class="card-body lg:w-1/2">
+								<h2 class="mb-1 text-xl card-title text-secondary">
 									{event.title}
 								</h2>
-								<p class="text-base-content/60 mb-2">{event.date}</p>
+								<p class="mb-2 text-base-content">{event.date}</p>
 								{event.description && (
-									<p class="text-base-content/80 mb-4">{event.description}</p>
+									<p class="mb-4 text-base-content/80">{event.description}</p>
 								)}
-								<div class="card-actions justify-end">
+								<div class="justify-start mt-8 card-actions">
 									<a
 										href={event.galleryUrl}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="btn btn-primary btn-sm"
+										class="text-white transition-all duration-300 border-0 shadow-md btn btn-sm bg-gradient-to-br from-pink-500 via-fuchsia-500 to-purple-600 hover:from-pink-600 hover:via-fuchsia-600 hover:to-purple-700 shadow-purple-900/30 hover:shadow-lg hover:shadow-purple-800/30"
 									>
 										View Gallery
-										<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 											<path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
 										</svg>
 									</a>
@@ -97,25 +97,22 @@ const events: EventCardProps[] = [
 				</div>
 
 				<div class="mt-16 mb-8">
-					<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 p-1">
-						<div class="relative bg-base-100 rounded-2xl p-8 md:p-12">
+					<div class="relative p-1 overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600">
+						<div class="relative p-8 bg-base-100 rounded-2xl md:p-12">
 							<div class="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-pink-600/10 to-purple-600/10"></div>
 							<div class="relative z-10 max-w-3xl mx-auto text-center">
-								<h3 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+								<h3 class="pb-1 mb-4 text-3xl font-bold text-transparent md:text-4xl bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text">
 									Want Magic Mirror at Your Event?
 								</h3>
-								<p class="text-lg md:text-xl text-base-content/80 mb-8 max-w-2xl mx-auto">
+								<p class="max-w-2xl mx-auto mb-8 text-lg md:text-xl text-base-content/80">
 									Create unforgettable memories with our AI-powered photo booth experience. Perfect for corporate events, parties, and celebrations.
 								</p>
-								<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-									<a href="/photobooth" class="btn btn-lg btn-primary bg-gradient-to-r from-purple-500 to-pink-500 border-0 text-white hover:from-purple-600 hover:to-pink-600 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+								<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+									<a href="/photobooth" class="btn btn-lg bg-gradient-to-br from-pink-500 via-fuchsia-500 to-purple-600 hover:from-pink-600 hover:via-fuchsia-600 hover:to-purple-700 border-0 text-white shadow-md shadow-purple-500/30 hover:shadow-lg hover:shadow-purple-900/50 hover:scale-[1.02] transition-all duration-300">
 										Book Magic Mirror
-										<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 											<path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
 										</svg>
-									</a>
-									<a href="/photobooth#features" class="btn btn-lg btn-outline btn-secondary hover:bg-secondary hover:text-secondary-content">
-										View Features
 									</a>
 								</div>
 							</div>

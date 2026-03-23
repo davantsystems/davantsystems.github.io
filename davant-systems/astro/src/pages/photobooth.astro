@@ -44,22 +44,15 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
                   <span class="inline-block -ml-2 text-4xl font-thin -skew-x-12 sm:text-5xl md:text-6xl lg:text-7xl neon-glow-secondary text-cyan-400 font-sacramento animate-pulse-slow"><span class="neon-first">P</span>hoto <span class="neon-second">B</span>ooth</span>
                 </h2>
                 <p class="max-w-xl mb-10 text-base leading-relaxed md:text-lg lg:text-xl text-base-content">Transform your guests into living art with AI-powered real-time transformations that create unforgettable memories.</p>
-                <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
+                <div class="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
                   <TypeformBookingButton
                     buttonText="Book Your Event"
-                    variant="secondary"
+                    variant="primary"
                     size="md"
-                    className="w-full sm:w-auto cta-button-shadow from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-700 shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-[1.03]"
+                    className="w-full sm:w-auto block text-nowrap"
                     client:load
                   />
-                  <GradientButton
-                    href="#learn-more"
-                    variant="secondary"
-                    size="md"
-                    class="w-full sm:w-auto"
-                  >
-                    Explore Features
-                  </GradientButton>
+                  <p class="text-xs italic leading-relaxed">Available in Southern California for events & nationwide for custom brand activations</p>
                 </div>
                 </div>
               </div>
@@ -109,7 +102,7 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
         </div>
       </section>
 
-      <section class="relative z-20 py-32 md:pt-60 md:pb-60 bg-gradient-to-b from-base-300 to-base-100 texture-overlay" id="learn-more">
+      <section class="relative z-20 py-32 md:pt-60 md:pb-60 bg-gradient-to-b from-base-300 to-base-100 texture-overlay">
         <div class="container flex flex-col px-4 mx-auto max-w-7xl lg:flex-row lg:items-center lg:gap-16">
           <div class="mb-16 lg:w-1/2 lg:mb-0">
             <div class="max-w-xl">
@@ -187,7 +180,7 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
 
     <section class="relative z-20 py-24 md:py-32 bg-gradient-to-b from-base-100 to-base-300">
       <Testimonials />
-      <div class="relative z-20 px-4 pt-24 pb-48">
+      <div class="relative z-20 px-4 pt-24 pb-48"  id="learn-more">
         <div class="max-w-4xl mx-auto mb-8 text-center">
           <h3 class="mb-1 text-3xl font-bold text-transparent sm:text-5xl md:text-6xl lg:text-7xl bg-gradient-to-bl from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">
             <span class="block leading-tight">More than a filter</span>
@@ -361,13 +354,13 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
   /* Shadow effects */
   .shadow-glow {
     text-shadow:
-      0 0 0.2em rgba(140, 0, 140, 0.8),
-      0 0 0.05em rgba(100, 0, 0, 1),
-      0 0 0.1em rgba(50, 0, 0, 1),
+      0 0 0.2em rgba(100, 0, 100, 0.8),
+      0 0 0.05em rgba(0, 0, 0, 1),
+      0 0 0.1em rgba(0, 0, 0, 1),
       0 0 0.2em rgba(0, 0, 0, 1),
       0 0 0.1em rgba(0, 0, 0, 1),
       0 0 0.1em rgba(0, 0, 0, 1),
-      0 0 0.3em rgba(30, 0, 0, 1);
+      0 0 0.3em rgba(0, 0, 0, 1);
   }
 
   /* Neon glow effect */

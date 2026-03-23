@@ -45,10 +45,10 @@ const TypeformBookingButton: React.FC<TypeformBookingButtonProps> = ({
   const variantClasses = {
     primary: `
       text-white
-      bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600
+      bg-gradient-to-br from-pink-500 via-fuchsia-500 to-purple-600
       hover:from-pink-600 hover:via-fuchsia-600 hover:to-purple-700
-      shadow-xl shadow-purple-500/30
-      hover:shadow-2xl hover:shadow-purple-500/50
+      shadow-md shadow-purple-700/30
+      hover:shadow-lg hover:shadow-purple-900/50
       hover:scale-[1.02]
     `,
     secondary: `
