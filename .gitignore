@@ -1,23 +1,34 @@
+# Build output
+dist/
+
+# Generated types
+.astro/
+
+# Dependencies
+node_modules/
+
+# Source images
 source-images/
 
-node_modules/
-.cache/
-public
-src/gatsby-types.d.ts
-# Environment files (all directories)
+# Logs
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dev-server.log
+
+# Environment variables
 .env
 .env.*
-**/.env
-**/.env.*
-davant-systems/.env*
 
-# Claude Code and Serena directories
+# Claude Code and Serena
 .claude/
 .claudedocs/
 .serena/
 
-# Development logs
-logs/
-davant-systems/logs/
-
+# macOS
 **/.DS_Store
+
+# JetBrains
+.idea/
