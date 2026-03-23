@@ -1,47 +1,95 @@
 ---
 interface Props {
-  level: 'pro' | 'standard';
+  level: "pro" | "standard";
 }
 
 const { level } = Astro.props;
 ---
 
-<div class="flex-1 px-8 pt-8 pb-8 border shadow-sm card bg-base-300 shadow-purple-900 border-purple-900/20">
-  <h3 class="mb-8 text-3xl font-bold text-center text-white">{level === "pro" ? "Pro" : "Standard"}</h3>
+<div
+  class="flex-1 px-8 pt-8 pb-8 border rounded-2xl shadow-xl bg-base-300/40 backdrop-blur-sm shadow-purple-900/10 border-white/5"
+>
+  <h3 class="mb-8 text-3xl font-bold text-center text-white">
+    {level === "pro" ? "Pro" : "Standard"}
+  </h3>
 
   <ul class="mb-8 space-y-2 list-none">
-    {level === "pro" ? (
-      <>
-        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Max size: 2048x2048</li>
-        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Active ControlNets: 2</li>
-        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Seed Control: Random, manual number or alphanumeric</li>
-        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Save presets?: Yes</li>
-        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Create preset groups?: Yes</li>
-      </>
-    ) : (
-      <>
-        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Max size: 1024x1024</li>
-        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Active ControlNets: 1</li>
-        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Seed Control: Random only</li>
-        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Save presets?: No</li>
-        <li class="pb-2 border-b text-cyan-200 border-purple-950/20">Create preset groups?: No</li>
-      </>
-    )}
+    {
+      level === "pro" ? (
+        <>
+          <li class="pb-2 border-b text-cyan-200 border-purple-950/20">
+            Max size: 2048x2048
+          </li>
+          <li class="pb-2 border-b text-cyan-200 border-purple-950/20">
+            Active ControlNets: 2
+          </li>
+          <li class="pb-2 border-b text-cyan-200 border-purple-950/20">
+            Seed Control: Random, manual number or alphanumeric
+          </li>
+          <li class="pb-2 border-b text-cyan-200 border-purple-950/20">
+            Save presets?: Yes
+          </li>
+          <li class="pb-2 border-b text-cyan-200 border-purple-950/20">
+            Create preset groups?: Yes
+          </li>
+        </>
+      ) : (
+        <>
+          <li class="pb-2 border-b text-cyan-200 border-purple-950/20">
+            Max size: 1024x1024
+          </li>
+          <li class="pb-2 border-b text-cyan-200 border-purple-950/20">
+            Active ControlNets: 1
+          </li>
+          <li class="pb-2 border-b text-cyan-200 border-purple-950/20">
+            Seed Control: Random only
+          </li>
+          <li class="pb-2 border-b text-cyan-200 border-purple-950/20">
+            Save presets?: No
+          </li>
+          <li class="pb-2 border-b text-cyan-200 border-purple-950/20">
+            Create preset groups?: No
+          </li>
+        </>
+      )
+    }
   </ul>
 
-  <p class="mb-8 text-2xl font-bold text-center text-white">{level === "pro" ? "$30/month" : "Free"}</p>
+  <p class="mb-8 text-2xl font-bold text-center text-white">
+    {level === "pro" ? "$30/month" : "Free"}
+  </p>
 
-  <a 
-    class="w-full pl-0 pr-4 mx-auto overflow-hidden rounded-none shadow-lg border-cyan-500/50 cta__button--download effect__chromeflash btn btn-primary text-md md:text-lg indicator bg-gradient-to-br from-pink-400 via-fuchsia-500 to-purple-500 hover:from-pink-500 hover:to-purple-400 hover:scale-105 text-neutral shadow-fuchsia-500/30"
-    href={level === "pro" ? "https://buy.stripe.com/3cs7vZ6Nr3Azc3CbIK" : "https://davantsystems.com/davant-studio/download"}
+  <a
+    class="w-full pl-0 pr-4 mx-auto overflow-hidden rounded-md shadow-lg border-white/10 btn btn-primary indicator bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-500 hover:to-pink-500 hover:scale-105 text-white font-semibold transition-all duration-300 backdrop-blur-md text-md md:text-lg"
+    href={level === "pro"
+      ? "https://buy.stripe.com/3cs7vZ6Nr3Azc3CbIK"
+      : "https://davantsystems.com/davant-studio/download"}
   >
     <span class="p-2 bg-transparent rounded-full badge-neutral">
-      <svg class="stroke-neutral" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+      <svg
+        class="stroke-white"
+        width="22px"
+        height="22px"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke="#ffffff"
+      >
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"></g>
         <g id="SVGRepo_iconCarrier">
-          <path d="M8 22.0002H16C18.8284 22.0002 20.2426 22.0002 21.1213 21.1215C22 20.2429 22 18.8286 22 16.0002V15.0002C22 12.1718 22 10.7576 21.1213 9.8789C20.3529 9.11051 19.175 9.01406 17 9.00195M7 9.00195C4.82497 9.01406 3.64706 9.11051 2.87868 9.87889C2 10.7576 2 12.1718 2 15.0002L2 16.0002C2 18.8286 2 20.2429 2.87868 21.1215C3.17848 21.4213 3.54062 21.6188 4 21.749" stroke-width="1.5" stroke-linecap="round"></path>
-          <path d="M12 2L12 15M12 15L9 11.5M12 15L15 11.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path
+            d="M8 22.0002H16C18.8284 22.0002 20.2426 22.0002 21.1213 21.1215C22 20.2429 22 18.8286 22 16.0002V15.0002C22 12.1718 22 10.7576 21.1213 9.8789C20.3529 9.11051 19.175 9.01406 17 9.00195M7 9.00195C4.82497 9.01406 3.64706 9.11051 2.87868 9.87889C2 10.7576 2 12.1718 2 15.0002L2 16.0002C2 18.8286 2 20.2429 2.87868 21.1215C3.17848 21.4213 3.54062 21.6188 4 21.749"
+            stroke-width="1.5"
+            stroke-linecap="round"></path>
+          <path
+            d="M12 2L12 15M12 15L9 11.5M12 15L15 11.5"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
         </g>
       </svg>
     </span>
