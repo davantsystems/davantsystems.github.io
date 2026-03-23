@@ -16,14 +16,14 @@ const { beforeImage, beforeAlt, afterImage, afterAlt } = Astro.props;
   <!-- Main container -->
   <div class="relative p-4 bg-base-300/30 backdrop-blur-sm rounded-3xl lg:p-8">
     <!-- Labels -->
-    <div class="absolute z-20 pointer-events-none top-4 sm:top-8 left-4 sm:left-8">
-      <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-base-300/70 backdrop-blur-md border border-purple-500/30 shadow-lg">
+    <div class="absolute z-20 pointer-events-none bottom-4 sm:bottom-8 left-4 sm:left-8">
+      <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-base-300/60 backdrop-blur-md rounded-tr-sm">
         <span class="text-xs font-semibold sm:text-sm text-base-content">Before</span>
       </span>
     </div>
-    <div class="absolute z-20 pointer-events-none top-4 sm:top-8 right-4 sm:right-8">
-      <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-base-300/70 backdrop-blur-md border border-purple-500/30 shadow-lg">
-        <span class="text-xs font-semibold text-transparent sm:text-sm bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text">After AI Magic</span>
+    <div class="absolute z-20 pointer-events-none bottom-4 sm:bottom-8 right-4 sm:right-8">
+      <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-base-300/60 backdrop-blur-md rounded-tl-sm">
+        <span class="text-xs font-semibold sm:text-sm text-base-content">After</span>
       </span>
     </div>
     
@@ -110,11 +110,6 @@ const { beforeImage, beforeAlt, afterImage, afterAlt } = Astro.props;
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Bottom text -->
-    <div class="mt-8 text-center">
-      <p class="text-sm text-base-content">One moment captured, infinite artistic possibilities</p>
     </div>
   </div>
 </div>

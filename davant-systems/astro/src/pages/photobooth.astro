@@ -115,9 +115,9 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
         <div class="container flex flex-col px-4 mx-auto max-w-7xl lg:flex-row lg:items-center lg:gap-16">
           <div class="mb-16 lg:w-1/2 lg:mb-0">
             <div class="max-w-xl">
-              <h2 class="mb-10 text-2xl font-bold leading-tight sm:text-3xl lg:text-5xl">
-                <span class="text-transparent bg-gradient-to-br from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">Magically transformed</span>
-                <span class="block mt-2 text-xl font-light sm:text-2xl lg:text-3xl text-base-content">by AI in real-time</span>
+              <h2 class="mb-10 text-2xl font-bold leading-tight text-transparent sm:text-3xl lg:text-5xl bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">
+                <span class="block">Magically transformed</span>
+                <span class="block pb-1 mt-1 text-xl font-light sm:text-2xl lg:text-3xl">by AI in real-time</span>
               </h2>
               <div class="space-y-6 text-lg text-base-content">
                 <p class="leading-relaxed">Our cutting-edge system captures a photo every 3 seconds and uses generative AI to transform your guests in amazing ways.</p>
@@ -150,6 +150,41 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
           </div>
         </div>
       </section>
+
+      <!-- Timelapse Video Section -->
+      <section class="relative z-20 py-24 md:py-32 bg-gradient-to-b from-base-100 to-base-300 texture-overlay">
+        <div class="container flex flex-col items-center px-4 mx-auto max-w-7xl lg:flex-row lg:items-center lg:gap-16">
+          <div class="mb-12 lg:w-1/2 lg:mb-0">
+            <div class="max-w-xl">
+              <h2 class="mb-8 text-2xl font-bold leading-tight sm:text-3xl lg:text-5xl">
+                <span class="text-transparent bg-gradient-to-br from-pink-400 via-fuchsia-400 to-purple-500 bg-clip-text">Relive every moment</span>
+                <span class="block pb-1 mt-1 text-xl font-light text-transparent sm:text-2xl lg:text-3xl bg-gradient-to-br from-pink-400 via-fuchsia-400 to-purple-500 bg-clip-text">long after the event ends</span>
+              </h2>
+              <p class="text-lg leading-relaxed text-base-content">Every booking includes a custom timelapse video of your event: a highlight reel of every transformation, delivered ready to share on social media.</p>
+              <p class="mt-6 text-sm font-medium tracking-wide text-base-content/50">Sample timelapse from "Prompted" by Promise Studios &amp; Curious Refuge</p>
+            </div>
+          </div>
+          <div class="lg:w-1/2">
+            <div class="relative flex justify-center group">
+              <div class="absolute w-2/3 ml-auto mr-auto transition-opacity duration-500 -inset-4 bg-gradient-to-br from-cyan-500 via-indigo-500 to-blue-500 rounded-2xl opacity-10 blur-2xl group-hover:opacity-15"></div>
+              <div class="relative w-full max-w-sm overflow-hidden border shadow-2xl rounded-2xl border-purple-500/20 bg-base-300">
+                <div class="relative w-full" style="padding-top: 177.68%;">
+                  <iframe
+                    src="https://www.youtube.com/embed/La7IxgcyliI"
+                    title="Timelapse - Prompted by Promise Studios and Curious Refuge"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    loading="lazy"
+                    class="absolute inset-0 w-full h-full"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <section class="relative z-20 py-24 md:py-32 bg-gradient-to-b from-base-100 to-base-300">
@@ -160,7 +195,6 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
             <span class="leading-tight text-transparent bg-gradient-to-r from-pink-400 via-fuchsia-500 to-purple-600 bg-clip-text">More than a filter.</span>
             <span class="block mt-4 text-xl font-light sm:text-2xl lg:text-4xl text-base-content">A truly imaginative transformation</span>
           </h3>
-          <p class="max-w-2xl mx-auto text-lg text-base-content">Drag the slider to see how our AI transforms reality into art in real-time</p>
         </div>
         
         <ComparisonSlider
@@ -184,7 +218,7 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
     <section class="relative z-20 overflow-hidden py-28 md:py-64 bg-base-200 texture-overlay">
       <div class="container max-w-6xl px-4 mx-auto">
         <div class="mb-20 text-center">
-          <h2 class="text-2xl font-bold text-transparent stroke-2 sm:text-3xl lg:text-5xl bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text drop-shadow-sm">Proven Impact</h2>
+          <h2 class="text-4xl font-bold text-white sm:text-5xl lg:text-7xl text-shadow-[1px_1px_0.2em_rgb(0_0_0_/_1.0),1px_2px_0.1em_rgb(0_0_0_/_0.8),1px_2px_0.4em_rgb(0_0_0_/_0.8),0px_2px_0.6em_rgb(0_0_0_/_1.0)]">Proven Impact</h2>
         </div>
         <div class="grid max-w-4xl grid-cols-1 gap-10 mx-auto md:grid-cols-3">
           <StatCard
@@ -238,7 +272,7 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
       <div class="container relative z-30 max-w-4xl px-4 mx-auto">
         <div class="relative">
           <div class="absolute -inset-8 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-3xl opacity-20 blur-3xl"></div>
-          <div class="relative text-center border shadow-2xl p-14 bg-base-300/80 backdrop-blur-xl rounded-3xl border-purple-500/20 lg:p-20">
+          <div class="relative text-center border shadow-2xl p-14 bg-base-300/90 backdrop-blur-xl rounded-3xl border-purple-500/20 lg:p-20">
             <h2 class="mb-16">
               <span class="block mb-6 text-3xl font-bold leading-tight text-transparent sm:text-4xl lg:text-5xl bg-gradient-to-br from-violet-400 via-cyan-400 to-blue-500 bg-clip-text">Ready to wow your guests?</span>
               <span class="block text-xl font-light sm:text-2xl lg:text-3xl text-base-content/90">Book the Magic Mirror for your next event</span>
@@ -278,21 +312,6 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
             </div>
           </div>
         </div>
-      </div>
-      <div class="absolute inset-0 z-0">
-        <video 
-          class="absolute inset-0 object-cover w-full h-full opacity-10" 
-          autoplay 
-          loop 
-          muted 
-          playsinline
-          preload="metadata"
-        >
-          <source src="/video/banneranimation-01_5.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-pink-900/60 to-cyan-900/80 mix-blend-multiply"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-base-300/90 via-transparent to-transparent"></div>
       </div>
     </section>
 

@@ -20,9 +20,9 @@ const {
     {
       quote: "So addicting! I could play with this all night.",
       author: "Sarah M.",
-      accentColor: "purple" as const,
-      gradientFrom: "from-purple-400",
-      gradientTo: "to-pink-400"
+      accentColor: "cyan" as const,
+      gradientFrom: "from-cyan-400",
+      gradientTo: "to-blue-400"
     },
     {
       quote: "This is the future!",
@@ -34,9 +34,9 @@ const {
     {
       quote: "Definitely my favorite part of the event",
       author: "Jessica L.",
-      accentColor: "fuchsia" as const,
-      gradientFrom: "from-fuchsia-400",
-      gradientTo: "to-purple-400"
+      accentColor: "cyan" as const,
+      gradientFrom: "from-cyan-400",
+      gradientTo: "to-blue-400"
     }
   ]
 } = Astro.props;
@@ -52,13 +52,14 @@ const {
   
   <div class="grid grid-cols-1 gap-6 mb-48 md:grid-cols-3">
     {testimonials.map((testimonial, index) => (
-      <TestimonialCard 
+      <TestimonialCard
         quote={testimonial.quote}
         author={testimonial.author}
         accentColor={testimonial.accentColor}
         gradientFrom={testimonial.gradientFrom}
         gradientTo={testimonial.gradientTo}
-        offset={index === 1}
+        offset={index != 1}
+        index={index}
       />
     ))}
   </div>
