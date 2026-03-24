@@ -1,0 +1,47 @@
+---
+import "../app.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Davant Systems | AI for creative professionals",
+	description = "The easiest way to run Stable Diffusion on your own computer and create unlimited images."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="synthwave" class="relative block w-full bg-base-300">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<!-- Security Headers -->
+		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+		<meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.lu.ma https://campaigns.zoho.com https://embed.typeform.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://qtrxb-cmpzourl.maillist-manage.com https://lu.ma https://www.youtube.com https://youtube.com; connect-src 'self' https://gmail.us21.list-manage.com https://*.google-analytics.com;" />
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Sacramento&family=Yellowtail&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="w-full bg-base-100">
+		<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-base-100 focus:text-primary focus:rounded">Skip to content</a>
+		<slot />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+	}
+</style>

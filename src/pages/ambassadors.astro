@@ -1,0 +1,540 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
+import Footer from "../components/Footer.astro";
+import NewsletterCTA from "../components/NewsletterCTA.astro";
+import AmbassadorForm from "../components/AmbassadorForm.astro";
+import { Image } from "astro:assets";
+import hero1 from "../assets/images/hero1.png";
+
+const pageTitle = "Creative Ambassadors Program | Davant Systems";
+const pageDescription = "Join our ambassador program for visual creatives. Get free Davant Studio Pro, connect with fellow artists, and help shape the future of creative tools. No AI experience required.";
+
+const benefits = [
+  {
+    icon: "gift",
+    title: "Free Pro License",
+    description: "Get a complimentary Davant Studio Pro license with all premium features unlocked"
+  },
+  {
+    icon: "zap",
+    title: "Early Access",
+    description: "Be first to test new features and provide feedback that shapes our products"
+  },
+  {
+    icon: "book-open",
+    title: "Exclusive Training",
+    description: "Free access to advanced workshops and one-on-one mentorship sessions"
+  },
+  {
+    icon: "trophy",
+    title: "Creative Contests",
+    description: "Participate in fun challenges, competitions, and showcase opportunities"
+  },
+  {
+    icon: "users",
+    title: "Community",
+    description: "Join the vanguard of AI creative pioneers shaping the future of creative tools"
+  },
+  {
+    icon: "star",
+    title: "Recognition",
+    description: "Get featured in our showcases and co-marketing initiatives"
+  }
+];
+
+const requirements = [
+  "Professional or serious hobbyist in visual creative fields",
+  "Open to exploring new creative technologies",
+  "Naturally enthusiastic about sharing discoveries",
+  "Interested in being part of a creative community",
+  "Commitment to ethical and responsible AI use"
+];
+
+const faqs = [
+  {
+    question: "What's the time commitment?",
+    answer: "There's no set time requirement or mandatory activities. We simply want ambassadors who are genuinely excited about the tools and naturally want to share their experiences. Engage at whatever level feels right for you."
+  },
+  {
+    question: "Do I need experience with AI?",
+    answer: "Not at all! We welcome creators at all stages of their AI journey, including those who haven't tried it yet. In fact, fresh perspectives from traditional artists are incredibly valuable. We'll provide all the training you need."
+  },
+  {
+    question: "What kind of creatives are you looking for?",
+    answer: "All visual creatives! Digital designers, traditional painters, photographers, sculptors, filmmakers, illustrators, ceramicists. If you create visual art professionally or as a serious hobby, we want to hear from you. Non-digital artists bring unique perspectives we highly value."
+  },
+  {
+    question: "Is there a cost to join?",
+    answer: "No, the ambassador program is free to join. In fact, you'll receive a free Davant Studio Pro license, exclusive training, and opportunities to participate in creative contests."
+  },
+  {
+    question: "How does the selection process work?",
+    answer: "We open applications periodically on a rolling basis. We look for creators who are a great fit for our community: those who are passionate, curious, and excited about the future of creative tools. There are no fixed terms or periods."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <MainNavWithDropdowns />
+  <main class="relative">
+    <!-- Hero Section -->
+    <section class="border-b-2 hero__wrapper border-slate-400/5">
+      <div class="relative flex flex-col items-center justify-center min-h-[80vh] overflow-hidden">
+        <div class="relative z-20 flex flex-col items-center pt-32 pb-20 text-center text-neutral-content">
+          <div class="w-full max-w-6xl px-6">
+            <!-- Header -->
+            <div class="mb-12">
+              <h1 class="mb-6 font-light text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text">
+                <span class="text-5xl font-black sm:text-6xl md:text-7xl">Creative </span>
+                <span class="text-5xl leading-tight font-extralight sm:text-6xl md:text-7xl">Ambassadors</span>
+              </h1>
+              <p class="max-w-3xl mx-auto text-xl font-light text-base-content/80 sm:text-2xl">
+                Be part of the new wave of AI creative tools. <span class="inline-block">Get free software and help shape the future.</span>
+              </p>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="mb-16">
+              <a 
+                href="#apply" 
+                class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/50"
+              >
+                Apply Now
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Background Image -->
+        <div class="absolute bottom-0 block h-full min-w-full -translate-x-1/2 opacity-100 background-image left-1/2 z-1">
+          <Image
+            src={hero1}
+            alt="AI Creative Technology"
+            class="relative block object-cover w-full h-full hero__background-image"
+            loading="eager"
+            width={1920}
+            height={1080}
+          />
+          <div class="absolute inset-0 opacity-50 bg-gradient-to-b from-base-300/95 via-base-300/50 to-base-300"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-20 bg-base-200/50">
+      <div class="container max-w-6xl px-6 mx-auto">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="mb-8 text-4xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text">
+            Join the Creative Revolution
+          </h2>
+          <p class="mb-6 text-lg leading-relaxed text-left text-base-content/80">
+            The Davant Systems Ambassador Program is about joining a movement. We're building the next generation of creative tools, and we want passionate creators to be part of the journey. As an ambassador, you'll get free access to Davant Studio Pro while helping us build something revolutionary.
+          </p>
+          <p class="text-lg leading-relaxed text-left text-base-content/80">
+            Whether you're a digital designer, traditional painter, photographer, sculptor, filmmaker, or any kind of visual creative: if you're curious about how AI might enhance (not replace) your creative process, we want you on our team.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-base-300/50">
+      <div class="container max-w-6xl px-6 mx-auto">
+        <h2 class="mb-12 text-4xl font-bold text-center text-transparent bg-gradient-to-r from-pink-400 to-fuchsia-500 bg-clip-text">
+          Ambassador Benefits
+        </h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {benefits.map((benefit, index) => (
+            <div class="p-6 transition-all duration-300 border group rounded-xl bg-base-300/80 backdrop-blur-sm border-base-content/10 hover:border-secondary/30 hover:shadow-lg hover:shadow-secondary/10 hover:-translate-y-1">
+              <div class="relative w-16 h-16 mb-4">
+                <div class="absolute inset-0 transition-opacity duration-300 rounded-lg bg-gradient-to-br from-pink-500 to-purple-600 opacity-20 blur-xl group-hover:opacity-40"></div>
+                <div class="relative w-full h-full p-3 transition-all duration-300 border rounded-lg bg-gradient-to-br from-base-200 to-base-300 border-secondary/20 group-hover:border-secondary/40">
+                  {benefit.icon === "gift" && (
+                    <svg viewBox="0 0 24 24" fill="none" class="w-full h-full icon-glow">
+                      <defs>
+                        <linearGradient id={`gift-gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#ec4899" />
+                          <stop offset="100%" stop-color="#8b5cf6" />
+                        </linearGradient>
+                      </defs>
+                      <polyline points="20 12 20 22 4 22 4 12" stroke={`url(#gift-gradient-${index})`} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                      <rect x="2" y="7" width="20" height="5" stroke={`url(#gift-gradient-${index})`} stroke-width="2"></rect>
+                      <line x1="12" y1="22" x2="12" y2="7" stroke={`url(#gift-gradient-${index})`} stroke-width="2"></line>
+                      <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" stroke={`url(#gift-gradient-${index})`} stroke-width="2"></path>
+                      <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" stroke={`url(#gift-gradient-${index})`} stroke-width="2"></path>
+                    </svg>
+                  )}
+                  {benefit.icon === "zap" && (
+                    <svg viewBox="0 0 24 24" fill="none" class="w-full h-full icon-pulse">
+                      <defs>
+                        <linearGradient id={`zap-gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#fbbf24" />
+                          <stop offset="100%" stop-color="#f59e0b" />
+                        </linearGradient>
+                      </defs>
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke={`url(#zap-gradient-${index})`} fill={`url(#zap-gradient-${index})`} fill-opacity="0.2" stroke-width="2"></polygon>
+                    </svg>
+                  )}
+                  {benefit.icon === "book-open" && (
+                    <svg viewBox="0 0 24 24" fill="none" class="w-full h-full icon-float">
+                      <defs>
+                        <linearGradient id={`book-gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#06b6d4" />
+                          <stop offset="100%" stop-color="#3b82f6" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke={`url(#book-gradient-${index})`} stroke-width="2"></path>
+                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke={`url(#book-gradient-${index})`} stroke-width="2"></path>
+                    </svg>
+                  )}
+                  {benefit.icon === "trophy" && (
+                    <svg viewBox="0 0 24 24" fill="none" class="w-full h-full icon-shine">
+                      <defs>
+                        <linearGradient id={`trophy-gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#fbbf24" />
+                          <stop offset="50%" stop-color="#f59e0b" />
+                          <stop offset="100%" stop-color="#fbbf24" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M8 21h8" stroke={`url(#trophy-gradient-${index})`} stroke-width="2"></path>
+                      <path d="M12 21v-4" stroke={`url(#trophy-gradient-${index})`} stroke-width="2"></path>
+                      <path d="M7 4h10v8a5 5 0 0 1-10 0V4Z" stroke={`url(#trophy-gradient-${index})`} fill={`url(#trophy-gradient-${index})`} fill-opacity="0.2" stroke-width="2"></path>
+                      <path d="M18 4h2a1 1 0 0 1 1 1v3a2 2 0 0 1-2 2h-1" stroke={`url(#trophy-gradient-${index})`} stroke-width="2"></path>
+                      <path d="M6 4H4a1 1 0 0 0-1 1v3a2 2 0 0 0 2 2h1" stroke={`url(#trophy-gradient-${index})`} stroke-width="2"></path>
+                    </svg>
+                  )}
+                  {benefit.icon === "users" && (
+                    <svg viewBox="0 0 24 24" fill="none" class="w-full h-full icon-bounce">
+                      <defs>
+                        <linearGradient id={`users-gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#8b5cf6" />
+                          <stop offset="100%" stop-color="#ec4899" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke={`url(#users-gradient-${index})`} stroke-width="2"></path>
+                      <circle cx="9" cy="7" r="4" stroke={`url(#users-gradient-${index})`} stroke-width="2"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke={`url(#users-gradient-${index})`} stroke-width="2"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke={`url(#users-gradient-${index})`} stroke-width="2"></path>
+                    </svg>
+                  )}
+                  {benefit.icon === "star" && (
+                    <svg viewBox="0 0 24 24" fill="none" class="w-full h-full icon-sparkle">
+                      <defs>
+                        <linearGradient id={`star-gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#fbbf24" />
+                          <stop offset="100%" stop-color="#f59e0b" />
+                        </linearGradient>
+                      </defs>
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke={`url(#star-gradient-${index})`} fill={`url(#star-gradient-${index})`} fill-opacity="0.3" stroke-width="2"></polygon>
+                    </svg>
+                  )}
+                </div>
+              </div>
+              <h3 class="mb-3 text-xl font-bold text-secondary">{benefit.title}</h3>
+              <p class="text-base-content/70">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="py-20 bg-base-200/50">
+      <div class="container max-w-6xl px-6 mx-auto">
+        <div class="grid items-center gap-12 md:grid-cols-2">
+          <div>
+            <h2 class="mb-8 text-4xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text">
+              What We're Looking For
+            </h2>
+            <ul class="space-y-4">
+              {requirements.map((req) => (
+                <li class="flex items-start space-x-3">
+                  <span class="flex-shrink-0 w-6 h-6 mt-0.5 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
+                  <span class="text-base-content/80">{req}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="p-8 border rounded-2xl bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-purple-500/20">
+            <h3 class="mb-4 text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text">
+              Ideal Candidates
+            </h3>
+            <p class="mb-4 text-base-content/70">
+              We welcome creators from all backgrounds and experience levels. You might be:
+            </p>
+            <ul class="space-y-2 text-base-content/70">
+              <li>• A traditional artist curious about digital tools</li>
+              <li>• A photographer looking to expand your creative toolkit</li>
+              <li>• A designer ready to explore new possibilities</li>
+              <li>• A filmmaker interested in cutting-edge techniques</li>
+              <li>• A sculptor or painter wondering how AI fits your practice</li>
+              <li>• An educator excited to share new technologies</li>
+              <li>• Anyone creating visual art who values innovation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-base-300/50">
+      <div class="container max-w-4xl px-6 mx-auto">
+        <h2 class="mb-12 text-4xl font-bold text-center text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text">
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-6">
+          {faqs.map((faq, index) => (
+            <div class="border collapse collapse-arrow bg-base-200/50 border-base-content/10">
+              <input type="radio" name="faq-accordion" checked={index === 0} />
+              <div class="text-lg font-medium collapse-title text-secondary">
+                {faq.question}
+              </div>
+              <div class="collapse-content">
+                <p class="pt-2 text-base-content/70">{faq.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Apply Section -->
+    <section id="apply" class="py-20 bg-base-200/50 scroll-mt-20">
+      <div class="container max-w-6xl px-6 mx-auto">
+        <div class="mb-12 text-center">
+          <h2 class="mb-8 text-4xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-fuchsia-500 bg-clip-text">
+            Ready to Join?
+          </h2>
+          <p class="max-w-3xl mx-auto mb-8 text-lg text-base-content/80">
+            Complete the application form below. We review applications on a rolling basis and reach out to selected candidates when we open new spots in the program.
+          </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <!-- Application Form Tabs -->
+          <div class="justify-center p-1 mb-8 tabs tabs-boxed bg-base-300/50">
+            <button class="tab tab-active" id="form-tab" onclick="showForm()">
+              Application Form
+            </button>
+            <button class="tab" id="email-tab" onclick="showEmail()">
+              Apply via Email
+            </button>
+          </div>
+          
+          <!-- Form Container -->
+          <div id="form-container" class="border md:p-8 rounded-2xl bg-base-300/80 backdrop-blur-sm border-base-content/10">
+            <AmbassadorForm />
+          </div>
+          
+          <!-- Email Container -->
+          <div id="email-container" class="hidden p-8 border rounded-2xl bg-base-300/80 backdrop-blur-sm border-base-content/10">
+            <div class="text-center">
+              <p class="mb-6 text-lg text-base-content/80">
+                Prefer to apply via email? Send us your information directly.
+              </p>
+              <a 
+                href="mailto:ambassadors@davantsystems.com?subject=Ambassador Program Application" 
+                class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/50"
+              >
+                Apply via Email
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </a>
+              <p class="mt-6 text-base text-base-content/60">
+                Include the following in your email:
+              </p>
+              <ul class="max-w-md mx-auto mt-4 space-y-2 text-left text-base-content/70">
+                <li class="flex items-start">
+                  <span class="mr-2 text-secondary">•</span>
+                  Your portfolio or website
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2 text-secondary">•</span>
+                  Social media links (Instagram, LinkedIn, etc.)
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2 text-secondary">•</span>
+                  Brief description of your creative work
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2 text-secondary">•</span>
+                  Your experience with AI (if any) or what interests you about it
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2 text-secondary">•</span>
+                  Why you want to be an ambassador
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-base-300/30">
+      <div class="container max-w-4xl px-6 mx-auto">
+        <NewsletterCTA />
+      </div>
+    </section>
+
+    <div class="fixed bottom-0 left-0 z-50 block w-full pointer-events-none bg h-1/6 bg-gradient-to-b from-transparent to-base-300 opacity-80"></div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .hero__wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero__background-image {
+    filter: brightness(0.7) contrast(1.1);
+  }
+
+  .icon-glow {
+    filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.5));
+    transition: filter 0.3s ease;
+  }
+  
+  .group:hover .icon-glow {
+    filter: drop-shadow(0 0 16px rgba(236, 72, 153, 0.8));
+  }
+
+  .icon-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  .icon-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .icon-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .icon-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 70%
+    );
+    animation: shine 3s infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+  }
+
+  .icon-bounce {
+    animation: bounce 2s ease-in-out infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-2px);
+    }
+    75% {
+      transform: translateY(2px);
+    }
+  }
+
+  .icon-sparkle {
+    position: relative;
+  }
+  
+  .icon-sparkle::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fbbf24;
+    border-radius: 50%;
+    top: 20%;
+    right: 20%;
+    animation: sparkle 2s linear infinite;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<script is:inline>
+  function showForm() {
+    const formTab = document.getElementById('form-tab');
+    const emailTab = document.getElementById('email-tab');
+    const formContainer = document.getElementById('form-container');
+    const emailContainer = document.getElementById('email-container');
+    
+    formTab.classList.add('tab-active');
+    emailTab.classList.remove('tab-active');
+    formContainer.classList.remove('hidden');
+    emailContainer.classList.add('hidden');
+  }
+  
+  function showEmail() {
+    const formTab = document.getElementById('form-tab');
+    const emailTab = document.getElementById('email-tab');
+    const formContainer = document.getElementById('form-container');
+    const emailContainer = document.getElementById('email-container');
+    
+    emailTab.classList.add('tab-active');
+    formTab.classList.remove('tab-active');
+    emailContainer.classList.remove('hidden');
+    formContainer.classList.add('hidden');
+  }
+</script>

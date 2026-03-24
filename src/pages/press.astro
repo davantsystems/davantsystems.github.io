@@ -1,0 +1,123 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
+import { Image } from "astro:assets";
+
+import logoImage from "../assets/images/DavantSystems-logo-1000.png";
+import controlsImage from "../assets/images/davant-studio-controls.png";
+import presetsImage from "../assets/images/davant-studio-presets.png";
+import promptsImage from "../assets/images/davant-studio-prompts.png";
+import settingsImage from "../assets/images/davant-studio-settings.png";
+import controlnetImage from "../assets/images/davant-studio-controlnet.png";
+import photoshopImage from "../assets/images/davant-studio-photoshop-screenshot.jpg";
+import hero1Image from "../assets/images/hero1.png";
+import hero2Image from "../assets/images/hero2.png";
+
+const pageTitle = "Davant Systems | Press & Media Assets";
+
+const logos = [
+  { name: "DavantSystems-logo-1000.png", src: logoImage, download: "/image/press/DavantSystems-logo-1000.png" }
+];
+
+const appScreenshots = [
+  { name: "davant-studio-controls.png", src: controlsImage, download: "/image/press/davant-studio-controls.png" },
+  { name: "davant-studio-presets.png", src: presetsImage, download: "/image/press/davant-studio-presets.png" },
+  { name: "davant-studio-prompts.png", src: promptsImage, download: "/image/press/davant-studio-prompts.png" },
+  { name: "davant-studio-settings.png", src: settingsImage, download: "/image/press/davant-studio-settings.png" },
+  { name: "davant-studio-controlnet.png", src: controlnetImage, download: "/image/press/davant-studio-controlnet.png" },
+  { name: "davant-studio-photoshop-screenshot.jpg", src: photoshopImage, download: "/image/press/davant-studio-photoshop-screenshot.jpg" }
+];
+
+const backgrounds = [
+  { name: "hero1.png", src: hero1Image, download: "/image/press/hero1.png" },
+  { name: "hero2.png", src: hero2Image, download: "/image/press/hero2.png" }
+];
+---
+
+<Layout title={pageTitle}>
+  <MainNavWithDropdowns />
+  <main class="relative px-8 pt-14 pb-96">
+    <section class="container relative z-10">
+      <div class="max-w-2xl mx-auto">
+        <h1 class="mb-8 text-2xl text-primary">Press</h1>
+      </div>
+    </section>
+
+    <section class="container max-w-2xl mb-24 brand">
+      <h2 class="inline mb-4 text-xl">Brand</h2>
+      <span class="ml-3 mr-3 text-xl">/</span>
+      <h3 class="inline mb-2 text-lg">Logos</h3>
+      <ul class="grid grid-cols-3 gap-4 mt-4">
+        {logos.map((logo) => (
+          <li class="w-full h-full">
+            <a
+              class="block w-full h-full"
+              href={logo.download}
+              download={logo.name}
+            >
+              <Image
+                class="object-contain w-full h-full"
+                src={logo.src}
+                alt={logo.name}
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="container max-w-2xl mb-24 screenshots">
+      <h2 class="inline mb-4 text-xl">Davant Studio</h2>
+      <span class="ml-3 mr-3 text-xl">/</span>
+      <h3 class="inline mb-2 text-lg">Software Screenshots</h3>
+      <ul class="grid grid-cols-3 gap-3 mt-4">
+        {appScreenshots.map((screenshot) => (
+          <li class="w-full h-full">
+            <a
+              class="block w-full h-full"
+              href={screenshot.download}
+              download={screenshot.name}
+            >
+              <Image
+                class="object-contain w-full h-full"
+                src={screenshot.src}
+                alt={screenshot.name}
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="mb-24 elements">
+      <div class="container max-w-2xl">
+        <h2 class="inline mb-4 text-xl">Elements</h2>
+      </div>
+      <ul class="grid grid-cols-4 gap-3 p-2 mt-4 bg-black bg-opacity-30">
+        {backgrounds.map((bg) => (
+          <li class="w-full h-full">
+            <a
+              class="block w-full h-full"
+              href={bg.download}
+              download={bg.name}
+            >
+              <Image
+                class="object-contain w-full h-full"
+                src={bg.src}
+                alt={bg.name}
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <div class="fixed top-0 left-0 w-full h-screen pointer-events-none -z-10 bg opacity-30">
+      <img
+        src={hero1Image.src}
+        alt="Davant Systems Press & Media Assets"
+        class="object-cover w-full h-full"
+      />
+    </div>
+  </main>
+</Layout>

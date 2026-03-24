@@ -1,0 +1,100 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import MainNavWithDropdowns from "../../components/MainNavWithDropdowns.astro";
+import NewsletterCTA from "../../components/NewsletterCTA.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: article,
+  }));
+}
+
+type Props = CollectionEntry<"articles">;
+
+const article = Astro.props;
+const { Content } = await article.render();
+
+const pageTitle = `${article.data.title} | Davant Systems`;
+const pageDescription = article.data.description;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <MainNavWithDropdowns />
+  <main class="relative min-h-screen pb-32 bg-base-100">
+    <!-- Article Header -->
+    <section class="relative pt-24 overflow-hidden border-b-1 bg-gradient-to-br from-pink-950/50 via-base-200 to-purple-950/50 border-purple-950">
+      <div class="container px-8 py-16 mx-auto">
+        <div class="max-w-4xl mx-auto">
+          <!-- Breadcrumb -->
+          <nav class="mb-8 text-sm breadcrumbs">
+            <ul>
+              <li><a href="/" class="text-base-content/60 hover:text-primary">Home</a></li>
+              <li><a href="/articles" class="text-base-content/60 hover:text-primary">Articles</a></li>
+              <li class="text-base-content">{article.data.title}</li>
+            </ul>
+          </nav>
+
+          <!-- Article Meta -->
+          <div class="flex flex-wrap items-center gap-4 mb-6">
+            {article.data.featured && (
+              <div class="badge badge-primary badge-outline">Featured</div>
+            )}
+            <time class="text-sm text-base-content/60" datetime={article.data.pubDate.toISOString()}>
+              {article.data.pubDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </time>
+          </div>
+
+          <!-- Article Title -->
+          <h1 class="mb-6 text-4xl font-bold leading-tight text-transparent bg-gradient-to-r from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text md:text-5xl lg:text-6xl">
+            {article.data.title}
+          </h1>
+
+          <!-- Article Description -->
+          <p class="text-xl leading-relaxed text-base-content/80 md:text-2xl">
+            {article.data.description}
+          </p>
+
+          <!-- Tags -->
+          {article.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mt-6">
+              {article.data.tags.map((tag) => (
+                <span class="badge badge-secondary">{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="container px-8 py-16 mx-auto">
+      <div class="max-w-4xl mx-auto markdown">
+        <Content />
+      </div>
+    </article>
+
+    <!-- Article Navigation -->
+    <section class="container px-8 pt-8 pb-4 mx-auto">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <a href="/articles" class="btn btn-outline btn-primary">
+            ← Back to Articles
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+      <section class="border-t-1 border-purple-950">
+      <NewsletterCTA />
+    </section>
+  <Footer />
+</Layout>
+

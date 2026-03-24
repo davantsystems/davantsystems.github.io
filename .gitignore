@@ -1,0 +1,34 @@
+# Build output
+dist/
+
+# Generated types
+.astro/
+
+# Dependencies
+node_modules/
+
+# Source images
+source-images/
+
+# Logs
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dev-server.log
+
+# Environment variables
+.env
+.env.*
+
+# Claude Code and Serena
+.claude/
+.claudedocs/
+.serena/
+
+# macOS
+**/.DS_Store
+
+# JetBrains
+.idea/

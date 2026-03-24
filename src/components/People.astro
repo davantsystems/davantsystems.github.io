@@ -1,0 +1,54 @@
+---
+import CardPerson from "./CardPerson.astro";
+---
+
+<section class="relative snap-start">
+  <div
+    class="relative z-10 w-full max-w-sm px-5 pt-32 pb-24 mx-auto mt-0 text-sm text-terminal md:max-w-5xl lg:max-w-5xl"
+  >
+    <h2
+      class="relative z-10 block mb-4 font-mono text-2xl text-center lg:text-3xl md:mb-8 filter drop-shadow-sm retroglow"
+    >
+      ─── Hello World ───
+    </h2>
+    <span
+      class="inline-block px-1 mb-4 font-mono text-xs text-center bg-terminal text-neutral"
+      >humans@davantsystems ~ %</span
+    >
+    <div
+      class="relative z-10 grid grid-rows-3 gap-4 mx-auto md:grid-rows-1 md:grid-cols-3"
+    >
+      <CardPerson
+        headline="Booking & Events"
+        name="MC de Martino"
+        email="mc@davantsystems.com"
+      />
+      <CardPerson
+        headline="AI Magic & Workflow"
+        name="David Shorey"
+        email="david@davantsystems.com"
+      />
+      <CardPerson
+        headline="Business Inquiries"
+        name="Matt Whitesell"
+        email="matt@davantsystems.com"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .text-terminal {
+    color: oklch(0.860572 0.115038 178.625);
+  }
+  .bg-terminal {
+    background-color: oklch(0.860572 0.115038 178.625);
+  }
+  .retroglow {
+    text-shadow:
+      0em -0.01em 0.01em oklch(0.860572 0.115038 178.625 / 0.5),
+      0 0 0.03em oklch(0.860572 0.115038 178.625 / 0.4),
+      0 0 0.1em oklch(0.860572 0.115038 178.625 / 0.25),
+      0 0 0.15em oklch(0.860572 0.115038 178.625 / 0.2);
+  }
+</style>

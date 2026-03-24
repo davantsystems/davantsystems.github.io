@@ -1,0 +1,15 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<section class={`${className}`}>
+  <div class="container px-4 py-32 mx-auto text-center">
+    <p class="mb-2 text-2xl text-cyan-300">Can't find what you're looking for?</p>
+    <a class="text-transparent bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-purple-800 bg-clip-text"
+      href="mailto:support@davantsystems.com">support@davantsystems.com</a>
+  </div>
+</section>

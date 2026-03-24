@@ -1,0 +1,277 @@
+---
+export interface Props {
+  beforeImage: string;
+  beforeAlt: string;
+  afterImage: string;
+  afterAlt: string;
+}
+
+const { beforeImage, beforeAlt, afterImage, afterAlt } = Astro.props;
+---
+
+<div class="relative max-w-5xl mx-auto">
+  <!-- Glow effect -->
+  <div class="absolute transition-opacity duration-700 -inset-8 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-3xl opacity-10 blur-3xl group-hover:opacity-20"></div>
+  
+  <!-- Main container -->
+  <div class="relative p-4 bg-base-300/30 backdrop-blur-sm rounded-3xl lg:p-8">
+    <!-- Labels -->
+    <div class="absolute z-20 pointer-events-none bottom-4 sm:bottom-8 left-4 sm:left-8">
+      <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-base-300/60 backdrop-blur-md rounded-tr-sm">
+        <span class="text-xs font-semibold sm:text-sm text-base-content">Before</span>
+      </span>
+    </div>
+    <div class="absolute z-20 pointer-events-none bottom-4 sm:bottom-8 right-4 sm:right-8">
+      <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-base-300/60 backdrop-blur-md rounded-tl-sm">
+        <span class="text-xs font-semibold sm:text-sm text-base-content">After</span>
+      </span>
+    </div>
+    
+    <!-- Professional Comparison Slider -->
+    <div class="relative overflow-hidden border shadow-2xl rounded-2xl border-purple-500/20 group comparison-slider" data-comparison-slider>
+      <div class="relative aspect-[16/9] w-full">
+        <!-- After Image (Bottom Layer) -->
+        <div class="absolute inset-0">
+          <img 
+            alt={afterAlt}
+            src={afterImage}
+            class="object-cover w-full h-full"
+            loading="lazy"
+          />
+          <!-- Subtle gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-purple-900/10"></div>
+        </div>
+        
+        <!-- Before Image (Top Layer with Clip) -->
+        <div class="absolute inset-0 comparison-before clip-left-half">
+          <img 
+            alt={beforeAlt}
+            src={beforeImage}
+            class="object-cover w-full h-full"
+            loading="lazy"
+          />
+          <!-- Subtle gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-bl from-transparent via-transparent to-base-300/10"></div>
+        </div>
+        
+        <!-- Slider Control -->
+        <div class="absolute inset-y-0 comparison-slider-handle slider-position-center">
+          <!-- Vertical divider line -->
+          <div class="absolute top-0 bottom-0 left-1/2 w-0.5 -translate-x-1/2 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
+          
+          <!-- Extra glow lines -->
+          <div class="absolute top-0 bottom-0 w-4 -translate-x-1/2 left-1/2 bg-gradient-to-b from-transparent via-white/10 to-transparent blur-sm"></div>
+          <div class="absolute top-0 bottom-0 w-8 -translate-x-1/2 left-1/2 bg-gradient-to-b from-transparent via-purple-400/20 to-transparent blur-xl"></div>
+          
+          <!-- Draggable handle -->
+          <div class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 cursor-col-resize touch-none">
+            <div class="relative group/handle">
+              <!-- Handle background -->
+              <div class="relative transition-all duration-300 rounded-full shadow-2xl w-14 h-14 bg-gradient-to-br from-white to-gray-100 ring-2 ring-purple-500 ring-offset-2 ring-offset-transparent group-hover/handle:scale-110 group-hover/handle:ring-purple-400 group-hover/handle:ring-offset-purple-500/20">
+                <!-- Handle icon -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 24 24">
+                    <path d="M7 16V8M17 16V8M12 16V8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M3 12L7 8V16L3 12Z" fill="currentColor" opacity="0.7"/>
+                    <path d="M21 12L17 16V8L21 12Z" fill="currentColor" opacity="0.7"/>
+                  </svg>
+                </div>
+              </div>
+              <!-- Hover glow -->
+              <div class="absolute inset-0 transition-opacity duration-300 scale-150 rounded-full opacity-0 bg-gradient-to-r from-purple-500/30 to-pink-500/30 blur-xl group-hover/handle:opacity-100"></div>
+              
+              <!-- Pulse animation on hover -->
+              <div class="absolute inset-0 transition-all duration-700 scale-100 rounded-full opacity-0 bg-white/20 group-hover/handle:scale-150 group-hover/handle:opacity-0"></div>
+            </div>
+          </div>
+          
+          <!-- Touch area for mobile -->
+          <div class="absolute w-16 h-24 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 cursor-col-resize touch-none"></div>
+        </div>
+        
+        <!-- Interactive hint -->
+        <div class="absolute transition-opacity duration-500 -translate-x-1/2 pointer-events-none bottom-4 left-1/2 comparison-hint">
+          <div class="flex items-center gap-2 px-4 py-2 border rounded-full shadow-lg bg-base-300/90 backdrop-blur-md border-purple-500/30">
+            <svg class="w-4 h-4 text-purple-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l-3 3 3 3m8-6l3 3-3 3"></path>
+            </svg>
+            <span class="text-xs font-medium text-base-content">Drag to compare</span>
+          </div>
+        </div>
+        
+        <!-- Percentage indicator -->
+        <div class="absolute transition-all duration-300 -translate-x-1/2 opacity-0 pointer-events-none -top-16 left-1/2 comparison-percentage">
+          <div class="relative">
+            <div class="px-4 py-2 rounded-lg shadow-xl bg-gradient-to-br from-purple-600/90 to-pink-600/90 backdrop-blur-md">
+              <span class="text-sm font-bold text-white">50%</span>
+            </div>
+            <!-- Arrow pointing down -->
+            <div class="absolute left-1/2 -bottom-2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-purple-600/90"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Comparison slider clips */
+  .clip-left-half {
+    clip-path: inset(0 50% 0 0);
+  }
+
+  .slider-position-center {
+    left: 50%;
+  }
+
+  .comparison-slider {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  .comparison-before {
+    will-change: clip-path;
+  }
+  
+  .comparison-slider-handle {
+    will-change: left;
+  }
+  
+  .comparison-slider-handle::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    bottom: -20px;
+    left: -20px;
+    right: -20px;
+  }
+  
+  /* Hide hint when interacting */
+  .comparison-slider.is-dragging .comparison-hint {
+    opacity: 0 !important;
+  }
+  
+  /* Show percentage when dragging */
+  .comparison-slider.is-dragging .comparison-percentage {
+    opacity: 1 !important;
+  }
+  
+  /* Active dragging state */
+  .comparison-slider.is-dragging {
+    cursor: col-resize !important;
+  }
+  
+  .comparison-slider.is-dragging .comparison-slider-handle {
+    transform: scale(1.1);
+  }
+  
+  /* Prevent text selection during drag */
+  .comparison-slider.is-dragging * {
+    user-select: none !important;
+  }
+  
+  /* Smooth transitions */
+  .comparison-before,
+  .comparison-slider-handle {
+    transition: none;
+  }
+  
+  .comparison-slider:not(.is-dragging) .comparison-before,
+  .comparison-slider:not(.is-dragging) .comparison-slider-handle {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Edge glow effects */
+  .comparison-slider[data-position="0"] .comparison-before::after,
+  .comparison-slider[data-position="100"] .comparison-before::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    opacity: 0.3;
+    animation: edge-pulse 2s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  .comparison-slider[data-position="0"] .comparison-before::after {
+    left: 0;
+    background: linear-gradient(to right, rgba(168, 85, 247, 0.5), transparent);
+  }
+  
+  .comparison-slider[data-position="100"] .comparison-before::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(236, 72, 153, 0.5), transparent);
+  }
+  
+  @keyframes edge-pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+  }
+</style>
+
+<script is:inline>
+// Comparison slider functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const comparisonSlider = document.querySelector('[data-comparison-slider]');
+  if (!comparisonSlider) return;
+  
+  const beforeImage = comparisonSlider.querySelector('.comparison-before');
+  const sliderHandle = comparisonSlider.querySelector('.comparison-slider-handle');
+  const percentageIndicator = comparisonSlider.querySelector('.comparison-percentage span');
+  
+  if (!beforeImage || !sliderHandle) return;
+  
+  let isDragging = false;
+  let currentPosition = 50;
+  
+  function updateSliderPosition(percentage) {
+    percentage = Math.max(0, Math.min(100, percentage));
+    currentPosition = percentage;
+    beforeImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+    sliderHandle.style.left = `${percentage}%`;
+    if (percentageIndicator) {
+      percentageIndicator.textContent = `${Math.round(percentage)}%`;
+    }
+  }
+  
+  function getPositionFromEvent(e, rect) {
+    const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    return ((x - rect.left) / rect.width) * 100;
+  }
+  
+  function startDragging(e) {
+    e.preventDefault();
+    isDragging = true;
+    comparisonSlider.classList.add('is-dragging');
+    document.body.style.cursor = 'col-resize';
+  }
+  
+  function drag(e) {
+    if (!isDragging) return;
+    const rect = comparisonSlider.getBoundingClientRect();
+    updateSliderPosition(getPositionFromEvent(e, rect));
+  }
+  
+  function stopDragging() {
+    isDragging = false;
+    comparisonSlider.classList.remove('is-dragging');
+    document.body.style.cursor = '';
+  }
+  
+  // Events
+  sliderHandle.addEventListener('mousedown', startDragging);
+  document.addEventListener('mousemove', drag);
+  document.addEventListener('mouseup', stopDragging);
+  
+  comparisonSlider.addEventListener('click', (e) => {
+    if (e.target === sliderHandle || sliderHandle.contains(e.target)) return;
+    const rect = comparisonSlider.getBoundingClientRect();
+    updateSliderPosition(getPositionFromEvent(e, rect));
+  });
+  
+  updateSliderPosition(50);
+});
+</script>

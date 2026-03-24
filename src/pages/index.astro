@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
+import HeroTwoCards from "../components/HeroTwoCards.astro";
+import Footer from "../components/Footer.astro";
+import MailchimpForm from "../components/MailchimpForm.astro";
+import CardPerson from "../components/CardPerson.astro";
+import NewsletterCTA from "../components/NewsletterCTA.astro";
+import People from "../components/People.astro";
+---
+
+<Layout>
+  <div class="relative min-h-screen">
+    <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"
+    ></script>
+    <MainNavWithDropdowns />
+    <main id="main-content" class="relative z-20 pt-12">
+      <HeroTwoCards />
+
+      <section id="newsletter" class="relative px-6 pt-12 pb-12 bg-base snap-start">
+        <div class="absolute top-0 left-0 z-10 w-full pb-12 mb-0 bg-gradient-to-t from-transparent to-black/20"></div>
+        <NewsletterCTA />
+      </section>
+
+      <People />
+    </main>
+    <Footer />
+  </div>
+</Layout>
+
