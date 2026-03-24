@@ -1,166 +1,105 @@
 ## Documentation Links
-- Astro documentation is available at: https://docs.astro.build/llms.txt
+- Astro documentation: https://docs.astro.build/llms.txt
+- Design system details: `docs/DESIGN_SYSTEM.md`
 
 ## Project Board
 
 This project uses a structured board system for project management.
 
-- **Ask before creating new board files** - don't auto-create tasks, ADRs, etc.
-- Follow the board system spec for all documentation artifacts
+- **Ask before creating new board files**
 - Use `/board:board-show` to see current board state
 - Use `/board:board-add` to create new items
-- Use `/board:board-update` after completing significant work to reconcile the board
-- Use `/board:board-check` when starting work to find related board context
+- Use `/board:board-update` after completing significant work
+- Use `/board:board-check` when starting work to find related context
 
 ## Project Overview
 
-This is the marketing website for Davant Systems (www.davantsystems.com), built with Astro and featuring a distinctive "Creative Synthwave" design aesthetic. The site showcases:
-- **Davant Studio**: AI image generation software for creative professionals
+Marketing website for Davant Systems (www.davantsystems.com), built with Astro. Features a "Creative Synthwave" dark-mode aesthetic with gradient-forward design. Showcases:
+- **Davant Studio**: AI image generation software
 - **Magic Mirror**: Interactive AI photo booth experience
 - **Ambassador Program**: Community program for creative pioneers
 
-## Development Server
-
-This project uses a special setup for the development server that allows both Claude and the user to monitor the output:
-
-- `npm run dev` - Starts the development server on port 3100 with output logging to `logs/dev-server.log`
-- `npm run log` - Tails the dev server log file in real-time
-- `npm run log:last` - Shows last N lines of the dev server log (use `LINES=50 npm run log:last` to customize)
-- `npm run log:clear` - Clears the dev server log file
-- `npm run kill` - Kills the dev server process on port 3100
-- `npm run restart` - Kills and restarts the dev server
-- `npm run status` - Shows whether the dev server is running
-
-### Usage
-
-1. Run `npm run dev` to start the server (logs will be written to `logs/dev-server.log`)
-2. In a separate terminal, run `npm run log` to monitor the server output
-3. The dev server will be available at http://localhost:3100/
-
-**Port Assignment**: This project is assigned port 3100 (Claude-managed frontend range: 3100-3999)
-
 ## Commands
 
-### Development Server Management
-- `npm run dev` - Start dev server on port 3100 with logging
-- `npm run log` - Tail the dev server log file in real-time
-- `npm run log:last` - Show last N lines of log (e.g., `LINES=50 npm run log:last`)
-- `npm run log:clear` - Clear the dev server log file
-- `npm run kill` - Kill the dev server on port 3100
-- `npm run restart` - Kill and restart the dev server
-- `npm run status` - Check if dev server is running
-
-### Build & Production
-- `npm install` - Install dependencies
-- `npm run build` - Build production site to `./dist/`
-- `npm run preview` - Preview the production build locally
-- `npm run astro [command]` - Run Astro CLI commands
-
-### TypeScript & Quality Checks
-- `npm run astro check` - Type-check all `.astro` and TypeScript files
-- Uses strict TypeScript configuration extending `astro/tsconfigs/strict`
-- React JSX is configured with `react-jsx` and React as JSX import source
-
-## Design System
-
-The site uses a comprehensive design system documented in `docs/DESIGN_SYSTEM.md`. Key features include:
-
-### Visual Identity
-- **Creative Synthwave** aesthetic with gradient-forward design
-- Dark mode native with vibrant accent colors
-- Premium animated icons and hover effects
-- Glassmorphism and backdrop blur effects
-
-### Color Palette
-- **Primary**: Pink (#ec4899) to Purple (#8b5cf6) gradients
-- **Secondary**: Cyan (#06b6d4) and Electric Blue (#3b82f6)
-- **Action Color**: Pink to purple gradient for CTAs
-- **Link Color**: Fuchsia with hover transitions
-
-### Typography
-- **Primary Font**: Open Sans
-- **Display Fonts**: Orbitron (tech), Sacramento (decorative/neon), Yellowtail (casual)
-- Mixed font weights for visual rhythm
-
-### Animation System
-Five core animations: pulse, float, shine, bounce, and sparkle. Used strategically for:
-- Icon animations
-- Hover effects
-- Page transitions
-- Loading states
+```bash
+npm run dev        # Start dev server on port 3100 (logs to logs/astro-dev.log)
+npm run log        # Tail the dev server log
+npm run log:last   # Last 20 lines (LINES=50 npm run log:last for more)
+npm run log:clear  # Clear log file
+npm run kill       # Kill dev server on port 3100
+npm run restart    # Kill and restart dev server
+npm run status     # Check if dev server is running
+npm run build      # Build production site to ./dist/
+npm run preview    # Preview production build locally
+npx astro check    # Type-check .astro and TypeScript files
+```
 
 ## Tech Stack
 
-- **Framework**: Astro v5 with React integration (@astrojs/react)
-- **Styling**: Tailwind CSS v4 (via @tailwindcss/vite) + DaisyUI (synthwave theme)
-- **Fonts**: Google Fonts (configured in astro.config.mjs)
-- **Icons**: Custom SVG with gradient fills
-- **Build**: Vite with custom configuration
-- **Language**: TypeScript with strict mode
-
-## Key Pages
-
-### Core Pages
-- `/` - Homepage with hero sections
-- `/davant-studio` - Product showcase
-- `/photobooth` - Magic Mirror product with neon text effects
-- `/event-galleries` - Magic Mirror event photo galleries
-- `/training` - Workshops and training programs
-- `/articles` - Content collection system
-- `/ambassadors` - Creative ambassadors program
-- `/compatibility-checker` - Hardware compatibility checker for Davant Studio
+- **Framework**: Astro v5 + React (@astrojs/react)
+- **Styling**: Tailwind CSS v4 (via @tailwindcss/vite) + DaisyUI 5 (synthwave theme)
+- **Fonts**: Google Fonts (Open Sans, Orbitron, Sacramento, Yellowtail)
+- **Language**: TypeScript strict mode
+- **Deployment**: GitHub Actions to GitHub Pages, custom domain via `public/CNAME`
 
 ## Project Structure
 
 ```
-davantsystems.github.io/
-├── src/
-│   ├── pages/           # Route components (.astro files)
-│   ├── components/      # Reusable UI components (.astro, .tsx)
-│   ├── layouts/         # Page layouts
-│   ├── styles/          # Global styles and typography
-│   ├── assets/          # Images and static assets
-│   └── content/         # Content collections (articles)
-├── docs/                # Design system and project documentation
-├── public/              # Static assets served as-is
-├── board/               # Project management board
-├── dist/                # Production build output
-└── logs/                # Development server logs
+src/
+├── pages/           # Route components (.astro)
+├── components/      # Reusable UI (.astro, .tsx)
+├── layouts/         # Layout.astro (single layout)
+├── styles/          # Global styles (app.css, typography.scss, video.scss)
+├── assets/          # Images (processed by Astro's image pipeline)
+├── content/         # Content collections (articles)
+└── lib/             # Utility modules (compatibility checker)
+public/              # Static assets served as-is (video, press images, CNAME, favicon)
+board/               # Project management board
+docs/                # Design system and project documentation
 ```
 
-### Component Architecture
+## Pages
+
+| Route | File | Notes |
+|-------|------|-------|
+| `/` | `index.astro` | Homepage with hero cards |
+| `/davant-studio` | `davant-studio/index.astro` | Product showcase |
+| `/davant-studio/download` | `davant-studio/download.astro` | Download page |
+| `/davant-studio/metadataimage` | `davant-studio/metadataimage.astro` | Image metadata tool (React) |
+| `/photobooth` | `photobooth.astro` | Magic Mirror product page |
+| `/photobooth-mockup` | `photobooth-mockup.astro` | Photobooth demo/mockup |
+| `/event-galleries` | `event-galleries.astro` | Event photo galleries |
+| `/training` | `training.astro` | Workshops and training |
+| `/articles` | `articles.astro` | Content collection listing |
+| `/ambassadors` | `ambassadors.astro` | Ambassador program |
+| `/compatibility-checker` | `compatibility-checker/index.astro` | Hardware checker (React) |
+| `/press` | `press.astro` | Press/media assets |
+| `/resources` | `resources.astro` | Resource links |
+| `/about` | `about.astro` | About page |
+
+## Component Patterns
+
 - **Astro Components** (`.astro`): Primary for static content and layout
-- **React Components** (`.tsx`): Used for interactive features (e.g., ImageMetadataExtractor)
-- **Naming Convention**: PascalCase for components, kebab-case for pages
-- **Props**: TypeScript interfaces for type safety
+- **React Components** (`.tsx`): Interactive features only (CompatibilityChecker, ImageMetadataExtractor, TypeformBookingButton)
+- **GradientButton.astro**: Primary/secondary CTA button with gradient styles and hover effects
+- **TypeformBookingButton.tsx**: React component for Typeform popup booking (client:load)
+- **Naming**: PascalCase for components, kebab-case for page files
 
-## Deployment
+## Gotchas
 
-- **Branch**: Work on `migrate/astro-claude` branch
-- **Production**: Deploys via GitHub Actions to GitHub Pages
-- **Domain**: Custom domain via CNAME file in `public/`
+- **DaisyUI theme**: Set via `data-theme="synthwave"` on `<html>` in Layout.astro. DaisyUI class names (btn, card, navbar, etc.) are theme-aware.
+- **Tailwind v4**: Uses `@tailwindcss/vite` plugin, not PostCSS. Global styles imported via `src/app.css`.
+- **CSP header**: Layout.astro has a Content-Security-Policy meta tag. When adding new external scripts/iframes/fonts, update the CSP whitelist.
+- **Image assets**: Images in `src/assets/` are processed by Astro's pipeline (use `import` + `<Image>` or `.src`). Images in `public/` are served as-is (use URL paths like `/image/press/...`).
+- **Log filename**: Dev server logs to `logs/astro-dev.log` (not `dev-server.log`).
+- **Port 3100**: Hardcoded in package.json scripts and astro.config.mjs.
+- **Gradient headings**: Site uses `bg-gradient-to-bl from-pink-400 via-fuchsia-500 to-purple-600` for primary headings. Secondary headings use `bg-gradient-to-bl from-violet-400 via-cyan-400 to-blue-500`.
 
-## Best Practices
+## Workflow
 
-1. **Performance**: Use lazy loading, optimize images, leverage CSS transforms for animations
-2. **Accessibility**: Maintain WCAG AA contrast, provide motion preferences, 44px touch targets
-3. **Consistency**: Follow design system patterns, use established color/spacing tokens
-4. **Code Quality**: No inline comments, clean component structure, semantic HTML
-
-## Development Workflow
-
-1. **Editing Files**: Check existing patterns in similar components
-2. **Adding Features**: Review design system documentation first
-3. **Debugging**: Monitor `logs/dev-server.log` for compilation errors
-4. **Type Safety**: Run `npm run astro check` before committing
-5. **Building**: Always test with `npm run build` before deployment
-
-## Notes for Claude
-
-- The site emphasizes visual appeal with a premium feel
-- Animations should enhance meaning, not just decoration
-- Gradient usage is a key brand element
-- The ambassadors page serves as a reference implementation for feature showcases
-- Always consider both technical and creative professionals as the audience
-- When making changes, preserve the Creative Synthwave aesthetic
-- Log output is crucial for debugging - always check `logs/dev-server.log`
+1. Check existing patterns in similar components before creating new ones
+2. Review `docs/DESIGN_SYSTEM.md` before design work
+3. Monitor `logs/astro-dev.log` for compilation errors
+4. Run `npx astro check` before committing
+5. Run `npm run build` to verify before deployment
+6. Preserve the Creative Synthwave aesthetic -- gradients are a key brand element
