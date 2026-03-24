@@ -1,0 +1,222 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import dsLogo from "../../assets/images/DavantSystems-logo-1000.png";
+import heroBg from "../../assets/images/obr/hero-bg.jpg";
+import screenshotOffline from "../../assets/images/obr/screenshot-offline-2up.png";
+import screenshotModels from "../../assets/images/obr/screenshot-models.png";
+import screenshot4up from "../../assets/images/obr/screenshot-4up-views.png";
+import screenshotMask from "../../assets/images/obr/screenshot-mask-controls.png";
+
+const pageTitle = "Offline Background Remover | Davant Systems";
+const pageDescription = "Instant background removal with on-device AI. No uploads, no subscription. Pay once, use forever.";
+
+const features = [
+  {
+    title: "Fully Offline",
+    description: "Your images stay on your Mac. No uploads, no cloud processing, no internet required.",
+    icon: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z",
+  },
+  {
+    title: "No Subscription",
+    description: "One purchase. No account, no trial, no recurring fees.",
+    icon: "M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z",
+  },
+  {
+    title: "Drag-and-Drop Removal",
+    description: "Drop an image in, get a clean cutout back. Done in seconds.",
+    icon: "M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5",
+  },
+  {
+    title: "13 AI Models",
+    description: "Pick the right model for the job. Two ship with the app. Eleven more are free to download.",
+    icon: "M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z",
+  },
+  {
+    title: "Background Fill and Replacement",
+    description: "Swap removed backgrounds for solid colors, custom images, or export with full transparency.",
+    icon: "M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z",
+  },
+  {
+    title: "Mask-Only Export",
+    description: "Export just the mask for compositing in Photoshop, Affinity, or whatever you use.",
+    icon: "M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z",
+  },
+];
+
+const screenshots = [
+  { src: screenshotOffline, alt: "Offline Background Remover showing before and after side-by-side view" },
+  { src: screenshotModels, alt: "Model manager showing 13 available AI models" },
+  { src: screenshot4up, alt: "Four-up view comparing original, output, mask, and removed views" },
+  { src: screenshotMask, alt: "Advanced mask controls for professional fine-grained adjustments" },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <main id="main-content" class="font-['DM_Sans']">
+
+    <!-- Simple Nav -->
+    <nav class="fixed top-0 z-50 flex items-center w-full px-6 py-4 bg-black/80 backdrop-blur-sm">
+      <a href="/" class="text-sm text-white/60 hover:text-white transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4 mr-1 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+        Davant Systems
+      </a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative flex items-center justify-center min-h-screen overflow-hidden">
+      <div class="absolute inset-0">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          class="object-cover w-full h-full"
+          poster={heroBg.src}
+        >
+          <source src="/video/obr/app-preview.mov" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+      <div class="relative z-10 flex flex-col items-center px-6 pt-24 pb-16 text-center">
+        <h1 class="mb-4 text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
+          Offline Background Remover
+        </h1>
+        <p class="mb-6 text-xl font-light text-white/80 sm:text-2xl">
+          Instant background removal. No subscription.
+        </p>
+        <p class="max-w-xl mb-10 text-lg text-white/60">
+          On-device AI removes backgrounds in seconds. Your images never leave your Mac. Pay once, use forever.
+        </p>
+        <a
+          href="#"
+          class="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-white/10 border border-white/20 rounded-xl hover:bg-white/20 hover:scale-[1.02] backdrop-blur-sm"
+        >
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          Download on the Mac App Store
+        </a>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="px-6 py-20 bg-neutral-950">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid gap-6 sm:grid-cols-2">
+          {screenshots.map((shot) => (
+            <div class="overflow-hidden rounded-lg">
+              <Image
+                src={shot.src}
+                alt={shot.alt}
+                class="w-full h-auto"
+                widths={[400, 800, 1200]}
+                sizes="(max-width: 640px) 100vw, 50vw"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="px-6 py-20 bg-neutral-900">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature) => (
+            <div class="p-6">
+              <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-white/5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={feature.icon} />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-lg font-semibold text-white">{feature.title}</h3>
+              <p class="text-sm leading-relaxed text-white/60">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Controls -->
+    <section class="px-6 py-20 bg-neutral-950">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="mb-6 text-3xl font-bold text-white sm:text-4xl">Built for Professionals</h2>
+        <p class="mb-8 text-lg text-white/60">
+          One-click removal is the starting point. After that, you get real control.
+        </p>
+        <ul class="mb-8 space-y-3 text-left text-white/70 max-w-md mx-auto">
+          <li class="flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mt-0.5 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            Adjustable foreground and background thresholds
+          </li>
+          <li class="flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mt-0.5 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            Erode and smooth sliders for clean edges
+          </li>
+          <li class="flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mt-0.5 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            Live preview as you adjust
+          </li>
+        </ul>
+        <p class="text-lg font-medium text-white/80">This is precision, not guesswork.</p>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="px-6 py-20 bg-neutral-900">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="mb-6 text-3xl font-bold text-white sm:text-4xl">Your Images Stay Private</h2>
+        <p class="mb-4 text-lg text-white/60">
+          All processing happens on your device. Nothing is uploaded. Nothing is tracked. Nothing is logged.
+        </p>
+        <p class="text-lg text-white/60">
+          Client photos, confidential documents, sensitive creative work. None of it leaves your machine.
+        </p>
+      </div>
+    </section>
+
+    <!-- Pricing CTA -->
+    <section class="px-6 py-24 bg-neutral-950">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="mb-6 text-3xl font-bold text-white sm:text-4xl">One-Time Purchase</h2>
+        <p class="mb-10 text-lg text-white/60">
+          No subscriptions. No recurring fees. No limits.
+        </p>
+        <a
+          href="#"
+          class="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-white/10 border border-white/20 rounded-xl hover:bg-white/20 hover:scale-[1.02] backdrop-blur-sm"
+        >
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          Download on the Mac App Store
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-8 bg-neutral-950 border-t border-white/5">
+      <div class="flex items-center justify-between max-w-6xl mx-auto">
+        <a href="/">
+          <Image src={dsLogo} alt="Davant Systems" width={100} height={40} class="object-contain" />
+        </a>
+        <div class="flex gap-6 text-sm text-white/40">
+          <a href="/offline-background-remover/support" class="hover:text-white/70 transition-colors">Support</a>
+          <a href="/offline-background-remover/privacy-policy" class="hover:text-white/70 transition-colors">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
