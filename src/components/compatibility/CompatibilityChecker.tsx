@@ -317,17 +317,9 @@ export default function CompatibilityChecker() {
   const [progressPercent, setProgressPercent] = useState(0);
   const [result, setResult] = useState<CompatibilityResult | null>(null);
   
-  // Debug phase changes
-  useEffect(() => {
-    console.log('Phase changed to:', phase);
-  }, [phase]);
-  
   // Ensure we start at choice phase
   useEffect(() => {
-    console.log('Component mounted, initial phase:', phase);
-    // Force reset to choice if somehow we're not there
     if (phase !== 'choice' && !result) {
-      console.warn('Unexpected initial phase, resetting to choice');
       setPhase('choice');
     }
   }, []);
@@ -436,7 +428,7 @@ export default function CompatibilityChecker() {
       
       detector.cleanup();
     } catch (error) {
-      console.error('Hardware detection failed:', error);
+      // Hardware detection failed, fallback to basic detection
       // Fallback to basic detection
       const platform = navigator.platform.toLowerCase();
       if (platform.includes('win')) {
@@ -713,21 +705,6 @@ export default function CompatibilityChecker() {
         return updated;
       });
     }
-    
-    // Log detected memory for debugging
-    console.log('Detected specs:', {
-      platform: specs.detected.platform,
-      gpu: specs.detected.gpuRenderer,
-      cpu: specs.detected.cpuCores,
-      memory: specs.detected.deviceMemory,
-      cpuModel: specs.detected.cpuModel
-    });
-    
-    console.log('Auto-detection complete, detected specs:', {
-      gpu: specs.detected.gpuRenderer,
-      cores: specs.detected.cpuCores,
-      memory: specs.detected.deviceMemory
-    });
     
     if (specs.detected.gpuRenderer && specs.detected.cpuCores > 0) {
       const compatResult = calculateCompatibility(specs);

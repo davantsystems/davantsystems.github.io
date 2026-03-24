@@ -49,17 +49,14 @@ export default function ImageMetadataExtractor() {
             const output = await exifr.parse(file, options);
             setMetadata(output);
         } catch (error) {
-            console.error('Error parsing image metadata:', error);
+            // Error parsing image metadata
             setMetadata(null);
         }
     };
 
     const renderMetadata = (metadata: Metadata, prefix = ''): JSX.Element[] => {
         return Object.entries(metadata).map(([key, value]) => {
-            console.log(typeof value)
             if (key == "parameters") {
-                // unstringify value
-                console.log(value)
                 value = `prompt: "${value}`
                 // find "Steps:" and add a line break
                 value = value.replace("Steps:", "\", Steps:")

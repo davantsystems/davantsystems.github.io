@@ -19,7 +19,7 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
 
 <Layout title={pageTitle}>
   <MainNavWithDropdowns />
-  <main class="relative z-10 overflow-x-hidden text-base font-open-sans bg-base-300">
+  <main id="main-content" class="relative z-10 overflow-x-hidden text-base font-open-sans bg-base-300">
     <div class="relative mega-hero-wrapper">
       <section class="relative z-30 hero__wrapper">
         <div class="relative z-40 flex items-center justify-center min-h-screen px-4">
@@ -128,11 +128,10 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
                 <iframe
                   src="https://www.youtube.com/embed/vuYqdw3HwDc"
                   title="Magic Mirror AI Photo Booth Demo Video"
-                  frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                   loading="lazy"
-                  class="absolute inset-0 w-full h-full"
+                  class="absolute inset-0 w-full h-full border-0"
                 ></iframe>
                 <div class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none bg-gradient-to-t from-base-300/20 to-transparent group-hover:opacity-100"></div>
               </div>
@@ -163,12 +162,11 @@ const pageTitle = "Davant Systems | Magic Mirror AI Photobooth";
                   <iframe
                     src="https://www.youtube.com/embed/La7IxgcyliI"
                     title="Timelapse - Prompted by Promise Studios and Curious Refuge"
-                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen
                     loading="lazy"
-                    class="absolute inset-0 w-full h-full"
+                    class="absolute inset-0 w-full h-full border-0"
                   ></iframe>
                 </div>
               </div>

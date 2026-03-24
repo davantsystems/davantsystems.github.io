@@ -5,7 +5,7 @@ import NavbarLogo from './NavbarLogo.astro';
 const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K3697yE144";
 ---
 
-<div class="fixed top-0 z-50 border-purple-700/30 navbar bg-gradient-to-b from-black via-black/80 to-base-300/100 border-b-1" data-nav-component>
+<nav class="fixed top-0 z-50 border-purple-700/30 navbar bg-gradient-to-b from-black via-black/80 to-base-300/100 border-b-1" data-nav-component>
   <div class="justify-start navbar-start">
     <Link class="px-0 py-0 btn btn-ghost" href="/">
       <NavbarLogo />
@@ -76,7 +76,7 @@ const davantStudioStripePortal = "https://billing.stripe.com/p/login/6oEg26f8K36
     </ul>
   </div>
   <span class="absolute top-0 left-0 w-full h-full scale-y-150 pointer-events-none select-none opacity-40 -z-10 bg-gradient-to-b from-base-100 via-base-100 to-transparent"></span>
-</div>
+</nav>
 
 <style>
   /* Gradient underline effect on hover for nav items */

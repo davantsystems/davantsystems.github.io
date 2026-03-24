@@ -4,10 +4,15 @@ import MainNavWithDropdowns from "../components/MainNavWithDropdowns.astro";
 import Link from "../components/Link.astro";
 import SupportCTA from "../components/SupportCTA.astro";
 
+import presetsImage from "../assets/images/davant-studio-presets.png";
+import controlsImage from "../assets/images/davant-studio-controls.png";
+import promptsImage from "../assets/images/davant-studio-prompts.png";
+import hero2Image from "../assets/images/hero2.png";
+
 const pageTitle = "Davant Systems | AI & StableDiffusion Resources";
 ---
 
-<Layout title={pageTitle}>
+<Layout title={pageTitle} description="Resources, guides, and tools for Davant Studio users including AI and Stable Diffusion references.">
   <MainNavWithDropdowns />
   <main class="">
     <section class="border-b-2 hero__wrapper border-slate-400 border-opacity-5">
@@ -108,21 +113,21 @@ const pageTitle = "Davant Systems | AI & StableDiffusion Resources";
                   <div class="item carousel-item">
                     <img
                       class="w-44 sm:w-60 md:w-72"
-                      src="/src/assets/images/davant-studio-presets.png"
+                      src={presetsImage.src}
                       alt="Screenshot of Davant Studio software"
                     />
                   </div>
                   <div class="item carousel-item">
                     <img
                       class="w-44 sm:w-60 md:w-72"
-                      src="/src/assets/images/davant-studio-controls.png"
+                      src={controlsImage.src}
                       alt="Screenshot of Davant Studio software"
                     />
                   </div>
                   <div class="item carousel-item">
                     <img
                       class="w-44 sm:w-60 md:w-72"
-                      src="/src/assets/images/davant-studio-prompts.png"
+                      src={promptsImage.src}
                       alt="Screenshot of Davant Studio software"
                     />
                   </div>
@@ -137,7 +142,7 @@ const pageTitle = "Davant Systems | AI & StableDiffusion Resources";
         >
           <img
             class="relative block h-full hero__background-image object-cover w-full"
-            src="/src/assets/images/hero2.png"
+            src={hero2Image.src}
             alt="Screenshot of Davant Studio software"
           />
           <div

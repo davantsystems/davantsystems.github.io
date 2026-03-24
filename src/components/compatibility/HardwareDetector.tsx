@@ -16,7 +16,7 @@ export class HardwareDetector {
       this.canvas = document.createElement('canvas');
       this.gl = this.canvas.getContext('webgl2') || this.canvas.getContext('webgl');
     } catch (e) {
-      console.error('WebGL initialization failed:', e);
+      // WebGL initialization failed
     }
   }
 
@@ -91,11 +91,8 @@ export class HardwareDetector {
         }
       }
       
-      console.log('GPU Detection - Raw renderer:', renderer, 'WebGL version:', version);
-      
       return { renderer, version, extensions };
     } catch (e) {
-      console.error('GPU detection error:', e);
       return { renderer, version, extensions: [] };
     }
   }
@@ -117,12 +114,7 @@ export class HardwareDetector {
     // Try the deviceMemory API first (limited browser support)
     const nav = navigator as any;
     
-    // Check if Device Memory API is available
-    console.log('Device Memory API available:', 'deviceMemory' in nav);
-    
     if (nav.deviceMemory) {
-      console.log('Device Memory API returned:', nav.deviceMemory, 'GB');
-      
       // The Device Memory API often returns privacy-preserving rounded values
       // For Apple Silicon, validate against known configurations
       const platform = this.detectPlatform();
@@ -130,12 +122,8 @@ export class HardwareDetector {
       
       if (platform === 'mac' && cores >= 8) {
         const appleModel = this.detectAppleSiliconModel();
-        console.log('Validating Device Memory API result against known Apple Silicon configs');
-        console.log('Detected model:', appleModel, 'Cores:', cores, 'API says:', nav.deviceMemory, 'GB');
-        
         // M2 Pro with 10 cores typically has 16GB or 32GB, rarely 8GB
         if (appleModel?.includes('M2 Pro') && cores === 10 && nav.deviceMemory === 8) {
-          console.log('Device Memory API likely incorrect for M2 Pro - using fallback detection');
           // Fall through to use our heuristic-based detection
         } else {
           return nav.deviceMemory; // Trust the API for other cases
@@ -145,8 +133,6 @@ export class HardwareDetector {
       }
     }
     
-    console.log('Device Memory API not supported, using fallback detection');
-
     // Enhanced fallback detection for M2 MacBooks and other systems
     const platform = this.detectPlatform();
     const cores = navigator.hardwareConcurrency || 0;
@@ -156,8 +142,6 @@ export class HardwareDetector {
     if (platform === 'mac') {
       // Try to extract specific Apple Silicon model from GPU renderer
       const appleModel = this.detectAppleSiliconModel();
-      console.log('Memory detection - Platform:', platform, 'Model:', appleModel, 'Cores:', cores);
-      
       // M3 series memory configurations
       if (appleModel?.includes('M3')) {
         if (appleModel.includes('Max')) {
@@ -252,8 +236,6 @@ export class HardwareDetector {
     const year = new Date().getFullYear();
     const isRecent = year >= 2024;
 
-    console.log('detectAppleSiliconModel fallback - cores:', cores, 'year:', year);
-
     // Use core count as a hint
     if (cores >= 20) {
       // M3 Max has 16 performance + 4 efficiency = 20 cores
@@ -277,7 +259,6 @@ export class HardwareDetector {
           const debugInfo = this.gl.getExtension('WEBGL_debug_renderer_info');
           if (debugInfo) {
             const renderer = this.gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '';
-            console.log('GPU renderer for 10-core model detection:', renderer);
           }
         } catch (e) {
           // Ignore
@@ -381,7 +362,7 @@ export const HardwareDetectorComponent: React.FC<HardwareDetectorProps> = ({
         onDetectionComplete(specs);
         setIsDetecting(false);
       } catch (error) {
-        console.error('Detection failed:', error);
+        // Detection failed
         onDetectionProgress('Detection failed. Please provide information manually.');
         setIsDetecting(false);
       } finally {

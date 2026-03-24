@@ -4,10 +4,12 @@ import MainNavWithDropdowns from "../../components/MainNavWithDropdowns.astro";
 import Footer from "../../components/Footer.astro";
 import SupportCTA from "../../components/SupportCTA.astro";
 
+import hero2Image from "../../assets/images/hero2.png";
+
 const pageTitle = "Davant Systems | Download Davant Studio";
 ---
 
-<Layout title={pageTitle}>
+<Layout title={pageTitle} description="Download Davant Studio software for AI-powered photo booth experiences and image processing.">
   <MainNavWithDropdowns />
   <main class="">
     <section class="relative border-b-2 hero__wrapper border-slate-400/5">
@@ -137,7 +139,7 @@ const pageTitle = "Davant Systems | Download Davant Studio";
       >
         <img
           class="relative block object-cover w-full h-full hero__background-image"
-          src="/src/assets/images/hero2.png"
+          src={hero2Image.src}
           alt="Screenshot of Davant Studio software"
         />
         <div
