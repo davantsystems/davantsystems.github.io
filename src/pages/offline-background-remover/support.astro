@@ -43,7 +43,7 @@ const faqs = [
 
     <!-- Simple Nav -->
     <nav class="fixed top-0 z-50 flex items-center w-full px-6 py-4 bg-black/80 backdrop-blur-sm">
-      <a href="/offline-background-remover" class="text-sm text-white/60 hover:text-white transition-colors">
+      <a href="/offline-background-remover" class="text-sm text-neutral-300 hover:text-white transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4 mr-1 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
@@ -55,7 +55,7 @@ const faqs = [
     <section class="px-6 pt-32 pb-12 bg-neutral-950">
       <div class="max-w-3xl mx-auto">
         <h1 class="mb-4 text-4xl font-bold text-white sm:text-5xl">Support</h1>
-        <p class="text-lg text-white/60">
+        <p class="text-lg text-neutral-300">
           Need help with Offline Background Remover? Check below or get in touch.
         </p>
       </div>
@@ -69,7 +69,7 @@ const faqs = [
           {faqs.map((faq) => (
             <div class="pb-8 border-b border-white/10 last:border-0 last:pb-0">
               <h3 class="mb-3 text-lg font-semibold text-white">{faq.question}</h3>
-              <p class="leading-relaxed text-white/60" set:html={faq.answer} />
+              <p class="leading-relaxed text-neutral-300" set:html={faq.answer} />
             </div>
           ))}
         </div>
@@ -80,7 +80,7 @@ const faqs = [
     <section class="px-6 py-16 bg-neutral-950">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="mb-4 text-2xl font-bold text-white">Still Need Help?</h2>
-        <p class="mb-6 text-lg text-white/60">
+        <p class="mb-6 text-lg text-neutral-300">
           Happy to help. Send us an email and we'll get back to you.
         </p>
         <a
@@ -101,9 +101,9 @@ const faqs = [
         <a href="/">
           <Image src={dsLogo} alt="Davant Systems" width={100} height={40} class="object-contain" />
         </a>
-        <div class="flex gap-6 text-sm text-white/40">
-          <a href="/offline-background-remover" class="hover:text-white/70 transition-colors">Offline Background Remover</a>
-          <a href="/offline-background-remover/privacy-policy" class="hover:text-white/70 transition-colors">Privacy Policy</a>
+        <div class="flex gap-6 text-sm text-neutral-500">
+          <a href="/offline-background-remover" class="hover:text-neutral-300 transition-colors">Offline Background Remover</a>
+          <a href="/offline-background-remover/privacy-policy" class="hover:text-neutral-300 transition-colors">Privacy Policy</a>
         </div>
       </div>
     </footer>
