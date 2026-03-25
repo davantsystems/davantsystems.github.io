@@ -322,18 +322,11 @@ const pageDescription =
 
     <!-- Privacy -->
     <section
-      class="relative px-6 py-32 bg-neutral-950 overflow-hidden border-t border-white/[0.05]"
+      class="relative px-6 py-32 bg-black overflow-hidden border-t border-white/[0.05]"
     >
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(99,102,241,0.06)_0%,_transparent_70%)] pointer-events-none"
-      >
-      </div>
-      <div class="relative max-w-2xl mx-auto text-center">
-        <div class="flex justify-center gap-3 mb-8">
-          <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
-          <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-          <span class="w-2 h-2 rounded-full bg-violet-400"></span>
-        </div>
+      <div class="absolute z-[1] top-0 left-1/2 -translate-x-[22%] -translate-y-[75%] w-[65%] h-[80%] bg-[radial-gradient(ellipse_at_center,_rgba(220,40,120,0.2)_0%,_transparent_70%)] pointer-events-none"></div>
+      <div class="absolute inset-0 z-[2] opacity-100 mix-blend-soft-light pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-repeat: repeat; background-size: 256px 256px;"></div>
+      <div class="relative z-20 max-w-2xl mx-auto text-center">
         <h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl">
           Your Images Stay Private
         </h2>
@@ -351,12 +344,26 @@ const pageDescription =
     </section>
 
     <!-- CTA -->
-    <section class="relative px-6 py-32 bg-neutral-950 overflow-hidden">
-      <div class="relative max-w-2xl mx-auto text-center">
-        <h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl">
+    <section class="relative pt-24 pb-24 py-32 overflow-hidden">
+      <!-- Large diffuse base glows -->
+      <div class="absolute z-[1] bottom-[-20%] left-1/2 -translate-x-1/2 w-[110%] h-[80%] bg-[radial-gradient(ellipse_at_center,_rgba(59,130,246,0.3)_0%,_transparent_70%)] pointer-events-none"></div>
+      <div class="absolute z-[1] -bottom-[30%] left-[-5%] w-[70%] h-[90%] bg-[radial-gradient(ellipse_at_center,_rgba(255,30,100,0.2)_0%,_transparent_70%)] pointer-events-none"></div>
+      <div class="absolute z-[1] -bottom-[50%] right-[-5%] w-[60%] h-[80%] bg-[radial-gradient(ellipse_at_center,_rgba(230,140,0,0.25)_0%,_transparent_70%)] pointer-events-none"></div>
+      <!-- Bokeh circles -->
+      <div class="absolute z-[1] bottom-[8%] left-[30%] w-72 h-72 rounded-full bg-violet-600/15 blur-[80px] pointer-events-none"></div>
+      <div class="absolute z-[1] -bottom-[10%] right-[40%] w-64 h-32 rounded-full bg-amber-500/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute z-[1] bottom-[27%] right-[22%] w-48 h-32 rounded-full bg-rose-500/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute z-[1] bottom-[20%] left-[20%] w-40 h-40 rounded-full bg-blue-500/15 blur-3xl pointer-events-none"></div>
+      <div class="absolute z-[1] bottom-[43%] left-[45%] w-64 h-24 rounded-full bg-orange-300/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute z-[1] bottom-[5%] right-[25%] w-60 h-60 rounded-full bg-purple-500/12 blur-[70px] pointer-events-none"></div>
+      <div class="absolute z-[1] bottom-[22%] left-[18%] w-48 h-20 rounded-full bg-amber-400/25 blur-2xl pointer-events-none"></div>
+      <!-- Noise -->
+      <div class="absolute inset-0 z-[2] opacity-100 mix-blend-soft-light pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-repeat: repeat; background-size: 256px 256px;"></div>
+      <div class="relative z-20 max-w-2xl mx-auto text-center">
+        <h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl text-shadow-[_0_0_0.05em_rgb(_0_0_0/100),_0_0_0.1em_rgb(_0_0_0/100),_0_0_0.2em_rgb(_0_0_0/100),_0_0_0.3em_rgb(_0_0_0/100),_0_0_0.4em_rgb(_0_0_0/100)]">
           One-Time Purchase
         </h2>
-        <p class="mb-10 text-lg text-neutral-200">
+        <p class="mb-10 text-lg text-white text-shadow-[_0_0_0.05em_rgb(_0_0_0/100),_0_0_0.1em_rgb(_0_0_0/100),_0_0_0.2em_rgb(_0_0_0/100),_0_0_0.3em_rgb(_0_0_0/100),_0_0_0.4em_rgb(_0_0_0/100)]">
           No subscriptions. No recurring fees. No limits.
         </p>
         <a
@@ -374,7 +381,7 @@ const pageDescription =
     </section>
 
     <!-- Footer -->
-    <footer class="px-6 py-8 bg-neutral-950 border-t border-white/5">
+    <footer class="px-6 py-8 bg-black border-t border-white/5">
       <div class="flex items-center justify-between max-w-6xl mx-auto">
         <a href="/">
           <Image
