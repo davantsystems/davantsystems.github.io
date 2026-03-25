@@ -1,0 +1,410 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import dsLogo from "../../assets/images/DavantSystems-logo-1000.png";
+import heroBg from "../../assets/images/obr/hero-bg.jpg";
+import screenshotOffline from "../../assets/images/obr/screenshot-offline-2up.png";
+import screenshotModels from "../../assets/images/obr/screenshot-models.png";
+import screenshot4up from "../../assets/images/obr/screenshot-4up-views.png";
+import screenshotMask from "../../assets/images/obr/screenshot-mask-controls.png";
+
+const pageTitle = "Offline Background Remover | Davant Systems";
+const pageDescription =
+  "Instant background removal with on-device AI. No uploads, no subscription. Pay once, use forever.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <main id="main-content" class="font-['DM_Sans'] bg-black">
+    <!-- Hero -->
+    <section class="relative overflow-hidden z-10 pt-12">
+      <div class="absolute inset-0 scale-105">
+        <Image
+          src={heroBg}
+          alt=""
+          class="object-cover w-full h-full blur-xs"
+          widths={[640, 1024, 1920, 3840]}
+          sizes="100vw"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div
+          class="absolute inset-0 opacity-100 mix-blend-overlay"
+          style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-repeat: repeat; background-size: 256px 256px;"
+        >
+        </div>
+      </div>
+      <div
+        class="relative z-10 flex flex-col items-center gap-8 px-6 pt-12 pb-0 lg:px-6 xl:px-12 lg:flex-row lg:items-center lg:gap-12 max-w-8xl mx-auto"
+      >
+        <div
+          class="w-full lg:w-2/5 text-center lg:text-left pb-12 flex justify-center"
+        >
+          <div class="xl:w-min">
+            <h1
+              class="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-shadow-[_0_0_0.1em_rgb(0_0_60_/_0.8),_0_0_0.2em_rgb(0_0_80_/_0.2),_0_0_0.4em_rgb(0_0_100_/_0.3)]"
+            >
+              Offline Background Remover
+            </h1>
+            <div
+              class="text-xl sm:text-2xl text-white font-light text-shadow-[_0_0_0.5em_rgb(0_0_50_/_0.8),_0_0_1em_rgb(0_0_60_/_0.4),_0_0_2em_rgb(0_0_60_/_0.5)] mb-8"
+            >
+              <p class="mb-0">Instant background removal.</p>
+              <p class="mb-6">No login, subscription.</p>
+            </div>
+            <a
+              href="#"
+              class="relative text-shadow-[_0_0_0.2em_rgb(40_10_0/0.6),_0_0_0.5em_rgb(100_40_0/0.8)] inline-flex items-center gap-2 px-8 md:px-4 lg:px-4 xl:px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r border-2 border-yellow-500 hover:border-yellow-400 from-yellow-600 to-amber-600 rounded-xl hover:from-yellow-600 hover:to-amber-500 shadow-lg shadow-amber-800/25 hover:shadow-xl hover:-translate-y-0.5"
+            >
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+                ></path>
+              </svg>
+              Download on the Mac App Store
+            </a>
+          </div>
+        </div>
+        <div class="lg:w-3/5 self-end">
+          <div
+            class="overflow-hidden shadow-2xl shadow-black/50 rounded-t-[3.8%]"
+          >
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              class="w-full h-auto"
+            >
+              <source src="/video/obr/app-preview.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: Drag and Drop — full-width hero image -->
+    <section class="px-6 pt-24 pb-0 bg-black relative overflow-hidden">
+      <!-- Radial glow behind image area -->
+      <div
+        class="absolute z-[1] bottom-0 left-1/2 -translate-x-1/2 translate-y-[40%] w-[110%] h-[150%] bg-[radial-gradient(ellipse_at_center,_rgba(59,130,246,0.4)_0%,_transparent_70%)] pointer-events-none"
+      >
+      </div>
+      <div
+        class="absolute z-[1] bottom-0 right-0 translate-x-[50%] translate-y-[70%] w-[150%] h-[120%] bg-[radial-gradient(ellipse_at_center,_rgba(230,140,0,0.4)_0%,_transparent_70%)] pointer-events-none"
+      >
+      </div>
+      <div
+        class="absolute z-[1] bottom-0 left-0 -translate-x-[70%] translate-y-[70%] w-[140%] h-[140%] bg-[radial-gradient(ellipse_at_center,_rgba(255,30,100,0.4)_0%,_transparent_70%)] pointer-events-none"
+      >
+      </div>
+      <!-- Noise over entire section -->
+      <div
+        class="absolute inset-0 z-[2] opacity-100 mix-blend-soft-light pointer-events-none"
+        style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-repeat: repeat; background-size: 256px 256px;"
+      >
+      </div>
+      <div class="max-w-5xl mx-auto text-center mb-12 relative z-20 pt-24">
+        <h2 class="mb-8 text-4xl font-bold text-white sm:text-5xl">
+          Drag. Drop. Done.
+        </h2>
+        <p class="max-w-2xl mx-auto text-lg leading-relaxed text-neutral-200">
+          Drop an image in, get a clean cutout in seconds. Your images stay on
+          your Mac. No uploads, no cloud processing, no internet required.
+        </p>
+      </div>
+      <div class="max-w-5xl mx-auto relative z-20">
+        <div class="relative">
+          <Image
+            src={screenshotOffline}
+            alt="Offline Background Remover showing before and after side-by-side view"
+            class="w-full h-auto rounded-t-lg"
+            widths={[600, 1000, 1600]}
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 2: 13 AI Models — side by side, text left -->
+    <section
+      class="px-6 py-24 lg:py-36 border-t border-black/[0.2] bg-blue-950 relative overflow-hidden"
+    >
+      <!-- Radial glow behind image area -->
+      <div
+        class="absolute z-[1] top-1/2 right-0 -translate-y-1/2 translate-x-[23%] w-[110%] h-[115%] bg-[radial-gradient(ellipse_at_center,_rgba(230,140,0,0.2)_0%,_transparent_70%)] pointer-events-none"
+      >
+      </div>
+      <!-- Noise over entire section -->
+      <div
+        class="absolute inset-0 z-[2] opacity-100 mix-blend-soft-light pointer-events-none"
+        style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-repeat: repeat; background-size: 256px 256px;"
+      >
+      </div>
+      <div class="max-w-6xl mx-auto z-20 relative">
+        <div class="flex flex-col items-center gap-12 lg:flex-row lg:gap-20">
+          <div class="lg:w-5/12">
+            <p
+              class="mb-3 text-sm font-semibold tracking-widest uppercase text-yellow-500"
+            >
+              Flexible
+            </p>
+            <h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl">
+              13 AI Models on Your Computer
+            </h2>
+            <p class="mb-4 text-lg leading-relaxed text-neutral-200">
+              Pick the right model for the job. Two ship with the app. Eleven
+              more are free to download.
+            </p>
+            <p class="text-lg leading-relaxed text-neutral-300">
+              Some are built for speed, others for accuracy or specific subjects
+              like portraits or products.
+            </p>
+          </div>
+          <div class="lg:w-7/12">
+            <div
+              class="relative rounded-xl bg-yellow-500/5 border-2 border-yellow-500/20 px-1 pt-3 pb-0"
+            >
+              <div
+                class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-700/10 via-yellow-950/10 to-amber-800/10 rounded-lg"
+              >
+              </div>
+              <Image
+                src={screenshotModels}
+                alt="Model manager showing 13 available AI models"
+                class="w-full h-auto relative"
+                widths={[400, 800, 1200]}
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute z-0 top-0 left-0 w-full h-full bg-black opacity-[87%]"
+      >
+      </div>
+    </section>
+
+    <!-- Feature 3: Multiple Views — side by side, text right -->
+    <section
+      class="px-6 py-24 lg:py-36 py- bg-rose-950 relative border-t border-black/[0.4] overflow-hidden"
+    >
+      <!-- Radial glow behind image area -->
+      <div
+        class="absolute z-[1] top-1/2 left-1/3 -translate-y-1/2 -translate-x-[49%] w-[95%] h-[110%] bg-[radial-gradient(ellipse_at_center,_rgba(0,60,180,0.2)_0%,_transparent_70%)] pointer-events-none"
+      >
+      </div>
+      <!-- Noise over entire section (above glow, below content) -->
+      <div
+        class="absolute inset-0 z-[2] opacity-100 filter mix-blend-soft-light pointer-events-none"
+        style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-repeat: repeat; background-size: 256px 256px;"
+      >
+      </div>
+      <div class="max-w-6xl mx-auto relative z-20">
+        <div class="flex flex-col items-center gap-12 lg:flex-row lg:gap-20">
+          <div class="lg:w-7/12 relative bg-black/70 rounded-xl">
+            <div
+              class="relative rounded-xl border-2 border-blue-500/30 px-1 pt-3 pb-0 bg-gradient-to-bl from-blue-950/20 via-blue-950/20 to-sky-950/20"
+            >
+              <Image
+                src={screenshot4up}
+                alt="Four-up view comparing original, output, mask, and removed views"
+                class="w-full h-auto rounded-lg"
+                widths={[400, 800, 1200]}
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="lg:w-5/12">
+            <p
+              class="mb-3 text-sm font-semibold tracking-widest uppercase text-blue-500"
+            >
+              Thorough
+            </p>
+            <h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl">
+              Evaluate Every Edge
+            </h2>
+            <p class="mb-4 text-lg leading-relaxed text-neutral-200">
+              Compare the original, output, mask, and inverse side by side. Swap
+              background fill colors to check edges against any surface.
+            </p>
+            <p class="text-lg leading-relaxed text-neutral-300">
+              Export just the mask for compositing in Photoshop, Affinity, or
+              whatever you use.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute z-0 top-0 left-0 w-full h-full bg-black opacity-[87%]"
+      >
+      </div>
+    </section>
+
+    <!-- Feature 4: Professional Controls — full-width image, text overlay -->
+    <section
+      class="relative px-6 py-24 lg:py-36 bg-purple-950 border-t border-black/[0.5] overflow-hidden"
+    >
+      <!-- Radial glow behind image area -->
+      <div
+        class="absolute z-[1] top-1/2 right-0 -translate-y-1/2 translate-x-[20%] w-[120%] h-[110%] bg-[radial-gradient(ellipse_at_center,_rgba(230,130,80,0.15)_0%,_transparent_70%)] pointer-events-none"
+      >
+      </div>
+      <!-- Noise over entire section -->
+      <div
+        class="absolute inset-0 z-[2] opacity-100 mix-blend-soft-light pointer-events-none"
+        style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-repeat: repeat; background-size: 256px 256px;"
+      >
+      </div>
+      <div class="max-w-6xl mx-auto relative z-20">
+        <div class="flex flex-col gap-12 lg:flex-row lg:gap-20 items-start">
+          <div class="lg:w-5/12 sticky lg:top-24">
+            <p
+              class="mb-3 text-sm font-semibold tracking-widest uppercase text-rose-400"
+            >
+              Precise
+            </p>
+            <h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl">
+              Built for Professionals
+            </h2>
+            <p class="mb-6 text-lg leading-relaxed text-neutral-200">
+              One-click removal is the starting point. After that, you get real
+              control.
+            </p>
+            <ul class="space-y-3 mb-6 list-none">
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0"
+                ></span>
+                <span class="text-white"
+                  >Adjustable foreground and background thresholds</span
+                >
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0"
+                ></span>
+                <span class="text-white"
+                  >Erode and smooth sliders for clean edges</span
+                >
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0"
+                ></span>
+                <span class="text-white">Live preview as you adjust</span>
+              </li>
+            </ul>
+            <p class="text-lg font-medium text-neutral-200">
+              Your images, your control.
+            </p>
+          </div>
+          <div class="lg:w-7/12 bg-black/30 rounded-xl">
+            <div
+              class="relative rounded-xl border-2 border-rose-500/30 px-1 pt-3 pb-0 bg-gradient-to-br from-rose-950/10 via-rose-950/25 to-rose-950/10"
+            >
+              <Image
+                src={screenshotMask}
+                alt="Advanced mask controls for professional fine-grained adjustments"
+                class="w-full h-auto rounded-lg relative z-10"
+                widths={[400, 800, 1200]}
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute z-0 top-0 left-0 w-full h-full bg-black opacity-85">
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section
+      class="relative px-6 py-32 bg-black overflow-hidden border-t border-white/[0.05]"
+    >
+      <div class="absolute z-[1] top-0 left-1/2 -translate-x-[22%] -translate-y-[75%] w-[65%] h-[80%] bg-[radial-gradient(ellipse_at_center,_rgba(220,40,120,0.2)_0%,_transparent_70%)] pointer-events-none"></div>
+      <div class="absolute inset-0 z-[2] opacity-100 mix-blend-soft-light pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-repeat: repeat; background-size: 256px 256px;"></div>
+      <div class="relative z-20 max-w-2xl mx-auto text-center">
+        <h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl">
+          Your Images Stay Private
+        </h2>
+        <p class="mb-4 text-lg leading-relaxed text-neutral-200">
+          All processing happens on your device. <span class="inline-block"
+            >Nothing is uploaded. Nothing is tracked. Nothing is logged.</span
+          >
+        </p>
+        <p class="mb-16 text-lg leading-relaxed text-neutral-200">
+          Client photos, confidential documents, sensitive creative work. <span
+            class="inline-block">None of it leaves your machine.</span
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative py-32 overflow-hidden">
+      <!-- Large diffuse base glows -->
+       <div class="opacity-50">
+      <div class="absolute z-[1] bottom-[-20%] left-1/2 -translate-x-1/2 w-[110%] h-[80%] bg-[radial-gradient(ellipse_at_center,_rgba(59,130,246,0.3)_0%,_transparent_70%)] pointer-events-none"></div>
+      <div class="absolute z-[1] -bottom-[30%] left-[-5%] w-[70%] h-[90%] bg-[radial-gradient(ellipse_at_center,_rgba(255,30,100,0.2)_0%,_transparent_70%)] pointer-events-none"></div>
+      <div class="absolute z-[1] -bottom-[50%] right-[-5%] w-[60%] h-[80%] bg-[radial-gradient(ellipse_at_center,_rgba(230,140,0,0.25)_0%,_transparent_70%)] pointer-events-none"></div>
+      <!-- Bokeh circles -->
+      <div class="absolute z-[1] bottom-[8%] left-[30%] w-72 h-72 rounded-full bg-violet-600/15 blur-[80px] pointer-events-none"></div>
+      <div class="absolute z-[1] -bottom-[10%] right-[40%] w-64 h-32 rounded-full bg-amber-500/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute z-[1] bottom-[27%] right-[22%] w-48 h-32 rounded-full bg-rose-500/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute z-[1] bottom-[20%] left-[20%] w-40 h-40 rounded-full bg-blue-500/15 blur-3xl pointer-events-none"></div>
+      <div class="absolute z-[1] bottom-[43%] left-[45%] w-64 h-24 rounded-full bg-orange-300/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute z-[1] bottom-[5%] right-[25%] w-60 h-60 rounded-full bg-purple-500/12 blur-[70px] pointer-events-none"></div>
+      <div class="absolute z-[1] bottom-[22%] left-[18%] w-48 h-20 rounded-full bg-amber-400/10 blur-2xl pointer-events-none"></div>
+      </div>
+      <!-- Noise -->
+      <div class="absolute inset-0 z-[2] opacity-100 mix-blend-soft-light pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-repeat: repeat; background-size: 256px 256px;"></div>
+      <div class="relative z-20 max-w-2xl mx-auto text-center">
+        <h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl text-shadow-[_0_0_0.05em_rgb(_0_0_0/50),_0_0_0.1em_rgb(_0_0_0/30),_0_0_0.2em_rgb(_0_0_0/30),_0_0_0.3em_rgb(_0_0_0/30),_0_0_0.4em_rgb(_0_0_0/30)]">
+          One-Time Purchase
+        </h2>
+        <p class="mb-10 text-lg text-white text-shadow-[_0_0_0.05em_rgb(_0_0_0/100),_0_0_0.1em_rgb(_0_0_0/100),_0_0_0.2em_rgb(_0_0_0/100),_0_0_0.3em_rgb(_0_0_0/100),_0_0_0.4em_rgb(_0_0_0/100)]">
+          No subscriptions. No recurring fees. No limits.
+        </p>
+        <a
+          href="#"
+          class="obr-cta-btn relative text-shadow-[_0_0_0.2em_rgb(40_10_0/0.6),_0_0_0.5em_rgb(100_40_0/0.8)] inline-flex items-center gap-2 px-10 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r border-2 border-yellow-500 hover:border-yellow-400 from-yellow-600 to-amber-600 rounded-xl hover:from-yellow-600 hover:to-amber-500 shadow-lg shadow-amber-800/25 hover:shadow-xl hover:scale-[1.01]"
+        >
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+            ></path>
+          </svg>
+          Download on the Mac App Store
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-8 bg-black border-t border-white/5">
+      <div class="flex items-center justify-between max-w-6xl mx-auto">
+        <a href="/">
+          <Image
+            src={dsLogo}
+            alt="Davant Systems"
+            width={100}
+            height={40}
+            class="object-contain"
+          />
+        </a>
+        <div class="flex gap-6 text-sm text-neutral-500">
+          <a
+            href="/offline-background-remover/support"
+            class="hover:text-neutral-200 transition-colors">Support</a
+          >
+          <a
+            href="/offline-background-remover/privacy-policy"
+            class="hover:text-neutral-200 transition-colors">Privacy Policy</a
+          >
+        </div>
+      </div>
+    </footer>
+  </main>
+</Layout>
