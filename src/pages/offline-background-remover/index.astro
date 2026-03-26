@@ -14,6 +14,25 @@ const pageDescription =
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
+  <script slot="jsonLd" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Offline Background Remover",
+    applicationCategory: "MultimediaApplication",
+    operatingSystem: "macOS",
+    description: pageDescription,
+    url: "https://www.davantsystems.com/offline-background-remover",
+    offers: {
+      "@type": "Offer",
+      price: "3.99",
+      priceCurrency: "USD",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Davant Systems",
+      url: "https://www.davantsystems.com",
+    },
+  })} />
   <main id="main-content" class="font-['DM_Sans'] bg-black">
     <!-- Hero -->
     <section class="relative overflow-hidden z-10 pt-12">

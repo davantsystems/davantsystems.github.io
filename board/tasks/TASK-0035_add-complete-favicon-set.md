@@ -1,6 +1,6 @@
 ---
 type: task
-status: backlog
+status: done
 priority: 2
 created: 2026-03-25
 parent: "[[EPIC-0002]]"

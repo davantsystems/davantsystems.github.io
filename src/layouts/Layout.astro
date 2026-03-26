@@ -15,6 +15,39 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
+
+const pathSegments = Astro.url.pathname.split("/").filter(Boolean);
+const breadcrumbs = pathSegments.length > 0
+	? [
+		{ name: "Home", url: Astro.site?.toString() ?? "https://www.davantsystems.com/" },
+		...pathSegments.map((seg, i) => ({
+			name: seg.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" "),
+			url: new URL(pathSegments.slice(0, i + 1).join("/") + "/", Astro.site).toString(),
+		})),
+	]
+	: [];
+
+const organizationJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	name: "Davant Systems",
+	url: "https://www.davantsystems.com",
+	logo: "https://www.davantsystems.com/image/press/DavantSystems-logo-1000.png",
+	description: "AI-powered creative tools for designers, artists, and visual arts professionals.",
+};
+
+const breadcrumbJsonLd = breadcrumbs.length > 0
+	? {
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: breadcrumbs.map((crumb, i) => ({
+			"@type": "ListItem",
+			position: i + 1,
+			name: crumb.name,
+			item: crumb.url,
+		})),
+	}
+	: null;
 ---
 
 <!doctype html>
@@ -22,7 +55,10 @@ const ogImageURL = new URL(image, Astro.site);
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
@@ -52,6 +88,11 @@ const ogImageURL = new URL(image, Astro.site);
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Sacramento&family=Yellowtail&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+		<!-- Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
+		{breadcrumbJsonLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />}
+		<slot name="jsonLd" />
 	</head>
 	<body class="w-full bg-base-100">
 		<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-base-100 focus:text-primary focus:rounded">Skip to content</a>

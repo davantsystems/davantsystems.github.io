@@ -1,6 +1,6 @@
 ---
 type: epic
-status: in-progress
+status: done
 created: 2026-02-12
 tasks:
   - "[[TASK-0006]]"
