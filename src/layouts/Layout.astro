@@ -27,13 +27,42 @@ const breadcrumbs = pathSegments.length > 0
 	]
 	: [];
 
+const isHomePage = pathSegments.length === 0;
+
+const websiteJsonLd = isHomePage ? {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: "Davant Systems",
+	url: "https://www.davantsystems.com",
+	description: "AI-powered creative tools for designers, artists, and visual arts professionals.",
+	publisher: {
+		"@type": "Organization",
+		name: "Davant Systems",
+		url: "https://www.davantsystems.com",
+		logo: {
+			"@type": "ImageObject",
+			url: "https://www.davantsystems.com/image/press/DavantSystems-logo-1000.png",
+		},
+	},
+} : null;
+
 const organizationJsonLd = {
 	"@context": "https://schema.org",
 	"@type": "Organization",
 	name: "Davant Systems",
 	url: "https://www.davantsystems.com",
-	logo: "https://www.davantsystems.com/image/press/DavantSystems-logo-1000.png",
+	logo: {
+		"@type": "ImageObject",
+		url: "https://www.davantsystems.com/image/press/DavantSystems-logo-1000.png",
+	},
 	description: "AI-powered creative tools for designers, artists, and visual arts professionals.",
+	sameAs: [
+		"https://www.instagram.com/DavantSystems",
+		"https://x.com/DavantSystems",
+		"https://facebook.com/DavantSystems",
+		"https://www.linkedin.com/company/DavantSystems",
+		"https://www.youtube.com/@DavantSystems",
+	],
 };
 
 const breadcrumbJsonLd = breadcrumbs.length > 0
@@ -90,6 +119,7 @@ const breadcrumbJsonLd = breadcrumbs.length > 0
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Sacramento&family=Yellowtail&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 		<!-- Structured Data -->
+		{websiteJsonLd && <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />}
 		<script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
 		{breadcrumbJsonLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />}
 		<slot name="jsonLd" />
