@@ -12,7 +12,35 @@ import davantStudioPhotoshop from "../../assets/images/davant-studio-photoshop-s
 const pageTitle = "Davant Systems | Supercharge your creative workflow";
 ---
 
-<Layout title={pageTitle}>
+<Layout title={pageTitle} description="AI image generation software for creative professionals. Run Stable Diffusion locally with an intuitive interface.">
+  <script slot="jsonLd" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Davant Studio",
+    applicationCategory: "MultimediaApplication",
+    operatingSystem: "Windows, macOS",
+    description: "AI image generation software for creative professionals. Run Stable Diffusion locally with an intuitive interface.",
+    url: "https://www.davantsystems.com/davant-studio",
+    image: "https://www.davantsystems.com/image/press/DavantSystems-logo-1000.png",
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Free",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      {
+        "@type": "Offer",
+        name: "Pro",
+        priceCurrency: "USD",
+      },
+    ],
+    publisher: {
+      "@type": "Organization",
+      name: "Davant Systems",
+      url: "https://www.davantsystems.com",
+    },
+  })} />
   <MainNavWithDropdowns />
   <main id="main-content" class="">
     <section class="border-b-2 hero__wrapper border-slate-400/5">

@@ -1,0 +1,28 @@
+# Davant Systems
+
+> AI-powered creative tools for designers, artists, and visual arts professionals. Based in Los Angeles, Davant Systems builds software that makes AI image generation accessible and practical for creative workflows.
+
+Davant Systems develops products across two categories: desktop creative software and interactive event experiences. All products emphasize local/on-device AI processing, privacy, and ease of use.
+
+## Products
+
+- [Davant Studio](https://www.davantsystems.com/davant-studio): AI image generation desktop app for creative professionals. Run Stable Diffusion locally with an intuitive interface, Photoshop integration, and ControlNet support.
+- [Davant Studio Download](https://www.davantsystems.com/davant-studio/download): Download page for Davant Studio, including system requirements and pricing.
+- [Magic Mirror AI Photo Booth](https://www.davantsystems.com/photobooth): Interactive AI photo booth experience available to rent for events. Real-time style transfer and instant prints.
+- [Offline Background Remover](https://www.davantsystems.com/offline-background-remover): macOS app for instant background removal using on-device AI. No uploads, no subscription, pay once.
+
+## Company
+
+- [About](https://www.davantsystems.com/about): About Davant Systems and our mission.
+- [Ambassador Program](https://www.davantsystems.com/ambassadors): Community program for visual artists and creatives exploring AI in their practice.
+- [Press & Media](https://www.davantsystems.com/press): Press kit, logos, screenshots, and brand assets.
+
+## Optional
+
+- [Event Photo Galleries](https://www.davantsystems.com/event-galleries): Photo galleries from events powered by Magic Mirror.
+- [Training & Workshops](https://www.davantsystems.com/training): Workshops on AI creative tools.
+- [Compatibility Checker](https://www.davantsystems.com/compatibility-checker): Hardware compatibility checker for Davant Studio.
+- [Resources](https://www.davantsystems.com/resources): Resource links for Davant Studio users.
+- [Articles](https://www.davantsystems.com/articles): Blog posts and articles.
+- [Offline Background Remover Support](https://www.davantsystems.com/offline-background-remover/support): Support and FAQ for the Offline Background Remover app.
+- [Offline Background Remover Privacy Policy](https://www.davantsystems.com/offline-background-remover/privacy-policy): Privacy policy for the Offline Background Remover app.

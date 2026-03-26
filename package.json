@@ -6,12 +6,10 @@
     "dev": "astro dev --port 3100 > logs/astro-dev.log 2>&1 &",
     "log": "tail -f logs/astro-dev.log",
     "log:last": "tail -n ${LINES:-20} logs/astro-dev.log",
-
     "log:clear": "rm -f logs/astro-dev.log && echo 'Astro dev log cleared'",
     "kill": "(lsof -ti:3100 -sTCP:LISTEN | xargs kill -9) 2>/dev/null || true",
     "restart": "npm run kill && npm run dev",
     "status": "(lsof -i:3100 >/dev/null 2>&1 && echo '✅ Running on port 3100' || echo '❌ Not running')",
-    
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -19,6 +17,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.2.5",
+    "@astrojs/sitemap": "^3.7.1",
     "@tailwindcss/vite": "^4.1.4",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
