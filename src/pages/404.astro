@@ -8,7 +8,10 @@ import GradientButton from "../components/GradientButton.astro";
 <Layout title="Davant Systems | 404" description="Page not found.">
   <div class="relative min-h-screen flex flex-col">
     <MainNavWithDropdowns />
-    <main id="main-content" class="relative z-20 flex-1 flex items-center justify-center px-6">
+    <main id="main-content" class="relative z-20 flex-1 flex items-center justify-center px-6 pt-48 pb-32">
+      <!-- TV static noise -->
+      <canvas id="static-canvas" class="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none mix-blend-screen" aria-hidden="true"></canvas>
+
       <!-- Background glow -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-pink-500/10 via-fuchsia-500/5 to-purple-600/10 rounded-full blur-3xl"></div>
@@ -16,27 +19,60 @@ import GradientButton from "../components/GradientButton.astro";
 
       <div class="relative text-center max-w-lg">
         <!-- 404 number -->
-        <h1 class="text-[10rem] sm:text-[12rem] font-orbitron font-black leading-none text-transparent bg-clip-text bg-gradient-to-bl from-pink-400 via-fuchsia-500 to-purple-600 select-none" aria-label="404">
+        <h1 class="text-[8rem] sm:text-[12rem] font-orbitron font-black leading-none text-transparent bg-clip-text bg-gradient-to-bl from-pink-400 via-fuchsia-500 to-purple-600 select-none" aria-label="404">
           404
         </h1>
 
-        <!-- Divider line -->
-        <div class="mx-auto mb-8 w-24 h-px bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
-
-        <!-- Message -->
-        <p class="text-xl sm:text-2xl font-light text-base-content/80 mb-3">
-          This page drifted into the void.
+        <!-- Status display -->
+        <p class="animate-flicker font-orbitron text-sm sm:text-base tracking-[0.3em] uppercase text-secondary mb-8 [text-shadow:0_0_8px_currentColor,0_0_20px_currentColor] motion-reduce:animate-none">
+          // Signal Lost
         </p>
-        <p class="text-base text-base-content/50 mb-10">
-          Whatever you were looking for isn't here anymore, or maybe never was.
+        <p class="text-base text-base-content mb-24">
+          There's nothing on this channel
         </p>
 
         <!-- CTA -->
-        <GradientButton href="/" size="lg">
+        <GradientButton href="/" size="lg" style="box-shadow: 0 1px 6px rgba(168,85,247,0.15);" data-subtle-glow>
           Back to Home
         </GradientButton>
       </div>
     </main>
     <Footer />
   </div>
+
+  <script>
+    const canvas = document.getElementById('static-canvas') as HTMLCanvasElement;
+    if (canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const ctx = canvas.getContext('2d')!;
+      const resize = () => { canvas.width = canvas.offsetWidth / 4; canvas.height = canvas.offsetHeight / 4; };
+      resize();
+      window.addEventListener('resize', resize);
+
+      const draw = () => {
+        const imageData = ctx.createImageData(canvas.width, canvas.height);
+        const data = imageData.data;
+        for (let i = 0; i < data.length; i += 4) {
+          const v = Math.random() * 255;
+          data[i] = data[i + 1] = data[i + 2] = v;
+          data[i + 3] = 255;
+        }
+        ctx.putImageData(imageData, 0, 0);
+        requestAnimationFrame(draw);
+      };
+      draw();
+    }
+  </script>
+
+  <style>
+    @keyframes flicker {
+      0%, 95%, 100% { opacity: 1; }
+      96% { opacity: 0.6; }
+      97% { opacity: 1; }
+      98% { opacity: 0.4; }
+      99% { opacity: 1; }
+    }
+    .animate-flicker { animation: flicker 4s infinite; }
+    [data-subtle-glow] { box-shadow: 0 1px 6px rgba(168,85,247,0.15); }
+    [data-subtle-glow]:hover { box-shadow: 0 2px 10px rgba(168,85,247,0.25); }
+  </style>
 </Layout>
