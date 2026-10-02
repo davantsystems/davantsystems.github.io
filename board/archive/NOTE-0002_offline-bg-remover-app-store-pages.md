@@ -1,5 +1,8 @@
 ---
 type: note
+status: processed
+spawned:
+  - "[[EPIC-0005]]"
 created: 2026-03-24
 ---
 

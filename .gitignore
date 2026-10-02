@@ -26,6 +26,9 @@ dev-server.log
 .claude/
 .claudedocs/
 .serena/
+.cache/
+.playwright-mcp/
+.specstory/
 
 # macOS
 **/.DS_Store
