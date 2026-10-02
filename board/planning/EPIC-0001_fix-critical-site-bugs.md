@@ -1,6 +1,6 @@
 ---
 type: epic
-status: planning
+status: current
 created: 2026-02-12
 tasks:
   - "[[TASK-0001]]"

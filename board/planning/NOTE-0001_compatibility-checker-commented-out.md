@@ -1,5 +1,6 @@
 ---
 type: note
+status: inbox
 created: 2026-03-23
 ---
 
