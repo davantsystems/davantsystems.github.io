@@ -1,6 +1,7 @@
 ## Documentation Links
 - Astro documentation: https://docs.astro.build/llms.txt
 - Design system details: `docs/DESIGN_SYSTEM.md`
+- OBR pages design context (black / DM Sans, not synthwave): `docs/OBR_DESIGN_SYSTEM.md`
 
 ## Project Board
 
