@@ -9,6 +9,7 @@ tasks:
   - "[[TASK-0014]]"
   - "[[TASK-0017]]"
   - "[[TASK-0018]]"
+  - "[[TASK-0039]]"
 ---
 # Clean Up Codebase
 
