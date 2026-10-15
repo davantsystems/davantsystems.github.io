@@ -1,5 +1,8 @@
 ---
 type: note
+status: processed
+spawned:
+  - "[[TASK-0041]]"
 created: 2026-03-23
 ---
 

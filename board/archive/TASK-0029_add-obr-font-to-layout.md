@@ -1,6 +1,6 @@
 ---
 type: task
-status: todo
+status: done
 priority: 1
 created: 2026-03-24
 parent: "[[EPIC-0005]]"

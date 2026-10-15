@@ -1,6 +1,6 @@
 ---
 type: epic
-status: planning
+status: current
 created: 2026-02-12
 tasks:
   - "[[TASK-0010]]"
@@ -9,6 +9,7 @@ tasks:
   - "[[TASK-0014]]"
   - "[[TASK-0017]]"
   - "[[TASK-0018]]"
+  - "[[TASK-0039]]"
 ---
 # Clean Up Codebase
 
