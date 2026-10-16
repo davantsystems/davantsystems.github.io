@@ -23,7 +23,8 @@ dev-server.log
 .env.*
 
 # Claude Code and Serena
-.claude/
+.claude/*
+!.claude/CLAUDE.md
 .claudedocs/
 .serena/
 .cache/

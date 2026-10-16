@@ -1,3 +1,5 @@
+> **Editing project instructions:** this file is the shared source for all coding agents, so add or change project instructions here. `.claude/CLAUDE.md` imports this file; only Claude Code–specific instructions (plugins, slash commands, Claude settings) belong there.
+
 ## Documentation Links
 - Astro documentation: https://docs.astro.build/llms.txt
 - Design system details: `docs/DESIGN_SYSTEM.md`
@@ -5,13 +7,9 @@
 
 ## Project Board
 
-This project uses a structured board system for project management.
+This project uses a structured board system for project management in `board/`.
 
 - **Ask before creating new board files**
-- Use `/board:board-show` to see current board state
-- Use `/board:board-add` to create new items
-- Use `/board:board-update` after completing significant work
-- Use `/board:board-check` when starting work to find related context
 
 ## Project Overview
 
