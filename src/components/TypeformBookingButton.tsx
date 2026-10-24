@@ -67,6 +67,7 @@ const TypeformBookingButton: React.FC<TypeformBookingButtonProps> = ({
       data-tf-transitive-search-params
       data-tf-medium="snippet"
       data-tf-hidden="source=photobooth_page"
+      data-tf-on-submit="gaTypeformSubmit"
       className={`${baseClasses} ${variantClasses[variant]} ${className}`}
       type="button"
     >

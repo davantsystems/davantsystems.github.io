@@ -121,6 +121,17 @@ const breadcrumbJsonLd = breadcrumbs.length > 0
 			gtag('js', new Date());
 
 			gtag('config', 'G-CL0FMHFBMG');
+
+			// Goal events — mark as key events in GA4 Admin > Events
+			document.addEventListener('click', (e) => {
+				const a = e.target.closest('a[href]');
+				if (!a) return;
+				if (a.protocol === 'mailto:') gtag('event', 'contact_email', { link_url: a.href });
+				else if (/\.(zip|dmg|exe)$/i.test(a.pathname)) gtag('event', 'software_download', { file_name: decodeURIComponent(a.pathname.split('/').pop()) });
+				else if (a.hostname === 'buy.stripe.com') gtag('event', 'begin_checkout', { link_url: a.href });
+			});
+			// Called by Typeform embed via data-tf-on-submit
+			window.gaTypeformSubmit = () => gtag('event', 'generate_lead', { form: 'event_booking' });
 		</script>
 
 		<!-- Fonts -->
