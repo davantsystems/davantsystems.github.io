@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "open sans",
+        "createdAt": "2026-10-24T00:49:50.865Z",
+        "reason": "Project font per AGENTS.md Tech Stack (Google Fonts: Open Sans); pre-existing brand choice"
+      }
+    ]
+  }
+}
