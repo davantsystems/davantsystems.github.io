@@ -8,6 +8,15 @@
         "value": "open sans",
         "createdAt": "2026-10-24T00:49:50.865Z",
         "reason": "Project font per AGENTS.md Tech Stack (Google Fonts: Open Sans); pre-existing brand choice"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/app.css"
+        ],
+        "createdAt": "2026-10-24T00:57:22.613Z",
+        "reason": "Gradient headings are a documented brand element per AGENTS.md Gotchas/Workflow"
       }
     ]
   }
