@@ -89,6 +89,9 @@
             mode: 'no-cors'
           });
           
+          // no-cors hides Mailchimp's response, so this counts attempts, not confirmed signups
+          if (email) window.gtag?.('event', 'sign_up', { method: 'newsletter' });
+
           messageDiv.textContent = "Subscription request sent. Check your email for confirmation.";
           messageDiv.classList.remove('hidden');
           form.reset();

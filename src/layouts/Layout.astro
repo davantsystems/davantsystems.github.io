@@ -111,7 +111,28 @@ const breadcrumbJsonLd = breadcrumbs.length > 0
 		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
 		<meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
 		<meta name="referrer" content="strict-origin-when-cross-origin" />
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.lu.ma https://campaigns.zoho.com https://embed.typeform.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://qtrxb-cmpzourl.maillist-manage.com https://lu.ma https://www.youtube.com https://youtube.com; connect-src 'self' https://gmail.us21.list-manage.com https://*.google-analytics.com;" />
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.lu.ma https://campaigns.zoho.com https://embed.typeform.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://qtrxb-cmpzourl.maillist-manage.com https://lu.ma https://www.youtube.com https://youtube.com; connect-src 'self' https://gmail.us21.list-manage.com https://*.google-analytics.com https://*.google.com https://*.g.doubleclick.net https://*.googletagmanager.com;" />
+
+		<!-- Google tag (gtag.js) -->
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-CL0FMHFBMG"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-CL0FMHFBMG');
+
+			// Goal events — mark as key events in GA4 Admin > Events
+			document.addEventListener('click', (e) => {
+				const a = e.target.closest('a[href]');
+				if (!a) return;
+				if (a.protocol === 'mailto:') gtag('event', 'contact_email', { link_url: a.href });
+				else if (/\.(zip|dmg|exe)$/i.test(a.pathname)) gtag('event', 'software_download', { file_name: decodeURIComponent(a.pathname.split('/').pop()) });
+				else if (a.hostname === 'buy.stripe.com') gtag('event', 'begin_checkout', { link_url: a.href });
+			});
+			// Called by Typeform embed via data-tf-on-submit
+			window.gaTypeformSubmit = () => gtag('event', 'generate_lead', { form: 'event_booking' });
+		</script>
 
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
